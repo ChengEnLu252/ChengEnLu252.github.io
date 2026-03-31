@@ -10,18 +10,21 @@
   />
   <style>
     :root {
-      --bg: #fffafc;
-      --bg-soft: #fff4f7;
-      --card: rgba(255, 255, 255, 0.82);
-      --card-strong: rgba(255, 255, 255, 0.95);
-      --text: #2d2430;
-      --muted: #6f6270;
-      --primary: #d97fa1;
-      --primary-dark: #b95f83;
-      --line: rgba(217, 127, 161, 0.18);
-      --shadow: 0 12px 30px rgba(184, 120, 150, 0.12);
-      --radius: 22px;
-      --max-width: 1180px;
+      --bg: #fff7fb;
+      --bg-soft: #ffeaf4;
+      --card: rgba(255, 255, 255, 0.95);
+      --card-strong: #ffffff;
+      --text: #2d2130;
+      --muted: #6b5c67;
+      --primary: #ec4899;
+      --primary-dark: #be185d;
+      --primary-soft: rgba(236, 72, 153, 0.12);
+      --accent: #f97316;
+      --accent-soft: rgba(249, 115, 22, 0.12);
+      --line: rgba(236, 72, 153, 0.18);
+      --shadow: 0 16px 40px rgba(190, 24, 93, 0.12);
+      --radius: 24px;
+      --max-width: 1120px;
     }
 
     * {
@@ -35,10 +38,10 @@
         "Noto Sans TC", "Microsoft JhengHei", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(243, 196, 214, 0.22), transparent 28%),
-        radial-gradient(circle at top right, rgba(252, 219, 234, 0.34), transparent 24%),
-        linear-gradient(180deg, #fffdfd 0%, #fff7fa 45%, #fffdfd 100%);
-      line-height: 1.7;
+        radial-gradient(circle at top left, rgba(244, 114, 182, 0.18), transparent 24%),
+        radial-gradient(circle at top right, rgba(251, 146, 60, 0.12), transparent 22%),
+        linear-gradient(180deg, #fffafd 0%, #fff1f7 42%, #fff9fc 100%);
+      line-height: 1.75;
     }
 
     a {
@@ -50,6 +53,14 @@
       width: 100%;
       display: block;
       border-radius: 18px;
+      object-fit: cover;
+      border: 1px solid rgba(236, 72, 153, 0.12);
+      background: #fff;
+    }
+
+    strong.keyword {
+      color: var(--accent);
+      font-weight: 900;
     }
 
     .container {
@@ -61,9 +72,9 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(12px);
-      background: rgba(255, 250, 252, 0.78);
-      border-bottom: 1px solid rgba(217, 127, 161, 0.1);
+      backdrop-filter: blur(14px);
+      background: rgba(255, 247, 251, 0.88);
+      border-bottom: 1px solid rgba(236, 72, 153, 0.12);
     }
 
     .nav-inner {
@@ -77,60 +88,61 @@
     }
 
     .brand {
-      font-weight: 800;
-      letter-spacing: 0.3px;
+      font-weight: 900;
       font-size: 1rem;
+      letter-spacing: 0.2px;
     }
 
     .brand small {
       display: block;
-      font-size: 0.76rem;
-      color: var(--muted);
-      font-weight: 600;
       margin-top: 2px;
+      color: var(--primary-dark);
+      font-size: 0.76rem;
+      font-weight: 800;
     }
 
     .nav-links {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
     .nav-links a {
-      font-size: 0.95rem;
       color: var(--muted);
+      font-size: 0.94rem;
       padding: 8px 12px;
       border-radius: 999px;
       transition: 0.2s ease;
+      font-weight: 700;
     }
 
     .nav-links a:hover {
-      background: rgba(217, 127, 161, 0.08);
+      background: var(--primary-soft);
       color: var(--primary-dark);
     }
 
     .hero {
-      padding: 72px 0 32px;
+      padding: 76px 0 34px;
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
+      gap: 24px;
       align-items: stretch;
     }
 
     .hero-card,
-    .glass-card {
+    .glass-card,
+    .card {
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
     }
 
     .hero-card {
-      padding: 34px;
+      padding: 36px;
       position: relative;
       overflow: hidden;
     }
@@ -138,51 +150,51 @@
     .hero-card::after {
       content: "";
       position: absolute;
-      width: 240px;
-      height: 240px;
-      right: -60px;
-      top: -50px;
-      background: radial-gradient(circle, rgba(217, 127, 161, 0.18), transparent 70%);
+      width: 280px;
+      height: 280px;
+      right: -70px;
+      top: -90px;
+      background: radial-gradient(circle, rgba(236, 72, 153, 0.18), transparent 70%);
       pointer-events: none;
     }
 
     .eyebrow {
       display: inline-block;
-      padding: 8px 14px;
+      padding: 9px 14px;
       border-radius: 999px;
-      background: rgba(217, 127, 161, 0.12);
+      background: linear-gradient(135deg, rgba(236,72,153,0.16), rgba(249,115,22,0.12));
       color: var(--primary-dark);
       font-size: 0.86rem;
-      font-weight: 700;
+      font-weight: 900;
       margin-bottom: 18px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(2rem, 4vw, 3.35rem);
-      line-height: 1.18;
-      letter-spacing: -0.02em;
+      font-size: clamp(2.1rem, 4vw, 3.5rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
     }
 
     .hero-subtitle {
-      margin: 10px 0 0;
-      font-size: 1.08rem;
-      font-weight: 800;
+      margin: 12px 0 0;
       color: var(--primary-dark);
+      font-size: 1.08rem;
+      font-weight: 900;
     }
 
     .hero-desc {
       margin: 22px 0 0;
       color: var(--muted);
+      max-width: 64ch;
       font-size: 1rem;
-      max-width: 60ch;
     }
 
     .hero-actions {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
-      margin-top: 26px;
+      gap: 12px;
+      margin-top: 28px;
     }
 
     .btn {
@@ -192,34 +204,33 @@
       gap: 8px;
       padding: 12px 18px;
       border-radius: 14px;
-      font-weight: 700;
+      font-weight: 900;
       border: 1px solid transparent;
       transition: 0.2s ease;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #da87a7 0%, #c86d90 100%);
+      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
       color: white;
-      box-shadow: 0 10px 24px rgba(201, 110, 144, 0.24);
+      box-shadow: 0 14px 28px rgba(219, 39, 119, 0.28);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 14px 28px rgba(201, 110, 144, 0.28);
     }
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.9);
-      border-color: rgba(217, 127, 161, 0.18);
+      background: #fff;
+      border-color: rgba(236, 72, 153, 0.2);
       color: var(--primary-dark);
     }
 
     .btn-secondary:hover {
-      background: rgba(217, 127, 161, 0.08);
+      background: var(--primary-soft);
     }
 
     .hero-side {
-      padding: 26px;
+      padding: 24px;
       display: grid;
       gap: 16px;
     }
@@ -232,7 +243,7 @@
 
     .metric {
       background: var(--card-strong);
-      border: 1px solid rgba(217, 127, 161, 0.12);
+      border: 1px solid rgba(236, 72, 153, 0.14);
       border-radius: 18px;
       padding: 18px;
     }
@@ -242,16 +253,17 @@
       font-size: 1.55rem;
       color: var(--primary-dark);
       margin-bottom: 6px;
+      font-weight: 900;
     }
 
     .metric span {
+      font-size: 0.93rem;
       color: var(--muted);
-      font-size: 0.94rem;
     }
 
     .mini-panel {
-      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,248,251,0.95));
-      border: 1px solid rgba(217, 127, 161, 0.12);
+      background: linear-gradient(180deg, rgba(255,255,255,1), rgba(255,244,249,1));
+      border: 1px solid rgba(236, 72, 153, 0.14);
       border-radius: 18px;
       padding: 18px;
     }
@@ -259,26 +271,23 @@
     .mini-panel h3,
     .section-title {
       margin: 0 0 10px;
-      font-size: 1.1rem;
+      font-size: 1.14rem;
+      font-weight: 900;
     }
 
-    .mini-panel p {
+    .mini-panel p,
+    .section-header p,
+    .card p {
       margin: 0;
       color: var(--muted);
-      font-size: 0.95rem;
     }
 
     section {
-      padding: 28px 0;
+      padding: 30px 0;
     }
 
     .section-header {
       margin-bottom: 18px;
-    }
-
-    .section-header p {
-      margin: 8px 0 0;
-      color: var(--muted);
     }
 
     .chips {
@@ -291,15 +300,14 @@
     .chip {
       padding: 9px 14px;
       border-radius: 999px;
-      background: rgba(217, 127, 161, 0.1);
-      border: 1px solid rgba(217, 127, 161, 0.13);
+      background: linear-gradient(135deg, rgba(236,72,153,0.14), rgba(249,115,22,0.08));
+      border: 1px solid rgba(236,72,153,0.14);
       color: var(--primary-dark);
-      font-size: 0.92rem;
-      font-weight: 700;
+      font-size: 0.9rem;
+      font-weight: 900;
     }
 
     .services-grid,
-    .projects-grid,
     .contact-grid {
       display: grid;
       gap: 18px;
@@ -309,43 +317,35 @@
       grid-template-columns: repeat(3, 1fr);
     }
 
-    .projects-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
     .contact-grid {
       grid-template-columns: 1fr 1fr;
     }
 
+    .projects-grid {
+      display: grid;
+      gap: 22px;
+    }
+
     .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 24px;
+      padding: 26px;
     }
 
     .service-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
+      width: 46px;
+      height: 46px;
       display: grid;
       place-items: center;
-      background: rgba(217, 127, 161, 0.12);
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(236,72,153,0.16), rgba(249,115,22,0.12));
       color: var(--primary-dark);
-      font-weight: 800;
+      font-weight: 900;
       margin-bottom: 14px;
     }
 
     .card h3 {
       margin: 0 0 10px;
-      font-size: 1.14rem;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.97rem;
+      font-size: 1.16rem;
+      font-weight: 900;
     }
 
     .project-card {
@@ -359,13 +359,14 @@
       justify-content: space-between;
       align-items: start;
       gap: 14px;
+      flex-wrap: wrap;
     }
 
     .project-tag {
-      font-size: 0.78rem;
-      font-weight: 800;
+      font-size: 0.8rem;
+      font-weight: 900;
       color: var(--primary-dark);
-      background: rgba(217, 127, 161, 0.1);
+      background: linear-gradient(135deg, rgba(236,72,153,0.14), rgba(249,115,22,0.1));
       padding: 8px 12px;
       border-radius: 999px;
       white-space: nowrap;
@@ -373,12 +374,24 @@
 
     .project-desc {
       color: var(--muted);
-      font-size: 0.97rem;
+      font-size: 0.98rem;
     }
 
-    .project-image-wrap {
+    .project-gallery {
       display: grid;
       gap: 12px;
+    }
+
+    .gallery-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .project-gallery img {
+      height: 260px;
     }
 
     .project-meta {
@@ -391,16 +404,16 @@
       display: inline-block;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(217, 127, 161, 0.08);
-      border: 1px solid rgba(217, 127, 161, 0.1);
+      background: rgba(249, 115, 22, 0.08);
+      border: 1px solid rgba(249, 115, 22, 0.14);
+      color: #c2410c;
       font-size: 0.84rem;
-      color: var(--primary-dark);
-      font-weight: 700;
+      font-weight: 900;
     }
 
     .project-points {
       margin: 0;
-      padding-left: 18px;
+      padding-left: 20px;
       color: var(--muted);
     }
 
@@ -408,33 +421,23 @@
       margin-top: 8px;
     }
 
-    .project-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: auto;
-    }
-
     .highlight-box {
-      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,247,250,0.98));
-      border: 1px solid rgba(217, 127, 161, 0.14);
+      background: linear-gradient(180deg, rgba(255,255,255,1), rgba(255,243,236,0.9));
+      border: 1px solid rgba(249, 115, 22, 0.18);
       border-radius: 20px;
-      padding: 22px;
+      padding: 20px;
     }
 
     .highlight-box strong {
-      color: var(--primary-dark);
+      color: #c2410c;
+      font-weight: 900;
     }
 
-    .footer {
-      padding: 38px 0 60px;
-      color: var(--muted);
-      font-size: 0.92rem;
-      text-align: center;
-    }
-
-    .muted {
-      color: var(--muted);
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
     }
 
     .contact-list {
@@ -446,32 +449,37 @@
     .contact-item {
       padding: 14px 16px;
       border-radius: 16px;
-      background: rgba(255,255,255,0.75);
-      border: 1px solid rgba(217, 127, 161, 0.1);
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(236,72,153,0.12);
     }
 
     .contact-item strong {
       display: block;
       margin-bottom: 4px;
       color: var(--primary-dark);
+      font-weight: 900;
     }
 
-    .contact-note {
-      font-size: 0.9rem;
+    .small-note {
+      margin-top: 10px;
       color: var(--muted);
-      margin-top: 14px;
+      font-size: 0.9rem;
+    }
+
+    .footer {
+      padding: 40px 0 60px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
     }
 
     @media (max-width: 980px) {
       .hero-grid,
       .services-grid,
-      .projects-grid,
-      .contact-grid {
+      .contact-grid,
+      .gallery-2,
+      .gallery-3 {
         grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 44px;
       }
 
       .hero-card,
@@ -483,24 +491,20 @@
       .metric-grid {
         grid-template-columns: 1fr 1fr;
       }
+
+      .project-gallery img {
+        height: auto;
+      }
     }
 
     @media (max-width: 640px) {
       .nav-inner {
-        align-items: flex-start;
         flex-direction: column;
-      }
-
-      .hero-card {
-        padding: 24px 20px;
+        align-items: flex-start;
       }
 
       .metric-grid {
         grid-template-columns: 1fr;
-      }
-
-      .project-top {
-        flex-direction: column;
       }
 
       .btn {
@@ -530,26 +534,30 @@
     <div class="container">
       <div class="hero-grid">
         <div class="hero-card">
-          <div class="eyebrow">AI Automation · System Integration · Full-Stack Solutions</div>
+          <div class="eyebrow">AI Automation · System Integration · Full-Stack Development</div>
           <h1>呂承恩 Lu Cheng En</h1>
           <div class="hero-subtitle">AI自動化與系統整合工程師｜NNDoiT AI Studio</div>
           <p class="hero-desc">
-            我專注於各式 <strong>AI 工程應用、LLM 系統、流程自動化、前後端開發、網頁設計與 ERP / 企業系統整合</strong>。
-            不只是把功能做出來，而是把原本需要人力反覆操作、跨系統整理、來回對資料的流程，
-            整理成真正能落地、能維護、能擴充的系統。簡單說，我的目標不是把流程數位化而已，
-            是把混亂流程變成可複製的效率引擎。
+            我主要承接各式 <strong class="keyword">AI 工程</strong>、
+            <strong class="keyword">LLM 應用</strong>、
+            <strong class="keyword">流程自動化</strong>、
+            <strong class="keyword">前後端開發</strong>、
+            <strong class="keyword">網頁設計</strong> 與
+            <strong class="keyword">ERP / 企業系統整合</strong>。
+            我擅長把原本需要人工重複操作、跨系統整理、反覆查詢與比對的流程，
+            轉成真正能上線、能維護、能擴充的系統。
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#projects">查看作品集 View Projects</a>
-            <a class="btn btn-secondary" href="https://github.com/ChengEnLu252" target="_blank">GitHub Profile</a>
+            <a class="btn btn-secondary" href="#contact">聯絡我 Contact Me</a>
           </div>
           <div class="chips">
             <span class="chip">LLM Applications</span>
             <span class="chip">RAG Systems</span>
             <span class="chip">Workflow Automation</span>
-            <span class="chip">ERP / Internal Systems</span>
-            <span class="chip">Web Development</span>
-            <span class="chip">API Integration</span>
+            <span class="chip">Full-Stack Development</span>
+            <span class="chip">ERP / Internal Tools</span>
+            <span class="chip">Web Design</span>
           </div>
         </div>
 
@@ -564,28 +572,32 @@
               <span>Level 2 文件抽取 Document Accuracy</span>
             </div>
             <div class="metric">
-              <strong>4+</strong>
-              <span>公開技術專案 / GitHub Repositories</span>
+              <strong>多帳號自動化</strong>
+              <span>CakeHunt 搶票流程 + OCR 驗證碼辨識</span>
             </div>
             <div class="metric">
               <strong>End-to-End</strong>
-              <span>從需求分析、架構設計到開發與部署</span>
+              <span>需求分析 → 設計 → 開發 → 整合 → 展示</span>
             </div>
           </div>
 
           <div class="mini-panel">
-            <h3>What I build</h3>
+            <h3>我在做什麼？</h3>
             <p>
-              AI 專案不是只有模型本身。真正有價值的是把資料、流程、前端、後端、API、
-              使用情境整合起來，讓系統真的能被使用者打開、操作、依賴。
+              我做的不只是程式，而是把 <strong class="keyword">資料、流程、介面、後端、API</strong>
+              跟實際需求接起來，讓系統不只是能跑，而是真的好用。
             </p>
           </div>
 
           <div class="mini-panel">
-            <h3>Core focus</h3>
+            <h3>接案方向</h3>
             <p>
-              AI automation、LLM-based document extraction、RAG、企業內部查詢系統、
-              Webhook / API workflow、資料整合與可維護的系統設計。
+              可承接 <strong class="keyword">AI 系統</strong>、
+              <strong class="keyword">內部查詢平台</strong>、
+              <strong class="keyword">LINE Bot</strong>、
+              <strong class="keyword">自動化流程</strong>、
+              <strong class="keyword">文件抽取</strong>、
+              <strong class="keyword">ERP 流程優化</strong> 與客製化網頁系統。
             </p>
           </div>
         </div>
@@ -597,62 +609,44 @@
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">服務項目 Services</h2>
-        <p>從 AI 到企業流程系統，我提供的是可落地的整合方案，而不是只停留在概念 demo。</p>
+        <p>我提供的是可實際落地的解決方案，不是只交一段 code 就閃人。</p>
       </div>
 
       <div class="services-grid">
         <div class="card">
           <div class="service-icon">AI</div>
           <h3>AI 應用開發</h3>
-          <p>
-            建立 LLM 應用、聊天系統、資訊抽取、分類、摘要、RAG 知識檢索、
-            多步驟 AI workflow，協助企業把 AI 真正接到內部流程。
-          </p>
+          <p>建立 <strong class="keyword">LLM 應用</strong>、聊天系統、資訊抽取、摘要、分類、RAG 知識檢索與多步驟 AI workflow。</p>
         </div>
 
         <div class="card">
           <div class="service-icon">WF</div>
-          <h3>流程自動化 / Workflow Automation</h3>
-          <p>
-            使用 n8n、Webhook、排程與 API 串接，將原本大量人工操作的流程自動化，
-            降低重工、減少錯誤率、縮短處理時間。
-          </p>
+          <h3>流程自動化</h3>
+          <p>使用 <strong class="keyword">n8n、Webhook、排程、API 串接</strong>，把大量人工操作的流程自動化。</p>
         </div>
 
         <div class="card">
           <div class="service-icon">SYS</div>
-          <h3>系統整合與企業內部工具</h3>
-          <p>
-            整合 MySQL、Excel、Google 服務、第三方 API、ERP/內部資料源，
-            建立查詢系統、報表流程、資料同步與企業內部工具平台。
-          </p>
+          <h3>系統整合 / 企業內部工具</h3>
+          <p>整合資料庫、Excel、第三方服務與 ERP，建立真正能被內部團隊使用的工具平台。</p>
         </div>
 
         <div class="card">
           <div class="service-icon">FE</div>
           <h3>前端 / 網頁設計</h3>
-          <p>
-            製作查詢介面、資料表格、後台頁面、互動式表單與 dashboard，
-            注重資訊呈現清楚、操作流程直覺、可直接交付使用。
-          </p>
+          <p>製作商業網站、查詢頁面、互動式 UI、後台介面，兼顧美觀與操作流程。</p>
         </div>
 
         <div class="card">
           <div class="service-icon">BE</div>
           <h3>後端 / API 開發</h3>
-          <p>
-            建立後端邏輯、資料處理流程、API 設計、資料清洗、結構化輸出與系統串接，
-            讓資料流真的動起來，而不是卡在 Excel 與 Email 中間。
-          </p>
+          <p>建立資料處理流程、後端邏輯、結構化輸出、API 設計與系統整合。</p>
         </div>
 
         <div class="card">
           <div class="service-icon">ERP</div>
-          <h3>ERP / 資料流程優化</h3>
-          <p>
-            針對進銷存、內部作業、報價流程、料號查詢、跨系統資料整理等情境，
-            協助拆解流程、重設資料流與建立更穩定的操作方式。
-          </p>
+          <h3>ERP / 流程優化</h3>
+          <p>針對報價、進銷存、料號查詢與跨系統操作痛點，重新設計資料流與流程。</p>
         </div>
       </div>
     </div>
@@ -662,7 +656,7 @@
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">技能地圖 Skills</h2>
-        <p>以下是我目前可獨立處理或整合的技術範圍。</p>
+        <p>以下是我目前能獨立處理或整合的技術能力範圍。</p>
       </div>
 
       <div class="card">
@@ -676,6 +670,7 @@
           <span class="chip">n8n</span>
           <span class="chip">MySQL</span>
           <span class="chip">Database Design</span>
+          <span class="chip">CRUD System</span>
           <span class="chip">ERP Workflow Analysis</span>
           <span class="chip">System Integration</span>
           <span class="chip">LLM Applications</span>
@@ -686,16 +681,11 @@
           <span class="chip">Vector Database</span>
           <span class="chip">LangChain</span>
           <span class="chip">OpenAI API</span>
-          <span class="chip">Document Information Extraction</span>
-          <span class="chip">OCR Workflow</span>
+          <span class="chip">OCR / CAPTCHA Recognition</span>
           <span class="chip">PaddleOCR</span>
-          <span class="chip">Evaluation Pipeline</span>
-          <span class="chip">Data Cleaning</span>
-          <span class="chip">Feature Engineering</span>
-          <span class="chip">Automation Pipeline Design</span>
           <span class="chip">Frontend UI Design</span>
+          <span class="chip">Internal Dashboard</span>
           <span class="chip">DataTables</span>
-          <span class="chip">Dashboard / Internal Tool</span>
           <span class="chip">Git / GitHub</span>
           <span class="chip">Full-Stack Thinking</span>
         </div>
@@ -707,9 +697,7 @@
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">精選作品 Projects</h2>
-        <p>
-          我不只是列出做過什麼，而是清楚說明：這個專案解決了什麼問題、怎麼做、最後帶來什麼效益。
-        </p>
+        <p>每個專案都是一個完整案例，不做左右並排，直接讓重點一眼看清楚。</p>
       </div>
 
       <div class="projects-grid">
@@ -718,16 +706,16 @@
             <div>
               <h3>UDE 料號查詢自動化平台</h3>
               <div class="project-desc">
-                以 n8n 為核心打造企業內部料號查詢與資料整合平台，
-                將本地資料庫、Excel 原始表與前端查詢介面整合為可持續使用的內部系統。
+                以 n8n 為核心打造企業內部料號查詢與資料整合平台，整合 MySQL、Excel 與即時查詢介面，
+                將原本繁瑣的人工查詢 / 比對流程自動化。
               </div>
             </div>
             <div class="project-tag">Featured Project</div>
           </div>
 
-          <div class="project-image-wrap">
-            <img src="images/n8n-workflow.jpg" alt="n8n workflow screenshot" />
-            <img src="images/n8n-ui.jpg" alt="n8n UI screenshot" />
+          <div class="project-gallery gallery-2">
+            <img src="images/n8n-workflow.png" alt="n8n workflow screenshot">
+            <img src="images/n8n-ui.png" alt="n8n ui screenshot">
           </div>
 
           <div class="project-meta">
@@ -740,10 +728,10 @@
           </div>
 
           <ul class="project-points">
-            <li>解決原本需人工查詢 Excel 與資料庫、手動比對料號與欄位資料的低效率流程。</li>
-            <li>透過正規化欄位、join key、自動比對與同步更新，降低人工重複操作與資料不一致問題。</li>
-            <li>以前端即時查詢介面提升內部使用體驗，支援多人同時查詢、查看配對與資料輸出。</li>
-            <li>針對大資料量執行問題調整 n8n binary data mode 與記憶體參數，改善效能瓶頸。</li>
+            <li>解決人工查詢 Excel 與資料庫、手動比對料號與欄位資料的低效率流程。</li>
+            <li>透過欄位正規化與 join key 機制，自動比對並同步更新資料，降低重工與資料不一致問題。</li>
+            <li>以前端即時查詢介面提升內部操作效率與使用體驗。</li>
+            <li>針對大資料量執行調整系統參數，改善效能瓶頸。</li>
           </ul>
 
           <div class="highlight-box">
@@ -759,10 +747,147 @@
         <article class="card project-card">
           <div class="project-top">
             <div>
+              <h3>AI Nutritionist</h3>
+              <div class="project-desc">
+                整合熱量分析、圖片分析與 AI 飲食教練三種介面，將健康查詢、熱量估算與飲食規劃集中在同一套系統中。
+              </div>
+            </div>
+            <div class="project-tag">AI Health App</div>
+          </div>
+
+          <div class="project-gallery gallery-3">
+            <img src="images/ai-nutritionist-1.png" alt="AI Nutritionist screenshot 1">
+            <img src="images/ai-nutritionist-3.png" alt="AI Nutritionist screenshot 2">
+            <img src="images/ai-nutritionist-4.png" alt="AI Nutritionist screenshot 3">
+          </div>
+
+          <div class="project-gallery gallery-3">
+            <img src="images/ai-nutritionist-2.png" alt="AI Nutritionist screenshot 4">
+            <img src="images/ai-nutritionist-5.png" alt="AI Nutritionist screenshot 5">
+            <img src="images/ai-nutritionist-6.png" alt="AI Nutritionist screenshot 6">
+          </div>
+
+          <div class="project-meta">
+            <span>Python</span>
+            <span>LLM</span>
+            <span>RAG</span>
+            <span>Nutrition Analysis</span>
+            <span>Image Analysis</span>
+            <span>Health Coaching</span>
+          </div>
+
+          <ul class="project-points">
+            <li>整合 <strong class="keyword">文字熱量分析</strong>、<strong class="keyword">上傳照片分析熱量</strong>、<strong class="keyword">AI 飲食教練</strong> 三大功能。</li>
+            <li>減少大多數人反覆搜尋食物熱量資料的時間，並把多來源資訊整合到同一個系統。</li>
+            <li>降低使用者對人工營養規劃的依賴，讓健康管理更容易開始。</li>
+            <li>讓使用者可透過單一程式完成熱量估算、飲食紀錄與 AI 飲食建議。</li>
+          </ul>
+
+          <div class="highlight-box">
+            <strong>價值：</strong>
+            把零散的健康資訊整合成可持續使用的工具，降低查詢成本並提升日常使用效率。
+          </div>
+
+          <div class="project-actions">
+            <a class="btn btn-primary" href="https://github.com/ChengEnLu252/AI-Nutritionist.git" target="_blank">View GitHub</a>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-top">
+            <div>
+              <h3>CakeHunt｜多平台自動化搶票系統</h3>
+              <div class="project-desc">
+                我設計的多帳號同時搶票程式，將整個搶票流程交由系統自動執行，並整合 OCR 驗證碼辨識與即時監控功能。
+              </div>
+            </div>
+            <div class="project-tag">Automation Tool</div>
+          </div>
+
+          <div class="project-gallery gallery-2">
+            <img src="images/CakeHunt1.png" alt="CakeHunt screenshot 1">
+            <img src="images/CakeHunt2.png" alt="CakeHunt screenshot 2">
+          </div>
+
+          <div class="project-gallery gallery-2">
+            <img src="images/CakeHunt3.png" alt="CakeHunt screenshot 3">
+            <img src="images/CakeHunt4.png" alt="CakeHunt screenshot 4">
+          </div>
+
+          <div class="project-meta">
+            <span>Automation</span>
+            <span>OCR</span>
+            <span>CAPTCHA Recognition</span>
+            <span>Multi-Account Workflow</span>
+            <span>Real-Time Monitoring</span>
+          </div>
+
+          <ul class="project-points">
+            <li>將原本高度依賴人工操作的搶票流程自動化，降低手動刷新、填表與反覆輸入的負擔。</li>
+            <li>支援 <strong class="keyword">多帳號同時執行</strong>，提高整體搶票效率。</li>
+            <li>整合 <strong class="keyword">即時監控系統</strong>，可觀察每個帳號的搶票進度。</li>
+            <li>結合 <strong class="keyword">OCR 驗證碼辨識</strong> 與自動填入，大幅減少人工操作時間並提升成功率。</li>
+          </ul>
+
+          <div class="highlight-box">
+            <strong>成果：</strong>
+            將搶票從高壓手動流程轉成自動化工具，大幅降低人工介入成本並提升整體成功機率。
+          </div>
+
+          <div class="project-actions">
+            <a class="btn btn-primary" href="https://github.com/ChengEnLu252/CakeHunt.git" target="_blank">View GitHub</a>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-top">
+            <div>
+              <h3>line-cloud-webhook｜CareBuddy 健康陪伴機器人</h3>
+              <div class="project-desc">
+                一個串接進 LINE 的健康陪伴機器人。若最近常常有小疾病，可透過它來記錄症狀、自動寫入資料庫並獲得即時回覆。
+              </div>
+            </div>
+            <div class="project-tag">LINE Bot / Health Record</div>
+          </div>
+
+          <div class="project-gallery gallery-3">
+            <img src="images/line-webhook1.jpg" alt="line-cloud-webhook screenshot 1">
+            <img src="images/line-webhook2.jpg" alt="line-cloud-webhook screenshot 2">
+            <img src="images/line-webhook3.jpg" alt="line-cloud-webhook screenshot 3">
+          </div>
+
+          <div class="project-meta">
+            <span>LINE Integration</span>
+            <span>Webhook</span>
+            <span>CRUD</span>
+            <span>Health Record</span>
+            <span>Backend Logic</span>
+            <span>Database</span>
+          </div>
+
+          <ul class="project-points">
+            <li>具備健康紀錄的 <strong class="keyword">CRUD 功能</strong>，可透過 LINE 對話自然完成資料新增、查詢與管理。</li>
+            <li>系統會自動儲存症狀到資料庫，降低手動紀錄成本。</li>
+            <li>提供症狀的即時回覆，<strong class="keyword">不會亂下醫囑</strong>；若情況嚴重則建議就醫。</li>
+            <li>主打一種 <strong class="keyword">陪伴感與心靈安慰</strong>，像是當你不舒服時身邊有個會回應你的小貼心。</li>
+          </ul>
+
+          <div class="highlight-box">
+            <strong>價值：</strong>
+            將健康紀錄與即時回覆整合進日常聊天場景中，降低門檻，讓健康管理變得更自然、更願意持續使用。
+          </div>
+
+          <div class="project-actions">
+            <a class="btn btn-primary" href="https://github.com/ChengEnLu252/line-cloud-webhook.git" target="_blank">View GitHub</a>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-top">
+            <div>
               <h3>LLM Order Extraction Thesis</h3>
               <div class="project-desc">
-                研究大型語言模型於異質訂單文件之關鍵資訊擷取與標準化，
-                建立從文件解析、prompt 設計到評估報表輸出的完整流程。
+                研究大型語言模型於異質訂單文件之關鍵資訊擷取與標準化，建立從文件解析、prompt 設計到評估分析的完整流程。
               </div>
             </div>
             <div class="project-tag">Research / AI</div>
@@ -778,148 +903,21 @@
           </div>
 
           <ul class="project-points">
-            <li>處理異質訂單文件中欄位名稱變異、資訊分散、明細格式複雜與干擾資訊過多等問題。</li>
-            <li>建立結構化抽取 schema 與評估流程，讓模型輸出可直接比較、分析與標準化。</li>
-            <li>Level 2 正式結果達 <strong>95.2% Document Accuracy</strong>，錯誤主要集中於日期格式判讀。</li>
-            <li>進一步延伸至 Level 3 OCR / 影像實驗，分析視覺品質與抽取效能之關聯。</li>
+            <li>處理異質訂單中欄位名稱變異、資訊分散、格式複雜與干擾資訊過多等問題。</li>
+            <li>建立結構化 schema 與標準化輸出流程，使模型結果可比較、可分析、可重現。</li>
+            <li>Level 2 正式結果達 <strong class="keyword">95.2% Document Accuracy</strong>。</li>
+            <li>進一步延伸至 Level 3 OCR / 影像版本，降低人工整理非結構化文件的成本。</li>
           </ul>
 
           <div class="highlight-box">
             <strong>成果：</strong>
-            將原本非結構化、格式多變的訂單內容轉為標準化 JSON，
-            降低人工整理成本，並建立可重現的實驗與分析流程。
+            將原本格式多變的非結構化訂單內容轉為標準化 JSON，為企業文件處理與後續系統串接建立基礎。
           </div>
 
           <div class="project-actions">
             <a class="btn btn-primary" href="https://github.com/ChengEnLu252/LLM_Order_Extraction_Thesis.git" target="_blank">View GitHub</a>
           </div>
         </article>
-
-        <article class="card project-card">
-          <div class="project-top">
-            <div>
-              <h3>AI Nutritionist</h3>
-              <div class="project-desc">
-                結合 LLM、知識檢索與飲食分析邏輯的 AI 營養師系統，
-                提供食物資訊、營養分析與健康建議。
-              </div>
-            </div>
-            <div class="project-tag">LLM App</div>
-          </div>
-
-          <div class="project-meta">
-            <span>Python</span>
-            <span>LLM</span>
-            <span>RAG</span>
-            <span>Nutrition QA</span>
-            <span>Prompt Design</span>
-          </div>
-
-          <ul class="project-points">
-            <li>解決一般使用者查詢飲食資訊分散、判斷困難與內容不夠個人化的問題。</li>
-            <li>將健康資訊問答、飲食建議與營養知識整合為單一互動式系統。</li>
-            <li>讓 AI 回答不只停留在聊天，而能更接近實際生活中的飲食決策輔助。</li>
-          </ul>
-
-          <div class="highlight-box">
-            <strong>價值：</strong>
-            降低使用者取得飲食資訊的門檻，提升資訊整合效率，讓健康建議更即時、更互動。
-          </div>
-
-          <div class="project-actions">
-            <a class="btn btn-primary" href="https://github.com/ChengEnLu252/AI-Nutritionist.git" target="_blank">View GitHub</a>
-          </div>
-        </article>
-
-        <article class="card project-card">
-          <div class="project-top">
-            <div>
-              <h3>line-cloud-webhook</h3>
-              <div class="project-desc">
-                建立可接收、處理與回應雲端訊息事件的 webhook 專案，
-                作為 AI 服務與外部平台整合的基礎通訊層。
-              </div>
-            </div>
-            <div class="project-tag">Integration</div>
-          </div>
-
-          <div class="project-meta">
-            <span>Webhook</span>
-            <span>Backend Logic</span>
-            <span>Cloud Integration</span>
-            <span>Messaging Flow</span>
-          </div>
-
-          <ul class="project-points">
-            <li>解決外部平台事件接收、格式轉換與後續服務串接的問題。</li>
-            <li>可作為 LINE Bot、AI workflow 或其他雲端服務的中介層。</li>
-            <li>提升後續功能擴充彈性，讓 AI 與自動化系統更容易接入真實使用情境。</li>
-          </ul>
-
-          <div class="highlight-box">
-            <strong>價值：</strong>
-            建立穩定的訊息接收與處理基礎，降低後續串接成本，提升系統模組化能力。
-          </div>
-
-          <div class="project-actions">
-            <a class="btn btn-primary" href="https://github.com/ChengEnLu252/line-cloud-webhook.git" target="_blank">View GitHub</a>
-          </div>
-        </article>
-
-        <article class="card project-card">
-          <div class="project-top">
-            <div>
-              <h3>CakeHunt</h3>
-              <div class="project-desc">
-                以使用者需求為核心的搜尋 / 探索型應用專案，
-                著重資料呈現、互動流程與前端使用體驗。
-              </div>
-            </div>
-            <div class="project-tag">Web App</div>
-          </div>
-
-          <div class="project-meta">
-            <span>Frontend</span>
-            <span>Web UI</span>
-            <span>User Experience</span>
-            <span>Application Design</span>
-          </div>
-
-          <ul class="project-points">
-            <li>以清楚的資訊呈現與互動式搜尋流程，提升使用者找尋目標內容的效率。</li>
-            <li>展現從需求思考、介面設計到功能實作的完整開發能力。</li>
-            <li>可作為一般網頁應用、查詢平台與商業導向網站的展示案例。</li>
-          </ul>
-
-          <div class="highlight-box">
-            <strong>價值：</strong>
-            強化資訊搜尋與呈現流程，降低使用者操作成本，提升整體互動體驗。
-          </div>
-
-          <div class="project-actions">
-            <a class="btn btn-primary" href="https://github.com/ChengEnLu252/CakeHunt.git" target="_blank">View GitHub</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="card">
-        <div class="section-header">
-          <h2 class="section-title">我能替你解決什麼問題？</h2>
-          <p>比起只談技術名詞，我更在意的是這些系統能不能真正幫你減少成本、降低錯誤、提升效率。</p>
-        </div>
-
-        <div class="chips">
-          <span class="chip">減少人工重複操作</span>
-          <span class="chip">降低資料整理時間</span>
-          <span class="chip">降低跨系統比對錯誤率</span>
-          <span class="chip">縮短內部查詢流程</span>
-          <span class="chip">建立可持續擴充的系統架構</span>
-          <span class="chip">把 AI 真正接到企業流程</span>
-        </div>
       </div>
     </div>
   </section>
@@ -928,7 +926,7 @@
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">聯絡方式 Contact</h2>
-        <p>若你正在找 AI 應用、自動化系統、內部工具、前後端整合或企業流程優化合作，歡迎直接聯絡我。</p>
+        <p>如果你有 AI、自動化、LINE Bot、網頁系統、企業內部工具或資料整合相關需求，歡迎直接聯絡我。</p>
       </div>
 
       <div class="contact-grid">
@@ -948,26 +946,38 @@
               <a href="https://github.com/ChengEnLu252" target="_blank">https://github.com/ChengEnLu252</a>
             </div>
             <div class="contact-item">
+              <strong>LINE ID</strong>
+              <span>@nndoit_ai</span>
+            </div>
+            <div class="contact-item">
               <strong>Studio</strong>
               <span>NNDoiT AI Studio</span>
             </div>
           </div>
-          <div class="contact-note">
-            Line / Facebook / Instagram 可於之後補上。這版先讓你網站直接上線，先贏一半。
+          <div class="small-note">
+            目前 LINE ID 先放暫時版本。之後你建立正式帳號後，直接搜尋 <strong class="keyword">@nndoit_ai</strong> 並改成你的正式 ID 即可。
           </div>
         </div>
 
         <div class="card">
           <h3>合作方向 Collaboration</h3>
-          <p class="muted">
-            可合作範圍包含：AI 系統開發、LLM / RAG 應用、文件與資料抽取、自動化流程設計、
-            Webhook / API 串接、前後端開發、查詢平台、內部工具、ERP / 流程優化與企業系統整合。
+          <p>
+            可合作範圍包含 <strong class="keyword">AI 系統開發</strong>、
+            <strong class="keyword">LLM / RAG 應用</strong>、
+            <strong class="keyword">文件與資料抽取</strong>、
+            <strong class="keyword">自動化流程設計</strong>、
+            <strong class="keyword">LINE Bot</strong>、
+            <strong class="keyword">Webhook / API 串接</strong>、
+            <strong class="keyword">前後端開發</strong>、
+            <strong class="keyword">查詢平台</strong>、
+            <strong class="keyword">ERP / 流程優化</strong> 與企業系統整合。
           </p>
           <div class="chips">
             <span class="chip">AI Consulting</span>
             <span class="chip">Automation</span>
             <span class="chip">System Integration</span>
             <span class="chip">Internal Tools</span>
+            <span class="chip">LINE Bot</span>
             <span class="chip">Web Development</span>
             <span class="chip">ERP Workflow</span>
           </div>
@@ -978,7 +988,7 @@
 
   <footer class="footer">
     <div class="container">
-      © 2026 Lu Cheng En / NNDoiT AI Studio. Built for real-world AI systems, automation, and scalable workflow integration.
+      © 2026 Lu Cheng En / NNDoiT AI Studio. Built for real-world AI systems, automation, workflow integration, and client-ready delivery.
     </div>
   </footer>
 </body>
