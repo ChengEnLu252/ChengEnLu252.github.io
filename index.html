@@ -4,864 +4,260 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>呂承恩 Lu Cheng En | AI自動化與系統整合工程師</title>
-  <meta
-    name="description"
-    content="呂承恩 Lu Cheng En｜AI自動化與系統整合工程師｜NNDoiT AI Studio。專注於 AI 應用、LLM 系統、流程自動化、前後端開發、網頁設計與 ERP / 企業系統整合。"
-  />
+  <meta name="description" content="呂承恩 Lu Cheng En｜AI自動化與系統整合工程師｜NNDoiT AI Studio。專注於 AI 應用、LLM 系統、流程自動化、前後端開發、網頁設計與 ERP / 企業系統整合。" />
+  <meta property="og:title" content="呂承恩 Lu Cheng En | AI自動化與系統整合工程師" />
+  <meta property="og:description" content="NNDoiT AI Studio｜AI 應用、LLM 系統、流程自動化、ERP 整合、前後端開發。" />
+  <meta property="og:image" content="images/bighead.JPG" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <style>
     :root {
-      --bg: #fff7fb;
-      --bg-soft: #ffeaf4;
-      --card: rgba(255, 255, 255, 0.95);
-      --card-strong: #ffffff;
-      --text: #2d2130;
-      --muted: #6b5c67;
-      --primary: #ec4899;
-      --primary-dark: #be185d;
-      --primary-soft: rgba(236, 72, 153, 0.12);
-      --accent: #f97316;
-      --accent-soft: rgba(249, 115, 22, 0.12);
-      --line: rgba(236, 72, 153, 0.18);
-      --shadow: 0 16px 40px rgba(190, 24, 93, 0.12);
-      --radius: 24px;
-      --max-width: 1120px;
+      --bg:#fff7fb;--bg-soft:#ffeaf4;
+      --card:rgba(255,255,255,0.95);--card-strong:#ffffff;
+      --text:#2d2130;--muted:#6b5c67;
+      --primary:#ec4899;--primary-dark:#be185d;
+      --primary-soft:rgba(236,72,153,0.12);
+      --accent:#f97316;--accent-soft:rgba(249,115,22,0.12);
+      --line:rgba(236,72,153,0.18);
+      --shadow:0 16px 40px rgba(190,24,93,0.12);
+      --shadow-hover:0 24px 56px rgba(190,24,93,0.2);
+      --radius:24px;--max-width:1120px;
     }
- 
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
- 
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC",
-        "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-      color: var(--text);
+    *{box-sizing:border-box;scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(circle at top left, rgba(244, 114, 182, 0.18), transparent 24%),
-        radial-gradient(circle at top right, rgba(251, 146, 60, 0.12), transparent 22%),
-        linear-gradient(180deg, #fffafd 0%, #fff1f7 42%, #fff9fc 100%);
-      line-height: 1.75;
-    }
- 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
- 
-    img {
-      width: 100%;
-      display: block;
-      border-radius: 18px;
-      object-fit: cover;
-      border: 1px solid rgba(236, 72, 153, 0.12);
-      background: #fff;
-    }
- 
-    strong.keyword {
-      color: var(--accent);
-      font-weight: 900;
-    }
- 
-    .container {
-      width: min(var(--max-width), calc(100% - 32px));
-      margin: 0 auto;
-    }
- 
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(14px);
-      background: rgba(255, 247, 251, 0.88);
-      border-bottom: 1px solid rgba(236, 72, 153, 0.12);
-    }
- 
-    .nav-inner {
-      width: min(var(--max-width), calc(100% - 32px));
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 16px 0;
-    }
- 
-    .brand {
-      font-weight: 900;
-      font-size: 1rem;
-      letter-spacing: 0.2px;
-    }
- 
-    .brand small {
-      display: block;
-      margin-top: 2px;
-      color: var(--primary-dark);
-      font-size: 0.76rem;
-      font-weight: 800;
-    }
- 
-    .nav-links {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
- 
-    .nav-links a {
-      color: var(--muted);
-      font-size: 0.94rem;
-      padding: 8px 12px;
-      border-radius: 999px;
-      transition: 0.2s ease;
-      font-weight: 700;
-    }
- 
-    .nav-links a:hover {
-      background: var(--primary-soft);
-      color: var(--primary-dark);
-    }
- 
-    .hero {
-      padding: 76px 0 34px;
-    }
- 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px;
-      align-items: stretch;
-    }
- 
-    .hero-card,
-    .glass-card,
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
- 
-    .hero-card {
-      padding: 36px;
-      position: relative;
-      overflow: hidden;
-    }
- 
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      right: -70px;
-      top: -90px;
-      background: radial-gradient(circle, rgba(236, 72, 153, 0.18), transparent 70%);
-      pointer-events: none;
-    }
- 
-    .eyebrow {
-      display: inline-block;
-      padding: 9px 14px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(236,72,153,0.16), rgba(249,115,22,0.12));
-      color: var(--primary-dark);
-      font-size: 0.86rem;
-      font-weight: 900;
-      margin-bottom: 18px;
-    }
- 
-    h1 {
-      margin: 0;
-      font-size: clamp(2.1rem, 4vw, 3.5rem);
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-    }
- 
-    .hero-subtitle {
-      margin: 12px 0 0;
-      color: var(--primary-dark);
-      font-size: 1.08rem;
-      font-weight: 900;
-    }
- 
-    .hero-desc {
-      margin: 22px 0 0;
-      color: var(--muted);
-      max-width: 64ch;
-      font-size: 1rem;
-    }
- 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
- 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 18px;
-      border-radius: 14px;
-      font-weight: 900;
-      border: 1px solid transparent;
-      transition: 0.2s ease;
-    }
- 
-    .btn-primary {
-      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
-      color: white;
-      box-shadow: 0 14px 28px rgba(219, 39, 119, 0.28);
-    }
- 
-    .btn-primary:hover {
-      transform: translateY(-1px);
-    }
- 
-    .btn-secondary {
-      background: #fff;
-      border-color: rgba(236, 72, 153, 0.2);
-      color: var(--primary-dark);
-    }
- 
-    .btn-secondary:hover {
-      background: var(--primary-soft);
-    }
- 
-    .btn-line {
-      background: linear-gradient(135deg, #06c755 0%, #00a846 100%);
-      color: white;
-      box-shadow: 0 14px 28px rgba(6, 199, 85, 0.28);
-    }
- 
-    .btn-line:hover {
-      transform: translateY(-1px);
-    }
- 
-    .hero-side {
-      padding: 24px;
-      display: grid;
-      gap: 16px;
-    }
- 
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
- 
-    .metric {
-      background: var(--card-strong);
-      border: 1px solid rgba(236, 72, 153, 0.14);
-      border-radius: 18px;
-      padding: 18px;
-    }
- 
-    .metric strong {
-      display: block;
-      font-size: 1.55rem;
-      color: var(--primary-dark);
-      margin-bottom: 6px;
-      font-weight: 900;
-    }
- 
-    .metric span {
-      font-size: 0.93rem;
-      color: var(--muted);
-    }
- 
-    .mini-panel {
-      background: linear-gradient(180deg, rgba(255,255,255,1), rgba(255,244,249,1));
-      border: 1px solid rgba(236, 72, 153, 0.14);
-      border-radius: 18px;
-      padding: 18px;
-    }
- 
-    .mini-panel h3,
-    .section-title {
-      margin: 0 0 10px;
-      font-size: 1.14rem;
-      font-weight: 900;
-    }
- 
-    .mini-panel p,
-    .section-header p,
-    .card p {
-      margin: 0;
-      color: var(--muted);
-    }
- 
-    section {
-      padding: 30px 0;
-    }
- 
-    .section-header {
-      margin-bottom: 18px;
-    }
- 
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
- 
-    .chip {
-      padding: 9px 14px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(236,72,153,0.14), rgba(249,115,22,0.08));
-      border: 1px solid rgba(236,72,153,0.14);
-      color: var(--primary-dark);
-      font-size: 0.9rem;
-      font-weight: 900;
-    }
- 
-    .chip-db {
-      background: linear-gradient(135deg, rgba(99,102,241,0.13), rgba(139,92,246,0.09));
-      border: 1px solid rgba(99,102,241,0.18);
-      color: #4338ca;
-    }
- 
-    .services-grid,
-    .contact-grid {
-      display: grid;
-      gap: 18px;
-    }
- 
-    .services-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
- 
-    .contact-grid {
-      grid-template-columns: 1fr 1fr;
-    }
- 
-    .projects-grid {
-      display: grid;
-      gap: 22px;
-    }
- 
-    .card {
-      padding: 26px;
-    }
- 
-    .service-icon {
-      width: 46px;
-      height: 46px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(236,72,153,0.16), rgba(249,115,22,0.12));
-      color: var(--primary-dark);
-      font-weight: 900;
-      margin-bottom: 14px;
-    }
- 
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 1.16rem;
-      font-weight: 900;
-    }
- 
-    .project-card {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
- 
-    .project-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
- 
-    .project-tag {
-      font-size: 0.8rem;
-      font-weight: 900;
-      color: var(--primary-dark);
-      background: linear-gradient(135deg, rgba(236,72,153,0.14), rgba(249,115,22,0.1));
-      padding: 8px 12px;
-      border-radius: 999px;
-      white-space: nowrap;
-    }
- 
-    .project-desc {
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
- 
-    .project-gallery {
-      display: grid;
-      gap: 12px;
-    }
- 
-    .gallery-2 {
-      grid-template-columns: repeat(2, 1fr);
-    }
- 
-    .gallery-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
- 
-    .project-gallery img {
-      height: 260px;
-    }
- 
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
- 
-    .project-meta span {
-      display: inline-block;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(249, 115, 22, 0.08);
-      border: 1px solid rgba(249, 115, 22, 0.14);
-      color: #c2410c;
-      font-size: 0.84rem;
-      font-weight: 900;
-    }
- 
-    .project-points {
-      margin: 0;
-      padding-left: 20px;
-      color: var(--muted);
-    }
- 
-    .project-points li + li {
-      margin-top: 8px;
-    }
- 
-    .highlight-box {
-      background: linear-gradient(180deg, rgba(255,255,255,1), rgba(255,243,236,0.9));
-      border: 1px solid rgba(249, 115, 22, 0.18);
-      border-radius: 20px;
-      padding: 20px;
-    }
- 
-    .highlight-box strong {
-      color: #c2410c;
-      font-weight: 900;
-    }
- 
-    .project-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: auto;
-    }
- 
-    /* ─── Pricing ─── */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-bottom: 22px;
-    }
- 
-    .pricing-card {
-      background: var(--card-strong);
-      border: 1px solid rgba(236, 72, 153, 0.16);
-      border-radius: 20px;
-      padding: 24px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
- 
-    .pricing-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 40px rgba(190, 24, 93, 0.14);
-    }
- 
-    .pricing-icon {
-      font-size: 1.6rem;
-      margin-bottom: 2px;
-    }
- 
-    .pricing-label {
-      font-size: 1rem;
-      font-weight: 900;
-      color: var(--text);
-    }
- 
-    .pricing-range {
-      font-size: 1.25rem;
-      font-weight: 900;
-      color: var(--primary-dark);
-      line-height: 1.2;
-    }
- 
-    .pricing-desc {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-top: 4px;
-    }
- 
-    .payment-terms {
-      background: linear-gradient(135deg, rgba(236,72,153,0.08), rgba(249,115,22,0.06));
-      border: 1px solid rgba(236, 72, 153, 0.16);
-      border-radius: 20px;
-      padding: 22px 26px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      align-items: center;
-      margin-bottom: 18px;
-    }
- 
-    .payment-terms-title {
-      font-weight: 900;
-      font-size: 1rem;
-      color: var(--primary-dark);
-      white-space: nowrap;
-    }
- 
-    .payment-steps {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      flex: 1;
-    }
- 
-    .payment-step {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: #fff;
-      border: 1px solid rgba(236,72,153,0.16);
-      border-radius: 999px;
-      padding: 8px 16px;
-      font-size: 0.9rem;
-    }
- 
-    .payment-step-pct {
-      font-weight: 900;
-      color: var(--primary-dark);
-      font-size: 1rem;
-    }
- 
-    .payment-step-label {
-      color: var(--muted);
-    }
- 
-    .early-bird-banner {
-      background: linear-gradient(135deg, #fdf2f8, #fff7ed);
-      border: 2px solid rgba(236,72,153,0.3);
-      border-radius: 20px;
-      padding: 22px 26px;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
- 
-    .early-bird-badge {
-      background: linear-gradient(135deg, #ec4899, #f97316);
-      color: #fff;
-      font-weight: 900;
-      font-size: 0.84rem;
-      padding: 6px 14px;
-      border-radius: 999px;
-      white-space: nowrap;
-    }
- 
-    .early-bird-text {
-      flex: 1;
-      font-size: 0.97rem;
-      color: var(--text);
-    }
- 
-    .early-bird-text strong {
-      color: var(--primary-dark);
-    }
- 
-    /* ─── Process + Info grid ─── */
-    .info-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
- 
-    .info-grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      margin-top: 18px;
-    }
- 
-    .info-card {
-      background: var(--card-strong);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-    }
- 
-    .info-card h3 {
-      margin: 0 0 14px;
-      font-size: 1.08rem;
-      font-weight: 900;
-    }
- 
-    .process-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
- 
-    .process-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 0.96rem;
-      color: var(--muted);
-    }
- 
-    .process-num {
-      min-width: 26px;
-      height: 26px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #ec4899, #f97316);
-      color: #fff;
-      font-weight: 900;
-      font-size: 0.8rem;
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
- 
-    .check-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
- 
-    .check-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.96rem;
-      color: var(--muted);
-    }
- 
-    .check-icon {
-      flex-shrink: 0;
-      margin-top: 2px;
-      font-size: 1rem;
-    }
- 
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
- 
-    .result-item {
-      background: linear-gradient(135deg, rgba(236,72,153,0.08), rgba(249,115,22,0.06));
-      border: 1px solid rgba(236,72,153,0.14);
-      border-radius: 16px;
-      padding: 16px;
-      text-align: center;
-    }
- 
-    .result-num {
-      display: block;
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: var(--primary-dark);
-      margin-bottom: 4px;
-    }
- 
-    .result-label {
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
- 
-    /* ─── FAQ ─── */
-    .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
- 
-    .faq-item {
-      background: var(--card-strong);
-      border: 1px solid rgba(236,72,153,0.14);
-      border-radius: 18px;
-      padding: 20px;
-    }
- 
-    .faq-q {
-      font-weight: 900;
-      color: var(--primary-dark);
-      margin-bottom: 8px;
-      font-size: 0.97rem;
-    }
- 
-    .faq-a {
-      color: var(--muted);
-      font-size: 0.94rem;
-      margin: 0;
-    }
- 
-    /* ─── CTA Banner ─── */
-    .cta-banner {
-      background: linear-gradient(135deg, #ec4899 0%, #db2777 60%, #f97316 100%);
-      border-radius: 24px;
-      padding: 36px 40px;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 24px;
-      box-shadow: 0 20px 50px rgba(219,39,119,0.35);
-      margin-top: 30px;
-    }
- 
-    .cta-banner-text h3 {
-      margin: 0 0 8px;
-      font-size: 1.4rem;
-      font-weight: 900;
-      color: #fff;
-    }
- 
-    .cta-banner-text p {
-      margin: 0;
-      opacity: 0.9;
-      font-size: 1rem;
-      color: #fff;
-    }
- 
-    .btn-white {
-      background: #fff;
-      color: var(--primary-dark);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-      font-size: 1rem;
-      padding: 14px 24px;
-    }
- 
-    .btn-white:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
-    }
- 
-    /* ─── Contact ─── */
-    .contact-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 12px;
-    }
- 
-    .contact-item {
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.88);
-      border: 1px solid rgba(236,72,153,0.12);
-    }
- 
-    .contact-item strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--primary-dark);
-      font-weight: 900;
-    }
- 
-    .contact-item a {
-      color: var(--text);
-    }
- 
-    .contact-item a:hover {
-      color: var(--primary-dark);
-    }
- 
-    .small-note {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
- 
-    .footer {
-      padding: 40px 0 60px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
- 
-    /* ─── Responsive ─── */
-    @media (max-width: 980px) {
-      .hero-grid,
-      .services-grid,
-      .contact-grid,
-      .gallery-2,
-      .gallery-3,
-      .pricing-grid,
-      .info-grid-3,
-      .faq-grid,
-      .results-grid {
-        grid-template-columns: 1fr;
-      }
- 
-      .info-grid-2 {
-        grid-template-columns: 1fr;
-      }
- 
-      .hero-card,
-      .hero-side,
-      .card {
-        padding: 22px;
-      }
- 
-      .metric-grid {
-        grid-template-columns: 1fr 1fr;
-      }
- 
-      .project-gallery img {
-        height: auto;
-      }
- 
-      .cta-banner {
-        padding: 28px 24px;
-      }
-    }
- 
-    @media (max-width: 640px) {
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
- 
-      .metric-grid {
-        grid-template-columns: 1fr;
-      }
- 
-      .btn {
-        width: 100%;
-      }
+        radial-gradient(circle at top left,rgba(244,114,182,0.18),transparent 24%),
+        radial-gradient(circle at top right,rgba(251,146,60,0.12),transparent 22%),
+        linear-gradient(180deg,#fffafd 0%,#fff1f7 42%,#fff9fc 100%);
+      line-height:1.75;
+    }
+    a{color:inherit;text-decoration:none;}
+    img{width:100%;display:block;border-radius:18px;object-fit:cover;border:1px solid rgba(236,72,153,0.12);background:#fff;}
+    strong.keyword{color:var(--accent);font-weight:900;}
+    .container{width:min(var(--max-width),calc(100% - 32px));margin:0 auto;}
+
+    /* Reveal */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal-delay-1{transition-delay:0.1s;}
+    .reveal-delay-2{transition-delay:0.2s;}
+    .reveal-delay-3{transition-delay:0.3s;}
+    .reveal-delay-4{transition-delay:0.4s;}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(14px);background:rgba(255,247,251,0.9);border-bottom:1px solid rgba(236,72,153,0.12);transition:box-shadow 0.3s;}
+    .nav.scrolled{box-shadow:0 4px 24px rgba(190,24,93,0.1);}
+    .nav-inner{width:min(var(--max-width),calc(100% - 32px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;}
+    .brand{font-weight:900;font-size:1rem;letter-spacing:0.2px;}
+    .brand small{display:block;margin-top:2px;color:var(--primary-dark);font-size:0.76rem;font-weight:800;}
+    .nav-links{display:flex;gap:8px;flex-wrap:wrap;}
+    .nav-links a{color:var(--muted);font-size:0.9rem;padding:7px 11px;border-radius:999px;transition:0.2s ease;font-weight:700;}
+    .nav-links a:hover{background:var(--primary-soft);color:var(--primary-dark);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--primary-dark);border-radius:2px;transition:0.3s ease;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .mobile-menu{display:none;flex-direction:column;gap:4px;padding:12px 16px 16px;border-top:1px solid rgba(236,72,153,0.1);}
+    .mobile-menu a{padding:10px 14px;border-radius:12px;font-weight:700;color:var(--muted);transition:0.2s;}
+    .mobile-menu a:hover{background:var(--primary-soft);color:var(--primary-dark);}
+    .mobile-menu.open{display:flex;}
+
+    /* MARQUEE */
+    .marquee-wrap{overflow:hidden;padding:13px 0;background:linear-gradient(135deg,rgba(236,72,153,0.06),rgba(249,115,22,0.04));border-top:1px solid rgba(236,72,153,0.1);border-bottom:1px solid rgba(236,72,153,0.1);}
+    .marquee-track{display:flex;gap:28px;width:max-content;animation:marquee 28s linear infinite;}
+    .marquee-wrap:hover .marquee-track{animation-play-state:paused;}
+    .marquee-item{white-space:nowrap;font-size:0.85rem;font-weight:900;color:var(--primary-dark);display:flex;align-items:center;gap:8px;}
+    .marquee-dot{color:var(--accent);font-size:0.6rem;}
+    @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+    /* HERO */
+    .hero{padding:64px 0 30px;}
+    .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:24px;align-items:stretch;}
+    .hero-card,.glass-card,.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);transition:box-shadow 0.3s;}
+    .hero-card{padding:36px;position:relative;overflow:hidden;}
+    .hero-card::after{content:"";position:absolute;width:280px;height:280px;right:-70px;top:-90px;background:radial-gradient(circle,rgba(236,72,153,0.18),transparent 70%);pointer-events:none;}
+
+    /* Avatar row */
+    .hero-avatar-row{display:flex;align-items:center;gap:18px;margin-bottom:20px;}
+    .hero-avatar{width:76px;height:76px;border-radius:50%!important;object-fit:cover;border:3px solid rgba(236,72,153,0.35)!important;flex-shrink:0;box-shadow:0 8px 24px rgba(190,24,93,0.22);background:var(--bg-soft)!important;}
+    .hero-avatar-info{flex:1;}
+
+    .eyebrow{display:inline-block;padding:9px 14px;border-radius:999px;background:linear-gradient(135deg,rgba(236,72,153,0.16),rgba(249,115,22,0.12));color:var(--primary-dark);font-size:0.82rem;font-weight:900;}
+    h1{margin:0;font-size:clamp(1.9rem,3.5vw,3.2rem);line-height:1.15;letter-spacing:-0.03em;}
+    .hero-subtitle{margin:6px 0 0;color:var(--primary-dark);font-size:1rem;font-weight:900;}
+    .hero-desc{margin:18px 0 0;color:var(--muted);max-width:64ch;font-size:1rem;}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;}
+
+    /* BUTTONS */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:14px;font-weight:900;border:1px solid transparent;transition:0.2s ease;cursor:pointer;font-size:0.95rem;}
+    .btn-primary{background:linear-gradient(135deg,#ec4899 0%,#db2777 100%);color:#fff;box-shadow:0 14px 28px rgba(219,39,119,0.28);}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(219,39,119,0.36);}
+    .btn-secondary{background:#fff;border-color:rgba(236,72,153,0.2);color:var(--primary-dark);}
+    .btn-secondary:hover{background:var(--primary-soft);}
+    .btn-line{background:linear-gradient(135deg,#06c755 0%,#00a846 100%);color:#fff;box-shadow:0 14px 28px rgba(6,199,85,0.28);}
+    .btn-line:hover{transform:translateY(-2px);}
+    .btn-white{background:#fff;color:var(--primary-dark);box-shadow:0 8px 20px rgba(0,0,0,0.12);font-size:1rem;padding:14px 24px;}
+    .btn-white:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,0.18);}
+
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+    .chip{padding:9px 14px;border-radius:999px;background:linear-gradient(135deg,rgba(236,72,153,0.14),rgba(249,115,22,0.08));border:1px solid rgba(236,72,153,0.14);color:var(--primary-dark);font-size:0.9rem;font-weight:900;}
+    .chip-db{background:linear-gradient(135deg,rgba(99,102,241,0.13),rgba(139,92,246,0.09));border:1px solid rgba(99,102,241,0.18);color:#4338ca;}
+
+    .hero-side{padding:24px;display:grid;gap:16px;}
+    .metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+    .metric{background:var(--card-strong);border:1px solid rgba(236,72,153,0.14);border-radius:18px;padding:18px;transition:transform 0.2s,box-shadow 0.2s;}
+    .metric:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+    .metric strong{display:block;font-size:1.5rem;color:var(--primary-dark);margin-bottom:6px;font-weight:900;}
+    .metric span{font-size:0.88rem;color:var(--muted);}
+    .mini-panel{background:linear-gradient(180deg,rgba(255,255,255,1),rgba(255,244,249,1));border:1px solid rgba(236,72,153,0.14);border-radius:18px;padding:18px;}
+    .mini-panel h3,.section-title{margin:0 0 10px;font-size:1.14rem;font-weight:900;}
+    .mini-panel p,.section-header p,.card p{margin:0;color:var(--muted);}
+
+    /* SECTION BANDS */
+    section{padding:30px 0;}
+    .section-band{background:linear-gradient(180deg,rgba(255,244,249,0.6),rgba(255,247,251,0.3));border-top:1px solid rgba(236,72,153,0.08);border-bottom:1px solid rgba(236,72,153,0.08);}
+    .section-header{margin-bottom:18px;}
+
+    /* SERVICES */
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    .card{padding:26px;transition:transform 0.25s ease,box-shadow 0.25s ease;}
+    .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
+    .service-icon{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,rgba(236,72,153,0.16),rgba(249,115,22,0.12));color:var(--primary-dark);font-weight:900;margin-bottom:14px;font-size:0.9rem;}
+    .card h3{margin:0 0 10px;font-size:1.16rem;font-weight:900;}
+
+    /* PROJECTS */
+    .projects-grid{display:grid;gap:22px;}
+    .project-card{display:flex;flex-direction:column;gap:16px;}
+    .project-top{display:flex;justify-content:space-between;align-items:start;gap:14px;flex-wrap:wrap;}
+    .project-tag{font-size:0.8rem;font-weight:900;color:var(--primary-dark);background:linear-gradient(135deg,rgba(236,72,153,0.14),rgba(249,115,22,0.1));padding:8px 12px;border-radius:999px;white-space:nowrap;}
+    .project-desc{color:var(--muted);font-size:0.98rem;}
+
+    /* Browser mock */
+    .browser-frame{background:#f1f1f1;border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,0.08);box-shadow:0 8px 28px rgba(0,0,0,0.1);}
+    .browser-bar{background:#e8e8e8;padding:9px 12px;display:flex;align-items:center;gap:8px;}
+    .browser-dots{display:flex;gap:5px;}
+    .browser-dots span{width:11px;height:11px;border-radius:50%;display:block;}
+    .browser-dots span:nth-child(1){background:#ff5f56;}
+    .browser-dots span:nth-child(2){background:#ffbd2e;}
+    .browser-dots span:nth-child(3){background:#27c93f;}
+    .browser-url{flex:1;background:#fff;border-radius:6px;padding:4px 10px;font-size:0.78rem;color:#888;font-family:monospace;}
+    .browser-content img{border-radius:0!important;border:none!important;}
+
+    .project-gallery{display:grid;gap:12px;}
+    .gallery-2{grid-template-columns:repeat(2,1fr);}
+    .gallery-3{grid-template-columns:repeat(3,1fr);}
+    .project-gallery img{height:240px;}
+
+    .project-meta{display:flex;flex-wrap:wrap;gap:8px;}
+    .project-meta span{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(249,115,22,0.08);border:1px solid rgba(249,115,22,0.14);color:#c2410c;font-size:0.84rem;font-weight:900;}
+    .project-points{margin:0;padding-left:20px;color:var(--muted);}
+    .project-points li+li{margin-top:8px;}
+    .highlight-box{background:linear-gradient(180deg,rgba(255,255,255,1),rgba(255,243,236,0.9));border:1px solid rgba(249,115,22,0.18);border-radius:20px;padding:20px;}
+    .highlight-box strong{color:#c2410c;font-weight:900;}
+    .project-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;}
+
+    /* PRICING */
+    .pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:22px;}
+    .pricing-card{background:var(--card-strong);border:1px solid rgba(236,72,153,0.16);border-radius:20px;padding:24px 20px;display:flex;flex-direction:column;gap:10px;transition:transform 0.2s ease,box-shadow 0.2s ease;}
+    .pricing-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
+    .pricing-icon{font-size:1.6rem;margin-bottom:2px;}
+    .pricing-label{font-size:1rem;font-weight:900;color:var(--text);}
+    .pricing-range{font-size:1.25rem;font-weight:900;color:var(--primary-dark);line-height:1.2;}
+    .pricing-desc{font-size:0.88rem;color:var(--muted);margin-top:4px;}
+    .payment-terms{background:linear-gradient(135deg,rgba(236,72,153,0.08),rgba(249,115,22,0.06));border:1px solid rgba(236,72,153,0.16);border-radius:20px;padding:22px 26px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin-bottom:18px;}
+    .payment-terms-title{font-weight:900;font-size:1rem;color:var(--primary-dark);white-space:nowrap;}
+    .payment-steps{display:flex;flex-wrap:wrap;gap:10px;flex:1;}
+    .payment-step{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(236,72,153,0.16);border-radius:999px;padding:8px 16px;font-size:0.9rem;}
+    .payment-step-pct{font-weight:900;color:var(--primary-dark);font-size:1rem;}
+    .payment-step-label{color:var(--muted);}
+    .early-bird-banner{background:linear-gradient(135deg,#fdf2f8,#fff7ed);border:2px solid rgba(236,72,153,0.3);border-radius:20px;padding:22px 26px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+    .early-bird-badge{background:linear-gradient(135deg,#ec4899,#f97316);color:#fff;font-weight:900;font-size:0.84rem;padding:6px 14px;border-radius:999px;white-space:nowrap;}
+    .early-bird-text{flex:1;font-size:0.97rem;color:var(--text);}
+    .early-bird-text strong{color:var(--primary-dark);}
+
+    /* PROCESS */
+    .info-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    .info-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px;}
+    .info-card{background:var(--card-strong);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow);transition:transform 0.25s,box-shadow 0.25s;}
+    .info-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);}
+    .info-card h3{margin:0 0 14px;font-size:1.08rem;font-weight:900;}
+    .process-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .process-list li{display:flex;align-items:flex-start;gap:12px;font-size:0.96rem;color:var(--muted);}
+    .process-num{min-width:26px;height:26px;border-radius:999px;background:linear-gradient(135deg,#ec4899,#f97316);color:#fff;font-weight:900;font-size:0.8rem;display:grid;place-items:center;flex-shrink:0;margin-top:1px;}
+    .check-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .check-list li{display:flex;align-items:flex-start;gap:10px;font-size:0.96rem;color:var(--muted);}
+    .check-icon{flex-shrink:0;margin-top:2px;font-size:1rem;}
+
+    .results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+    .result-item{background:linear-gradient(135deg,rgba(236,72,153,0.08),rgba(249,115,22,0.06));border:1px solid rgba(236,72,153,0.14);border-radius:16px;padding:16px;text-align:center;transition:transform 0.2s;}
+    .result-item:hover{transform:translateY(-2px);}
+    .result-num{display:block;font-size:1.5rem;font-weight:900;color:var(--primary-dark);margin-bottom:4px;}
+    .result-label{font-size:0.86rem;color:var(--muted);}
+
+    /* FAQ */
+    .faq-item{background:var(--card-strong);border:1px solid rgba(236,72,153,0.14);border-radius:18px;padding:20px;transition:box-shadow 0.2s,transform 0.2s;}
+    .faq-item:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(190,24,93,0.1);}
+    .faq-q{font-weight:900;color:var(--primary-dark);margin-bottom:8px;font-size:0.97rem;}
+    .faq-a{color:var(--muted);font-size:0.94rem;margin:0;}
+
+    /* CTA */
+    .cta-banner{background:linear-gradient(135deg,#ec4899 0%,#db2777 60%,#f97316 100%);border-radius:24px;padding:36px 40px;color:#fff;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;box-shadow:0 20px 50px rgba(219,39,119,0.35);margin-top:30px;position:relative;overflow:hidden;}
+    .cta-banner::before{content:"";position:absolute;width:300px;height:300px;right:-80px;top:-100px;background:radial-gradient(circle,rgba(255,255,255,0.15),transparent 70%);pointer-events:none;}
+    .cta-banner-text h3{margin:0 0 8px;font-size:1.4rem;font-weight:900;color:#fff;}
+    .cta-banner-text p{margin:0;opacity:0.9;font-size:1rem;color:#fff;}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+    .contact-list{display:grid;gap:12px;margin-top:12px;}
+    .contact-item{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,0.88);border:1px solid rgba(236,72,153,0.12);transition:background 0.2s,box-shadow 0.2s;}
+    .contact-item:hover{background:#fff;box-shadow:0 4px 14px rgba(190,24,93,0.08);}
+    .contact-item strong{display:block;margin-bottom:4px;color:var(--primary-dark);font-weight:900;}
+    .contact-item a{color:var(--text);}
+    .contact-item a:hover{color:var(--primary-dark);}
+    .small-note{margin-top:10px;color:var(--muted);font-size:0.9rem;}
+
+    /* FOOTER */
+    .footer{padding:40px 0 48px;background:linear-gradient(180deg,rgba(255,241,247,0.6),#fff7fb);border-top:1px solid rgba(236,72,153,0.1);}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+    .footer-brand{font-weight:900;font-size:0.95rem;}
+    .footer-brand small{display:block;color:var(--primary-dark);font-size:0.78rem;font-weight:700;margin-top:2px;}
+    .footer-links{display:flex;gap:10px;flex-wrap:wrap;}
+    .footer-links a{color:var(--muted);font-size:0.88rem;font-weight:700;padding:6px 10px;border-radius:8px;transition:0.2s;}
+    .footer-links a:hover{color:var(--primary-dark);background:var(--primary-soft);}
+    .footer-copy{color:var(--muted);font-size:0.84rem;text-align:center;width:100%;padding-top:16px;border-top:1px solid rgba(236,72,153,0.08);margin-top:8px;}
+
+    /* RESPONSIVE */
+    @media(max-width:980px){
+      .hero-grid,.services-grid,.contact-grid,
+      .gallery-2,.gallery-3,.pricing-grid,
+      .info-grid-3,.results-grid{grid-template-columns:1fr;}
+      .info-grid-2{grid-template-columns:1fr;}
+      .hero-card,.hero-side,.card{padding:22px;}
+      .metric-grid{grid-template-columns:1fr 1fr;}
+      .project-gallery img{height:auto;}
+      .cta-banner{padding:28px 24px;}
+      .nav-links{display:none;}
+      .hamburger{display:flex;}
+    }
+    @media(max-width:640px){
+      .metric-grid{grid-template-columns:1fr;}
+      .btn{width:100%;}
+      .hero-avatar-row{flex-direction:column;align-items:flex-start;gap:12px;}
+      .footer-inner{flex-direction:column;align-items:center;text-align:center;}
+      .footer-links{justify-content:center;}
     }
   </style>
 </head>
 <body>
-  <nav class="nav">
+
+  <nav class="nav" id="mainNav">
     <div class="nav-inner">
-      <div class="brand">
-        呂承恩 Lu Cheng En
-        <small>NNDoiT AI Studio</small>
-      </div>
+      <div class="brand">呂承恩 Lu Cheng En<small>NNDoiT AI Studio</small></div>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -871,25 +267,65 @@
         <a href="#process">合作流程</a>
         <a href="#contact">Contact</a>
       </div>
+      <button class="hamburger" id="hamburger" aria-label="選單">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about" onclick="closeMenu()">About</a>
+      <a href="#services" onclick="closeMenu()">Services</a>
+      <a href="#skills" onclick="closeMenu()">Skills</a>
+      <a href="#projects" onclick="closeMenu()">Projects</a>
+      <a href="#pricing" onclick="closeMenu()">Pricing</a>
+      <a href="#process" onclick="closeMenu()">合作流程</a>
+      <a href="#contact" onclick="closeMenu()">Contact</a>
     </div>
   </nav>
- 
+
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">🤖 LLM Applications <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">⚡ Workflow Automation <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">🗄️ MySQL · PostgreSQL · MongoDB <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">🔗 RAG · Vector Database <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">🐍 Python · FastAPI <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">🔧 n8n · Webhook · API <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">💬 LINE Bot Integration <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">🏭 ERP System Integration <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">🔍 OCR · PaddleOCR <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">🧠 Prompt Engineering <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">📐 Full-Stack Development <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">🤖 LLM Applications <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">⚡ Workflow Automation <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">🗄️ MySQL · PostgreSQL · MongoDB <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">🔗 RAG · Vector Database <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">🐍 Python · FastAPI <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">🔧 n8n · Webhook · API <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">💬 LINE Bot Integration <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">🏭 ERP System Integration <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">🔍 OCR · PaddleOCR <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">🧠 Prompt Engineering <span class="marquee-dot">●</span></span>
+      <span class="marquee-item">📐 Full-Stack Development <span class="marquee-dot">●</span></span>
+    </div>
+  </div>
+
   <header class="hero" id="about">
     <div class="container">
       <div class="hero-grid">
-        <div class="hero-card">
-          <div class="eyebrow">AI Automation · System Integration · Full-Stack Development</div>
+        <div class="hero-card reveal">
+          <div class="hero-avatar-row">
+            <img src="images/bighead.JPG" alt="呂承恩 Lu Cheng En" class="hero-avatar">
+            <div class="hero-avatar-info">
+              <div class="eyebrow">AI Automation · System Integration · Full-Stack</div>
+            </div>
+          </div>
           <h1>呂承恩 Lu Cheng En</h1>
           <div class="hero-subtitle">AI自動化與系統整合工程師｜NNDoiT AI Studio</div>
           <p class="hero-desc">
-            我主要承接各式 <strong class="keyword">AI 工程</strong>、
-            <strong class="keyword">LLM 應用</strong>、
-            <strong class="keyword">流程自動化</strong>、
-            <strong class="keyword">前後端開發</strong>、
-            <strong class="keyword">網頁設計</strong> 與
-            <strong class="keyword">ERP / 企業系統整合</strong>。
-            我擅長把原本需要人工重複操作、跨系統整理、反覆查詢與比對的流程，
-            轉成真正能上線、能維護、能擴充的系統。
+            我主要承接各式 <strong class="keyword">AI 工程</strong>、<strong class="keyword">LLM 應用</strong>、
+            <strong class="keyword">流程自動化</strong>、<strong class="keyword">前後端開發</strong>、
+            <strong class="keyword">網頁設計</strong> 與 <strong class="keyword">ERP / 企業系統整合</strong>。
+            我擅長把原本需要人工重複操作、跨系統整理、反覆查詢與比對的流程，轉成真正能上線、能維護、能擴充的系統。
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#projects">查看作品集 View Projects</a>
@@ -905,15 +341,15 @@
             <span class="chip">Web Design</span>
           </div>
         </div>
- 
-        <div class="glass-card hero-side">
+
+        <div class="glass-card hero-side reveal reveal-delay-2">
           <div class="metric-grid">
             <div class="metric">
-              <strong>90%</strong>
+              <strong><span class="count-up" data-target="90" data-suffix="%">0%</span></strong>
               <span>人工查詢與比對時間縮減（n8n 料號查詢系統）</span>
             </div>
             <div class="metric">
-              <strong>95.2%</strong>
+              <strong><span class="count-up" data-target="95.2" data-suffix="%" data-decimal="1">0%</span></strong>
               <span>Level 2 文件抽取 Document Accuracy</span>
             </div>
             <div class="metric">
@@ -925,460 +361,217 @@
               <span>需求分析 → 設計 → 開發 → 整合 → 展示</span>
             </div>
           </div>
- 
           <div class="mini-panel">
             <h3>我在做什麼？</h3>
-            <p>
-              我做的不只是程式，而是把 <strong class="keyword">資料、流程、介面、後端、API</strong>
-              跟實際需求接起來，讓系統不只是能跑，而是真的好用。
-            </p>
+            <p>我做的不只是程式，而是把 <strong class="keyword">資料、流程、介面、後端、API</strong> 跟實際需求接起來，讓系統不只是能跑，而是真的好用。</p>
           </div>
- 
           <div class="mini-panel">
             <h3>接案方向</h3>
-            <p>
-              可承接 <strong class="keyword">AI 系統</strong>、
-              <strong class="keyword">內部查詢平台</strong>、
-              <strong class="keyword">LINE Bot</strong>、
-              <strong class="keyword">自動化流程</strong>、
-              <strong class="keyword">文件抽取</strong>、
-              <strong class="keyword">ERP 流程優化</strong> 與客製化網頁系統。
-            </p>
+            <p>可承接 <strong class="keyword">AI 系統</strong>、<strong class="keyword">內部查詢平台</strong>、<strong class="keyword">LINE Bot</strong>、<strong class="keyword">自動化流程</strong>、<strong class="keyword">文件抽取</strong>、<strong class="keyword">ERP 流程優化</strong> 與客製化網頁系統。</p>
           </div>
         </div>
       </div>
     </div>
   </header>
- 
-  <section id="services">
+
+  <section id="services" class="section-band">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2 class="section-title">服務項目 Services</h2>
         <p>我提供的是可實際落地的解決方案，不是只交一段 code 就閃人。</p>
       </div>
- 
       <div class="services-grid">
-        <div class="card">
-          <div class="service-icon">AI</div>
-          <h3>AI 應用開發</h3>
-          <p>建立 <strong class="keyword">LLM 應用</strong>、聊天系統、資訊抽取、摘要、分類、RAG 知識檢索與多步驟 AI workflow。</p>
-        </div>
- 
-        <div class="card">
-          <div class="service-icon">WF</div>
-          <h3>流程自動化</h3>
-          <p>使用 <strong class="keyword">n8n、Webhook、排程、API 串接</strong>，把大量人工操作的流程自動化。</p>
-        </div>
- 
-        <div class="card">
-          <div class="service-icon">SYS</div>
-          <h3>系統整合 / 企業內部工具</h3>
-          <p>整合資料庫、Excel、第三方服務與 ERP，建立真正能被內部團隊使用的工具平台。</p>
-        </div>
- 
-        <div class="card">
-          <div class="service-icon">FE</div>
-          <h3>前端 / 網頁設計</h3>
-          <p>製作商業網站、查詢頁面、互動式 UI、後台介面，兼顧美觀與操作流程。</p>
-        </div>
- 
-        <div class="card">
-          <div class="service-icon">BE</div>
-          <h3>後端 / API 開發</h3>
-          <p>建立資料處理流程、後端邏輯、結構化輸出、API 設計與系統整合。</p>
-        </div>
- 
-        <div class="card">
-          <div class="service-icon">ERP</div>
-          <h3>ERP / 流程優化</h3>
-          <p>針對報價、進銷存、料號查詢與跨系統操作痛點，重新設計資料流與流程。</p>
-        </div>
+        <div class="card reveal reveal-delay-1"><div class="service-icon">AI</div><h3>AI 應用開發</h3><p>建立 <strong class="keyword">LLM 應用</strong>、聊天系統、資訊抽取、摘要、分類、RAG 知識檢索與多步驟 AI workflow。</p></div>
+        <div class="card reveal reveal-delay-2"><div class="service-icon">WF</div><h3>流程自動化</h3><p>使用 <strong class="keyword">n8n、Webhook、排程、API 串接</strong>，把大量人工操作的流程自動化。</p></div>
+        <div class="card reveal reveal-delay-3"><div class="service-icon">SYS</div><h3>系統整合 / 企業內部工具</h3><p>整合資料庫、Excel、第三方服務與 ERP，建立真正能被內部團隊使用的工具平台。</p></div>
+        <div class="card reveal reveal-delay-1"><div class="service-icon">FE</div><h3>前端 / 網頁設計</h3><p>製作商業網站、查詢頁面、互動式 UI、後台介面，兼顧美觀與操作流程。</p></div>
+        <div class="card reveal reveal-delay-2"><div class="service-icon">BE</div><h3>後端 / API 開發</h3><p>建立資料處理流程、後端邏輯、結構化輸出、API 設計與系統整合。</p></div>
+        <div class="card reveal reveal-delay-3"><div class="service-icon">ERP</div><h3>ERP / 流程優化</h3><p>針對報價、進銷存、料號查詢與跨系統操作痛點，重新設計資料流與流程。</p></div>
       </div>
     </div>
   </section>
- 
+
   <section id="skills">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2 class="section-title">技能地圖 Skills</h2>
         <p>以下是我目前能獨立處理或整合的技術能力範圍。</p>
       </div>
- 
-      <div class="card">
+      <div class="card reveal">
         <div style="margin-bottom:14px;">
           <div style="font-size:0.88rem;font-weight:900;color:var(--muted);margin-bottom:8px;letter-spacing:0.04em;">▸ 語言 / 框架</div>
-          <div class="chips" style="margin-top:0;">
-            <span class="chip">Python</span>
-            <span class="chip">JavaScript</span>
-            <span class="chip">HTML / CSS</span>
-            <span class="chip">FastAPI / Flask</span>
-            <span class="chip">REST API</span>
-            <span class="chip">Webhook</span>
-            <span class="chip">n8n</span>
-          </div>
+          <div class="chips" style="margin-top:0;"><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">HTML / CSS</span><span class="chip">FastAPI / Flask</span><span class="chip">REST API</span><span class="chip">Webhook</span><span class="chip">n8n</span></div>
         </div>
- 
         <div style="margin-bottom:14px;">
           <div style="font-size:0.88rem;font-weight:900;color:#4338ca;margin-bottom:8px;letter-spacing:0.04em;">▸ 資料庫 / 資料工程</div>
-          <div class="chips" style="margin-top:0;">
-            <span class="chip chip-db">MySQL</span>
-            <span class="chip chip-db">PostgreSQL</span>
-            <span class="chip chip-db">SQLite</span>
-            <span class="chip chip-db">MongoDB</span>
-            <span class="chip chip-db">Redis</span>
-            <span class="chip chip-db">Database Design</span>
-            <span class="chip chip-db">Schema Design</span>
-            <span class="chip chip-db">Data Normalization</span>
-            <span class="chip chip-db">Query Optimization</span>
-            <span class="chip chip-db">Data Migration</span>
-            <span class="chip chip-db">CRUD System</span>
-            <span class="chip chip-db">Vector Database</span>
-          </div>
+          <div class="chips" style="margin-top:0;"><span class="chip chip-db">MySQL</span><span class="chip chip-db">PostgreSQL</span><span class="chip chip-db">SQLite</span><span class="chip chip-db">MongoDB</span><span class="chip chip-db">Redis</span><span class="chip chip-db">Database Design</span><span class="chip chip-db">Schema Design</span><span class="chip chip-db">Data Normalization</span><span class="chip chip-db">Query Optimization</span><span class="chip chip-db">Data Migration</span><span class="chip chip-db">CRUD System</span><span class="chip chip-db">Vector Database</span></div>
         </div>
- 
         <div style="margin-bottom:14px;">
           <div style="font-size:0.88rem;font-weight:900;color:var(--muted);margin-bottom:8px;letter-spacing:0.04em;">▸ AI / LLM</div>
-          <div class="chips" style="margin-top:0;">
-            <span class="chip">LLM Applications</span>
-            <span class="chip">Prompt Engineering</span>
-            <span class="chip">Structured Output</span>
-            <span class="chip">JSON Schema</span>
-            <span class="chip">RAG</span>
-            <span class="chip">LangChain</span>
-            <span class="chip">OpenAI API</span>
-            <span class="chip">OCR / CAPTCHA Recognition</span>
-            <span class="chip">PaddleOCR</span>
-          </div>
+          <div class="chips" style="margin-top:0;"><span class="chip">LLM Applications</span><span class="chip">Prompt Engineering</span><span class="chip">Structured Output</span><span class="chip">JSON Schema</span><span class="chip">RAG</span><span class="chip">LangChain</span><span class="chip">OpenAI API</span><span class="chip">OCR / CAPTCHA Recognition</span><span class="chip">PaddleOCR</span></div>
         </div>
- 
         <div>
           <div style="font-size:0.88rem;font-weight:900;color:var(--muted);margin-bottom:8px;letter-spacing:0.04em;">▸ 系統 / 整合</div>
-          <div class="chips" style="margin-top:0;">
-            <span class="chip">ERP Workflow Analysis</span>
-            <span class="chip">System Integration</span>
-            <span class="chip">Frontend UI Design</span>
-            <span class="chip">Internal Dashboard</span>
-            <span class="chip">DataTables</span>
-            <span class="chip">Git / GitHub</span>
-            <span class="chip">Full-Stack Thinking</span>
-          </div>
+          <div class="chips" style="margin-top:0;"><span class="chip">ERP Workflow Analysis</span><span class="chip">System Integration</span><span class="chip">Frontend UI Design</span><span class="chip">Internal Dashboard</span><span class="chip">DataTables</span><span class="chip">Git / GitHub</span><span class="chip">Full-Stack Thinking</span></div>
         </div>
       </div>
     </div>
   </section>
- 
-  <section id="projects">
+
+  <section id="projects" class="section-band">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2 class="section-title">精選作品 Projects</h2>
         <p>每個專案都是一個完整案例，不做左右並排，直接讓重點一眼看清楚。</p>
       </div>
- 
       <div class="projects-grid">
-        <article class="card project-card">
+
+        <article class="card project-card reveal">
           <div class="project-top">
-            <div>
-              <h3>UDE 料號查詢自動化平台</h3>
-              <div class="project-desc">
-                以 n8n 為核心打造企業內部料號查詢與資料整合平台，整合 MySQL、Excel 與即時查詢介面，
-                將原本繁瑣的人工查詢 / 比對流程自動化。
-              </div>
-            </div>
+            <div><h3>UDE 料號查詢自動化平台</h3><div class="project-desc">以 n8n 為核心打造企業內部料號查詢與資料整合平台，整合 MySQL、Excel 與即時查詢介面，將原本繁瑣的人工查詢 / 比對流程自動化。</div></div>
             <div class="project-tag">Featured Project</div>
           </div>
- 
-          <div class="project-gallery gallery-2">
-            <img src="images/n8n-workflow.png" alt="n8n workflow screenshot">
-            <img src="images/n8n-ui.png" alt="n8n ui screenshot">
+          <div class="browser-frame">
+            <div class="browser-bar"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">internal.ude-system.local / query</div></div>
+            <div class="browser-content project-gallery gallery-2" style="padding:12px;background:#fff;">
+              <img src="images/n8n-workflow.png" alt="n8n workflow"><img src="images/n8n-ui.png" alt="n8n ui">
+            </div>
           </div>
- 
-          <div class="project-meta">
-            <span>n8n</span>
-            <span>MySQL</span>
-            <span>JavaScript Function Node</span>
-            <span>HTML + DataTables</span>
-            <span>Workflow Automation</span>
-            <span>Internal Tool</span>
-          </div>
- 
+          <div class="project-meta"><span>n8n</span><span>MySQL</span><span>JavaScript Function Node</span><span>HTML + DataTables</span><span>Workflow Automation</span><span>Internal Tool</span></div>
           <ul class="project-points">
             <li>解決人工查詢 Excel 與資料庫、手動比對料號與欄位資料的低效率流程。</li>
             <li>透過欄位正規化與 join key 機制，自動比對並同步更新資料，降低重工與資料不一致問題。</li>
             <li>以前端即時查詢介面提升內部操作效率與使用體驗。</li>
             <li>針對大資料量執行調整系統參數，改善效能瓶頸。</li>
           </ul>
- 
-          <div class="highlight-box">
-            <strong>成果：</strong>
-            減少人工查詢與比對時間約 <strong>90%</strong>，提升資料一致性，並建立可擴充的企業內部查詢工具。
-          </div>
- 
-          <div class="project-actions">
-            <span class="btn btn-secondary">企業內部系統，未公開原始碼</span>
-          </div>
+          <div class="highlight-box"><strong>成果：</strong>減少人工查詢與比對時間約 <strong>90%</strong>，提升資料一致性，並建立可擴充的企業內部查詢工具。</div>
+          <div class="project-actions"><span class="btn btn-secondary">企業內部系統，未公開原始碼</span></div>
         </article>
- 
-        <article class="card project-card">
+
+        <article class="card project-card reveal">
           <div class="project-top">
-            <div>
-              <h3>AI Nutritionist</h3>
-              <div class="project-desc">
-                整合熱量分析、圖片分析與 AI 飲食教練三種介面，將健康查詢、熱量估算與飲食規劃集中在同一套系統中。
-              </div>
-            </div>
+            <div><h3>AI Nutritionist</h3><div class="project-desc">整合熱量分析、圖片分析與 AI 飲食教練三種介面，將健康查詢、熱量估算與飲食規劃集中在同一套系統中。</div></div>
             <div class="project-tag">AI Health App</div>
           </div>
- 
-          <div class="project-gallery gallery-3">
-            <img src="images/ai-nutritionist-1.png" alt="AI Nutritionist screenshot 1">
-            <img src="images/ai-nutritionist-3.png" alt="AI Nutritionist screenshot 2">
-            <img src="images/ai-nutritionist-4.png" alt="AI Nutritionist screenshot 3">
+          <div class="browser-frame">
+            <div class="browser-bar"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">AI Nutritionist · Calorie · Coach</div></div>
+            <div class="browser-content" style="padding:12px;background:#fff;">
+              <div class="project-gallery gallery-3" style="margin-bottom:12px;"><img src="images/ai-nutritionist-1.png" alt=""><img src="images/ai-nutritionist-3.png" alt=""><img src="images/ai-nutritionist-4.png" alt=""></div>
+              <div class="project-gallery gallery-3"><img src="images/ai-nutritionist-2.png" alt=""><img src="images/ai-nutritionist-5.png" alt=""><img src="images/ai-nutritionist-6.png" alt=""></div>
+            </div>
           </div>
- 
-          <div class="project-gallery gallery-3">
-            <img src="images/ai-nutritionist-2.png" alt="AI Nutritionist screenshot 4">
-            <img src="images/ai-nutritionist-5.png" alt="AI Nutritionist screenshot 5">
-            <img src="images/ai-nutritionist-6.png" alt="AI Nutritionist screenshot 6">
-          </div>
- 
-          <div class="project-meta">
-            <span>Python</span>
-            <span>LLM</span>
-            <span>RAG</span>
-            <span>Nutrition Analysis</span>
-            <span>Image Analysis</span>
-            <span>Health Coaching</span>
-          </div>
- 
+          <div class="project-meta"><span>Python</span><span>LLM</span><span>RAG</span><span>Nutrition Analysis</span><span>Image Analysis</span><span>Health Coaching</span></div>
           <ul class="project-points">
             <li>整合 <strong class="keyword">文字熱量分析</strong>、<strong class="keyword">上傳照片分析熱量</strong>、<strong class="keyword">AI 飲食教練</strong> 三大功能。</li>
             <li>減少大多數人反覆搜尋食物熱量資料的時間，並把多來源資訊整合到同一個系統。</li>
             <li>降低使用者對人工營養規劃的依賴，讓健康管理更容易開始。</li>
             <li>讓使用者可透過單一程式完成熱量估算、飲食紀錄與 AI 飲食建議。</li>
           </ul>
- 
-          <div class="highlight-box">
-            <strong>價值：</strong>
-            把零散的健康資訊整合成可持續使用的工具，降低查詢成本並提升日常使用效率。
-          </div>
- 
-          <div class="project-actions">
-            <a class="btn btn-primary" href="https://github.com/ChengEnLu252/AI-Nutritionist.git" target="_blank">View GitHub</a>
-          </div>
+          <div class="highlight-box"><strong>價值：</strong>把零散的健康資訊整合成可持續使用的工具，降低查詢成本並提升日常使用效率。</div>
+          <div class="project-actions"><a class="btn btn-primary" href="https://github.com/ChengEnLu252/AI-Nutritionist.git" target="_blank">View GitHub</a></div>
         </article>
- 
-        <article class="card project-card">
+
+        <article class="card project-card reveal">
           <div class="project-top">
-            <div>
-              <h3>CakeHunt｜多平台自動化搶票系統</h3>
-              <div class="project-desc">
-                我設計的多帳號同時搶票程式，將整個搶票流程交由系統自動執行，並整合 OCR 驗證碼辨識與即時監控功能。
-              </div>
-            </div>
+            <div><h3>CakeHunt｜多平台自動化搶票系統</h3><div class="project-desc">我設計的多帳號同時搶票程式，將整個搶票流程交由系統自動執行，並整合 OCR 驗證碼辨識與即時監控功能。</div></div>
             <div class="project-tag">Automation Tool</div>
           </div>
- 
-          <div class="project-gallery gallery-2">
-            <img src="images/CakeHunt1.png" alt="CakeHunt screenshot 1">
-            <img src="images/CakeHunt2.png" alt="CakeHunt screenshot 2">
+          <div class="browser-frame">
+            <div class="browser-bar"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">CakeHunt · Multi-Account Ticket Bot</div></div>
+            <div class="browser-content" style="padding:12px;background:#fff;">
+              <div class="project-gallery gallery-2" style="margin-bottom:12px;"><img src="images/CakeHunt1.png" alt=""><img src="images/CakeHunt2.png" alt=""></div>
+              <div class="project-gallery gallery-2"><img src="images/CakeHunt3.png" alt=""><img src="images/CakeHunt4.png" alt=""></div>
+            </div>
           </div>
- 
-          <div class="project-gallery gallery-2">
-            <img src="images/CakeHunt3.png" alt="CakeHunt screenshot 3">
-            <img src="images/CakeHunt4.png" alt="CakeHunt screenshot 4">
-          </div>
- 
-          <div class="project-meta">
-            <span>Automation</span>
-            <span>OCR</span>
-            <span>CAPTCHA Recognition</span>
-            <span>Multi-Account Workflow</span>
-            <span>Real-Time Monitoring</span>
-          </div>
- 
+          <div class="project-meta"><span>Automation</span><span>OCR</span><span>CAPTCHA Recognition</span><span>Multi-Account Workflow</span><span>Real-Time Monitoring</span></div>
           <ul class="project-points">
             <li>將原本高度依賴人工操作的搶票流程自動化，降低手動刷新、填表與反覆輸入的負擔。</li>
             <li>支援 <strong class="keyword">多帳號同時執行</strong>，提高整體搶票效率。</li>
             <li>整合 <strong class="keyword">即時監控系統</strong>，可觀察每個帳號的搶票進度。</li>
             <li>結合 <strong class="keyword">OCR 驗證碼辨識</strong> 與自動填入，大幅減少人工操作時間並提升成功率。</li>
           </ul>
- 
-          <div class="highlight-box">
-            <strong>成果：</strong>
-            將搶票從高壓手動流程轉成自動化工具，大幅降低人工介入成本並提升整體成功機率。
-          </div>
- 
-          <div class="project-actions">
-            <a class="btn btn-primary" href="https://github.com/ChengEnLu252/CakeHunt.git" target="_blank">View GitHub</a>
-          </div>
+          <div class="highlight-box"><strong>成果：</strong>將搶票從高壓手動流程轉成自動化工具，大幅降低人工介入成本並提升整體成功機率。</div>
+          <div class="project-actions"><a class="btn btn-primary" href="https://github.com/ChengEnLu252/CakeHunt.git" target="_blank">View GitHub</a></div>
         </article>
- 
-        <article class="card project-card">
+
+        <article class="card project-card reveal">
           <div class="project-top">
-            <div>
-              <h3>line-cloud-webhook｜CareBuddy 健康陪伴機器人</h3>
-              <div class="project-desc">
-                一個串接進 LINE 的健康陪伴機器人。若最近常常有小疾病，可透過它來記錄症狀、自動寫入資料庫並獲得即時回覆。
-              </div>
-            </div>
+            <div><h3>line-cloud-webhook｜CareBuddy 健康陪伴機器人</h3><div class="project-desc">一個串接進 LINE 的健康陪伴機器人。若最近常常有小疾病，可透過它來記錄症狀、自動寫入資料庫並獲得即時回覆。</div></div>
             <div class="project-tag">LINE Bot / Health Record</div>
           </div>
- 
-          <div class="project-gallery gallery-3">
-            <img src="images/line-webhook1.jpg" alt="line-cloud-webhook screenshot 1">
-            <img src="images/line-webhook2.jpg" alt="line-cloud-webhook screenshot 2">
-            <img src="images/line-webhook3.jpg" alt="line-cloud-webhook screenshot 3">
+          <div class="browser-frame">
+            <div class="browser-bar"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">LINE · CareBuddy Health Bot</div></div>
+            <div class="browser-content project-gallery gallery-3" style="padding:12px;background:#fff;">
+              <img src="images/line-webhook1.jpg" alt=""><img src="images/line-webhook2.jpg" alt=""><img src="images/line-webhook3.jpg" alt="">
+            </div>
           </div>
- 
-          <div class="project-meta">
-            <span>LINE Integration</span>
-            <span>Webhook</span>
-            <span>CRUD</span>
-            <span>Health Record</span>
-            <span>Backend Logic</span>
-            <span>Database</span>
-          </div>
- 
+          <div class="project-meta"><span>LINE Integration</span><span>Webhook</span><span>CRUD</span><span>Health Record</span><span>Backend Logic</span><span>Database</span></div>
           <ul class="project-points">
             <li>具備健康紀錄的 <strong class="keyword">CRUD 功能</strong>，可透過 LINE 對話自然完成資料新增、查詢與管理。</li>
             <li>系統會自動儲存症狀到資料庫，降低手動紀錄成本。</li>
             <li>提供症狀的即時回覆，<strong class="keyword">不會亂下醫囑</strong>；若情況嚴重則建議就醫。</li>
             <li>主打一種 <strong class="keyword">陪伴感與心靈安慰</strong>，像是當你不舒服時身邊有個會回應你的小貼心。</li>
           </ul>
- 
-          <div class="highlight-box">
-            <strong>價值：</strong>
-            將健康紀錄與即時回覆整合進日常聊天場景中，降低門檻，讓健康管理變得更自然、更願意持續使用。
-          </div>
- 
-          <div class="project-actions">
-            <a class="btn btn-primary" href="https://github.com/ChengEnLu252/line-cloud-webhook.git" target="_blank">View GitHub</a>
-          </div>
+          <div class="highlight-box"><strong>價值：</strong>將健康紀錄與即時回覆整合進日常聊天場景中，降低門檻，讓健康管理變得更自然、更願意持續使用。</div>
+          <div class="project-actions"><a class="btn btn-primary" href="https://github.com/ChengEnLu252/line-cloud-webhook.git" target="_blank">View GitHub</a></div>
         </article>
- 
-        <article class="card project-card">
+
+        <article class="card project-card reveal">
           <div class="project-top">
-            <div>
-              <h3>LLM Order Extraction Thesis</h3>
-              <div class="project-desc">
-                研究大型語言模型於異質訂單文件之關鍵資訊擷取與標準化，建立從文件解析、prompt 設計到評估分析的完整流程。
-              </div>
-            </div>
+            <div><h3>LLM Order Extraction Thesis</h3><div class="project-desc">研究大型語言模型於異質訂單文件之關鍵資訊擷取與標準化，建立從文件解析、prompt 設計到評估分析的完整流程。</div></div>
             <div class="project-tag">Research / AI</div>
           </div>
- 
-          <div class="project-meta">
-            <span>Python</span>
-            <span>LLM</span>
-            <span>Prompt Engineering</span>
-            <span>JSON Schema</span>
-            <span>OCR</span>
-            <span>Evaluation</span>
-          </div>
- 
+          <div class="project-meta"><span>Python</span><span>LLM</span><span>Prompt Engineering</span><span>JSON Schema</span><span>OCR</span><span>Evaluation</span></div>
           <ul class="project-points">
             <li>處理異質訂單中欄位名稱變異、資訊分散、格式複雜與干擾資訊過多等問題。</li>
             <li>建立結構化 schema 與標準化輸出流程，使模型結果可比較、可分析、可重現。</li>
             <li>Level 2 正式結果達 <strong class="keyword">95.2% Document Accuracy</strong>。</li>
             <li>進一步延伸至 Level 3 OCR / 影像版本，降低人工整理非結構化文件的成本。</li>
           </ul>
- 
-          <div class="highlight-box">
-            <strong>成果：</strong>
-            將原本格式多變的非結構化訂單內容轉為標準化 JSON，為企業文件處理與後續系統串接建立基礎。
-          </div>
- 
-          <div class="project-actions">
-            <a class="btn btn-primary" href="https://github.com/ChengEnLu252/LLM_Order_Extraction_Thesis.git" target="_blank">View GitHub</a>
-          </div>
+          <div class="highlight-box"><strong>成果：</strong>將原本格式多變的非結構化訂單內容轉為標準化 JSON，為企業文件處理與後續系統串接建立基礎。</div>
+          <div class="project-actions"><a class="btn btn-primary" href="https://github.com/ChengEnLu252/LLM_Order_Extraction_Thesis.git" target="_blank">View GitHub</a></div>
         </article>
+
       </div>
     </div>
   </section>
- 
-  <!-- ══════════════════════════════════ PRICING ══════════════════════════════════ -->
+
   <section id="pricing">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2 class="section-title">收費方式 Pricing</h2>
         <p>依據專案規模與功能複雜度報價，以下為參考區間；實際報價在需求確認後提供。</p>
       </div>
- 
-      <!-- Early Bird Banner -->
-      <div class="early-bird-banner" style="margin-bottom:22px;">
+      <div class="early-bird-banner reveal" style="margin-bottom:22px;">
         <div class="early-bird-badge">🎉 創業優惠</div>
-        <div class="early-bird-text">
-          作為 NNDoiT AI Studio 的草創期，<strong>前 10 位合作客戶</strong>將享有專屬優惠折扣，
-          以感謝您在初期給予的信任與支持。名額有限，歡迎把握。
-        </div>
+        <div class="early-bird-text">作為 NNDoiT AI Studio 的草創期，<strong>前 10 位合作客戶</strong>將享有專屬優惠折扣，以感謝您在初期給予的信任與支持。名額有限，歡迎把握。</div>
         <a class="btn btn-line" href="https://lin.ee/Wc5Bozb" target="_blank" style="white-space:nowrap;">💬 立即詢問</a>
       </div>
- 
-      <!-- Pricing Cards -->
       <div class="pricing-grid">
-        <div class="pricing-card">
-          <div class="pricing-icon">🔹</div>
-          <div class="pricing-label">諮詢 / 規劃</div>
-          <div class="pricing-range">NT$1,000<br>~ 3,000</div>
-          <div class="pricing-desc">需求梳理、架構建議、可行性評估。<br>費用可折抵後續專案。</div>
-        </div>
- 
-        <div class="pricing-card">
-          <div class="pricing-icon">🔹</div>
-          <div class="pricing-label">小型專案</div>
-          <div class="pricing-range">NT$10,000<br>~ 30,000</div>
-          <div class="pricing-desc">單一功能 / 簡單自動化 / 小工具。<br>約 1~2 週完成。</div>
-        </div>
- 
-        <div class="pricing-card">
-          <div class="pricing-icon">🔹</div>
-          <div class="pricing-label">中型專案</div>
-          <div class="pricing-range">NT$30,000<br>~ 80,000</div>
-          <div class="pricing-desc">系統整合 / LINE Bot / 多流程。<br>約 3~6 週完成。</div>
-        </div>
- 
-        <div class="pricing-card">
-          <div class="pricing-icon">🔹</div>
-          <div class="pricing-label">大型專案</div>
-          <div class="pricing-range">NT$80,000+</div>
-          <div class="pricing-desc">完整系統 / ERP / AI 平台。<br>依複雜度與時程另議。</div>
-        </div>
+        <div class="pricing-card reveal reveal-delay-1"><div class="pricing-icon">🔹</div><div class="pricing-label">諮詢 / 規劃</div><div class="pricing-range">NT$1,000<br>~ 3,000</div><div class="pricing-desc">需求梳理、架構建議、可行性評估。<br>費用可折抵後續專案。</div></div>
+        <div class="pricing-card reveal reveal-delay-2"><div class="pricing-icon">🔹</div><div class="pricing-label">小型專案</div><div class="pricing-range">NT$10,000<br>~ 30,000</div><div class="pricing-desc">單一功能 / 簡單自動化 / 小工具。<br>約 1~2 週完成。</div></div>
+        <div class="pricing-card reveal reveal-delay-3"><div class="pricing-icon">🔹</div><div class="pricing-label">中型專案</div><div class="pricing-range">NT$30,000<br>~ 80,000</div><div class="pricing-desc">系統整合 / LINE Bot / 多流程。<br>約 3~6 週完成。</div></div>
+        <div class="pricing-card reveal reveal-delay-4"><div class="pricing-icon">🔹</div><div class="pricing-label">大型專案</div><div class="pricing-range">NT$80,000+</div><div class="pricing-desc">完整系統 / ERP / AI 平台。<br>依複雜度與時程另議。</div></div>
       </div>
- 
-      <!-- Payment Terms -->
-      <div class="payment-terms">
+      <div class="payment-terms reveal">
         <div class="payment-terms-title">💳 付款條件</div>
         <div class="payment-steps">
-          <div class="payment-step">
-            <span class="payment-step-pct">30%</span>
-            <span class="payment-step-label">訂金 — 開始前支付</span>
-          </div>
-          <div class="payment-step">
-            <span class="payment-step-pct">40%</span>
-            <span class="payment-step-label">中期 — Demo / 初版完成</span>
-          </div>
-          <div class="payment-step">
-            <span class="payment-step-pct">30%</span>
-            <span class="payment-step-label">尾款 — 驗收交付後</span>
-          </div>
+          <div class="payment-step"><span class="payment-step-pct">30%</span><span class="payment-step-label">訂金 — 開始前支付</span></div>
+          <div class="payment-step"><span class="payment-step-pct">40%</span><span class="payment-step-label">中期 — Demo / 初版完成</span></div>
+          <div class="payment-step"><span class="payment-step-pct">30%</span><span class="payment-step-label">尾款 — 驗收交付後</span></div>
         </div>
       </div>
- 
     </div>
   </section>
- 
-  <!-- ══════════════════════════════════ PROCESS ══════════════════════════════════ -->
-  <section id="process">
+
+  <section id="process" class="section-band">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2 class="section-title">合作說明 How We Work</h2>
         <p>從第一次聯繫到系統交付，整個流程清楚透明，你知道每一步在做什麼。</p>
       </div>
- 
-      <!-- Row 1: Process + Why Choose Me -->
       <div class="info-grid-3">
-        <!-- 合作流程 -->
-        <div class="info-card">
+        <div class="info-card reveal reveal-delay-1">
           <h3>🗂 合作流程</h3>
           <ol class="process-list">
             <li><span class="process-num">1</span><span>加入 LINE 並描述需求</span></li>
@@ -1389,9 +582,7 @@
             <li><span class="process-num">6</span><span>完成交付與驗收</span></li>
           </ol>
         </div>
- 
-        <!-- 適合/不適合 -->
-        <div class="info-card" style="display:flex;flex-direction:column;gap:20px;">
+        <div class="info-card reveal reveal-delay-2" style="display:flex;flex-direction:column;gap:20px;">
           <div>
             <h3>✅ 適合找我</h3>
             <ul class="check-list">
@@ -1409,9 +600,7 @@
             </ul>
           </div>
         </div>
- 
-        <!-- 為什麼選我 -->
-        <div class="info-card">
+        <div class="info-card reveal reveal-delay-3">
           <h3>💡 為什麼選我</h3>
           <ul class="check-list">
             <li><span class="check-icon">→</span><span>不只是寫程式，而是幫你設計完整系統</span></li>
@@ -1422,171 +611,71 @@
           </ul>
         </div>
       </div>
- 
-      <!-- Row 2: Results -->
+
       <div class="info-grid-2">
-        <div class="info-card">
+        <div class="info-card reveal">
           <h3>📊 專案成果</h3>
           <div class="results-grid">
-            <div class="result-item">
-              <span class="result-num">−90%</span>
-              <span class="result-label">料號查詢系統<br>人工操作時間縮減</span>
-            </div>
-            <div class="result-item">
-              <span class="result-num">95.2%</span>
-              <span class="result-label">文件抽取模型<br>Document Accuracy</span>
-            </div>
-            <div class="result-item">
-              <span class="result-num">多帳號</span>
-              <span class="result-label">搶票系統<br>OCR 驗證碼自動辨識</span>
-            </div>
-            <div class="result-item">
-              <span class="result-num">3 合 1</span>
-              <span class="result-label">AI 營養師<br>分析 / 照片 / 教練整合</span>
-            </div>
-            <div class="result-item">
-              <span class="result-num">End-to-End</span>
-              <span class="result-label">需求 → 架構 → 開發<br>→ 部署一條龍</span>
-            </div>
-            <div class="result-item">
-              <span class="result-num">全 CRUD</span>
-              <span class="result-label">LINE Bot 對話式<br>健康紀錄系統</span>
-            </div>
+            <div class="result-item"><span class="result-num">−<span class="count-up" data-target="90" data-suffix="%">0%</span></span><span class="result-label">料號查詢系統<br>人工操作時間縮減</span></div>
+            <div class="result-item"><span class="result-num"><span class="count-up" data-target="95.2" data-suffix="%" data-decimal="1">0%</span></span><span class="result-label">文件抽取模型<br>Document Accuracy</span></div>
+            <div class="result-item"><span class="result-num">多帳號</span><span class="result-label">搶票系統<br>OCR 驗證碼自動辨識</span></div>
+            <div class="result-item"><span class="result-num">3 合 1</span><span class="result-label">AI 營養師<br>分析 / 照片 / 教練整合</span></div>
+            <div class="result-item"><span class="result-num">End-to-End</span><span class="result-label">需求 → 架構 → 開發<br>→ 部署一條龍</span></div>
+            <div class="result-item"><span class="result-num">全 CRUD</span><span class="result-label">LINE Bot 對話式<br>健康紀錄系統</span></div>
           </div>
         </div>
- 
-        <!-- FAQ -->
-        <div class="info-card">
+        <div class="info-card reveal">
           <h3>❓ 常見問題 FAQ</h3>
-          <div style="display:flex;flex-direction:column;gap:14px;">
- 
-            <div class="faq-item">
-              <div class="faq-q">Q：開發需要多久？</div>
-              <p class="faq-a">依專案規模而定。小型約 1~2 週；中型 3~6 週以上；大型系統另行評估。</p>
-            </div>
- 
-            <div class="faq-item">
-              <div class="faq-q">Q：費用怎麼算？</div>
-              <p class="faq-a">依功能數量與複雜度報價，確認需求後提供明確區間，不會隨意追加費用。</p>
-            </div>
- 
-            <div class="faq-item">
-              <div class="faq-q">Q：可以先討論再決定嗎？</div>
-              <p class="faq-a">當然可以。初步諮詢與需求評估完全免費，歡迎直接加 LINE 聊聊。</p>
-            </div>
- 
-            <div class="faq-item">
-              <div class="faq-q">Q：可以遠端合作嗎？</div>
-              <p class="faq-a">可以。大多數專案都透過線上溝通完成，地區不限。</p>
-            </div>
- 
-            <div class="faq-item">
-              <div class="faq-q">Q：交付內容包含什麼？</div>
-              <p class="faq-a">是專案而定，通常包含執行檔、部署說明與基本操作教學，確保你或你的團隊能實際接手維護。</p>
-            </div>
- 
-            <div class="faq-item">
-              <div class="faq-q">Q：開發完成後有維護服務嗎？</div>
-              <p class="faq-a">視需求而定，可另外討論維護或後續迭代方案，費用依範圍另計。</p>
-            </div>
- 
-            <div class="faq-item">
-              <div class="faq-q">Q：需要提供什麼才能開始？</div>
-              <p class="faq-a">只需描述你目前遇到的問題或現有流程，不需要懂技術，我來協助拆解需求。</p>
-            </div>
- 
-            <div class="faq-item">
-              <div class="faq-q">Q：如果需求中途改變怎麼辦？</div>
-              <p class="faq-a">小幅調整通常可以彈性處理；若影響範圍較大，會提前溝通並重新評估時程與費用。</p>
-            </div>
- 
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div class="faq-item"><div class="faq-q">Q：開發需要多久？</div><p class="faq-a">依專案規模而定。小型約 1~2 週；中型 3~6 週以上；大型系統另行評估。</p></div>
+            <div class="faq-item"><div class="faq-q">Q：費用怎麼算？</div><p class="faq-a">依功能數量與複雜度報價，確認需求後提供明確區間，不會隨意追加費用。</p></div>
+            <div class="faq-item"><div class="faq-q">Q：可以先討論再決定嗎？</div><p class="faq-a">當然可以。初步諮詢與需求評估完全免費，歡迎直接加 LINE 聊聊。</p></div>
+            <div class="faq-item"><div class="faq-q">Q：可以遠端合作嗎？</div><p class="faq-a">可以。大多數專案都透過線上溝通完成，地區不限。</p></div>
+            <div class="faq-item"><div class="faq-q">Q：交付內容包含什麼？</div><p class="faq-a">視專案而定，通常包含執行檔、部署說明與基本操作教學，確保你或你的團隊能實際接手維護。</p></div>
+            <div class="faq-item"><div class="faq-q">Q：開發完成後有維護服務嗎？</div><p class="faq-a">視需求而定，可另外討論維護或後續迭代方案，費用依範圍另計。</p></div>
+            <div class="faq-item"><div class="faq-q">Q：需要提供什麼才能開始？</div><p class="faq-a">只需描述你目前遇到的問題或現有流程，不需要懂技術，我來協助拆解需求。</p></div>
+            <div class="faq-item"><div class="faq-q">Q：如果需求中途改變怎麼辦？</div><p class="faq-a">小幅調整通常可以彈性處理；若影響範圍較大，會提前溝通並重新評估時程與費用。</p></div>
           </div>
         </div>
       </div>
- 
-      <!-- CTA Banner -->
-      <div class="cta-banner">
+
+      <div class="cta-banner reveal">
         <div class="cta-banner-text">
           <h3>有想做的系統或 AI 專案？</h3>
           <p>不用想太多，直接把需求丟給我。<br>我幫你一起把架構跟做法整理出來。</p>
         </div>
         <a class="btn btn-white" href="https://lin.ee/Wc5Bozb" target="_blank">💬 立即加 LINE 討論</a>
       </div>
- 
     </div>
   </section>
- 
-  <!-- ══════════════════════════════════ CONTACT ══════════════════════════════════ -->
+
   <section id="contact">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2 class="section-title">聯絡方式 Contact</h2>
         <p>如果你有 AI、自動化、LINE Bot、網頁系統、企業內部工具或資料整合相關需求，歡迎直接聯絡我。</p>
       </div>
- 
       <div class="contact-grid">
-        <div class="card">
+        <div class="card reveal reveal-delay-1">
           <h3>Contact Info</h3>
           <div class="contact-list">
-            <div class="contact-item">
-              <strong>Phone</strong>
-              <a href="tel:0963718302">0963-718-302</a>
-            </div>
-            <div class="contact-item">
-              <strong>Email</strong>
-              <a href="mailto:nndoitaistudio@gmail.com">nndoitaistudio@gmail.com</a>
-            </div>
-            <div class="contact-item">
-              <strong>GitHub</strong>
-              <a href="https://github.com/ChengEnLu252" target="_blank">https://github.com/ChengEnLu252</a>
-            </div>
-            <div class="contact-item">
-              <strong>Instagram</strong>
-              <a href="https://www.instagram.com/nndoit_ai_studio" target="_blank">@nndoit_ai_studio</a>
-            </div>
-            <div class="contact-item">
-              <strong>Facebook</strong>
-              <a href="https://www.facebook.com/profile.php?id=61577420115975" target="_blank">NNDoiT AI Studio</a>
-            </div>
-            <div class="contact-item">
-              <strong>LINE 官方帳號</strong>
-              <a href="https://lin.ee/Wc5Bozb" target="_blank" style="color:var(--primary-dark);font-weight:900;">💬 https://lin.ee/Wc5Bozb</a>
-            </div>
-            <div class="contact-item">
-              <strong>Studio</strong>
-              <span>NNDoiT AI Studio</span>
-            </div>
+            <div class="contact-item"><strong>Phone</strong><a href="tel:0963718302">0963-718-302</a></div>
+            <div class="contact-item"><strong>Email</strong><a href="mailto:nndoitaistudio@gmail.com">nndoitaistudio@gmail.com</a></div>
+            <div class="contact-item"><strong>GitHub</strong><a href="https://github.com/ChengEnLu252" target="_blank">github.com/ChengEnLu252</a></div>
+            <div class="contact-item"><strong>Instagram</strong><a href="https://www.instagram.com/nndoit_ai_studio" target="_blank">@nndoit_ai_studio</a></div>
+            <div class="contact-item"><strong>Facebook</strong><a href="https://www.facebook.com/profile.php?id=61577420115975" target="_blank">NNDoiT AI Studio</a></div>
+            <div class="contact-item"><strong>LINE 官方帳號</strong><a href="https://lin.ee/Wc5Bozb" target="_blank" style="color:var(--primary-dark);font-weight:900;">💬 https://lin.ee/Wc5Bozb</a></div>
+            <div class="contact-item"><strong>Studio</strong><span>NNDoiT AI Studio</span></div>
           </div>
-          <div class="small-note">
-            目前有接案需求，一律透過官方 LINE 帳號聯繫哦～
-          </div>
+          <div class="small-note">目前有接案需求，一律透過官方 LINE 帳號聯繫哦～</div>
         </div>
- 
-        <div class="card">
+        <div class="card reveal reveal-delay-2">
           <h3>合作方向 Collaboration</h3>
-          <p>
-            可合作範圍包含 <strong class="keyword">AI 系統開發</strong>、
-            <strong class="keyword">LLM / RAG 應用</strong>、
-            <strong class="keyword">文件與資料抽取</strong>、
-            <strong class="keyword">自動化流程設計</strong>、
-            <strong class="keyword">LINE Bot</strong>、
-            <strong class="keyword">Webhook / API 串接</strong>、
-            <strong class="keyword">前後端開發</strong>、
-            <strong class="keyword">查詢平台</strong>、
-            <strong class="keyword">網頁設計</strong>、
-            <strong class="keyword">ERP / 流程優化</strong> 與
-            <strong class="keyword">企業系統整合</strong>。
-          </p>
+          <p>可合作範圍包含 <strong class="keyword">AI 系統開發</strong>、<strong class="keyword">LLM / RAG 應用</strong>、<strong class="keyword">文件與資料抽取</strong>、<strong class="keyword">自動化流程設計</strong>、<strong class="keyword">LINE Bot</strong>、<strong class="keyword">Webhook / API 串接</strong>、<strong class="keyword">前後端開發</strong>、<strong class="keyword">查詢平台</strong>、<strong class="keyword">網頁設計</strong>、<strong class="keyword">ERP / 流程優化</strong> 與 <strong class="keyword">企業系統整合</strong>。</p>
           <div class="chips">
-            <span class="chip">AI Consulting</span>
-            <span class="chip">Automation</span>
-            <span class="chip">System Integration</span>
-            <span class="chip">Internal Tools</span>
-            <span class="chip">LINE Bot</span>
-            <span class="chip">Web Development</span>
-            <span class="chip">ERP Workflow</span>
+            <span class="chip">AI Consulting</span><span class="chip">Automation</span><span class="chip">System Integration</span>
+            <span class="chip">Internal Tools</span><span class="chip">LINE Bot</span><span class="chip">Web Development</span><span class="chip">ERP Workflow</span>
           </div>
- 
           <div style="margin-top:22px;padding:20px;background:linear-gradient(135deg,#06c755,#00a846);border-radius:18px;color:#fff;">
             <strong style="display:block;margin-bottom:8px;font-size:1.05rem;">有需求？直接來聊</strong>
             <p style="margin:0 0 14px;opacity:0.92;font-size:0.95rem;color:#fff;">不需要先準備好完整規格，把想解決的問題告訴我，我們一起討論可行方案。</p>
@@ -1596,11 +685,73 @@
       </div>
     </div>
   </section>
- 
+
   <footer class="footer">
     <div class="container">
-      © 2026 Lu Cheng En / NNDoiT AI Studio. Built for real-world AI systems, automation, workflow integration, and client-ready delivery.
+      <div class="footer-inner">
+        <div class="footer-brand">呂承恩 Lu Cheng En<small>NNDoiT AI Studio</small></div>
+        <div class="footer-links">
+          <a href="#about">About</a><a href="#services">Services</a>
+          <a href="#projects">Projects</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
+          <a href="https://lin.ee/Wc5Bozb" target="_blank">💬 LINE</a>
+          <a href="https://www.instagram.com/nndoit_ai_studio" target="_blank">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61577420115975" target="_blank">Facebook</a>
+        </div>
+        <div class="footer-copy">© 2026 Lu Cheng En / NNDoiT AI Studio · Built for real-world AI systems, automation, workflow integration, and client-ready delivery.</div>
+      </div>
     </div>
   </footer>
+
+  <script>
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+
+    // Nav shadow on scroll
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Count-up
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseFloat(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        const decimal = parseInt(el.dataset.decimal || '0');
+        let current = 0;
+        const steps = 60;
+        const increment = target / steps;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) { current = target; clearInterval(timer); }
+          el.textContent = current.toFixed(decimal) + suffix;
+        }, 22);
+        countObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
+  </script>
 </body>
 </html>
