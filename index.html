@@ -1672,6 +1672,12 @@ function submitReqForm(){
   const s=document.getElementById('reqFormSuccess');
   s.style.display='flex';
   s.scrollIntoView({behavior:'smooth',block:'center'});
+  fetch('https://formspree.io/f/xreowllg', {
+   method: 'POST',
+   headers: {'Content-Type': 'application/json'},
+   body: JSON.stringify({type, feature, current, budget, timeline, contact})
+  });
+   
   playSuccess();
 }
 
