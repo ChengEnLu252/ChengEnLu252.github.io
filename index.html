@@ -592,7 +592,7 @@ section{padding:90px 0;}
       <div class="hero-stats">
         <div class="hstat"><span class="hstat-num"><span class="count-up" data-target="90" data-suffix="%" data-prefix="−">0</span></span><div class="hstat-label" data-i18n="hstat1">人工時間縮減</div></div>
         <div class="hstat"><span class="hstat-num"><span class="count-up" data-target="95.2" data-suffix="%" data-dec="1">0</span></span><div class="hstat-label" data-i18n="hstat2">文件抽取準確率</div></div>
-        <div class="hstat"><span class="hstat-num">5+</span><div class="hstat-label" data-i18n="hstat3">完整專案交付</div></div>
+        <div class="hstat"><span class="hstat-num">6+</span><div class="hstat-label" data-i18n="hstat3">完整專案交付</div></div>
       </div>
     </div>
     <div class="hero-right">
@@ -767,7 +767,7 @@ section{padding:90px 0;}
     <div class="stats-grid">
       <div class="stat-card rv d1"><span class="stat-num"><span class="count-up" data-target="90" data-suffix="%" data-prefix="−">0</span></span><div class="stat-label" data-i18n="stat1">料號查詢系統<br>人工操作時間縮減</div></div>
       <div class="stat-card rv d2"><span class="stat-num"><span class="count-up" data-target="95.2" data-suffix="%" data-dec="1">0</span></span><div class="stat-label" data-i18n="stat2">文件抽取模型<br>Document Accuracy</div></div>
-      <div class="stat-card rv d3"><span class="stat-num">5+</span><div class="stat-label" data-i18n="stat3">完整系統專案<br>End-to-End 交付</div></div>
+      <div class="stat-card rv d3"><span class="stat-num">6+</span><div class="stat-label" data-i18n="stat3">完整系統專案<br>End-to-End 交付</div></div>
     </div>
   </div>
 </section>
@@ -1145,7 +1145,18 @@ const PROJECTS=[
    tech:['Python','LLM','Prompt Engineering','JSON Schema','OCR','Evaluation'],
    points:['處理異質訂單中欄位名稱變異、資訊分散、格式複雜與干擾資訊過多等問題。','建立結構化 schema 與標準化輸出流程，使模型結果可比較、可分析、可重現。','Level 2 正式結果達 95.2% Document Accuracy。','進一步延伸至 Level 3 OCR / 影像版本，降低人工整理非結構化文件的成本。'],
    result:'將原本格式多變的非結構化訂單內容轉為標準化 JSON，為企業文件處理與後續系統串接建立基礎。',
-   link:'https://github.com/ChengEnLu252/LLM_Order_Extraction_Thesis.git'}
+   link:'https://github.com/ChengEnLu252/LLM_Order_Extraction_Thesis.git'},
+  {id:'heying',caseStudy:'case-study-heying.html',title:'鶴英｜品牌官網設計',tag:'Web Design',
+   desc:'為鶴英品牌從零打造具視覺識別的官方網站，涵蓋品牌形象呈現、RWD 響應式設計與清楚的行動呼籲，讓潛在客戶能快速找到品牌並產生轉換。',
+   pain:'品牌無對外官網，潛在客戶難以搜尋，缺乏專業形象展示入口',
+   solution:'從零規劃品牌視覺風格、頁面架構與 RWD 設計，快速上線部署',
+   outcome:'官網上線後品牌形象大幅提升，提供清晰的對外展示窗口與聯絡入口',
+   images:['images/heying01.png','images/heying02.png','images/heying03.png'],imgClass:'g3',
+   url:'鶴英 · Brand Official Website',
+   tech:['HTML','CSS','JavaScript','RWD','Frontend Design','Brand Identity'],
+   points:['從零規劃並設計品牌官網，建立一致的視覺風格與品牌識別系統。','採用 RWD 響應式設計，確保桌面、平板與行動裝置的最佳瀏覽體驗。','設計清楚的導覽架構與行動呼籲（CTA），引導訪客了解品牌並直接聯繫。','完成後部署上線，提供可維護、可擴充的網站結構。'],
+   result:'為鶴英品牌建立專業對外展示窗口，提升品牌可信度，降低潛在客戶與品牌接觸的門檻。',
+   link:'https://github.com/ChengEnLu252/heying_website.git'}
 ];
  
 /* ══════════════════════════════════════
@@ -1647,7 +1658,18 @@ const PROJECTS_EN=[
    tech:['Python','LLM','Prompt Engineering','JSON Schema','OCR','Evaluation'],
    points:['Addressed field name variations, scattered information, complex formats, and excessive noise in heterogeneous orders.','Established structured schemas and standardized output pipelines for comparable, analyzable, reproducible results.','Level 2 formal results achieved 95.2% Document Accuracy.','Extended to Level 3 OCR/image versions, reducing costs of manually processing unstructured documents.'],
    result:'Converted originally variable-format unstructured order content into standardized JSON, establishing a foundation for enterprise document processing and downstream system integration.',
-   link:'https://github.com/ChengEnLu252/LLM_Order_Extraction_Thesis.git'}
+   link:'https://github.com/ChengEnLu252/LLM_Order_Extraction_Thesis.git'},
+  {id:'heying',caseStudy:'case-study-heying.html',title:'Heying | Brand Website Design',tag:'Web Design',
+   desc:'Built a brand-consistent official website for Heying from scratch, covering visual identity, RWD responsive design, and clear calls-to-action so potential clients can find and connect with the brand.',
+   pain:'No external-facing website, potential clients unable to find the brand, no professional storefront',
+   solution:'Planned brand visual style, page architecture, and RWD design from scratch — deployed quickly',
+   outcome:'Brand credibility significantly improved with a clear external showcase and contact entry point',
+   images:['images/heying01.png','images/heying02.png','images/heying03.png'],imgClass:'g3',
+   url:'Heying · Brand Official Website',
+   tech:['HTML','CSS','JavaScript','RWD','Frontend Design','Brand Identity'],
+   points:['Planned and designed the brand website from scratch, establishing a consistent visual style and brand identity system.','Implemented RWD responsive design to ensure optimal viewing on desktop, tablet, and mobile devices.','Designed clear navigation structure and CTAs to guide visitors to understand the brand and get in touch directly.','Deployed on completion with a maintainable and scalable website structure.'],
+   result:'Established a professional external showcase for the Heying brand, boosting credibility and lowering the barrier for potential clients to discover and reach out.',
+   link:'https://github.com/ChengEnLu252/heying_website.git'}
 ];
  
 // English testimonials data
