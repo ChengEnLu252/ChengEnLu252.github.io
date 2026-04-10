@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>鶴英 官網設計 | Case Study — 呂承恩 Lu Cheng En</title>
+<meta property="og:title" content="鶴英 品牌官網設計 | NNDoiT AI Studio"/>
+<meta property="og:description" content="從零打造品牌官網：視覺識別、RWD 響應式設計、CTA 轉換優化"/>
+<meta property="og:image" content="images/heying01.png"/>
+<style>
+/* ══════════════════════════════════════
+   CSS Variables — Dark / Light
+══════════════════════════════════════ */
+:root{
+  --bg:#0a050f;--bg2:#110a18;--bg3:#1a0e24;
+  --card:rgba(255,255,255,.06);--card2:rgba(255,255,255,.1);
+  --border:rgba(255,255,255,.1);--border2:rgba(236,72,153,.3);
+  --text:#f0eaf5;--muted:rgba(240,234,245,.5);--muted2:rgba(240,234,245,.35);
+  --primary:#ec4899;--pd:#be185d;--accent:#f97316;
+  --shadow:0 20px 60px rgba(236,72,153,.18);
+  --radius:20px;--max:860px;
+  --nav-bg:rgba(10,5,15,.88);
+}
+[data-theme="light"]{
+  --bg:#fff7fb;--bg2:#ffeaf4;--bg3:#ffd6ec;
+  --card:rgba(255,255,255,.95);--card2:rgba(255,255,255,1);
+  --border:rgba(236,72,153,.18);--border2:rgba(236,72,153,.4);
+  --text:#2d2130;--muted:#6b5c67;--muted2:#9a8a96;
+  --shadow:0 16px 40px rgba(190,24,93,.12);
+  --nav-bg:rgba(255,247,251,.9);
+}
+*{box-sizing:border-box;scroll-behavior:smooth;-webkit-tap-highlight-color:transparent;}
+html{scroll-padding-top:70px;}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.75;transition:background .4s,color .4s;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+strong.kw{color:var(--accent);font-weight:900;}
+.container{width:min(var(--max),calc(100% - 40px));margin:0 auto;}
+
+/* ══ NAV ══ */
+.nav{position:sticky;top:0;z-index:500;backdrop-filter:blur(18px);background:var(--nav-bg);border-bottom:1px solid var(--border);transition:box-shadow .3s,background .4s;}
+.nav-inner{width:min(1160px,calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;}
+.brand{font-weight:900;font-size:.95rem;}
+.brand small{display:block;color:var(--primary);font-size:.72rem;font-weight:800;margin-top:1px;}
+.nav-controls{display:flex;gap:8px;align-items:center;}
+.icon-btn{width:36px;height:36px;border-radius:12px;border:1px solid var(--border);background:var(--card);display:grid;place-items:center;cursor:pointer;transition:.2s;font-size:1rem;color:var(--text);}
+.icon-btn:hover{background:rgba(236,72,153,.15);border-color:var(--border2);}
+.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:900;color:var(--muted);padding:7px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);transition:.2s;}
+.back-btn:hover{color:var(--primary);border-color:var(--border2);}
+
+/* ══ HERO ══ */
+.cs-hero{padding:80px 0 56px;text-align:center;}
+.cs-tag{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;background:rgba(236,72,153,.14);border:1px solid rgba(236,72,153,.25);color:var(--primary);font-size:.82rem;font-weight:900;margin-bottom:22px;}
+.cs-title{font-size:clamp(2rem,5vw,3.6rem);font-weight:900;letter-spacing:-.04em;margin:0 0 16px;line-height:1.1;}
+.cs-title .grad{background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.cs-desc{color:var(--muted);font-size:1.05rem;max-width:58ch;margin:0 auto 36px;line-height:1.8;}
+.cs-meta-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:16px;}
+.cs-meta-chip{padding:8px 16px;border-radius:999px;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.18);color:#f97316;font-size:.82rem;font-weight:900;}
+.cs-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px;}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:14px;font-weight:900;border:1px solid transparent;transition:all .2s ease;font-size:.95rem;cursor:pointer;}
+.btn-primary{background:linear-gradient(135deg,#ec4899,#db2777);color:#fff;box-shadow:0 14px 32px rgba(219,39,119,.35);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(219,39,119,.45);}
+.btn-line{background:linear-gradient(135deg,#06c755,#00a846);color:#fff;box-shadow:0 14px 32px rgba(6,199,85,.3);}
+.btn-line:hover{transform:translateY(-2px);}
+.btn-ghost{background:transparent;border-color:var(--border);color:var(--text);}
+.btn-ghost:hover{background:var(--card);border-color:var(--border2);}
+@media(max-width:600px){.btn{width:100%;font-size:.92rem;padding:14px 20px;}.cs-links{flex-direction:column;}}
+
+/* ══ OVERVIEW CARDS ══ */
+.overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:56px;}
+@media(max-width:640px){.overview-grid{grid-template-columns:1fr;}}
+.ov-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px 20px;}
+.ov-label{font-size:.72rem;font-weight:900;letter-spacing:.06em;color:var(--muted2);margin-bottom:10px;}
+.ov-val{font-size:.95rem;font-weight:700;line-height:1.6;color:var(--text);}
+.ov-pain .ov-label{color:#f87171;}
+.ov-sol .ov-label{color:#818cf8;}
+.ov-res .ov-label{color:#4ade80;}
+[data-theme="light"] .ov-pain .ov-label{color:#dc2626;}
+[data-theme="light"] .ov-sol .ov-label{color:#4f46e5;}
+[data-theme="light"] .ov-res .ov-label{color:#16a34a;}
+
+/* ══ SECTION ══ */
+.cs-section{margin-bottom:56px;}
+.cs-section-title{font-size:1.35rem;font-weight:900;letter-spacing:-.02em;margin:0 0 20px;display:flex;align-items:center;gap:10px;}
+.cs-section-title::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* ══ IMAGES ══ */
+.img-browser{background:var(--bg2);border:1px solid var(--border);border-radius:18px;overflow:hidden;margin-bottom:14px;}
+.img-bar{background:rgba(255,255,255,.05);padding:10px 14px;display:flex;align-items:center;gap:10px;}
+[data-theme="light"] .img-bar{background:rgba(0,0,0,.04);}
+.img-dots{display:flex;gap:6px;}
+.img-dots span{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.15);}
+.img-dots span:nth-child(1){background:#ff5f57;}
+.img-dots span:nth-child(2){background:#febc2e;}
+.img-dots span:nth-child(3){background:#28c840;}
+.img-url{font-size:.78rem;color:var(--muted2);font-weight:700;background:rgba(255,255,255,.06);padding:4px 12px;border-radius:999px;flex:1;text-align:center;max-width:320px;margin:0 auto;}
+[data-theme="light"] .img-url{background:rgba(0,0,0,.06);}
+.img-body{padding:12px;}
+.img-body img{width:100%;border-radius:12px;display:block;border:1px solid var(--border);}
+.img-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.img-grid img{width:100%;height:200px;object-fit:cover;border-radius:12px;border:1px solid var(--border);}
+@media(max-width:560px){.img-grid{grid-template-columns:1fr;}.img-grid img{height:180px;}}
+
+/* ══ POINTS LIST ══ */
+.cs-points{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
+.cs-points li{display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;font-size:.95rem;line-height:1.65;}
+.cs-points li::before{content:'→';color:var(--primary);font-weight:900;flex-shrink:0;margin-top:2px;}
+
+/* ══ RESULT BOX ══ */
+.result-box{background:linear-gradient(135deg,rgba(236,72,153,.1),rgba(249,115,22,.08));border:1px solid var(--border2);border-radius:18px;padding:28px 28px;margin-bottom:40px;}
+.result-box strong{color:var(--primary);}
+
+/* ══ CTA ══ */
+.cs-cta{background:var(--bg2);border:1px solid var(--border);border-radius:24px;padding:48px 40px;text-align:center;margin-bottom:60px;}
+.cs-cta h3{font-size:1.6rem;font-weight:900;margin:0 0 10px;}
+.cs-cta p{color:var(--muted);margin:0 0 28px;font-size:.97rem;}
+.cs-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+@media(max-width:600px){.cs-cta{padding:36px 24px;}.cs-cta h3{font-size:1.3rem;}.cs-cta-btns{flex-direction:column;}}
+
+/* ══ FOOTER ══ */
+.footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;color:var(--muted2);font-size:.83rem;}
+
+/* ══ DIVIDER ══ */
+hr.sec-div{border:none;border-top:1px solid var(--border);margin:0 0 56px;}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.rv.vis{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.05s;}.d2{transition-delay:.12s;}.d3{transition-delay:.19s;}
+</style>
+</head>
+<body>
+
+<!-- ════ NAV ════ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">呂承恩 Lu Cheng En<small>NNDoiT AI Studio</small></div>
+    <div class="nav-controls">
+      <a href="index.html" class="back-btn">← 回作品集</a>
+      <div class="icon-btn" id="themeBtn" title="Theme" onclick="toggleTheme()">☀️</div>
+    </div>
+  </div>
+</nav>
+
+<!-- ════ HERO ════ -->
+<section class="cs-hero">
+  <div class="container">
+    <div class="cs-tag rv">🌐 Web Design · Brand Identity · RWD</div>
+    <h1 class="cs-title rv"><span class="grad">鶴英</span>｜品牌官網設計</h1>
+    <p class="cs-desc rv">為鶴英品牌從零打造具視覺識別的官方網站，涵蓋品牌形象呈現、RWD 響應式設計與清楚的行動呼籲，讓潛在客戶能快速找到品牌並產生轉換。</p>
+    <div class="cs-meta-bar rv">
+      <span class="cs-meta-chip">HTML / CSS / JavaScript</span>
+      <span class="cs-meta-chip">RWD 響應式設計</span>
+      <span class="cs-meta-chip">Frontend Design</span>
+      <span class="cs-meta-chip">Brand Identity</span>
+    </div>
+    <div class="cs-links rv">
+      <a class="btn btn-primary" href="https://github.com/ChengEnLu252/heying_website.git" target="_blank">🔗 View GitHub</a>
+      <a class="btn btn-line" href="https://lin.ee/Wc5Bozb" target="_blank">💬 討論類似專案</a>
+      <a class="btn btn-ghost" href="index.html">← 回作品集</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ OVERVIEW ════ -->
+<div class="container">
+  <div class="overview-grid">
+    <div class="ov-card ov-pain rv d1">
+      <div class="ov-label">🔴 痛點 Pain</div>
+      <div class="ov-val">品牌無對外官網，潛在客戶難以搜尋，缺乏專業形象展示入口</div>
+    </div>
+    <div class="ov-card ov-sol rv d2">
+      <div class="ov-label">🟣 做法 Approach</div>
+      <div class="ov-val">從零規劃品牌視覺風格、頁面架構與 RWD 設計，快速上線部署</div>
+    </div>
+    <div class="ov-card ov-res rv d3">
+      <div class="ov-label">🟢 成果 Result</div>
+      <div class="ov-val">官網上線後品牌形象大幅提升，提供清晰的對外展示窗口與聯絡入口</div>
+    </div>
+  </div>
+
+  <!-- ════ SCREENSHOTS ════ -->
+  <div class="cs-section rv">
+    <h2 class="cs-section-title">📸 網站截圖</h2>
+    <div class="img-browser">
+      <div class="img-bar">
+        <div class="img-dots"><span></span><span></span><span></span></div>
+        <div class="img-url">鶴英 · Brand Official Website</div>
+      </div>
+      <div class="img-body">
+        <img src="images/heying01.png" alt="鶴英官網 — 首頁" loading="lazy">
+      </div>
+    </div>
+    <div class="img-browser">
+      <div class="img-bar">
+        <div class="img-dots"><span></span><span></span><span></span></div>
+        <div class="img-url">鶴英 · Brand Official Website</div>
+      </div>
+      <div class="img-body">
+        <div class="img-grid">
+          <img src="images/heying02.png" alt="鶴英官網 — 內頁" loading="lazy">
+          <img src="images/heying03.png" alt="鶴英官網 — 行動版" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ BACKGROUND ════ -->
+  <div class="cs-section rv">
+    <h2 class="cs-section-title">📋 專案背景</h2>
+    <p style="color:var(--muted);font-size:.97rem;line-height:1.85;margin:0;">
+      鶴英是一個需要對外建立品牌形象的客戶，在與我接洽時完全沒有任何官網或線上展示頁面。潛在合作方或客戶無法透過搜尋引擎或網路找到任何品牌資訊，缺乏可信任的第一印象來源。
+    </p>
+    <br>
+    <p style="color:var(--muted);font-size:.97rem;line-height:1.85;margin:0;">
+      我的任務是從零開始——包含理解品牌定位、規劃網站架構、設計視覺風格，以及確保在不同裝置上的使用體驗，最終交出一個能實際上線、維護門檻低、能直接用的品牌官網。
+    </p>
+  </div>
+
+  <!-- ════ WHAT I DID ════ -->
+  <div class="cs-section rv">
+    <h2 class="cs-section-title">🛠 做了什麼</h2>
+    <ul class="cs-points">
+      <li>從零規劃並設計品牌官網，與客戶對齊品牌定位後，建立一致的視覺風格與識別系統（配色、字型、排版邏輯）。</li>
+      <li>採用 RWD 響應式設計，確保桌面（Desktop）、平板（Tablet）與行動裝置（Mobile）皆能呈現最佳瀏覽體驗，不需分開維護。</li>
+      <li>設計清楚的導覽架構與行動呼籲（CTA），讓訪客能在最短路徑內了解品牌、找到聯絡方式並直接產生轉換行動。</li>
+      <li>完成開發後進行部署，提供可維護、可擴充的網站結構，確保後續更新容易，不需依賴原始開發者每次手動改。</li>
+    </ul>
+  </div>
+
+  <!-- ════ TECH STACK ════ -->
+  <div class="cs-section rv">
+    <h2 class="cs-section-title">⚙️ 技術與工具</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;">
+      <span style="padding:9px 16px;border-radius:999px;background:rgba(236,72,153,.12);border:1px solid rgba(236,72,153,.2);color:var(--primary);font-size:.88rem;font-weight:900;">HTML5</span>
+      <span style="padding:9px 16px;border-radius:999px;background:rgba(236,72,153,.12);border:1px solid rgba(236,72,153,.2);color:var(--primary);font-size:.88rem;font-weight:900;">CSS3</span>
+      <span style="padding:9px 16px;border-radius:999px;background:rgba(236,72,153,.12);border:1px solid rgba(236,72,153,.2);color:var(--primary);font-size:.88rem;font-weight:900;">JavaScript</span>
+      <span style="padding:9px 16px;border-radius:999px;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.22);color:#fb923c;font-size:.88rem;font-weight:900;">RWD 響應式設計</span>
+      <span style="padding:9px 16px;border-radius:999px;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.22);color:#fb923c;font-size:.88rem;font-weight:900;">Frontend Design</span>
+      <span style="padding:9px 16px;border-radius:999px;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.22);color:#fb923c;font-size:.88rem;font-weight:900;">Brand Identity</span>
+      <span style="padding:9px 16px;border-radius:999px;background:rgba(99,102,241,.14);border:1px solid rgba(99,102,241,.25);color:#818cf8;font-size:.88rem;font-weight:900;">Git / GitHub</span>
+    </div>
+  </div>
+
+  <!-- ════ RESULT ════ -->
+  <div class="cs-section rv">
+    <h2 class="cs-section-title">📊 成果</h2>
+    <div class="result-box">
+      <p style="margin:0;font-size:.97rem;line-height:1.85;">
+        <strong>為鶴英品牌建立專業對外展示窗口，提升品牌可信度，降低潛在客戶與品牌接觸的門檻。</strong>
+        網站上線後，客戶有了可直接分享的品牌連結，不再需要用通訊軟體截圖或文字介紹來說明自己是誰。
+        整站 RWD 完整，在手機與桌面均正常顯示，維護門檻低，客戶可自行更新文字內容。
+      </p>
+    </div>
+  </div>
+
+  <!-- ════ CTA ════ -->
+  <div class="cs-cta rv">
+    <h3>需要品牌官網或前端設計？</h3>
+    <p>不論是從零開始的品牌網站、作品集、還是對外展示頁面，都可以跟我聊聊需求。</p>
+    <div class="cs-cta-btns">
+      <a class="btn btn-line" href="https://lin.ee/Wc5Bozb" target="_blank">💬 加 LINE 免費諮詢</a>
+      <a class="btn btn-ghost" href="index.html#projects">← 查看更多作品</a>
+    </div>
+  </div>
+</div>
+
+<!-- ════ FOOTER ════ -->
+<footer class="footer">
+  <div class="container">
+    © 2026 呂承恩 Lu Cheng En / NNDoiT AI Studio · AI Systems · Automation · System Integration
+  </div>
+</footer>
+
+<script>
+/* Reveal on scroll */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
+},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+/* Theme toggle */
+function toggleTheme(){
+  const html=document.documentElement,isDark=html.dataset.theme==='dark';
+  html.dataset.theme=isDark?'light':'dark';
+  document.getElementById('themeBtn').textContent=isDark?'🌙':'☀️';
+}
+/* Nav scroll shadow */
+window.addEventListener('scroll',()=>{document.querySelector('.nav').style.boxShadow=scrollY>50?'0 4px 30px rgba(0,0,0,.3)':'';},{passive:true});
+</script>
+</body>
+</html>
