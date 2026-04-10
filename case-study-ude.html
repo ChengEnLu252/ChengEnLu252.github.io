@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>UDE 料號查詢自動化平台 | Case Study — 呂承恩 NNDoiT AI Studio</title>
+<meta property="og:title" content="UDE 料號查詢自動化平台 | Case Study"/>
+<meta property="og:description" content="以 n8n 為核心打造企業內部料號查詢與資料整合平台，查詢時間縮短 90%。"/>
+<style>
+/* ══ Variables ══ */
+:root{
+  --bg:#0a050f;--bg2:#110a18;--bg3:#1a0e24;
+  --card:rgba(255,255,255,.06);--card2:rgba(255,255,255,.1);
+  --border:rgba(255,255,255,.1);--border2:rgba(236,72,153,.3);
+  --text:#f0eaf5;--muted:rgba(240,234,245,.5);--muted2:rgba(240,234,245,.35);
+  --primary:#ec4899;--accent:#f97316;
+  --shadow:0 20px 60px rgba(236,72,153,.18);
+  --radius:20px;--max:860px;
+  --nav-bg:rgba(10,5,15,.88);
+}
+[data-theme="light"]{
+  --bg:#fff7fb;--bg2:#ffeaf4;--bg3:#ffd6ec;
+  --card:rgba(255,255,255,.95);--card2:rgba(255,255,255,1);
+  --border:rgba(236,72,153,.18);--border2:rgba(236,72,153,.4);
+  --text:#2d2130;--muted:#6b5c67;--muted2:#9a8a96;
+  --shadow:0 16px 40px rgba(190,24,93,.12);
+  --nav-bg:rgba(255,247,251,.9);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-padding-top:68px;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.8;transition:background .4s,color .4s;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+.container{width:min(var(--max),calc(100% - 40px));margin:0 auto;}
+
+/* ══ NAV ══ */
+.nav{position:sticky;top:0;z-index:500;backdrop-filter:blur(18px);background:var(--nav-bg);border-bottom:1px solid var(--border);transition:box-shadow .3s,background .4s;}
+.nav-inner{width:min(1160px,calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;}
+.brand{font-weight:900;font-size:.95rem;color:var(--text);}
+.brand small{display:block;color:var(--primary);font-size:.72rem;font-weight:800;margin-top:1px;}
+.nav-back{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-size:.88rem;font-weight:700;padding:7px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);transition:.2s;}
+.nav-back:hover{background:rgba(236,72,153,.12);border-color:var(--border2);color:var(--primary);}
+.nav-controls{display:flex;gap:8px;}
+.icon-btn{width:36px;height:36px;border-radius:12px;border:1px solid var(--border);background:var(--card);display:grid;place-items:center;cursor:pointer;transition:.2s;font-size:1rem;color:var(--text);}
+.icon-btn:hover{background:rgba(236,72,153,.15);border-color:var(--border2);}
+
+/* ══ HERO BANNER ══ */
+.cs-hero{padding:72px 0 56px;border-bottom:1px solid var(--border);}
+.cs-tag{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(236,72,153,.15);border:1px solid rgba(236,72,153,.25);color:var(--primary);font-size:.8rem;font-weight:900;margin-bottom:18px;}
+.cs-title{font-size:clamp(1.9rem,4vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px;}
+.cs-subtitle{color:var(--muted);font-size:1.05rem;max-width:68ch;margin-bottom:32px;line-height:1.75;}
+.cs-meta-row{display:flex;flex-wrap:wrap;gap:12px;}
+.cs-badge{padding:7px 14px;border-radius:999px;font-size:.82rem;font-weight:900;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.2);color:#f97316;}
+.cs-badge.b-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
+.cs-badge.b-green{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.2);color:#4ade80;}
+
+/* ══ CONTENT ══ */
+.cs-body{padding:60px 0 80px;}
+.cs-section{margin-bottom:56px;}
+.cs-section:last-child{margin-bottom:0;}
+.cs-section-label{display:flex;align-items:center;gap:10px;font-size:.75rem;font-weight:900;letter-spacing:.08em;color:var(--primary);text-transform:uppercase;margin-bottom:14px;}
+.cs-section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.cs-section h2{font-size:1.35rem;font-weight:900;letter-spacing:-.02em;margin-bottom:14px;}
+.cs-section p{color:var(--muted);font-size:.97rem;line-height:1.85;margin-bottom:12px;}
+.cs-section p:last-child{margin-bottom:0;}
+
+/* Highlight box */
+.cs-highlight{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--primary);border-radius:0 14px 14px 0;padding:18px 22px;margin:18px 0;color:var(--muted);font-size:.95rem;line-height:1.8;}
+.cs-highlight strong{color:var(--text);}
+
+/* Pain / Approach / Result blocks */
+.cs-par-grid{display:grid;gap:12px;margin:18px 0;}
+.cs-par-item{display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;}
+.cs-par-label{flex-shrink:0;font-size:.7rem;font-weight:900;padding:3px 9px;border-radius:6px;letter-spacing:.04em;margin-top:2px;white-space:nowrap;}
+.l-pain{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.22);}
+.l-sol{background:rgba(99,102,241,.14);color:#818cf8;border:1px solid rgba(99,102,241,.22);}
+.l-res{background:rgba(34,197,94,.14);color:#4ade80;border:1px solid rgba(34,197,94,.22);}
+[data-theme="light"] .l-pain{background:rgba(239,68,68,.1);color:#dc2626;}
+[data-theme="light"] .l-sol{background:rgba(99,102,241,.1);color:#4f46e5;}
+[data-theme="light"] .l-res{background:rgba(34,197,94,.1);color:#16a34a;}
+.cs-par-text{color:var(--muted);font-size:.93rem;line-height:1.65;}
+
+/* Tech chips */
+.cs-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px;}
+.cs-chip{padding:8px 14px;border-radius:999px;background:rgba(236,72,153,.1);border:1px solid rgba(236,72,153,.2);color:var(--primary);font-size:.82rem;font-weight:900;}
+.cs-chip.c-orange{background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.2);color:#f97316;}
+.cs-chip.c-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
+
+/* Numbered list */
+.cs-numlist{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:14px;}
+.cs-numlist li{display:flex;gap:14px;align-items:flex-start;color:var(--muted);font-size:.95rem;line-height:1.75;}
+.cs-numlist li .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(236,72,153,.18);border:1px solid rgba(236,72,153,.3);color:var(--primary);font-weight:900;font-size:.8rem;display:grid;place-items:center;margin-top:2px;}
+
+/* Result card */
+.cs-result-card{background:linear-gradient(135deg,rgba(236,72,153,.12),rgba(249,115,22,.08));border:1px solid rgba(236,72,153,.25);border-radius:20px;padding:28px 30px;margin-top:18px;}
+.cs-result-card h3{font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--text);}
+.cs-result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
+.crs-item{text-align:center;padding:16px 10px;background:rgba(255,255,255,.04);border-radius:14px;border:1px solid var(--border);}
+.crs-num{font-size:1.7rem;font-weight:900;color:var(--primary);display:block;line-height:1.1;}
+.crs-label{font-size:.76rem;color:var(--muted);margin-top:4px;line-height:1.4;}
+.cs-result-card p{color:var(--muted);font-size:.93rem;line-height:1.8;}
+
+/* CTA footer */
+.cs-footer-cta{background:var(--bg2);border-top:1px solid var(--border);padding:52px 0;}
+.cs-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.cs-footer-text h3{font-size:1.25rem;font-weight:900;margin-bottom:6px;}
+.cs-footer-text p{color:var(--muted);font-size:.93rem;}
+.cs-footer-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:900;border:1px solid transparent;transition:all .2s;font-size:.93rem;cursor:pointer;}
+.btn-primary{background:linear-gradient(135deg,#ec4899,#db2777);color:#fff;box-shadow:0 10px 28px rgba(219,39,119,.3);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(219,39,119,.42);}
+.btn-ghost{background:var(--card);border-color:var(--border);color:var(--text);}
+.btn-ghost:hover{background:rgba(236,72,153,.1);border-color:var(--border2);color:var(--primary);}
+.btn-line{background:linear-gradient(135deg,#06c755,#00a846);color:#fff;}
+.btn-line:hover{transform:translateY(-2px);}
+
+/* Images */
+.cs-imgs{display:grid;gap:12px;border-radius:16px;overflow:hidden;margin:20px 0;border:1px solid var(--border);}
+.cs-imgs.g2{grid-template-columns:1fr 1fr;}
+.cs-imgs img{width:100%;object-fit:cover;display:block;}
+
+/* Architecture diagram box */
+.cs-arch{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:22px 24px;margin:18px 0;font-size:.9rem;}
+.arch-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);color:var(--muted);}
+.arch-row:last-child{border-bottom:none;}
+.arch-icon{width:32px;height:32px;border-radius:9px;background:rgba(236,72,153,.14);border:1px solid rgba(236,72,153,.2);display:grid;place-items:center;font-size:1rem;flex-shrink:0;}
+.arch-arrow{color:var(--primary);font-weight:900;font-size:1rem;}
+
+@media(max-width:768px){
+  .cs-hero{padding:48px 0 36px;}
+  .cs-result-stats{grid-template-columns:1fr 1fr;}
+  .cs-footer-inner{flex-direction:column;align-items:flex-start;}
+  .cs-footer-btns{width:100%;}
+  .cs-footer-btns .btn{flex:1;justify-content:center;}
+  .cs-imgs.g2{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">呂承恩 Lu Cheng En<small>NNDoiT AI Studio</small></a>
+    <a href="index.html#projects" class="nav-back">← 回作品集</a>
+    <div class="nav-controls">
+      <div class="icon-btn" id="themeBtn" onclick="toggleTheme()" title="Theme">☀️</div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="container">
+    <div class="cs-tag">Featured Project</div>
+    <h1 class="cs-title">UDE 料號查詢<br>自動化平台</h1>
+    <p class="cs-subtitle">以 n8n 為核心打造企業內部料號查詢與資料整合平台，整合 MySQL、Excel 與即時查詢介面，將原本繁瑣的人工查詢 / 比對流程完全自動化。</p>
+    <div class="cs-meta-row">
+      <span class="cs-badge">n8n · MySQL · JavaScript</span>
+      <span class="cs-badge b-indigo">企業內部系統</span>
+      <span class="cs-badge b-green">查詢時間 −90%</span>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="cs-body">
+  <div class="container">
+
+    <!-- 1. 專案背景 -->
+    <div class="cs-section">
+      <div class="cs-section-label">01 — 專案背景</div>
+      <h2>這是什麼系統？解決什麼業務問題？</h2>
+      <p>UDE 是一家製造業企業，料號資料散落在多個 Excel 試算表與 MySQL 資料庫中。業務、倉儲、採購三個部門都需要查詢料號相關資訊（規格、庫存、供應商等），但每次查詢都需要人工開啟檔案、逐一比對，效率極低。</p>
+      <p>這個專案的目標是：把這些分散的資料來源整合起來，建立一個任何人都能立刻查的內部工具，不需要懂 SQL，不需要開 Excel，輸入料號就能看到所有相關資訊。</p>
+      <div class="cs-highlight">
+        <strong>客戶原話：</strong>「我們兩個人要花半小時對一批料號，還常常對錯，能不能讓系統自己去找？」
+      </div>
+    </div>
+
+    <!-- 2. 問題與痛點 -->
+    <div class="cs-section">
+      <div class="cs-section-label">02 — 問題與痛點</div>
+      <h2>人工查詢流程的核心問題</h2>
+      <div class="cs-par-grid">
+        <div class="cs-par-item">
+          <span class="cs-par-label l-pain">痛點 1</span>
+          <span class="cs-par-text">料號資料橫跨多個 Excel 版本與 MySQL 資料表，欄位命名不一致，人工比對容易出錯。</span>
+        </div>
+        <div class="cs-par-item">
+          <span class="cs-par-label l-pain">痛點 2</span>
+          <span class="cs-par-text">每次查詢需要兩人協作：一人查 Excel、一人查資料庫，對完再人工填入 Google Sheet，耗時數分鐘到半小時不等。</span>
+        </div>
+        <div class="cs-par-item">
+          <span class="cs-par-label l-pain">痛點 3</span>
+          <span class="cs-par-text">資料版本不同步——Excel 更新了但資料庫沒更新，導致查詢結果矛盾，需要追溯哪份才是最新的。</span>
+        </div>
+        <div class="cs-par-item">
+          <span class="cs-par-label l-pain">痛點 4</span>
+          <span class="cs-par-text">現有流程完全依賴特定人員，一旦那個人不在，其他人根本不知道去哪裡找資料。</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. 解法與技術架構 -->
+    <div class="cs-section">
+      <div class="cs-section-label">03 — 解法與技術架構</div>
+      <h2>以 n8n 為核心的整合架構</h2>
+      <p>選擇 n8n 作為核心引擎，原因是它能以視覺化 Workflow 串接資料庫、HTTP API 與前端，部署在企業內網後不依賴外部服務，也容易讓非技術人員理解流程。</p>
+      <div class="cs-arch">
+        <div class="arch-row">
+          <div class="arch-icon">🖥️</div>
+          <span><strong>前端查詢介面</strong>（HTML + DataTables）</span>
+          <span class="arch-arrow">→</span>
+          <span style="color:var(--muted)">使用者輸入料號，即時過濾顯示</span>
+        </div>
+        <div class="arch-row">
+          <div class="arch-icon">⚙️</div>
+          <span><strong>n8n Workflow</strong>（核心排程與邏輯）</span>
+          <span class="arch-arrow">→</span>
+          <span style="color:var(--muted)">接收查詢請求，分發至各資料源</span>
+        </div>
+        <div class="arch-row">
+          <div class="arch-icon">🗄️</div>
+          <span><strong>MySQL</strong>（主資料庫）</span>
+          <span class="arch-arrow">→</span>
+          <span style="color:var(--muted)">正規化料號主表，JOIN 多表查詢</span>
+        </div>
+        <div class="arch-row">
+          <div class="arch-icon">📊</div>
+          <span><strong>Excel / CSV 匯入</strong>（批次同步）</span>
+          <span class="arch-arrow">→</span>
+          <span style="color:var(--muted)">定期自動讀取並寫入 MySQL，維持一致</span>
+        </div>
+        <div class="arch-row">
+          <div class="arch-icon">🔔</div>
+          <span><strong>通知機制</strong>（異常警示）</span>
+          <span class="arch-arrow">→</span>
+          <span style="color:var(--muted)">資料不一致時自動標記並通知負責人</span>
+        </div>
+      </div>
+      <div class="cs-chips">
+        <span class="cs-chip">n8n</span>
+        <span class="cs-chip c-indigo">MySQL</span>
+        <span class="cs-chip c-orange">JavaScript Function Node</span>
+        <span class="cs-chip">HTML + DataTables</span>
+        <span class="cs-chip c-indigo">Workflow Automation</span>
+        <span class="cs-chip">Internal Tool</span>
+      </div>
+    </div>
+
+    <!-- 4. 負責範圍 -->
+    <div class="cs-section">
+      <div class="cs-section-label">04 — 我的負責範圍</div>
+      <h2>從需求訪談到系統上線，全程一人主導</h2>
+      <ul class="cs-numlist">
+        <li><span class="n">1</span><span>與業務、倉儲部門訪談，梳理實際查詢流程與痛點，整理出系統需求文件</span></li>
+        <li><span class="n">2</span><span>設計 MySQL schema——包含料號主表、欄位正規化規則與 JOIN key 邏輯</span></li>
+        <li><span class="n">3</span><span>建立 n8n Workflow：Excel 定時匯入、查詢 API 接口、資料異常通知</span></li>
+        <li><span class="n">4</span><span>開發前端查詢介面（HTML + DataTables），支援即時搜尋、欄位篩選與匯出</span></li>
+        <li><span class="n">5</span><span>效能調優——針對大料號資料量優化 MySQL index 與 n8n 節點參數</span></li>
+        <li><span class="n">6</span><span>系統部署至企業內網，撰寫操作說明文件，培訓使用者上手</span></li>
+      </ul>
+    </div>
+
+    <!-- 5. 實作難點 -->
+    <div class="cs-section">
+      <div class="cs-section-label">05 — 實作重點與難點</div>
+      <h2>三個讓這個案子不容易做的技術挑戰</h2>
+      <div class="cs-par-grid">
+        <div class="cs-par-item">
+          <span class="cs-par-label l-sol">挑戰 A</span>
+          <span class="cs-par-text"><strong style="color:var(--text)">欄位命名不一致：</strong>不同部門的 Excel 同一個欄位叫不同名字（「料號」vs「Part No.」vs「PN」），需要建立對應表並在匯入時自動標準化。</span>
+        </div>
+        <div class="cs-par-item">
+          <span class="cs-par-label l-sol">挑戰 B</span>
+          <span class="cs-par-text"><strong style="color:var(--text)">大資料量效能：</strong>料號總筆數超過萬筆，前端即時搜尋在無 index 的情況下明顯延遲。透過 MySQL index 優化與分頁機制，搜尋反應時間壓到 200ms 以下。</span>
+        </div>
+        <div class="cs-par-item">
+          <span class="cs-par-label l-sol">挑戰 C</span>
+          <span class="cs-par-text"><strong style="color:var(--text)">讓非技術人員能維護：</strong>客戶希望未來自己能更新資料，所以系統設計成「上傳 Excel 就自動同步」，而不是要求他們操作資料庫。</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. 成果 -->
+    <div class="cs-section">
+      <div class="cs-section-label">06 — 專案成果 / 價值</div>
+      <h2>系統上線後的實際改變</h2>
+      <div class="cs-result-card">
+        <h3>量化成果</h3>
+        <div class="cs-result-stats">
+          <div class="crs-item">
+            <span class="crs-num">−90%</span>
+            <div class="crs-label">人工查詢<br>操作時間縮減</div>
+          </div>
+          <div class="crs-item">
+            <span class="crs-num">1人</span>
+            <div class="crs-label">原需2人協作<br>現單人完成</div>
+          </div>
+          <div class="crs-item">
+            <span class="crs-num">數月</span>
+            <div class="crs-label">穩定上線<br>零故障記錄</div>
+          </div>
+        </div>
+        <p>從原本兩人花數分鐘到半小時的查詢，縮短為一人幾秒內完成。資料一致性問題解決後，部門間的溝通誤解也明顯減少。系統上線至今穩定運行，幾乎無需維護介入。</p>
+      </div>
+      <div class="cs-highlight" style="margin-top:20px;">
+        <strong>延伸價值：</strong>這套架構可以很容易地擴展——加入新的資料表、新的查詢欄位、甚至串接採購系統，不需要重新開發，只需在 n8n 新增節點即可。
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER CTA -->
+<div class="cs-footer-cta">
+  <div class="container">
+    <div class="cs-footer-inner">
+      <div class="cs-footer-text">
+        <h3>有類似的企業內部系統需求？</h3>
+        <p>料號查詢、ERP 整合、自動化流程——歡迎描述你的問題，我們來討論可行方案。</p>
+      </div>
+      <div class="cs-footer-btns">
+        <a href="index.html#projects" class="btn btn-ghost">← 回作品集</a>
+        <a href="https://lin.ee/Wc5Bozb" target="_blank" class="btn btn-line">💬 加 LINE 討論</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleTheme(){
+  const html=document.documentElement,isDark=html.dataset.theme==='dark';
+  html.dataset.theme=isDark?'light':'dark';
+  document.getElementById('themeBtn').textContent=isDark?'🌙':'☀️';
+}
+window.addEventListener('scroll',()=>{
+  document.querySelector('.nav').style.boxShadow=scrollY>30?'0 4px 30px rgba(0,0,0,.3)':'';
+},{passive:true});
+</script>
+</body>
+</html>
