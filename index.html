@@ -197,11 +197,25 @@ section{padding:90px 0;}
 .proj-track-wrap::-webkit-scrollbar{display:none;}
 .proj-track-wrap:active{cursor:grabbing;}
 .proj-track{display:flex;gap:24px;padding:0 calc((100vw - min(var(--max),calc(100% - 40px)))/2);width:max-content;}
-.pcard{width:min(560px,78vw);flex-shrink:0;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:16px;transition:border-color .3s,box-shadow .3s;}
+.pcard{width:min(560px,78vw);flex-shrink:0;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:14px;transition:border-color .3s,box-shadow .3s;}
 .pcard:hover{border-color:var(--border2);box-shadow:0 24px 60px rgba(236,72,153,.2);}
 .pcard-tag{font-size:.78rem;font-weight:900;color:var(--primary);background:rgba(236,72,153,.14);border:1px solid rgba(236,72,153,.2);padding:6px 12px;border-radius:999px;display:inline-block;}
 .pcard h3{margin:0;font-size:1.2rem;font-weight:900;}
-.pcard-desc{color:var(--muted);font-size:.93rem;margin:0;}
+.pcard-desc{color:var(--muted);font-size:.93rem;margin:0;line-height:1.65;}
+
+/* ── Project card meta block (Pain / Approach / Result) ── */
+.pcard-meta{display:flex;flex-direction:column;gap:7px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:13px 15px;}
+[data-theme="light"] .pcard-meta{background:rgba(0,0,0,.025);}
+.pcard-row{display:flex;align-items:flex-start;gap:9px;font-size:.875rem;line-height:1.55;}
+.pcard-row-label{flex-shrink:0;font-size:.7rem;font-weight:900;padding:2px 7px;border-radius:5px;letter-spacing:.04em;margin-top:2px;white-space:nowrap;}
+.prow-pain{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.22);}
+.prow-sol{background:rgba(99,102,241,.14);color:#818cf8;border:1px solid rgba(99,102,241,.22);}
+.prow-res{background:rgba(34,197,94,.14);color:#4ade80;border:1px solid rgba(34,197,94,.22);}
+[data-theme="light"] .prow-pain{background:rgba(239,68,68,.1);color:#dc2626;}
+[data-theme="light"] .prow-sol{background:rgba(99,102,241,.1);color:#4f46e5;}
+[data-theme="light"] .prow-res{background:rgba(34,197,94,.1);color:#16a34a;}
+.pcard-row-text{color:var(--muted);}
+
 .pcard-imgs{display:grid;gap:10px;border-radius:14px;overflow:hidden;}
 .pcard-imgs.g2{grid-template-columns:1fr 1fr;}
 .pcard-imgs.g3{grid-template-columns:1fr 1fr 1fr;}
@@ -215,10 +229,12 @@ section{padding:90px 0;}
 .proj-arr{width:42px;height:42px;border-radius:50%;border:1px solid var(--border);background:var(--card);display:grid;place-items:center;cursor:pointer;font-size:1.1rem;transition:.2s;color:var(--text);}
 .proj-arr:hover{background:rgba(236,72,153,.15);border-color:var(--border2);color:var(--primary);}
 @media(max-width:768px){
-  .pcard{width:min(360px,84vw);padding:20px;gap:14px;}
+  .pcard{width:min(360px,84vw);padding:20px;gap:12px;}
   .pcard h3{font-size:1.05rem;}
   .pcard-imgs img{height:130px;}
   .pcard-imgs.g3{grid-template-columns:1fr 1fr;}
+  .pcard-meta{padding:11px 13px;}
+  .pcard-row{font-size:.82rem;}
 }
  
 /* ══ MODAL ══ */
@@ -347,6 +363,24 @@ section{padding:90px 0;}
   .pc{padding:18px 16px;}
 }
  
+/* ══ PRICING ENHANCED ══ */
+.pc-includes{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:5px;}
+.pc-includes li{font-size:.82rem;color:var(--muted);display:flex;align-items:baseline;gap:6px;}
+.pc-includes li::before{content:none;}
+.pc-featured{border-color:rgba(236,72,153,.45)!important;background:linear-gradient(160deg,rgba(236,72,153,.09),rgba(249,115,22,.05))!important;position:relative;}
+.pc-popular-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#ec4899,#f97316);color:#fff;font-weight:900;font-size:.74rem;padding:4px 14px;border-radius:999px;white-space:nowrap;letter-spacing:.03em;}
+.price-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px;}
+.pnote{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:6px;transition:.2s;}
+.pnote:hover{border-color:var(--border2);}
+.pnote-icon{font-size:1.25rem;}
+.pnote-title{font-weight:900;font-size:.9rem;color:var(--text);}
+.pnote-desc{font-size:.84rem;color:var(--muted);line-height:1.65;margin:0;}
+@media(max-width:768px){
+  .price-notes{grid-template-columns:1fr;gap:10px;}
+  .pnote{padding:14px 16px;}
+  .pc-popular-badge{font-size:.7rem;}
+}
+
 /* ══ FAQ ══ */
 .faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
 .fq{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;transition:.2s;}
@@ -394,6 +428,60 @@ section{padding:90px 0;}
 /* ══ MISC ══ */
 [data-theme="dark"] .ci a{color:rgba(240,234,245,.75);}
 [data-theme="dark"] .card p,[data-theme="dark"] .sec-sub{color:rgba(240,234,245,.5);}
+
+/* ══ REQUEST FORM CTA ══ */
+.req-form-section{background:var(--bg);}
+.req-form-wrap{background:var(--card);border:1px solid var(--border);border-radius:28px;padding:52px 56px;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(236,72,153,.07);}
+.req-form-wrap::before{content:"";position:absolute;top:-80px;right:-60px;width:360px;height:360px;background:radial-gradient(circle,rgba(236,72,153,.1),transparent 68%);pointer-events:none;z-index:0;}
+.req-form-wrap::after{content:"";position:absolute;bottom:-60px;left:-50px;width:240px;height:240px;background:radial-gradient(circle,rgba(249,115,22,.08),transparent 68%);pointer-events:none;z-index:0;}
+.req-form-inner{position:relative;z-index:1;}
+.req-form-header{margin-bottom:36px;}
+.req-form-header-badge{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:999px;background:rgba(236,72,153,.13);border:1px solid rgba(236,72,153,.22);color:var(--primary);font-size:.8rem;font-weight:900;margin-bottom:14px;letter-spacing:.02em;}
+.req-form-header h3{margin:0 0 10px;font-size:1.55rem;font-weight:900;letter-spacing:-.025em;}
+.req-form-header p{margin:0;color:var(--muted);font-size:.97rem;max-width:68ch;}
+.req-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:22px;}
+.req-form-full{grid-column:1/-1;}
+.req-field{display:flex;flex-direction:column;gap:7px;}
+.req-label{font-size:.83rem;font-weight:900;color:var(--text);letter-spacing:.03em;}
+.req-label .req-req{color:var(--primary);margin-left:2px;}
+.req-input,.req-select,.req-textarea{background:rgba(255,255,255,.05);border:1.5px solid var(--border);border-radius:12px;color:var(--text);font-size:.94rem;font-family:inherit;padding:12px 16px;transition:border-color .2s,box-shadow .2s,background .2s;outline:none;width:100%;}
+[data-theme="light"] .req-input,[data-theme="light"] .req-select,[data-theme="light"] .req-textarea{background:rgba(255,255,255,.9);border-color:rgba(236,72,153,.18);}
+.req-input::placeholder,.req-textarea::placeholder{color:var(--muted2);}
+.req-input:focus,.req-select:focus,.req-textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(236,72,153,.13);background:rgba(255,255,255,.07);}
+[data-theme="light"] .req-input:focus,[data-theme="light"] .req-select:focus,[data-theme="light"] .req-textarea:focus{background:rgba(255,255,255,1);}
+.req-select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23ec4899' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;cursor:pointer;}
+.req-textarea{resize:vertical;min-height:105px;line-height:1.7;}
+.req-form-footer{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px;padding-top:22px;border-top:1px solid var(--border);}
+.req-submit{background:linear-gradient(135deg,#ec4899,#db2777);color:#fff;font-weight:900;font-size:.97rem;padding:14px 30px;border-radius:14px;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 12px 28px rgba(219,39,119,.32);display:inline-flex;align-items:center;gap:8px;white-space:nowrap;}
+.req-submit:hover{transform:translateY(-2px);box-shadow:0 18px 38px rgba(219,39,119,.42);}
+.req-submit:active{transform:translateY(0);}
+.req-footer-note{color:var(--muted2);font-size:.83rem;flex:1;}
+.req-footer-note a{color:var(--primary);font-weight:700;transition:.2s;}
+.req-footer-note a:hover{text-decoration:underline;}
+/* Success state */
+.req-success{display:none;flex-direction:column;align-items:center;text-align:center;gap:18px;padding:16px 8px 8px;}
+.req-success-icon{font-size:3.5rem;line-height:1;}
+.req-success h4{margin:0;font-size:1.4rem;font-weight:900;}
+.req-success > p{margin:0;color:var(--muted);font-size:.95rem;max-width:50ch;}
+.req-success-msg{background:rgba(236,72,153,.06);border:1px solid rgba(236,72,153,.18);border-radius:16px;padding:20px 24px;font-size:.88rem;color:var(--text);line-height:1.85;text-align:left;width:100%;max-width:640px;}
+.req-success-msg .rsm-row{display:flex;gap:8px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.05);}
+.req-success-msg .rsm-row:last-child{border-bottom:none;}
+[data-theme="light"] .req-success-msg .rsm-row{border-bottom-color:rgba(0,0,0,.05);}
+.req-success-msg .rsm-key{font-weight:900;color:var(--primary);white-space:nowrap;flex-shrink:0;}
+.req-success-msg .rsm-val{color:var(--text);}
+.req-success-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+.req-reset-btn{background:none;border:none;cursor:pointer;color:var(--muted2);font-size:.84rem;font-family:inherit;padding:4px 8px;transition:.2s;border-radius:8px;}
+.req-reset-btn:hover{color:var(--primary);}
+@media(max-width:900px){.req-form-wrap{padding:36px 32px;}}
+@media(max-width:768px){
+  .req-form-wrap{padding:28px 22px;border-radius:22px;}
+  .req-form-grid{grid-template-columns:1fr;gap:16px;}
+  .req-form-header h3{font-size:1.25rem;}
+  .req-form-footer{flex-direction:column;align-items:stretch;gap:12px;}
+  .req-submit{width:100%;justify-content:center;}
+  .req-success-msg{padding:16px 18px;}
+  .req-success-actions .btn{width:100%;justify-content:center;}
+}
 </style>
 </head>
 <body>
@@ -432,6 +520,7 @@ section{padding:90px 0;}
       <a href="#skills">Skills</a><a href="#projects">Projects</a>
       <a href="#testimonials" data-i18n="nav_reviews">好評</a>
       <a href="#pricing">Pricing</a><a href="#process" data-i18n="nav_process">合作流程</a>
+      <a href="#request-form">填需求</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-controls">
@@ -457,8 +546,8 @@ section{padding:90px 0;}
         <a class="btn btn-ghost" href="#contact" data-i18n="hero_btn3">聯絡我</a>
       </div>
       <div class="hero-stats">
-        <div class="hstat"><span class="hstat-num"><span class="count-up" data-target="90" data-suffix="%">0%</span></span><div class="hstat-label" data-i18n="hstat1">人工時間縮減</div></div>
-        <div class="hstat"><span class="hstat-num"><span class="count-up" data-target="95.2" data-suffix="%" data-dec="1">0%</span></span><div class="hstat-label" data-i18n="hstat2">文件抽取準確率</div></div>
+        <div class="hstat"><span class="hstat-num"><span class="count-up" data-target="90" data-suffix="%" data-prefix="−">0</span></span><div class="hstat-label" data-i18n="hstat1">人工時間縮減</div></div>
+        <div class="hstat"><span class="hstat-num"><span class="count-up" data-target="95.2" data-suffix="%" data-dec="1">0</span></span><div class="hstat-label" data-i18n="hstat2">文件抽取準確率</div></div>
         <div class="hstat"><span class="hstat-num">5+</span><div class="hstat-label" data-i18n="hstat3">完整專案交付</div></div>
       </div>
     </div>
@@ -570,7 +659,7 @@ section{padding:90px 0;}
   <div class="container">
     <div class="sec-head rv"><h2 class="sec-title split-text" data-i18n="stats_title">專案成果 Results</h2><p class="sec-sub" data-i18n="stats_sub">每個數字背後都是真實交付的系統與解決的問題。</p></div>
     <div class="stats-grid">
-      <div class="stat-card rv d1"><span class="stat-num">−<span class="count-up" data-target="90" data-suffix="%">0</span></span><div class="stat-label" data-i18n="stat1">料號查詢系統<br>人工操作時間縮減</div></div>
+      <div class="stat-card rv d1"><span class="stat-num"><span class="count-up" data-target="90" data-suffix="%" data-prefix="−">0</span></span><div class="stat-label" data-i18n="stat1">料號查詢系統<br>人工操作時間縮減</div></div>
       <div class="stat-card rv d2"><span class="stat-num"><span class="count-up" data-target="95.2" data-suffix="%" data-dec="1">0</span></span><div class="stat-label" data-i18n="stat2">文件抽取模型<br>Document Accuracy</div></div>
       <div class="stat-card rv d3"><span class="stat-num">5+</span><div class="stat-label" data-i18n="stat3">完整系統專案<br>End-to-End 交付</div></div>
     </div>
@@ -580,19 +669,90 @@ section{padding:90px 0;}
 <!-- ════ PRICING ════ -->
 <section id="pricing">
   <div class="container">
-    <div class="sec-head rv"><h2 class="sec-title split-text" data-i18n="price_title">收費方式 Pricing</h2><p class="sec-sub" data-i18n="price_sub">依據專案規模與複雜度報價，以下為參考區間；實際報價在需求確認後提供。</p></div>
+    <div class="sec-head rv"><h2 class="sec-title split-text" data-i18n="price_title">收費方式 Pricing</h2><p class="sec-sub" data-i18n="price_sub">以下為參考報價區間，實際費用依需求功能與複雜度評估，確認需求後提供明確報價。沒有隱藏費用，報什麼就是什麼。</p></div>
     <div class="early rv">
       <div class="early-badge" data-i18n="early_badge">🎉 創業優惠</div>
       <div class="early-text" data-i18n="early_text">作為 NNDoiT AI Studio 的草創期，<strong>前 10 位合作客戶</strong>將享有專屬優惠折扣，以感謝您在初期給予的信任與支持。名額有限，歡迎把握。</div>
       <a class="btn btn-line" href="https://lin.ee/Wc5Bozb" target="_blank" style="white-space:nowrap;width:auto;" data-i18n="early_btn">💬 立即詢問</a>
     </div>
     <div class="price-grid">
-      <div class="pc rv d1"><div class="pc-icon">🔹</div><div class="pc-label" data-i18n="pc1_l">諮詢 / 規劃</div><div class="pc-range">NT$1,000<br>~ 3,000</div><div class="pc-desc" data-i18n="pc1_d">需求梳理、架構建議、可行性評估。費用可折抵後續專案。</div></div>
-      <div class="pc rv d2"><div class="pc-icon">🔹</div><div class="pc-label" data-i18n="pc2_l">小型專案</div><div class="pc-range">NT$10,000<br>~ 30,000</div><div class="pc-desc" data-i18n="pc2_d">單一功能 / 簡單自動化 / 小工具。約 1~2 週完成。</div></div>
-      <div class="pc rv d3"><div class="pc-icon">🔹</div><div class="pc-label" data-i18n="pc3_l">中型專案</div><div class="pc-range">NT$30,000<br>~ 80,000</div><div class="pc-desc" data-i18n="pc3_d">系統整合 / LINE Bot / 多流程。約 3~6 週完成。</div></div>
-      <div class="pc rv d4"><div class="pc-icon">🔹</div><div class="pc-label" data-i18n="pc4_l">大型專案</div><div class="pc-range">NT$80,000+</div><div class="pc-desc" data-i18n="pc4_d">完整系統 / ERP / AI 平台。依複雜度與時程另議。</div></div>
+      <div class="pc rv d1">
+        <div class="pc-icon">🔹</div>
+        <div class="pc-label" data-i18n="pc1_l">諮詢 / 規劃</div>
+        <div class="pc-range">NT$1,000<br>~ 3,000</div>
+        <div class="pc-desc" data-i18n="pc1_d">還不確定要做什麼？先聊聊需求，我幫你整理出方向與可行方案。</div>
+        <ul class="pc-includes" data-i18n="pc1_inc">
+          <li>✓ 需求訪談（約 60~90 分鐘）</li>
+          <li>✓ 初步系統架構建議</li>
+          <li>✓ 工具選型與可行性評估</li>
+          <li>✓ 諮詢費可折抵後續開發</li>
+        </ul>
+      </div>
+      <div class="pc rv d2">
+        <div class="pc-icon">🔸</div>
+        <div class="pc-label" data-i18n="pc2_l">小型專案</div>
+        <div class="pc-range">NT$10,000<br>~ 30,000</div>
+        <div class="pc-desc" data-i18n="pc2_d">單一功能、簡單自動化、小工具或 MVP 驗證。約 1~2 週完成。</div>
+        <ul class="pc-includes" data-i18n="pc2_inc">
+          <li>✓ 功能開發 + 基礎部署</li>
+          <li>✓ 操作說明與教學</li>
+          <li>✓ 1 個月免費 Bug 修正</li>
+          <li>✓ 原始碼交付（確認後）</li>
+        </ul>
+      </div>
+      <div class="pc rv d3 pc-featured" style="position:relative;">
+        <div class="pc-popular-badge" data-i18n="pc3_badge">✦ 最多選擇</div>
+        <div class="pc-icon">💎</div>
+        <div class="pc-label" data-i18n="pc3_l">中型專案</div>
+        <div class="pc-range">NT$30,000<br>~ 80,000</div>
+        <div class="pc-desc" data-i18n="pc3_d">系統整合、LINE Bot、多流程自動化、含前後端。約 3~6 週完成。</div>
+        <ul class="pc-includes" data-i18n="pc3_inc">
+          <li>✓ 完整功能開發 + 測試</li>
+          <li>✓ 系統文件與操作說明</li>
+          <li>✓ 3 個月維護期</li>
+          <li>✓ 原始碼完整交付</li>
+          <li>✓ 可簽 NDA 保密協議</li>
+        </ul>
+      </div>
+      <div class="pc rv d4">
+        <div class="pc-icon">🚀</div>
+        <div class="pc-label" data-i18n="pc4_l">大型 / 企業專案</div>
+        <div class="pc-range">NT$80,000+</div>
+        <div class="pc-desc" data-i18n="pc4_d">完整系統、ERP 整合、AI 平台。可分階段開發，依複雜度與時程另議。</div>
+        <ul class="pc-includes" data-i18n="pc4_inc">
+          <li>✓ 分階段開發 + 里程碑規劃</li>
+          <li>✓ 完整技術文件與架構說明</li>
+          <li>✓ 長期維護方案（另議）</li>
+          <li>✓ 原始碼 + 部署完整交付</li>
+          <li>✓ NDA / 正式合約簽署</li>
+        </ul>
+      </div>
     </div>
-    <div class="payment-bar rv"><div class="pay-title" data-i18n="pay_title">💳 付款條件</div><div class="pay-steps"><div class="pay-step"><span class="pay-pct">30%</span><span class="pay-lbl" data-i18n="pay1">訂金 — 開始前</span></div><div class="pay-step"><span class="pay-pct">40%</span><span class="pay-lbl" data-i18n="pay2">中期 — Demo 完成</span></div><div class="pay-step"><span class="pay-pct">30%</span><span class="pay-lbl" data-i18n="pay3">尾款 — 驗收後</span></div></div></div>
+    <div class="payment-bar rv">
+      <div class="pay-title" data-i18n="pay_title">💳 付款流程</div>
+      <div class="pay-steps">
+        <div class="pay-step"><span class="pay-pct">30%</span><span class="pay-lbl" data-i18n="pay1">訂金 — 確認報價後繳付，正式開始開發</span></div>
+        <div class="pay-step"><span class="pay-pct">40%</span><span class="pay-lbl" data-i18n="pay2">中期款 — Demo 版本完成、雙方確認方向後</span></div>
+        <div class="pay-step"><span class="pay-pct">30%</span><span class="pay-lbl" data-i18n="pay3">尾款 — 驗收通過後，交付原始碼與部署</span></div>
+      </div>
+    </div>
+    <div class="price-notes rv">
+      <div class="pnote">
+        <div class="pnote-icon">📄</div>
+        <div class="pnote-title" data-i18n="pn1_t">原始碼交付</div>
+        <p class="pnote-desc" data-i18n="pn1_d">所有專案預設交付原始碼。若有特殊原因不含原始碼，會在報價前明確說明，不會事後才告知。</p>
+      </div>
+      <div class="pnote">
+        <div class="pnote-icon">🔒</div>
+        <div class="pnote-title" data-i18n="pn2_t">NDA 保密協議</div>
+        <p class="pnote-desc" data-i18n="pn2_d">有保密需求的合作，可在簽約前討論並簽署 NDA。企業內部系統、商業邏輯等敏感資訊皆會妥善保護。</p>
+      </div>
+      <div class="pnote">
+        <div class="pnote-icon">🧩</div>
+        <div class="pnote-title" data-i18n="pn3_t">MVP 先行 / 分階段開發</div>
+        <p class="pnote-desc" data-i18n="pn3_d">不確定需求？可以先做 MVP 驗證核心功能，確認方向後再擴充。大型專案也支援分階段開發，降低初期風險。</p>
+      </div>
+    </div>
   </div>
 </section>
  
@@ -642,14 +802,18 @@ section{padding:90px 0;}
       <div class="info-card rv">
         <h3 data-i18n="faq_h">❓ 常見問題 FAQ</h3>
         <div class="faq-grid" style="grid-template-columns:1fr;gap:10px;" id="faqList">
-          <div class="fq"><div class="fq-q" data-i18n="fq1_q">Q：開發需要多久？</div><p class="fq-a" data-i18n="fq1_a">小型約 1~2 週；中型 3~6 週；大型系統另行評估。</p></div>
-          <div class="fq"><div class="fq-q" data-i18n="fq2_q">Q：費用怎麼算？</div><p class="fq-a" data-i18n="fq2_a">依功能數量與複雜度報價，確認需求後提供明確區間。</p></div>
-          <div class="fq"><div class="fq-q" data-i18n="fq3_q">Q：可以先討論再決定嗎？</div><p class="fq-a" data-i18n="fq3_a">當然。初步諮詢與需求評估完全免費，歡迎直接加 LINE。</p></div>
-          <div class="fq"><div class="fq-q" data-i18n="fq4_q">Q：可以遠端合作嗎？</div><p class="fq-a" data-i18n="fq4_a">可以。大多數專案都透過線上溝通完成，地區不限。</p></div>
-          <div class="fq"><div class="fq-q" data-i18n="fq5_q">Q：交付內容包含什麼？</div><p class="fq-a" data-i18n="fq5_a">包含執行檔、部署說明與基本操作教學。</p></div>
-          <div class="fq"><div class="fq-q" data-i18n="fq6_q">Q：有維護服務嗎？</div><p class="fq-a" data-i18n="fq6_a">視需求而定，可另外討論維護或後續迭代方案。</p></div>
-          <div class="fq"><div class="fq-q" data-i18n="fq7_q">Q：需求中途改變怎麼辦？</div><p class="fq-a" data-i18n="fq7_a">小幅調整可彈性處理；範圍較大則提前溝通評估。</p></div>
-          <div class="fq"><div class="fq-q" data-i18n="fq8_q">Q：需要提供什麼才能開始？</div><p class="fq-a" data-i18n="fq8_a">只需描述遇到的問題，不需要懂技術，我來拆解需求。</p></div>
+          <div class="fq"><div class="fq-q" data-i18n="fq1_q">Q：開發需要多久？</div><p class="fq-a" data-i18n="fq1_a">小型專案約 1~2 週；中型系統 3~6 週；大型企業系統依需求另行評估。時程會在確認需求後一起討論，不會給你一個模糊的答案。</p></div>
+          <div class="fq"><div class="fq-q" data-i18n="fq2_q">Q：費用怎麼計算？</div><p class="fq-a" data-i18n="fq2_a">依功能數量、複雜度與預計時程評估，確認需求後提供明確報價區間，不會模糊報價讓你猜。若有預算上限，可以直接說，我幫你規劃在範圍內能做到什麼。</p></div>
+          <div class="fq"><div class="fq-q" data-i18n="fq3_q">Q：交付時會提供原始碼嗎？</div><p class="fq-a" data-i18n="fq3_a">預設包含原始碼交付。我認為你付了錢，就應該拿到可以自己維護或交給別人維護的東西。若有特殊情況不含原始碼，會在報價前說清楚，不會事後才講。</p></div>
+          <div class="fq"><div class="fq-q" data-i18n="fq4_q">Q：可以簽 NDA 保密協議嗎？</div><p class="fq-a" data-i18n="fq4_a">可以。如果你的需求涉及商業邏輯、內部流程或敏感資料，我們可以在正式合作前簽署 NDA，確保你的資訊不會外流。</p></div>
+          <div class="fq"><div class="fq-q" data-i18n="fq5_q">Q：可以先做 MVP，確認後再擴充嗎？</div><p class="fq-a" data-i18n="fq5_a">非常推薦這種方式，尤其是需求還不夠確定的時候。先用較低預算做出核心功能驗證方向，確認可行再追加後續功能，風險小、效率高。</p></div>
+          <div class="fq"><div class="fq-q" data-i18n="fq6_q">Q：可以分階段開發嗎？</div><p class="fq-a" data-i18n="fq6_a">可以，特別是中大型專案。我們會一起規劃里程碑，每個階段完成後確認再進入下一階段，不會一次燒完預算卻不確定方向對不對。</p></div>
+          <div class="fq"><div class="fq-q" data-i18n="fq7_q">Q：開發中途需求變更怎麼辦？</div><p class="fq-a" data-i18n="fq7_a">小幅調整（不影響架構）可以彈性處理，通常不額外收費。如果是方向性的改變或新增功能，我們會提前溝通，確認影響範圍再決定是否調整報價，不會讓你有意外帳單。</p></div>
+          <div class="fq"><div class="fq-q" data-i18n="fq8_q">Q：維護期怎麼計算？</div><p class="fq-a" data-i18n="fq8_a">小型專案含 1 個月免費 Bug 修正；中型以上含 3 個月維護期。維護期內如果是我的問題造成的 Bug，免費處理。超出維護期或新增功能則另行討論費用。</p></div>
+          <div class="fq"><div class="fq-q" data-i18n="fq9_q">Q：付款流程是怎麼進行的？</div><p class="fq-a" data-i18n="fq9_a">採三段式付款：確認報價後付 30% 訂金開始開發 → Demo 完成付 40% → 驗收通過後付 30% 尾款並交付原始碼。不會要你先全額付清，風險雙方共擔。</p></div>
+          <div class="fq"><div class="fq-q" data-i18n="fq10_q">Q：可以先討論再決定合作嗎？</div><p class="fq-a" data-i18n="fq10_a">當然。初步諮詢和需求評估完全免費，不會因為你問了問題就產生費用。加 LINE 聊聊你的狀況，我幫你判斷可不可行、大概要多少、哪種方式最適合。</p></div>
+          <div class="fq"><div class="fq-q" data-i18n="fq11_q">Q：可以遠端合作嗎？地區有限制嗎？</div><p class="fq-a" data-i18n="fq11_a">完全可以。大多數專案都透過線上溝通（LINE / Meet / 文件）完成，地區不限。台灣各縣市、海外客戶都有成功合作過。</p></div>
+          <div class="fq"><div class="fq-q" data-i18n="fq12_q">Q：我不懂技術，這樣可以合作嗎？</div><p class="fq-a" data-i18n="fq12_a">完全沒問題，也是最常見的情況。你只需要描述「現在遇到什麼問題、希望達到什麼結果」，技術的部分我來負責。需求討論全程用白話說明，不讓你被技術名詞搞混。</p></div>
         </div>
       </div>
     </div>
@@ -661,6 +825,115 @@ section{padding:90px 0;}
   </div>
 </section>
  
+<!-- ════ REQUEST FORM CTA ════ -->
+<section id="request-form" class="req-form-section">
+  <div class="container">
+    <div class="sec-head rv" style="text-align:center;">
+      <h2 class="sec-title split-text">先填需求，我幫你整理可行方案</h2>
+      <p class="sec-sub">還不確定怎麼開始也沒關係，先把想解決的問題丟給我。不需要懂技術，我來幫你拆解。</p>
+    </div>
+    <div class="req-form-wrap rv">
+      <div class="req-form-inner">
+
+        <!-- ── 表單主體 ── -->
+        <div id="reqFormBody">
+          <div class="req-form-header">
+            <div class="req-form-header-badge">📋 需求初步整理</div>
+            <h3>填完這份表，我幫你整理成可行方案再確認</h3>
+            <p>不用先準備好完整規格或技術細節，把你遇到的問題如實描述即可，我會評估後回覆。</p>
+          </div>
+
+          <div class="req-form-grid">
+            <!-- 需求類型 -->
+            <div class="req-field">
+              <label class="req-label">需求類型<span class="req-req">＊</span></label>
+              <select class="req-select" id="rf-type">
+                <option value="">請選擇最接近的類型...</option>
+                <option value="AI 應用開發（LLM / RAG / 聊天機器人）">AI 應用開發（LLM / RAG / 聊天機器人）</option>
+                <option value="流程自動化（n8n / Webhook / API 串接）">流程自動化（n8n / Webhook / API 串接）</option>
+                <option value="系統整合（ERP / 資料庫 / 第三方服務）">系統整合（ERP / 資料庫 / 第三方服務）</option>
+                <option value="LINE Bot 開發">LINE Bot 開發</option>
+                <option value="前後端開發 / 網頁設計">前後端開發 / 網頁設計</option>
+                <option value="文件 / 資料處理（OCR / 抽取 / 轉換）">文件 / 資料處理（OCR / 抽取 / 轉換）</option>
+                <option value="不確定，需要先諮詢方向">不確定，需要先諮詢方向</option>
+              </select>
+            </div>
+
+            <!-- 預算範圍 -->
+            <div class="req-field">
+              <label class="req-label">預算範圍<span class="req-req">＊</span></label>
+              <select class="req-select" id="rf-budget">
+                <option value="">請選擇...</option>
+                <option value="NT$1,000 ~ 3,000（諮詢 / 規劃）">NT$1,000 ~ 3,000（諮詢 / 規劃）</option>
+                <option value="NT$10,000 ~ 30,000（小型專案）">NT$10,000 ~ 30,000（小型專案）</option>
+                <option value="NT$30,000 ~ 80,000（中型專案）">NT$30,000 ~ 80,000（中型專案）</option>
+                <option value="NT$80,000+（大型 / 企業系統）">NT$80,000+（大型 / 企業系統）</option>
+                <option value="預算未定，請幫我評估">預算未定，請幫我評估</option>
+              </select>
+            </div>
+
+            <!-- 預計完成時間 -->
+            <div class="req-field">
+              <label class="req-label">預計完成時間</label>
+              <select class="req-select" id="rf-timeline">
+                <option value="">請選擇...</option>
+                <option value="越快越好（1 ~ 2 週內）">越快越好（1 ~ 2 週內）</option>
+                <option value="約 1 個月內">約 1 個月內</option>
+                <option value="1 ~ 3 個月">1 ~ 3 個月</option>
+                <option value="3 個月以上">3 個月以上</option>
+                <option value="時間彈性，品質優先">時間彈性，品質優先</option>
+              </select>
+            </div>
+
+            <!-- 聯絡方式 -->
+            <div class="req-field">
+              <label class="req-label">你的聯絡方式<span class="req-req">＊</span></label>
+              <input class="req-input" id="rf-contact" type="text" placeholder="LINE ID / Email / 電話（方便我回覆你）">
+            </div>
+
+            <!-- 想做的功能 -->
+            <div class="req-field req-form-full">
+              <label class="req-label">想做的功能 / 解決的問題<span class="req-req">＊</span></label>
+              <textarea class="req-textarea" id="rf-feature" placeholder="例如：希望把每天手動整理的 Excel 訂單，自動匯入資料庫並發 LINE 通知給主管，目前需要兩個人花 2 小時處理...&#10;&#10;不用太精確，說清楚「遇到什麼問題」即可。"></textarea>
+            </div>
+
+            <!-- 目前狀況 -->
+            <div class="req-field req-form-full">
+              <label class="req-label">目前狀況（選填）</label>
+              <textarea class="req-textarea" id="rf-current" style="min-height:88px;" placeholder="例如：目前用 Google 試算表手動整理，沒有資料庫，3 個人在做重複的事...&#10;&#10;有助於我更快提出適合的方案。"></textarea>
+            </div>
+          </div>
+
+          <div class="req-form-footer">
+            <button class="req-submit" onclick="submitReqForm()">
+              <span>📨</span> 送出需求，讓我整理可行方案
+            </button>
+            <span class="req-footer-note">
+              我會整理成摘要讓你確認後再報價。<br>
+              也可以直接 <a href="https://lin.ee/Wc5Bozb" target="_blank">加 LINE</a> 或 <a href="/cdn-cgi/l/email-protection#a8c9c99d9f909d9d919e9ee8cfc5c9c1c486cbc7c5">寄 Email</a> 跟我說。
+            </span>
+          </div>
+        </div><!-- /reqFormBody -->
+
+        <!-- ── 送出後成功畫面 ── -->
+        <div class="req-success" id="reqFormSuccess">
+          <div class="req-success-icon">🎉</div>
+          <h4>需求已整理完成！</h4>
+          <p>請將下方摘要透過 LINE 或 Email 傳給我，我會盡快回覆可行方案。</p>
+          <div class="req-success-msg" id="reqSummary"></div>
+          <div class="req-success-actions">
+            <a class="btn btn-line" href="https://lin.ee/Wc5Bozb" target="_blank">💬 開啟 LINE 傳送</a>
+            <a class="btn btn-ghost" id="reqMailBtn" href="#">📧 開啟 Email 傳送</a>
+            <button class="btn btn-ghost" onclick="copyReqSummary()" id="reqCopyBtn">📋 複製需求摘要</button>
+          </div>
+          <button class="req-reset-btn" onclick="resetReqForm()">← 重新填寫</button>
+        </div>
+
+      </div><!-- /req-form-inner -->
+    </div><!-- /req-form-wrap -->
+  </div>
+</section>
+
 <!-- ════ CONTACT ════ -->
 <section id="contact">
   <div class="container">
@@ -670,7 +943,7 @@ section{padding:90px 0;}
         <h3 style="margin:0 0 4px;">Contact Info</h3>
         <div class="contact-list">
           <div class="ci"><strong>Phone</strong><a href="tel:0963718302">0963-718-302</a></div>
-          <div class="ci"><strong>Email</strong><a href="/cdn-cgi/l/email-protection#305e5e545f59441e515970575d51595c1e535f5d"><span class="__cf_email__" data-cfemail="731d1d171c1a075d121a33141e121a1f5d101c1e">[email&#160;protected]</span></a></div>
+          <div class="ci"><strong>Email</strong><a href="/cdn-cgi/l/email-protection#295747434848494e464963444e424a4f074a4644"><span class="__cf_email__" data-cfemail="294047434848494e46496c444e424a4f074a4644">[email&#160;protected]</span></a></div>
           <div class="ci"><strong>GitHub</strong><a href="https://github.com/ChengEnLu252" target="_blank">github.com/ChengEnLu252</a></div>
           <div class="ci"><strong>Instagram</strong><a href="https://www.instagram.com/nndoit_ai_studio" target="_blank">@nndoit_ai_studio</a></div>
           <div class="ci"><strong>Facebook</strong><a href="https://www.facebook.com/profile.php?id=61577420115975" target="_blank">NNDoiT AI Studio</a></div>
@@ -709,13 +982,16 @@ section{padding:90px 0;}
   </div>
 </footer>
  
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ══════════════════════════════════════
    PROJECT DATA
 ══════════════════════════════════════ */
 const PROJECTS=[
   {id:'ude',title:'UDE 料號查詢自動化平台',tag:'Featured Project',
    desc:'以 n8n 為核心打造企業內部料號查詢與資料整合平台，整合 MySQL、Excel 與即時查詢介面，將原本繁瑣的人工查詢 / 比對流程自動化。',
+   pain:'兩人手動核對 Excel 與資料庫，每次查詢耗時數分鐘、資料易不一致',
+   solution:'n8n 自動化流程整合 MySQL，欄位正規化 + 即時查詢介面一站完成',
+   outcome:'查詢時間縮短 90%，單人幾秒完成，系統穩定上線數月無故障',
    images:['images/n8n-workflow.png','images/n8n-ui.png'],imgClass:'g2',
    url:'internal.ude-system.local / query',
    tech:['n8n','MySQL','JavaScript Function Node','HTML + DataTables','Workflow Automation','Internal Tool'],
@@ -723,6 +999,9 @@ const PROJECTS=[
    result:'減少人工查詢與比對時間約 90%，提升資料一致性，並建立可擴充的企業內部查詢工具。',link:null},
   {id:'nutritionist',title:'AI Nutritionist',tag:'AI Health App',
    desc:'整合熱量分析、圖片分析與 AI 飲食教練三種介面，將健康查詢、熱量估算與飲食規劃集中在同一套系統中。',
+   pain:'熱量查詢工具分散、圖片估算不便，飲食規劃缺乏整合入口',
+   solution:'整合文字查詢、圖片辨識熱量、AI 飲食教練三大功能於單一系統',
+   outcome:'一個介面完成查詢、紀錄與建議，日常健康管理門檻大幅降低',
    images:['images/ai-nutritionist-1.png','images/ai-nutritionist-3.png','images/ai-nutritionist-4.png'],imgClass:'g3',
    url:'AI Nutritionist · Calorie · Coach',
    tech:['Python','LLM','RAG','Nutrition Analysis','Image Analysis','Health Coaching'],
@@ -731,6 +1010,9 @@ const PROJECTS=[
    link:'https://github.com/ChengEnLu252/AI-Nutritionist.git'},
   {id:'cakehunt',title:'CakeHunt｜多平台自動化搶票系統',tag:'Automation Tool',
    desc:'我設計的多帳號同時搶票程式，將整個搶票流程交由系統自動執行，並整合 OCR 驗證碼辨識與即時監控功能。',
+   pain:'人工搶票高壓易失敗，驗證碼阻礙速度，多帳號同時操作幾乎不可能',
+   solution:'多帳號並行執行 + OCR 驗證碼自動辨識 + 即時監控，全流程系統接管',
+   outcome:'從手動刷新轉為全自動執行，人工介入成本趨近於零，成功率顯著提升',
    images:['images/CakeHunt1.png','images/CakeHunt2.png'],imgClass:'g2',
    url:'CakeHunt · Multi-Account Ticket Bot',
    tech:['Automation','OCR','CAPTCHA Recognition','Multi-Account Workflow','Real-Time Monitoring'],
@@ -739,6 +1021,9 @@ const PROJECTS=[
    link:'https://github.com/ChengEnLu252/CakeHunt.git'},
   {id:'carebuddy',title:'line-cloud-webhook｜CareBuddy',tag:'LINE Bot / Health Record',
    desc:'一個串接進 LINE 的健康陪伴機器人。可記錄症狀、自動寫入資料庫並獲得即時回覆，主打陪伴感與心靈安慰。',
+   pain:'健康紀錄分散無整合，不舒服時無法即時查詢與獲得有效回饋',
+   solution:'LINE Webhook 整合 CRUD 資料庫，對話式操作自動儲存症狀並即時回應',
+   outcome:'嵌入日常聊天場景，健康管理門檻趨近於零，隨開隨用',
    images:['images/line-webhook1.jpg','images/line-webhook2.jpg','images/line-webhook3.jpg'],imgClass:'g3',
    url:'LINE · CareBuddy Health Bot',
    tech:['LINE Integration','Webhook','CRUD','Health Record','Backend Logic','Database'],
@@ -747,6 +1032,9 @@ const PROJECTS=[
    link:'https://github.com/ChengEnLu252/line-cloud-webhook.git'},
   {id:'thesis',title:'LLM Order Extraction Thesis',tag:'Research / AI',
    desc:'研究大型語言模型於異質訂單文件之關鍵資訊擷取與標準化，建立從文件解析、prompt 設計到評估分析的完整流程。',
+   pain:'異質訂單格式多變，人工整理耗時且欄位錯漏率高，難以系統化處理',
+   solution:'LLM + Structured Output + JSON Schema，建立可評估、可重現的標準化抽取流程',
+   outcome:'達到 95.2% Document Accuracy，直接輸出可供系統串接的標準 JSON',
    images:[],imgClass:'',url:'LLM Order Extraction · Research',
    tech:['Python','LLM','Prompt Engineering','JSON Schema','OCR','Evaluation'],
    points:['處理異質訂單中欄位名稱變異、資訊分散、格式複雜與干擾資訊過多等問題。','建立結構化 schema 與標準化輸出流程，使模型結果可比較、可分析、可重現。','Level 2 正式結果達 95.2% Document Accuracy。','進一步延伸至 Level 3 OCR / 影像版本，降低人工整理非結構化文件的成本。'],
@@ -846,10 +1134,10 @@ function toggleTheme(){
    HERO PARTICLES (desktop only)
 ══════════════════════════════════════ */
 if(window.matchMedia('(pointer:fine)').matches){
-  const hcvs=document.getElementById('hero-canvas'),hctx=hcvs.getContext('2d');
-  let hW,hH,hPts=[],mouseX=0,mouseY=0;
-  function resizeHero(){const h=document.querySelector('.hero');hW=hcvs.width=h.offsetWidth;hH=hcvs.height=h.offsetHeight;}
-  resizeHero();addEventListener('resize',resizeHero);
+  const hc=document.getElementById('hero-canvas'),hctx=hc.getContext('2d');
+  let hW=hc.width=hc.parentElement.offsetWidth,hH=hc.height=hc.parentElement.offsetHeight;
+  let mouseX=hW/2,mouseY=hH/2;
+  const hPts=[];
   class HP{
     constructor(){this.r();}
     r(){this.x=Math.random()*hW;this.y=Math.random()*hH;this.vx=(Math.random()-.5)*.3;this.vy=(Math.random()-.5)*.3;this.s=Math.random()*1.4+.3;this.a=Math.random()*.25+.05;}
@@ -900,14 +1188,40 @@ document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
 const countObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(!e.isIntersecting)return;
-    const el=e.target,target=parseFloat(el.dataset.target),suffix=el.dataset.suffix||'',dec=parseInt(el.dataset.dec||'0');
+    const el=e.target,target=parseFloat(el.dataset.target),suffix=el.dataset.suffix||'',prefix=el.dataset.prefix||'',dec=parseInt(el.dataset.dec||'0');
     let cur2=0;const steps=60,inc=target/steps;
-    const t=setInterval(()=>{cur2+=inc;if(cur2>=target){cur2=target;clearInterval(t);}el.textContent=cur2.toFixed(dec)+suffix;},18);
+    const t=setInterval(()=>{cur2+=inc;if(cur2>=target){cur2=target;clearInterval(t);}el.textContent=prefix+cur2.toFixed(dec)+suffix;},18);
     countObs.unobserve(el);
   });
 },{threshold:.5});
 document.querySelectorAll('.count-up').forEach(el=>countObs.observe(el));
  
+/* ══════════════════════════════════════
+   BUILD PROJECT CARD HTML (shared helper)
+══════════════════════════════════════ */
+function buildCard(p,i,lang){
+  const imgHtml=p.images.length?`
+    <div class="pcard-imgs ${p.imgClass}">
+      ${p.images.slice(0,p.imgClass==='g3'?3:2).map(src=>`<img src="${src}" alt="" loading="lazy">`).join('')}
+    </div>`:'';
+  const btnLabel=lang==='en'?'View Full Case Study →':'查看完整 Case Study →';
+  const painLabel=lang==='en'?'Pain':'痛點';
+  const solLabel=lang==='en'?'Approach':'做法';
+  const resLabel=lang==='en'?'Result':'成果';
+  return `
+    <div class="pcard-tag">${p.tag}</div>
+    <h3>${p.title}</h3>
+    <p class="pcard-desc">${p.desc}</p>
+    <div class="pcard-meta">
+      <div class="pcard-row"><span class="pcard-row-label prow-pain">${painLabel}</span><span class="pcard-row-text">${p.pain}</span></div>
+      <div class="pcard-row"><span class="pcard-row-label prow-sol">${solLabel}</span><span class="pcard-row-text">${p.solution}</span></div>
+      <div class="pcard-row"><span class="pcard-row-label prow-res">${resLabel}</span><span class="pcard-row-text">${p.outcome}</span></div>
+    </div>
+    ${imgHtml}
+    <div class="pcard-tech">${p.tech.slice(0,4).map(t=>`<span>${t}</span>`).join('')}</div>
+    <button class="pcard-open" onclick="openModal(${i})">${btnLabel}</button>`;
+}
+
 /* ══════════════════════════════════════
    RENDER PROJECT CARDS
 ══════════════════════════════════════ */
@@ -915,17 +1229,7 @@ function renderProjects(){
   const track=document.getElementById('projTrack');
   PROJECTS.forEach((p,i)=>{
     const card=document.createElement('div');card.className='pcard';
-    const imgHtml=p.images.length?`
-      <div class="pcard-imgs ${p.imgClass}">
-        ${p.images.slice(0,p.imgClass==='g3'?3:2).map(src=>`<img src="${src}" alt="" loading="lazy">`).join('')}
-      </div>`:'';
-    card.innerHTML=`
-      <div class="pcard-tag">${p.tag}</div>
-      <h3>${p.title}</h3>
-      <p class="pcard-desc">${p.desc}</p>
-      ${imgHtml}
-      <div class="pcard-tech">${p.tech.slice(0,4).map(t=>`<span>${t}</span>`).join('')}</div>
-      <button class="pcard-open" onclick="openModal(${i})">查看完整 Case Study →</button>`;
+    card.innerHTML=buildCard(p,i,'zh');
     track.appendChild(card);
   });
 }
@@ -1074,54 +1378,64 @@ const I18N_EN={
   stat2:'Document Extraction Model<br>Document Accuracy',
   stat3:'Complete System Projects<br>End-to-End Delivery',
   // Pricing
-  price_title:'Pricing',price_sub:'Pricing depends on project scope and complexity. Below are reference ranges; final quotes provided after requirements are confirmed.',
+  price_title:'Pricing',price_sub:'Reference ranges below. Final quotes are provided after requirements are confirmed. No hidden fees.',
   early_badge:'🎉 Early Bird Offer',
   early_text:'As NNDoiT AI Studio is in its early stage, the <strong>first 10 clients</strong> will enjoy exclusive discounts as a token of appreciation for your early trust and support. Limited spots available.',
   early_btn:'💬 Inquire Now',
-  pc1_l:'Consulting',pc1_d:'Requirements analysis, architecture advice, feasibility assessment. Fee can be credited toward projects.',
-  pc2_l:'Small Project',pc2_d:'Single feature / simple automation / small tool. ~1–2 weeks.',
-  pc3_l:'Medium Project',pc3_d:'System integration / LINE Bot / multi-flow. ~3–6 weeks.',
-  pc4_l:'Large Project',pc4_d:'Full system / ERP / AI platform. Priced by complexity and timeline.',
+  pc1_l:'Consulting / Planning',pc1_d:'Not sure what you need yet? Let\'s talk through your situation and I\'ll map out a direction.',
+  pc1_inc:'✓ Requirements interview (60–90 min)|||✓ Initial architecture suggestions|||✓ Feasibility & tool recommendations|||✓ Fee credited toward development',
+  pc2_l:'Small Project',pc2_d:'Single feature, simple automation, small tool, or MVP validation. ~1–2 weeks.',
+  pc2_inc:'✓ Feature development + deployment|||✓ Operation guide & tutorial|||✓ 1-month free bug fixes|||✓ Source code delivery (on confirmation)',
+  pc3_l:'Medium Project',pc3_d:'System integration, LINE Bot, multi-flow automation, frontend + backend. ~3–6 weeks.',
+  pc3_badge:'✦ Most Popular',
+  pc3_inc:'✓ Full feature dev + testing|||✓ System documentation|||✓ 3-month maintenance period|||✓ Full source code delivery|||✓ NDA available on request',
+  pc4_l:'Large / Enterprise',pc4_d:'Full systems, ERP integration, AI platforms. Phased development supported. Quoted by scope.',
+  pc4_inc:'✓ Phased dev + milestone planning|||✓ Full technical documentation|||✓ Long-term maintenance plan (negotiated)|||✓ Source code + full deployment|||✓ NDA / formal contract signing',
   pay_title:'💳 Payment Terms',
-  pay1:'Deposit — Before start',pay2:'Midterm — Demo complete',pay3:'Final — After acceptance',
-  // Process
-  proc_title:'How We Work',proc_sub:'From first contact to system delivery, the process is clear and transparent.',
+  pay1:'Deposit (30%) — After quote confirmed, development begins',pay2:'Midterm (40%) — After Demo version reviewed and approved',pay3:'Final (30%) — After acceptance, source code delivered',
+  pn1_t:'Source Code Delivery',pn1_d:'Source code is included by default. You paid for it, so you own it. Any exceptions are stated clearly before signing.',
+  pn2_t:'NDA Available',pn2_d:'If your project involves sensitive business logic or internal processes, we can sign an NDA before starting. Your data stays yours.',
+  pn3_t:'MVP First / Phased Dev',pn3_d:'Start with a lean MVP to validate core ideas, then expand. Phased development is fully supported for larger projects — lower risk, clearer direction.',
+  // FAQ
+  faq_h:'❓ FAQ',
+  fq1_q:'Q: How long does development take?',fq1_a:'Small projects: ~1–2 weeks; medium systems: 3–6 weeks; large enterprise systems: assessed individually. Timeline is discussed together after requirements are confirmed — no vague answers.',
+  fq2_q:'Q: How is pricing determined?',fq2_a:'Based on feature count, complexity, and timeline. A clear price range is given after requirements are confirmed. If you have a budget ceiling, just say so — I\'ll tell you what\'s achievable within it.',
+  fq3_q:'Q: Will I receive the source code?',fq3_a:'Yes, source code is included by default. You paid for the project, so you should own it — whether you maintain it yourself or hand it off to someone else. Any exceptions are stated before signing.',
+  fq4_q:'Q: Can we sign an NDA?',fq4_a:'Yes. If your project involves business logic, internal workflows, or sensitive data, we can sign an NDA before starting. Your confidential information stays protected.',
+  fq5_q:'Q: Can we start with an MVP and expand later?',fq5_a:'Highly recommended, especially when requirements aren\'t fully defined yet. Build the core with a smaller budget, validate the direction, then expand. Less risk, better outcome.',
+  fq6_q:'Q: Is phased development available?',fq6_a:'Yes, especially for medium-to-large projects. We\'ll plan milestones together, confirm each stage before moving forward. No burning the entire budget without knowing if the direction is right.',
+  fq7_q:'Q: What if requirements change mid-project?',fq7_a:'Minor adjustments (without affecting the architecture) are handled flexibly and usually at no extra cost. For direction changes or new features, we discuss the impact first before deciding whether a price adjustment is needed — no surprise invoices.',
+  fq8_q:'Q: How does the maintenance period work?',fq8_a:'Small projects include 1 month of free bug fixes; medium and above include 3 months. If the bug is caused by my code, it\'s fixed for free within the maintenance period. Additional features or out-of-scope fixes are quoted separately.',
+  fq9_q:'Q: How does payment work?',fq9_a:'Three-stage payment: 30% deposit when quote is confirmed → 40% after Demo is reviewed → 30% final after acceptance, with source code delivery. No full payment upfront — risk is shared.',
+  fq10_q:'Q: Can I consult before committing?',fq10_a:'Absolutely. Initial consultation and requirements assessment are completely free — asking questions doesn\'t cost you anything. Add me on LINE, describe your situation, and I\'ll let you know what\'s feasible and how.',
+  fq11_q:'Q: Can we work remotely? Any location restrictions?',fq11_a:'No restrictions at all. Most projects are completed through online communication (LINE, Meet, docs). Clients from all over Taiwan and internationally are welcome.',
+  fq12_q:'Q: I don\'t understand technology — is that okay?',fq12_a:'That\'s the most common case. Just describe the problem you\'re facing and the outcome you want — I\'ll handle the technical side. All discussions are in plain language, no jargon.',
+  // CTAproc_sub:'From first contact to system delivery, the process is clear and transparent.',
   proc_h1:'🗂 Workflow',
   proc_s1:'Add me on LINE and describe your needs',proc_s2:'I help organize requirements and propose solutions',
   proc_s3:'Confirm direction and pricing',proc_s4:'Pay deposit, development begins',
-  proc_s5:'Midterm review and adjustments',proc_s6:'Final delivery and acceptance',
-  proc_fit_h:'✅ Good Fit',
-  proc_fit1:'You have a clear problem to solve (slow processes / manual repetition)',
-  proc_fit2:'You\'re open to letting me help plan system architecture',
-  proc_fit3:'You want a system built for long-term use',
-  proc_nofit_h:'❌ Not a Good Fit',
-  proc_nofit1:'You only want the lowest price for a complete system',
+  proc_s5:'Mid-point review and adjustments',proc_s6:'Final delivery and acceptance',
+  proc_fit_h:'✅ Good fit for me',
+  proc_fit1:'You have a clear problem to solve (slow process / repetitive tasks)',
+  proc_fit2:'You\'re open to letting me help plan the system architecture',
+  proc_fit3:'You want a system built to last, not a one-off script',
+  proc_nofit_h:'❌ Not a good fit',
+  proc_nofit1:'Looking for the lowest price for a full system',
   proc_nofit2:'Requirements are unclear and you\'re unwilling to discuss',
-  proc_nofit3:'You expect unlimited revisions or constant feature additions',
-  proc_why_h:'💡 Why Choose Me',
-  proc_why1:'Not just coding — I design complete systems for you',
-  proc_why2:'End-to-end: Requirements → Architecture → Development → Deployment',
-  proc_why3:'Focused on AI + Automation to truly save manpower',
-  proc_why4:'Designed from the actual user\'s perspective',
+  proc_nofit3:'Expecting unlimited revisions or continuous feature additions',
+  proc_why_h:'💡 Why choose me',
+  proc_why1:'I don\'t just write code — I design complete systems',
+  proc_why2:'Requirements → Architecture → Development → Deployment, end-to-end',
+  proc_why3:'Focused on AI + automation that genuinely saves human effort',
+  proc_why4:'Designed from the real user\'s perspective',
   proc_why5:'Direct communication, transparent progress',
-  // Results
   result_h:'📊 Quantified Results',
   ri1:'Part Number Query<br>Manual Time Reduced',ri2:'Document Extraction<br>Document Accuracy',
   ri3_num:'Multi-Account',ri3:'Ticket Bot<br>OCR Integration',
   ri4_num:'3-in-1',ri4:'AI Nutritionist<br>Multi-Function',
   ri5:'Requirements→Deploy<br>End-to-End',ri6:'LINE Bot<br>Conversational CRUD',
-  // FAQ
-  faq_h:'❓ FAQ',
-  fq1_q:'Q: How long does development take?',fq1_a:'Small: ~1–2 weeks; Medium: 3–6 weeks; Large: assessed individually.',
-  fq2_q:'Q: How is pricing determined?',fq2_a:'Based on feature count and complexity. A clear range is provided after requirements are confirmed.',
-  fq3_q:'Q: Can I discuss before deciding?',fq3_a:'Absolutely. Initial consultation and requirements assessment are completely free. Just add me on LINE.',
-  fq4_q:'Q: Can we work remotely?',fq4_a:'Yes. Most projects are completed through online communication, regardless of location.',
-  fq5_q:'Q: What\'s included in deliverables?',fq5_a:'Executables, deployment instructions, and basic operation tutorials.',
-  fq6_q:'Q: Is maintenance available?',fq6_a:'Depending on needs, maintenance or follow-up iteration plans can be discussed separately.',
-  fq7_q:'Q: What if requirements change midway?',fq7_a:'Minor adjustments are flexible; larger scope changes are communicated and assessed in advance.',
-  fq8_q:'Q: What do I need to get started?',fq8_a:'Just describe the problem you\'re facing. No technical knowledge needed — I\'ll break down the requirements.',
-  // CTA
-  cta_h:'Have a system or AI project in mind?',cta_p:'Don\'t overthink it — just share your needs with me. I\'ll help organize the architecture and approach.',
+  // Process
+  proc_title:'How We Work',cta_p:'Don\'t overthink it — just share your needs with me. I\'ll help organize the architecture and approach.',
   cta_btn:'💬 Chat on LINE Now',
   // Contact
   contact_title:'Contact',contact_sub:'For any AI, automation, or system integration needs, feel free to reach out.',
@@ -1142,6 +1456,9 @@ document.querySelectorAll('[data-i18n]').forEach(el=>{
 const PROJECTS_EN=[
   {id:'ude',title:'UDE Part Number Query Automation Platform',tag:'Featured Project',
    desc:'Built an enterprise part number query and data integration platform powered by n8n, integrating MySQL, Excel and real-time query interfaces to automate tedious manual lookup and comparison workflows.',
+   pain:'Two staff manually cross-referencing Excel and database — minutes per query, high error risk',
+   solution:'n8n workflow + MySQL integration with field normalization and real-time query UI in one place',
+   outcome:'90% reduction in query time; single person completes in seconds, stable for months',
    images:['images/n8n-workflow.png','images/n8n-ui.png'],imgClass:'g2',
    url:'internal.ude-system.local / query',
    tech:['n8n','MySQL','JavaScript Function Node','HTML + DataTables','Workflow Automation','Internal Tool'],
@@ -1149,6 +1466,9 @@ const PROJECTS_EN=[
    result:'Reduced manual query and comparison time by ~90%, improved data consistency, and established a scalable internal query tool.',link:null},
   {id:'nutritionist',title:'AI Nutritionist',tag:'AI Health App',
    desc:'Integrated calorie analysis, image analysis, and AI dietary coaching into a unified system for health queries, calorie estimation, and meal planning.',
+   pain:'Calorie data scattered across multiple tools; no unified entry point for health tracking or meal planning',
+   solution:'Unified text calorie lookup, photo recognition, and AI dietary coaching in a single application',
+   outcome:'One interface for lookup, logging, and advice — health management made simple and sustainable',
    images:['images/ai-nutritionist-1.png','images/ai-nutritionist-3.png','images/ai-nutritionist-4.png'],imgClass:'g3',
    url:'AI Nutritionist · Calorie · Coach',
    tech:['Python','LLM','RAG','Nutrition Analysis','Image Analysis','Health Coaching'],
@@ -1157,6 +1477,9 @@ const PROJECTS_EN=[
    link:'https://github.com/ChengEnLu252/AI-Nutritionist.git'},
   {id:'cakehunt',title:'CakeHunt | Multi-Platform Automated Ticket Bot',tag:'Automation Tool',
    desc:'A multi-account simultaneous ticket-buying bot that automates the entire ticketing process with OCR CAPTCHA recognition and real-time monitoring.',
+   pain:'Manual ticket buying is stressful and low success rate; CAPTCHAs slow things down; multi-account is unmanageable',
+   solution:'Multi-account parallel execution + OCR CAPTCHA auto-recognition + real-time monitoring, fully automated',
+   outcome:'Zero manual intervention required — significantly higher success rates at fraction of the effort',
    images:['images/CakeHunt1.png','images/CakeHunt2.png'],imgClass:'g2',
    url:'CakeHunt · Multi-Account Ticket Bot',
    tech:['Automation','OCR','CAPTCHA Recognition','Multi-Account Workflow','Real-Time Monitoring'],
@@ -1165,6 +1488,9 @@ const PROJECTS_EN=[
    link:'https://github.com/ChengEnLu252/CakeHunt.git'},
   {id:'carebuddy',title:'line-cloud-webhook | CareBuddy',tag:'LINE Bot / Health Record',
    desc:'A health companion bot integrated into LINE. Records symptoms, auto-writes to database, and provides instant responses, with a focus on emotional support.',
+   pain:'Health records were scattered with no feedback loop or quick channel when feeling unwell',
+   solution:'LINE Webhook + CRUD database auto-saves symptoms and replies instantly within the chat interface',
+   outcome:'Health management embedded in daily messaging — near-zero barrier, open and use anytime',
    images:['images/line-webhook1.jpg','images/line-webhook2.jpg','images/line-webhook3.jpg'],imgClass:'g3',
    url:'LINE · CareBuddy Health Bot',
    tech:['LINE Integration','Webhook','CRUD','Health Record','Backend Logic','Database'],
@@ -1173,6 +1499,9 @@ const PROJECTS_EN=[
    link:'https://github.com/ChengEnLu252/line-cloud-webhook.git'},
   {id:'thesis',title:'LLM Order Extraction Thesis',tag:'Research / AI',
    desc:'Research on using large language models for key information extraction and standardization from heterogeneous order documents, establishing a complete pipeline from document parsing to prompt design to evaluation.',
+   pain:'Heterogeneous order formats make manual processing slow, error-prone, and impossible to standardize at scale',
+   solution:'LLM + Structured Output + JSON Schema — a reproducible, evaluatable standardization pipeline',
+   outcome:'95.2% Document Accuracy achieved; clean JSON output ready for direct system integration',
    images:[],imgClass:'',url:'LLM Order Extraction · Research',
    tech:['Python','LLM','Prompt Engineering','JSON Schema','OCR','Evaluation'],
    points:['Addressed field name variations, scattered information, complex formats, and excessive noise in heterogeneous orders.','Established structured schemas and standardized output pipelines for comparable, analyzable, reproducible results.','Level 2 formal results achieved 95.2% Document Accuracy.','Extended to Level 3 OCR/image versions, reducing costs of manually processing unstructured documents.'],
@@ -1224,24 +1553,13 @@ function toggleLang(){
     }
   });
  
-  // Re-render projects
+  // Re-render projects using shared buildCard helper
   const track=document.getElementById('projTrack');
   track.innerHTML='';
   const pData=currentLang==='en'?PROJECTS_EN:PROJECTS;
   pData.forEach((p,i)=>{
     const card=document.createElement('div');card.className='pcard';
-    const imgHtml=p.images.length?`
-      <div class="pcard-imgs ${p.imgClass}">
-        ${p.images.slice(0,p.imgClass==='g3'?3:2).map(src=>`<img src="${src}" alt="" loading="lazy">`).join('')}
-      </div>`:'';
-    const btnLabel=currentLang==='en'?'View Full Case Study →':'查看完整 Case Study →';
-    card.innerHTML=`
-      <div class="pcard-tag">${p.tag}</div>
-      <h3>${p.title}</h3>
-      <p class="pcard-desc">${p.desc}</p>
-      ${imgHtml}
-      <div class="pcard-tech">${p.tech.slice(0,4).map(t=>`<span>${t}</span>`).join('')}</div>
-      <button class="pcard-open" onclick="openModal(${i})">${btnLabel}</button>`;
+    card.innerHTML=buildCard(p,i,currentLang);
     track.appendChild(card);
   });
  
@@ -1316,6 +1634,73 @@ openModal=function(idx){
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
 };
+/* ══════════════════════════════════════
+   REQUEST FORM CTA
+══════════════════════════════════════ */
+function submitReqForm(){
+  const type=document.getElementById('rf-type').value.trim();
+  const feature=document.getElementById('rf-feature').value.trim();
+  const current=document.getElementById('rf-current').value.trim();
+  const budget=document.getElementById('rf-budget').value.trim();
+  const timeline=document.getElementById('rf-timeline').value.trim();
+  const contact=document.getElementById('rf-contact').value.trim();
+
+  if(!type){alert('請選擇需求類型 🙂');document.getElementById('rf-type').focus();return;}
+  if(!feature){alert('請描述你想做的功能或解決的問題');document.getElementById('rf-feature').focus();return;}
+  if(!contact){alert('請填寫聯絡方式，讓我能回覆你');document.getElementById('rf-contact').focus();return;}
+  if(!budget){alert('請選擇預算範圍（即使只是估計也沒關係）');document.getElementById('rf-budget').focus();return;}
+
+  const rows=[
+    {key:'需求類型',val:type},
+    {key:'想做的功能',val:feature},
+    ...(current?[{key:'目前狀況',val:current}]:[]),
+    {key:'預算範圍',val:budget},
+    ...(timeline?[{key:'預計時程',val:timeline}]:[]),
+    {key:'聯絡方式',val:contact}
+  ];
+
+  const plainText='【NNDoiT AI Studio 需求整理表】\n'+rows.map(r=>r.key+'：'+r.val).join('\n');
+  window._reqSummaryText=plainText;
+
+  const summaryEl=document.getElementById('reqSummary');
+  summaryEl.innerHTML=rows.map(r=>`<div class="rsm-row"><span class="rsm-key">${r.key}：</span><span class="rsm-val">${r.val.replace(/\n/g,'<br>')}</span></div>`).join('');
+
+  const mailBody=encodeURIComponent(plainText);
+  document.getElementById('reqMailBtn').href=`mailto:aa57855966@gmail.com?subject=${encodeURIComponent('專案需求洽詢 — NNDoiT AI Studio')}&body=${mailBody}`;
+
+  document.getElementById('reqFormBody').style.display='none';
+  const s=document.getElementById('reqFormSuccess');
+  s.style.display='flex';
+  s.scrollIntoView({behavior:'smooth',block:'center'});
+  playSuccess();
+}
+
+function copyReqSummary(){
+  if(!window._reqSummaryText)return;
+  const btn=document.getElementById('reqCopyBtn');
+  navigator.clipboard.writeText(window._reqSummaryText).then(()=>{
+    btn.textContent='✅ 已複製！';
+    setTimeout(()=>{btn.textContent='📋 複製需求摘要';},2200);
+    playTone(660,.12,.04);
+  }).catch(()=>{
+    // Fallback
+    const ta=document.createElement('textarea');
+    ta.value=window._reqSummaryText;
+    ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent='✅ 已複製！';
+    setTimeout(()=>{btn.textContent='📋 複製需求摘要';},2200);
+  });
+}
+
+function resetReqForm(){
+  document.getElementById('reqFormBody').style.display='';
+  document.getElementById('reqFormSuccess').style.display='none';
+  ['rf-type','rf-budget','rf-timeline'].forEach(id=>{document.getElementById(id).value='';});
+  ['rf-feature','rf-current','rf-contact'].forEach(id=>{document.getElementById(id).value='';});
+}
 </script>
 </body>
 </html>
