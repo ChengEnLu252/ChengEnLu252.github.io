@@ -560,12 +560,12 @@ section{padding:90px 0;}
   <div class="nav-inner">
     <div class="brand">呂承恩 Lu Cheng En<small>NNDoiT AI Studio</small></div>
     <div class="nav-links">
-      <a href="#about">About</a><a href="#services">Services</a>
-      <a href="#skills">Skills</a><a href="#projects">Projects</a>
+      <a href="#about" data-i18n="nav_about">About</a><a href="#services" data-i18n="nav_services">Services</a>
+      <a href="#skills" data-i18n="nav_skills">Skills</a><a href="#projects" data-i18n="nav_projects">Projects</a>
       <a href="#testimonials" data-i18n="nav_reviews">好評</a>
-      <a href="#pricing">Pricing</a><a href="#process" data-i18n="nav_process">合作流程</a>
-      <a href="#request-form">填需求</a>
-      <a href="#contact">Contact</a>
+      <a href="#pricing" data-i18n="nav_pricing">Pricing</a><a href="#process" data-i18n="nav_process">合作流程</a>
+      <a href="#request-form" data-i18n="nav_request">填需求</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
     </div>
     <div class="nav-controls">
       <div class="icon-btn lang-btn" id="langBtn" title="Language" onclick="toggleLang()">EN</div>
@@ -580,7 +580,7 @@ section{padding:90px 0;}
   <div class="hero">
     <canvas id="hero-canvas"></canvas>
     <div class="hero-left">
-      <div class="eyebrow"><span class="eyebrow-dot"></span>AI 落地工程師 · 流程自動化 · 企業系統整合</div>
+      <div class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="eyebrow">AI 落地工程師 · 流程自動化 · 企業系統整合</span></div>
       <h1 class="hero-h1"><span class="split-text">呂承恩</span><br><span class="grad split-text">Lu Cheng En</span></h1>
       <div class="hero-sub" data-i18n="hero_sub">幫企業把流程、資料、系統真正串起來｜NNDoiT AI Studio</div>
       <p class="hero-desc" data-i18n="hero_desc">很多企業有大量重複的人工作業、散亂的資料流、或跨系統整合的痛點——卻不知道從哪裡開始。我做的事是：找出這些卡點，用 <strong class="kw">AI</strong>、<strong class="kw">自動化</strong> 與 <strong class="kw">系統整合</strong> 把它解掉，交出能真正上線、能維護、能擴充的東西。不是單純做個網站，不是單純做聊天機器人，而是把流程、資料、系統串成一整套能跑的解決方案。</p>
@@ -935,8 +935,8 @@ section{padding:90px 0;}
 <section id="request-form" class="req-form-section">
   <div class="container">
     <div class="sec-head rv" style="text-align:center;">
-      <h2 class="sec-title split-text">先填需求，我幫你整理可行方案</h2>
-      <p class="sec-sub">還不確定怎麼開始也沒關係，先把想解決的問題丟給我。不需要懂技術，我來幫你拆解。</p>
+      <h2 class="sec-title split-text" data-i18n="req_title">先填需求，我幫你整理可行方案</h2>
+      <p class="sec-sub" data-i18n="req_sub">還不確定怎麼開始也沒關係，先把想解決的問題丟給我。不需要懂技術，我來幫你拆解。</p>
     </div>
     <div class="req-form-wrap rv">
       <div class="req-form-inner">
@@ -944,15 +944,15 @@ section{padding:90px 0;}
         <!-- ── 表單主體 ── -->
         <div id="reqFormBody">
           <div class="req-form-header">
-            <div class="req-form-header-badge">📋 需求初步整理</div>
-            <h3>填完這份表，我幫你整理成可行方案再確認</h3>
-            <p>不用先準備好完整規格或技術細節，把你遇到的問題如實描述即可，我會評估後回覆。</p>
+            <div class="req-form-header-badge" data-i18n="req_badge">📋 需求初步整理</div>
+            <h3 data-i18n="req_h3">填完這份表，我幫你整理成可行方案再確認</h3>
+            <p data-i18n="req_p">不用先準備好完整規格或技術細節，把你遇到的問題如實描述即可，我會評估後回覆。</p>
           </div>
 
           <div class="req-form-grid">
             <!-- 需求類型 -->
             <div class="req-field">
-              <label class="req-label">需求類型<span class="req-req">＊</span></label>
+              <label class="req-label"><span data-i18n="req_l_type">需求類型</span><span class="req-req">＊</span></label>
               <select class="req-select" id="rf-type">
                 <option value="">請選擇最接近的類型...</option>
                 <option value="AI 應用開發（LLM / RAG / 聊天機器人）">AI 應用開發（LLM / RAG / 聊天機器人）</option>
@@ -967,7 +967,7 @@ section{padding:90px 0;}
 
             <!-- 預算範圍 -->
             <div class="req-field">
-              <label class="req-label">預算範圍<span class="req-req">＊</span></label>
+              <label class="req-label"><span data-i18n="req_l_budget">預算範圍</span><span class="req-req">＊</span></label>
               <select class="req-select" id="rf-budget">
                 <option value="">請選擇...</option>
                 <option value="NT$1,000 ~ 3,000（諮詢 / 規劃）">NT$1,000 ~ 3,000（諮詢 / 規劃）</option>
@@ -980,7 +980,7 @@ section{padding:90px 0;}
 
             <!-- 預計完成時間 -->
             <div class="req-field">
-              <label class="req-label">預計完成時間</label>
+              <label class="req-label" data-i18n="req_l_timeline">預計完成時間</label>
               <select class="req-select" id="rf-timeline">
                 <option value="">請選擇...</option>
                 <option value="越快越好（1 ~ 2 週內）">越快越好（1 ~ 2 週內）</option>
@@ -993,30 +993,30 @@ section{padding:90px 0;}
 
             <!-- 聯絡方式 -->
             <div class="req-field">
-              <label class="req-label">你的聯絡方式<span class="req-req">＊</span></label>
+              <label class="req-label"><span data-i18n="req_l_contact">你的聯絡方式</span><span class="req-req">＊</span></label>
               <input class="req-input" id="rf-contact" type="text" placeholder="LINE ID / Email / 電話（方便我回覆你）">
             </div>
 
             <!-- 想做的功能 -->
             <div class="req-field req-form-full">
-              <label class="req-label">想做的功能 / 解決的問題<span class="req-req">＊</span></label>
+              <label class="req-label"><span data-i18n="req_l_feature">想做的功能 / 解決的問題</span><span class="req-req">＊</span></label>
               <textarea class="req-textarea" id="rf-feature" placeholder="例如：希望把每天手動整理的 Excel 訂單，自動匯入資料庫並發 LINE 通知給主管，目前需要兩個人花 2 小時處理...&#10;&#10;不用太精確，說清楚「遇到什麼問題」即可。"></textarea>
             </div>
 
             <!-- 目前狀況 -->
             <div class="req-field req-form-full">
-              <label class="req-label">目前狀況（選填）</label>
+              <label class="req-label" data-i18n="req_l_current">目前狀況（選填）</label>
               <textarea class="req-textarea" id="rf-current" style="min-height:88px;" placeholder="例如：目前用 Google 試算表手動整理，沒有資料庫，3 個人在做重複的事...&#10;&#10;有助於我更快提出適合的方案。"></textarea>
             </div>
           </div>
 
           <div class="req-form-footer">
             <button class="req-submit" onclick="submitReqForm()">
-              <span>📨</span> 送出需求，讓我整理可行方案
+              <span>📨</span> <span data-i18n="req_submit">送出需求，讓我整理可行方案</span>
             </button>
             <span class="req-footer-note">
-              我會整理成摘要讓你確認後再報價。<br>
-              也可以直接 <a href="https://lin.ee/Wc5Bozb" target="_blank">加 LINE</a> 或 <a href="/cdn-cgi/l/email-protection#a8c9c99d9f909d9d919e9ee8cfc5c9c1c486cbc7c5">寄 Email</a> 跟我說。
+              <span data-i18n="req_note">我會整理成摘要讓你確認後再報價。<br>
+              也可以直接 <a href="https://lin.ee/Wc5Bozb" target="_blank">加 LINE</a> 或 <a href="/cdn-cgi/l/email-protection#a8c9c99d9f909d9d919e9ee8cfc5c9c1c486cbc7c5">寄 Email</a> 跟我說。</span>
             </span>
           </div>
         </div><!-- /reqFormBody -->
@@ -1024,8 +1024,8 @@ section{padding:90px 0;}
         <!-- ── 送出後成功畫面 ── -->
         <div class="req-success" id="reqFormSuccess">
           <div class="req-success-icon">🎉</div>
-          <h4>需求已整理完成！</h4>
-          <p>請將下方摘要透過 LINE 或 Email 傳給我，我會盡快回覆可行方案。</p>
+          <h4 data-i18n="req_success_h">需求已整理完成！</h4>
+          <p data-i18n="req_success_p">請將下方摘要透過 LINE 或 Email 傳給我，我會盡快回覆可行方案。</p>
           <div class="req-success-msg" id="reqSummary"></div>
           <div class="req-success-actions">
             <a class="btn btn-line" href="https://lin.ee/Wc5Bozb" target="_blank">💬 開啟 LINE 傳送</a>
@@ -1078,7 +1078,7 @@ section{padding:90px 0;}
       <div class="fbrand">呂承恩 Lu Cheng En<small>NNDoiT AI Studio</small></div>
       <div class="flinks">
         <a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a>
-        <a href="#testimonials" data-i18n="nav_reviews">好評</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
+        <a href="#testimonials" data-i18n="nav_reviews">好評</a><a href="#pricing" data-i18n="nav_pricing">Pricing</a><a href="#contact" data-i18n="nav_contact">Contact</a>
         <a href="https://lin.ee/Wc5Bozb" target="_blank">LINE</a>
         <a href="https://www.instagram.com/nndoit_ai_studio" target="_blank">Instagram</a>
         <a href="https://www.facebook.com/profile.php?id=61577420115975" target="_blank">Facebook</a>
@@ -1125,7 +1125,7 @@ const PROJECTS=[
    points:['將原本高度依賴人工操作的搶票流程自動化，降低手動刷新、填表與反覆輸入的負擔。','支援多帳號同時執行，提高整體搶票效率。','整合即時監控系統，可觀察每個帳號的搶票進度。','結合 OCR 驗證碼辨識與自動填入，大幅減少人工操作時間並提升成功率。'],
    result:'將搶票從高壓手動流程轉成自動化工具，大幅降低人工介入成本並提升整體成功機率。',
    link:'https://github.com/ChengEnLu252/CakeHunt.git'},
-  {id:'carebuddy',title:'line-cloud-webhook｜CareBuddy',tag:'LINE Bot / Health Record',
+  {id:'carebuddy',caseStudy:'case-study-carebuddy.html',title:'line-cloud-webhook｜CareBuddy',tag:'LINE Bot / Health Record',
    desc:'一個串接進 LINE 的健康陪伴機器人。可記錄症狀、自動寫入資料庫並獲得即時回覆，主打陪伴感與心靈安慰。',
    pain:'健康紀錄分散無整合，不舒服時無法即時查詢與獲得有效回饋',
    solution:'LINE Webhook 整合 CRUD 資料庫，對話式操作自動儲存症狀並即時回應',
@@ -1363,9 +1363,10 @@ function buildCard(p,i,lang){
 ══════════════════════════════════════ */
 function renderProjects(){
   const track=document.getElementById('projTrack');
-  PROJECTS.forEach((p,i)=>{
+  const pData=currentLang==='en'?PROJECTS_EN:PROJECTS;
+  pData.forEach((p,i)=>{
     const card=document.createElement('div');card.className='pcard';
-    card.innerHTML=buildCard(p,i,'zh');
+    card.innerHTML=buildCard(p,i,currentLang);
     track.appendChild(card);
   });
 }
@@ -1424,7 +1425,9 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 let testiIdx=0,testiTimer=null;
 function renderTestimonials(){
   const track=document.getElementById('testiTrack'),dots=document.getElementById('testiDots');
-  TESTIMONIALS.forEach((t,i)=>{
+  const tData=currentLang==='en'?TESTIMONIALS_EN:TESTIMONIALS;
+  // Override local array in scope for this call
+  tData.forEach((t,i)=>{
     const card=document.createElement('div');card.className='tcard';
     card.innerHTML=`<div class="tcard-inner">
       <div class="tcard-tags">
@@ -1454,7 +1457,8 @@ function renderTestimonials(){
   });
 }
 function testiGo(i){
-  testiIdx=((i%TESTIMONIALS.length)+TESTIMONIALS.length)%TESTIMONIALS.length;
+  const tLen=(currentLang==='en'?TESTIMONIALS_EN:TESTIMONIALS).length;
+  testiIdx=((i%tLen)+tLen)%tLen;
   document.getElementById('testiTrack').style.transform=`translateX(-${testiIdx*100}%)`;
   document.querySelectorAll('.testi-dot').forEach((d,j)=>d.classList.toggle('act',j===testiIdx));
   resetTimer();
@@ -1596,6 +1600,27 @@ const I18N_EN={
   collab_p:'Areas of collaboration include <strong class="kw">AI System Development</strong>, <strong class="kw">LLM / RAG Applications</strong>, <strong class="kw">Document & Data Extraction</strong>, <strong class="kw">Automation Workflow Design</strong>, <strong class="kw">LINE Bot</strong>, <strong class="kw">Webhook / API Integration</strong>, <strong class="kw">Full-Stack Development</strong>, <strong class="kw">ERP / Process Optimization</strong> and <strong class="kw">Enterprise System Integration</strong>.',
   green_h:'Have a need? Let\'s talk directly',green_p:'No need to prepare full specs — tell me the problem you want to solve and we\'ll discuss solutions together.',
   green_btn:'💬 Free Consultation on LINE',
+  // Missing keys additions
+  eyebrow:'AI Engineer · Workflow Automation · System Integration',
+  // Nav
+  nav_about:'About',nav_services:'Services',nav_skills:'Skills',nav_projects:'Projects',
+  nav_pricing:'Pricing',nav_request:'Send Brief',nav_contact:'Contact',
+  // CTA
+  cta_h:'Have a project in mind?',
+  // Process sub (fix)
+  proc_sub:'From first contact to system delivery, the process is clear and transparent.',
+  // Request form
+  req_title:'Share Your Brief — I\'ll Map Out the Options',
+  req_sub:'Not sure where to start? No problem. Describe the problem you want to solve and I\'ll take it from there.',
+  req_badge:'📋 Project Brief',
+  req_h3:'Fill this in and I\'ll put together a concrete proposal',
+  req_p:'No need to prepare a full spec. Just describe the situation as clearly as you can — I\'ll assess and get back to you.',
+  req_l_type:'Project Type',req_l_budget:'Budget Range',req_l_timeline:'Timeline',
+  req_l_contact:'Your Contact',req_l_feature:'What you want to build / solve',req_l_current:'Current Situation (Optional)',
+  req_submit:'Submit Brief — I\'ll organize a proposal',
+  req_note:'I\'ll summarize your brief for you to confirm before quoting.<br>You can also <a href="https://lin.ee/Wc5Bozb" target="_blank">message on LINE</a> or send an <a href="mailto:aa57855966@gmail.com">Email</a> directly.',
+  req_success_h:'Brief received!',
+  req_success_p:'Please send the summary below via LINE or Email — I\'ll respond with a proposal as soon as possible.',
 };
  
 // Store original ZH innerHTML for elements with data-i18n
@@ -1603,6 +1628,56 @@ const I18N_ZH_CACHE={};
 document.querySelectorAll('[data-i18n]').forEach(el=>{
   I18N_ZH_CACHE[el.getAttribute('data-i18n')]=el.innerHTML;
 });
+
+// i18n for select options (request form) - stored separately
+const REQ_SELECT_ZH={
+  'rf-type':['請選擇最接近的類型...','AI 應用開發（LLM / RAG / 聊天機器人）','流程自動化（n8n / Webhook / API 串接）','系統整合（ERP / 資料庫 / 第三方服務）','LINE Bot 開發','前後端開發 / 網頁設計','文件 / 資料處理（OCR / 抽取 / 轉換）','不確定，需要先諮詢方向'],
+  'rf-budget':['請選擇...','NT$1,000 ~ 3,000（諮詢 / 規劃）','NT$10,000 ~ 30,000（小型專案）','NT$30,000 ~ 80,000（中型專案）','NT$80,000+（大型 / 企業系統）','預算未定，請幫我評估'],
+  'rf-timeline':['請選擇...','越快越好（1 ~ 2 週內）','約 1 個月內','1 ~ 3 個月','3 個月以上','時間彈性，品質優先']
+};
+const REQ_SELECT_EN={
+  'rf-type':['Select the closest type...','AI Application (LLM / RAG / Chatbot)','Workflow Automation (n8n / Webhook / API)','System Integration (ERP / Database / 3rd Party)','LINE Bot Development','Web Development / Frontend Design','Document & Data Processing (OCR / Extraction)','Not sure yet — need consultation first'],
+  'rf-budget':['Select...','NT$1,000 ~ 3,000 (Consulting / Planning)','NT$10,000 ~ 30,000 (Small Project)','NT$30,000 ~ 80,000 (Medium Project)','NT$80,000+ (Large / Enterprise System)','Budget undecided — help me estimate'],
+  'rf-timeline':['Select...','ASAP (within 1–2 weeks)','Within 1 month','1–3 months','3+ months','Flexible — quality first']
+};
+const REQ_PLACEHOLDER_ZH={'rf-contact':'LINE ID / Email / 電話（方便我回覆你）','rf-feature':'例如：希望把每天手動整理的 Excel 訂單，自動匯入資料庫並發 LINE 通知給主管，目前需要兩個人花 2 小時處理...\n\n不用太精確，說清楚「遇到什麼問題」即可。','rf-current':'例如：目前用 Google 試算表手動整理，沒有資料庫，3 個人在做重複的事...\n\n有助於我更快提出適合的方案。'};
+const REQ_PLACEHOLDER_EN={'rf-contact':'LINE ID / Email / Phone (so I can reply to you)','rf-feature':'e.g. I want to automate the daily Excel order files — auto-import to a database and send a LINE notification to my manager. Currently takes two people 2 hours...\n\nNo need to be precise — just describe the problem.','rf-current':'e.g. Currently using Google Sheets manually, no database, 3 people doing repetitive work...\n\nThis helps me propose the most suitable solution faster.'};
+
+function applyLangSelects(lang){
+  const opts=lang==='en'?REQ_SELECT_EN:REQ_SELECT_ZH;
+  const phs=lang==='en'?REQ_PLACEHOLDER_EN:REQ_PLACEHOLDER_ZH;
+  Object.keys(opts).forEach(id=>{
+    const sel=document.getElementById(id);if(!sel)return;
+    const cur=sel.value;
+    opts[id].forEach((txt,i)=>{if(sel.options[i])sel.options[i].text=txt;});
+    sel.value=cur;
+  });
+  Object.keys(phs).forEach(id=>{
+    const el=document.getElementById(id);if(el)el.placeholder=phs[id];
+  });
+  // update form validation messages and copy button
+  const copyBtn=document.getElementById('reqCopyBtn');
+  if(copyBtn)copyBtn.textContent=lang==='en'?'📋 Copy Summary':'📋 複製需求摘要';
+  const resetBtn=document.querySelector('.req-reset-btn');
+  if(resetBtn)resetBtn.textContent=lang==='en'?'← Fill Again':'← 重新填寫';
+}
+
+// Init language from localStorage
+(function initLang(){
+  let saved;try{saved=localStorage.getItem('nndoit_lang');}catch(e){}
+  if(saved&&saved!=='zh'){
+    currentLang='en';
+    document.getElementById('langBtn').textContent='中';
+    document.documentElement.lang='en';
+    // Apply static i18n
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key=el.getAttribute('data-i18n');
+      if(I18N_EN[key])el.innerHTML=I18N_EN[key];
+    });
+    // Note: projects & testimonials are re-rendered by their own render functions
+    // which read currentLang at call time — they run after this IIFE
+  }
+})();
  
 // English project data
 const PROJECTS_EN=[
@@ -1638,7 +1713,7 @@ const PROJECTS_EN=[
    points:['Automated the previously manual, high-pressure ticket-buying process.','Supports multiple accounts running simultaneously for higher overall success rates.','Integrated real-time monitoring to track each account\'s ticketing progress.','Combined OCR CAPTCHA recognition with auto-fill to greatly reduce manual effort.'],
    result:'Transformed ticket buying from a high-pressure manual process into an automated tool, greatly reducing human effort and increasing success rates.',
    link:'https://github.com/ChengEnLu252/CakeHunt.git'},
-  {id:'carebuddy',title:'line-cloud-webhook | CareBuddy',tag:'LINE Bot / Health Record',
+  {id:'carebuddy',caseStudy:'case-study-carebuddy.html',title:'line-cloud-webhook | CareBuddy',tag:'LINE Bot / Health Record',
    desc:'A health companion bot integrated into LINE. Records symptoms, auto-writes to database, and provides instant responses, with a focus on emotional support.',
    pain:'Health records were scattered with no feedback loop or quick channel when feeling unwell',
    solution:'LINE Webhook + CRUD database auto-saves symptoms and replies instantly within the chat interface',
@@ -1720,9 +1795,11 @@ function toggleLang(){
   currentLang=currentLang==='zh'?'en':'zh';
   document.getElementById('langBtn').textContent=currentLang==='zh'?'EN':'中';
   document.documentElement.lang=currentLang==='zh'?'zh-Hant':'en';
+  try{localStorage.setItem('nndoit_lang',currentLang);}catch(e){}
   playClick();
  
   // Update all static [data-i18n] elements
+  applyLangSelects(currentLang);
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const key=el.getAttribute('data-i18n');
     if(currentLang==='en'&&I18N_EN[key]){
@@ -1832,10 +1909,11 @@ function submitReqForm(){
   const timeline=document.getElementById('rf-timeline').value.trim();
   const contact=document.getElementById('rf-contact').value.trim();
 
-  if(!type){alert('請選擇需求類型 🙂');document.getElementById('rf-type').focus();return;}
-  if(!feature){alert('請描述你想做的功能或解決的問題');document.getElementById('rf-feature').focus();return;}
-  if(!contact){alert('請填寫聯絡方式，讓我能回覆你');document.getElementById('rf-contact').focus();return;}
-  if(!budget){alert('請選擇預算範圍（即使只是估計也沒關係）');document.getElementById('rf-budget').focus();return;}
+  const isEn=currentLang==='en';
+  if(!type){alert(isEn?'Please select a project type 🙂':'請選擇需求類型 🙂');document.getElementById('rf-type').focus();return;}
+  if(!feature){alert(isEn?'Please describe what you want to build or solve':'請描述你想做的功能或解決的問題');document.getElementById('rf-feature').focus();return;}
+  if(!contact){alert(isEn?'Please provide your contact info so I can reply':'請填寫聯絡方式，讓我能回覆你');document.getElementById('rf-contact').focus();return;}
+  if(!budget){alert(isEn?'Please select a budget range (estimates are fine)':'請選擇預算範圍（即使只是估計也沒關係）');document.getElementById('rf-budget').focus();return;}
 
   const rows=[
     {key:'需求類型',val:type},
@@ -1853,7 +1931,8 @@ function submitReqForm(){
   summaryEl.innerHTML=rows.map(r=>`<div class="rsm-row"><span class="rsm-key">${r.key}：</span><span class="rsm-val">${r.val.replace(/\n/g,'<br>')}</span></div>`).join('');
 
   const mailBody=encodeURIComponent(plainText);
-  document.getElementById('reqMailBtn').href=`mailto:aa57855966@gmail.com?subject=${encodeURIComponent('專案需求洽詢 — NNDoiT AI Studio')}&body=${mailBody}`;
+  const mailSubject=currentLang==='en'?'Project Inquiry — NNDoiT AI Studio':'專案需求洽詢 — NNDoiT AI Studio';
+  document.getElementById('reqMailBtn').href=`mailto:aa57855966@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${mailBody}`;
 
   document.getElementById('reqFormBody').style.display='none';
   const s=document.getElementById('reqFormSuccess');
