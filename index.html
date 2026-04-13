@@ -800,6 +800,56 @@ section{padding:90px 0;}
   .cm-guarantee-grid{grid-template-columns:1fr 1fr;}
   .cm-mode-card{padding:20px;}
 }
+
+/* ══════════════════════════════════════
+   FEATURE 1 — PROJECT FILTER BAR
+══════════════════════════════════════ */
+.proj-filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;align-items:center;}
+.proj-filter-label{font-size:.78rem;font-weight:900;color:var(--muted2);letter-spacing:.04em;margin-right:4px;white-space:nowrap;}
+.proj-filter-btn{background:var(--card);border:1.5px solid var(--border);color:var(--muted);font-size:.82rem;font-weight:900;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all .2s;font-family:inherit;letter-spacing:.02em;}
+.proj-filter-btn:hover,.proj-filter-btn.active{background:rgba(236,72,153,.18);border-color:rgba(236,72,153,.4);color:var(--primary);box-shadow:0 0 0 3px rgba(236,72,153,.1);}
+.proj-filter-empty{width:100%;padding:64px 24px;text-align:center;color:var(--muted);font-size:.97rem;line-height:2;}
+.proj-filter-empty strong{color:var(--primary);}
+@media(max-width:600px){
+  .proj-filter-bar{gap:8px;}
+  .proj-filter-btn{font-size:.78rem;padding:7px 14px;}
+}
+
+/* ══════════════════════════════════════
+   FEATURE 2 — FAQ REAL-TIME SEARCH
+══════════════════════════════════════ */
+.faq-search-wrap{position:relative;margin-bottom:18px;}
+.faq-search-input{width:100%;background:rgba(255,255,255,.05);border:1.5px solid var(--border);border-radius:12px;color:var(--text);font-size:.92rem;font-family:inherit;padding:11px 44px 11px 40px;outline:none;transition:border-color .2s,box-shadow .2s,background .2s;}
+[data-theme="light"] .faq-search-input{background:rgba(255,255,255,.9);border-color:rgba(236,72,153,.18);}
+.faq-search-input::placeholder{color:var(--muted2);}
+.faq-search-input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(236,72,153,.12);}
+.faq-search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:.9rem;color:var(--muted2);pointer-events:none;}
+.faq-search-clear{position:absolute;right:11px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--muted2);font-size:.85rem;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;transition:.15s;}
+.faq-search-clear:hover{background:rgba(236,72,153,.12);color:var(--primary);}
+.faq-no-results{text-align:center;padding:20px 8px;color:var(--muted2);font-size:.88rem;display:none;}
+
+/* ══════════════════════════════════════
+   FEATURE 3 — SERVICE SITUATION FINDER
+══════════════════════════════════════ */
+.srv-situation-wrap{margin-bottom:32px;}
+.srv-situation-label{font-size:.8rem;font-weight:900;color:var(--muted2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.srv-situation-label::after{content:"";flex:1;height:1px;background:var(--border);}
+.srv-situation-chips{display:flex;flex-wrap:wrap;gap:10px;}
+.srv-chip{background:var(--card);border:1.5px solid var(--border);color:var(--muted);font-size:.82rem;font-weight:700;padding:8px 16px;border-radius:999px;cursor:pointer;transition:all .22s;font-family:inherit;display:inline-flex;align-items:center;gap:6px;}
+.srv-chip::before{content:"▸";font-size:.7rem;opacity:.6;transition:transform .2s;}
+.srv-chip:hover{background:rgba(249,115,22,.12);border-color:rgba(249,115,22,.35);color:var(--accent);transform:translateY(-2px);}
+.srv-chip:hover::before{transform:translateX(2px);}
+.srv-chip.active{background:rgba(249,115,22,.15);border-color:rgba(249,115,22,.5);color:var(--accent);}
+@keyframes srvHighlight{
+  0%{box-shadow:0 0 0 0 rgba(249,115,22,.5),var(--shadow);}
+  40%{box-shadow:0 0 0 8px rgba(249,115,22,.18),var(--shadow);}
+  100%{box-shadow:0 0 0 0 rgba(249,115,22,0),var(--shadow);}
+}
+.card.srv-highlighted{border-color:rgba(249,115,22,.55)!important;animation:srvHighlight 1.4s ease-out;}
+@media(max-width:600px){
+  .srv-situation-chips{gap:8px;}
+  .srv-chip{font-size:.78rem;padding:7px 13px;}
+}
 </style>
 </head>
 <body>
@@ -908,6 +958,20 @@ section{padding:90px 0;}
 <section id="services" class="sec-band">
   <div class="container">
     <div class="sec-head rv"><h2 class="sec-title split-text" data-i18n="srv_title">我能幫你做什麼 Services</h2><p class="sec-sub" data-i18n="srv_sub">不用先懂技術——把你遇到的問題告訴我。以下是我常幫客戶解決的六種真實情境。</p></div>
+
+    <!-- ── Situation Quick Finder ── -->
+    <div class="srv-situation-wrap rv" id="srvSituationWrap">
+      <div class="srv-situation-label" data-i18n="srv_sit_label">🎯 找到你的情境</div>
+      <div class="srv-situation-chips">
+        <button class="srv-chip" data-srv-idx="0" data-i18n="srv_sit0">📊 報表要人工整理</button>
+        <button class="srv-chip" data-srv-idx="1" data-i18n="srv_sit1">💬 想做 LINE Bot</button>
+        <button class="srv-chip" data-srv-idx="2" data-i18n="srv_sit2">🔗 系統沒串起來</button>
+        <button class="srv-chip" data-srv-idx="3" data-i18n="srv_sit3">🤖 需要 AI 知識庫</button>
+        <button class="srv-chip" data-srv-idx="4" data-i18n="srv_sit4">🌐 想建品牌官網</button>
+        <button class="srv-chip" data-srv-idx="5" data-i18n="srv_sit5">⚡ 流程太多人工</button>
+      </div>
+    </div>
+
     <div class="srv-grid">
       <div class="card rv d1">
         <div class="srv-icon">📄</div>
@@ -979,6 +1043,17 @@ section{padding:90px 0;}
   <div class="container">
     <div class="sec-head rv"><h2 class="sec-title split-text" data-i18n="proj_title">精選作品 Projects</h2><p class="sec-sub" data-i18n="proj_sub">拖曳或滑動瀏覽所有專案，點擊查看完整 Case Study。</p></div>
     <div class="drag-hint rv" data-i18n="proj_hint">← 拖曳 / 滑動瀏覽 · Drag or Swipe to explore →</div>
+
+    <!-- ── Project Filter Bar ── -->
+    <div class="proj-filter-bar rv" id="projFilterBar">
+      <span class="proj-filter-label" data-i18n="proj_f_label">篩選：</span>
+      <button class="proj-filter-btn active" data-cat="all" data-i18n="proj_f_all">全部</button>
+      <button class="proj-filter-btn" data-cat="ai" data-i18n="proj_f_ai">AI / LLM</button>
+      <button class="proj-filter-btn" data-cat="automation" data-i18n="proj_f_auto">自動化</button>
+      <button class="proj-filter-btn" data-cat="linebot" data-i18n="proj_f_line">LINE Bot</button>
+      <button class="proj-filter-btn" data-cat="web" data-i18n="proj_f_web">網頁設計</button>
+    </div>
+
     <div class="proj-outer">
       <div class="proj-track-wrap" id="projWrap">
         <div class="proj-track" id="projTrack"></div>
@@ -1344,6 +1419,13 @@ section{padding:90px 0;}
       </div>
       <div class="info-card rv">
         <h3 data-i18n="faq_h">❓ 常見問題 FAQ</h3>
+        <!-- FAQ Search -->
+        <div class="faq-search-wrap">
+          <span class="faq-search-icon">🔍</span>
+          <input class="faq-search-input" id="faqSearch" type="text" placeholder="搜尋問題..." autocomplete="off" data-i18n-placeholder="faq_search_ph">
+          <button class="faq-search-clear" id="faqSearchClear" style="display:none;" aria-label="清除搜尋">✕</button>
+        </div>
+        <div id="faqNoResults" class="faq-no-results" data-i18n="faq_no_results">沒有符合的問題，試試其他關鍵字 🙂</div>
         <div class="faq-grid" style="grid-template-columns:1fr;gap:10px;" id="faqList">
           <div class="fq"><div class="fq-q" data-i18n="fq1_q">Q：開發需要多久？</div><p class="fq-a" data-i18n="fq1_a">小型專案約 1~2 週；中型系統 3~6 週；大型企業系統依需求另行評估。時程會在確認需求後一起討論，不會給你一個模糊的答案。</p></div>
           <div class="fq"><div class="fq-q" data-i18n="fq2_q">Q：費用怎麼計算？</div><p class="fq-a" data-i18n="fq2_a">依功能數量、複雜度與預計時程評估，確認需求後提供明確報價區間，不會模糊報價讓你猜。若有預算上限，可以直接說，我幫你規劃在範圍內能做到什麼。</p></div>
@@ -1535,7 +1617,7 @@ section{padding:90px 0;}
    PROJECT DATA
 ══════════════════════════════════════ */
 const PROJECTS=[
-  {id:'ude',caseStudy:'case-study-ude.html',title:'UDE 料號查詢自動化平台',tag:'Featured Project',
+  {id:'ude',filterCat:'automation',caseStudy:'case-study-ude.html',title:'UDE 料號查詢自動化平台',tag:'Featured Project',
    desc:'以 n8n 為核心打造企業內部料號查詢與資料整合平台，整合 MySQL、Excel 與即時查詢介面，將原本繁瑣的人工查詢 / 比對流程自動化。',
    pain:'兩人手動核對 Excel 與資料庫，每次查詢耗時數分鐘、資料易不一致',
    solution:'n8n 自動化流程整合 MySQL，欄位正規化 + 即時查詢介面一站完成',
@@ -1545,7 +1627,7 @@ const PROJECTS=[
    tech:['n8n','MySQL','JavaScript Function Node','HTML + DataTables','Workflow Automation','Internal Tool'],
    points:['解決人工查詢 Excel 與資料庫、手動比對料號與欄位資料的低效率流程。','透過欄位正規化與 join key 機制，自動比對並同步更新資料，降低重工與資料不一致問題。','以前端即時查詢介面提升內部操作效率與使用體驗。','針對大資料量執行調整系統參數，改善效能瓶頸。'],
    result:'減少人工查詢與比對時間約 90%，提升資料一致性，並建立可擴充的企業內部查詢工具。',link:null},
-  {id:'nutritionist',caseStudy:'case-study-ai-nutritionist.html',title:'AI Nutritionist',tag:'AI Health App',
+  {id:'nutritionist',filterCat:'ai',caseStudy:'case-study-ai-nutritionist.html',title:'AI Nutritionist',tag:'AI Health App',
    desc:'整合熱量分析、圖片分析與 AI 飲食教練三種介面，將健康查詢、熱量估算與飲食規劃集中在同一套系統中。',
    pain:'熱量查詢工具分散、圖片估算不便，飲食規劃缺乏整合入口',
    solution:'整合文字查詢、圖片辨識熱量、AI 飲食教練三大功能於單一系統',
@@ -1556,7 +1638,7 @@ const PROJECTS=[
    points:['整合文字熱量分析、上傳照片分析熱量、AI 飲食教練三大功能。','減少大多數人反覆搜尋食物熱量資料的時間，並把多來源資訊整合到同一個系統。','降低使用者對人工營養規劃的依賴，讓健康管理更容易開始。','讓使用者可透過單一程式完成熱量估算、飲食紀錄與 AI 飲食建議。'],
    result:'把零散的健康資訊整合成可持續使用的工具，降低查詢成本並提升日常使用效率。',
    link:'https://github.com/ChengEnLu252/AI-Nutritionist.git'},
-  {id:'cakehunt',caseStudy:'case-study-cakehunt.html',title:'CakeHunt｜多平台自動化搶票系統',tag:'Automation Tool',
+  {id:'cakehunt',filterCat:'automation',caseStudy:'case-study-cakehunt.html',title:'CakeHunt｜多平台自動化搶票系統',tag:'Automation Tool',
    desc:'我設計的多帳號同時搶票程式，將整個搶票流程交由系統自動執行，並整合 OCR 驗證碼辨識與即時監控功能。',
    pain:'人工搶票高壓易失敗，驗證碼阻礙速度，多帳號同時操作幾乎不可能',
    solution:'多帳號並行執行 + OCR 驗證碼自動辨識 + 即時監控，全流程系統接管',
@@ -1567,7 +1649,7 @@ const PROJECTS=[
    points:['將原本高度依賴人工操作的搶票流程自動化，降低手動刷新、填表與反覆輸入的負擔。','支援多帳號同時執行，提高整體搶票效率。','整合即時監控系統，可觀察每個帳號的搶票進度。','結合 OCR 驗證碼辨識與自動填入，大幅減少人工操作時間並提升成功率。'],
    result:'將搶票從高壓手動流程轉成自動化工具，大幅降低人工介入成本並提升整體成功機率。',
    link:'https://github.com/ChengEnLu252/CakeHunt.git'},
-  {id:'carebuddy',caseStudy:'case-study-carebuddy.html',title:'line-cloud-webhook｜CareBuddy',tag:'LINE Bot / Health Record',
+  {id:'carebuddy',filterCat:'linebot',caseStudy:'case-study-carebuddy.html',title:'line-cloud-webhook｜CareBuddy',tag:'LINE Bot / Health Record',
    desc:'一個串接進 LINE 的健康陪伴機器人。可記錄症狀、自動寫入資料庫並獲得即時回覆，主打陪伴感與心靈安慰。',
    pain:'健康紀錄分散無整合，不舒服時無法即時查詢與獲得有效回饋',
    solution:'LINE Webhook 整合 CRUD 資料庫，對話式操作自動儲存症狀並即時回應',
@@ -1578,7 +1660,7 @@ const PROJECTS=[
    points:['具備健康紀錄的 CRUD 功能，可透過 LINE 對話自然完成資料新增、查詢與管理。','系統會自動儲存症狀到資料庫，降低手動紀錄成本。','提供症狀的即時回覆，不會亂下醫囑；若情況嚴重則建議就醫。','主打陪伴感與心靈安慰，像是當你不舒服時身邊有個會回應你的小貼心。'],
    result:'將健康紀錄與即時回覆整合進日常聊天場景中，降低門檻，讓健康管理變得更自然。',
    link:'https://github.com/ChengEnLu252/line-cloud-webhook.git'},
-  {id:'thesis',caseStudy:'case-study-thesis.html',title:'LLM Order Extraction Thesis',tag:'Research / AI',
+  {id:'thesis',filterCat:'ai',caseStudy:'case-study-thesis.html',title:'LLM Order Extraction Thesis',tag:'Research / AI',
    desc:'研究大型語言模型於異質訂單文件之關鍵資訊擷取與標準化，建立從文件解析、prompt 設計到評估分析的完整流程。',
    pain:'異質訂單格式多變，人工整理耗時且欄位錯漏率高，難以系統化處理',
    solution:'LLM + Structured Output + JSON Schema，建立可評估、可重現的標準化抽取流程',
@@ -1588,7 +1670,7 @@ const PROJECTS=[
    points:['處理異質訂單中欄位名稱變異、資訊分散、格式複雜與干擾資訊過多等問題。','建立結構化 schema 與標準化輸出流程，使模型結果可比較、可分析、可重現。','Level 2 正式結果達 95.2% Document Accuracy。','進一步延伸至 Level 3 OCR / 影像版本，降低人工整理非結構化文件的成本。'],
    result:'將原本格式多變的非結構化訂單內容轉為標準化 JSON，為企業文件處理與後續系統串接建立基礎。',
    link:'https://github.com/ChengEnLu252/LLM_Order_Extraction_Thesis.git'},
-  {id:'heying',caseStudy:'case-study-heying.html',title:'鶴英｜品牌官網設計',tag:'Web Design',
+  {id:'heying',filterCat:'web',caseStudy:'case-study-heying.html',title:'鶴英｜品牌官網設計',tag:'Web Design',
    desc:'為鶴英品牌從零打造具視覺識別的官方網站，涵蓋品牌形象呈現、RWD 響應式設計與清楚的行動呼籲，讓潛在客戶能快速找到品牌並產生轉換。',
    pain:'品牌無對外官網，潛在客戶難以搜尋，缺乏專業形象展示入口',
    solution:'從零規劃品牌視覺風格、頁面架構與 RWD 設計，快速上線部署',
@@ -1911,6 +1993,66 @@ function filterInsights(tag){
 }
 
 /* ══════════════════════════════════════
+   FEATURE 2 — FAQ REAL-TIME SEARCH
+══════════════════════════════════════ */
+function setupFaqSearch(){
+  const inp=document.getElementById('faqSearch');
+  const clr=document.getElementById('faqSearchClear');
+  const noRes=document.getElementById('faqNoResults');
+  if(!inp)return;
+  function doFilter(){
+    const val=inp.value.trim().toLowerCase();
+    clr.style.display=val?'':'none';
+    const items=document.querySelectorAll('#faqList .fq');
+    let any=false;
+    items.forEach(fq=>{
+      const text=fq.textContent.toLowerCase();
+      const show=!val||text.includes(val);
+      fq.style.display=show?'':'none';
+      if(show)any=true;
+    });
+    if(noRes)noRes.style.display=(!any&&val)?'block':'none';
+  }
+  inp.addEventListener('input',doFilter);
+  clr.addEventListener('click',()=>{
+    inp.value='';
+    clr.style.display='none';
+    document.querySelectorAll('#faqList .fq').forEach(fq=>fq.style.display='');
+    if(noRes)noRes.style.display='none';
+    inp.focus();
+  });
+}
+
+/* ══════════════════════════════════════
+   FEATURE 3 — SERVICE SITUATION FINDER
+══════════════════════════════════════ */
+function setupSrvSituation(){
+  document.querySelectorAll('.srv-chip').forEach(chip=>{
+    chip.addEventListener('click',()=>{
+      const idx=parseInt(chip.dataset.srvIdx);
+      const cards=document.querySelectorAll('#services .card');
+      if(!cards[idx])return;
+      // Remove any previous chip active state
+      document.querySelectorAll('.srv-chip').forEach(c=>c.classList.remove('active'));
+      chip.classList.add('active');
+      // Remove previous highlight
+      cards.forEach(c=>c.classList.remove('srv-highlighted'));
+      // Scroll card into view
+      cards[idx].scrollIntoView({behavior:'smooth',block:'center'});
+      // Small delay so scroll has time to start before highlight fires
+      setTimeout(()=>{
+        cards[idx].classList.add('srv-highlighted');
+        setTimeout(()=>{
+          cards[idx].classList.remove('srv-highlighted');
+          chip.classList.remove('active');
+        },1600);
+      },300);
+      playClick();
+    });
+  });
+}
+
+/* ══════════════════════════════════════
    LOADER
 ══════════════════════════════════════ */
 const llogo=document.getElementById('llogo'),lfill=document.getElementById('lfill');
@@ -1930,8 +2072,8 @@ let mx=0,my=0,rx=0,ry=0;
 if(window.matchMedia('(pointer:fine)').matches){
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
   (function animCur(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animCur);})();
-  document.addEventListener('mouseover',e=>{if(e.target.closest('a,button,.icon-btn,.pcard-open,.proj-arr,.chip,.modal-close,.testi-arr,.ins-read-more,.ins-filter-btn')){cur.classList.add('big');ring.classList.add('big');}});
-  document.addEventListener('mouseout',e=>{if(e.target.closest('a,button,.icon-btn,.pcard-open,.proj-arr,.chip,.modal-close,.testi-arr,.ins-read-more,.ins-filter-btn')){cur.classList.remove('big');ring.classList.remove('big');}});
+  document.addEventListener('mouseover',e=>{if(e.target.closest('a,button,.icon-btn,.pcard-open,.proj-arr,.chip,.modal-close,.testi-arr,.ins-read-more,.ins-filter-btn,.proj-filter-btn,.srv-chip,.faq-search-clear')){cur.classList.add('big');ring.classList.add('big');}});
+  document.addEventListener('mouseout',e=>{if(e.target.closest('a,button,.icon-btn,.pcard-open,.proj-arr,.chip,.modal-close,.testi-arr,.ins-read-more,.ins-filter-btn,.proj-filter-btn,.srv-chip,.faq-search-clear')){cur.classList.remove('big');ring.classList.remove('big');}});
 }
  
 /* ══════════════════════════════════════
@@ -2066,13 +2208,51 @@ function buildCard(p,i,lang){
 /* ══════════════════════════════════════
    RENDER PROJECT CARDS
 ══════════════════════════════════════ */
+let currentProjFilter='all';
+
 function renderProjects(){
+  renderFilteredProjects();
+}
+
+function renderFilteredProjects(){
   const track=document.getElementById('projTrack');
+  const wrap=document.getElementById('projWrap');
+  track.innerHTML='';
   const pData=currentLang==='en'?PROJECTS_EN:PROJECTS;
+  let count=0;
   pData.forEach((p,i)=>{
+    if(currentProjFilter!=='all'&&p.filterCat!==currentProjFilter)return;
     const card=document.createElement('div');card.className='pcard';
     card.innerHTML=buildCard(p,i,currentLang);
     track.appendChild(card);
+    count++;
+  });
+  // Show empty state if no matches
+  const existing=track.querySelector('.proj-filter-empty');
+  if(existing)existing.remove();
+  if(count===0){
+    const msg=document.createElement('div');
+    msg.className='proj-filter-empty';
+    const isEn=currentLang==='en';
+    msg.innerHTML=isEn
+      ?'<strong>No projects found</strong> in this category — more coming soon!'
+      :'此分類暫無專案，<strong>更多作品即將上線</strong>！';
+    track.appendChild(msg);
+  }
+  if(wrap)wrap.scrollLeft=0;
+}
+
+function setupProjFilter(){
+  const bar=document.getElementById('projFilterBar');
+  if(!bar)return;
+  bar.querySelectorAll('.proj-filter-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      bar.querySelectorAll('.proj-filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      currentProjFilter=btn.dataset.cat;
+      renderFilteredProjects();
+      playClick();
+    });
   });
 }
  
@@ -2364,6 +2544,22 @@ const I18N_EN={
   cm_nofit4s:'Good systems need planning time. Rush projects can be discussed — but there\'s a floor.',
   cm_nofit5:'You just want something that "looks like AI" without a real problem to solve',
   cm_nofit5s:'AI is a tool, not a destination. Without real use cases, it rarely delivers lasting value.',
+  // New interactive features i18n
+  srv_sit_label:'🎯 Find Your Situation',
+  srv_sit0:'📊 Reports need manual work',
+  srv_sit1:'💬 Want a LINE Bot',
+  srv_sit2:'🔗 Systems not connected',
+  srv_sit3:'🤖 Need an AI knowledge base',
+  srv_sit4:'🌐 Build a brand website',
+  srv_sit5:'⚡ Too many manual steps',
+  proj_f_label:'Filter:',
+  proj_f_all:'All',
+  proj_f_ai:'AI / LLM',
+  proj_f_auto:'Automation',
+  proj_f_line:'LINE Bot',
+  proj_f_web:'Web Design',
+  faq_search_ph:'Search questions...',
+  faq_no_results:'No matching questions — try a different keyword 🙂',
 };
  
 const I18N_ZH_CACHE={};
@@ -2418,7 +2614,7 @@ function applyLangSelects(lang){
 
 // English project data
 const PROJECTS_EN=[
-  {id:'ude',caseStudy:'case-study-ude.html',title:'UDE Part Number Query Automation Platform',tag:'Featured Project',
+  {id:'ude',filterCat:'automation',caseStudy:'case-study-ude.html',title:'UDE Part Number Query Automation Platform',tag:'Featured Project',
    desc:'Built an enterprise part number query and data integration platform powered by n8n, integrating MySQL, Excel and real-time query interfaces to automate tedious manual lookup and comparison workflows.',
    pain:'Two staff manually cross-referencing Excel and database — minutes per query, high error risk',
    solution:'n8n workflow + MySQL integration with field normalization and real-time query UI in one place',
@@ -2428,7 +2624,7 @@ const PROJECTS_EN=[
    tech:['n8n','MySQL','JavaScript Function Node','HTML + DataTables','Workflow Automation','Internal Tool'],
    points:['Solved inefficient manual Excel and database querying with automated field matching.','Implemented field normalization and join key mechanisms for automatic data comparison and synchronization.','Built a real-time frontend query interface to improve internal operational efficiency.','Tuned system parameters for large data volumes to resolve performance bottlenecks.'],
    result:'Reduced manual query and comparison time by ~90%, improved data consistency, and established a scalable internal query tool.',link:null},
-  {id:'nutritionist',caseStudy:'case-study-ai-nutritionist.html',title:'AI Nutritionist',tag:'AI Health App',
+  {id:'nutritionist',filterCat:'ai',caseStudy:'case-study-ai-nutritionist.html',title:'AI Nutritionist',tag:'AI Health App',
    desc:'Integrated calorie analysis, image analysis, and AI dietary coaching into a unified system for health queries, calorie estimation, and meal planning.',
    pain:'Calorie data scattered across multiple tools; no unified entry point for health tracking or meal planning',
    solution:'Unified text calorie lookup, photo recognition, and AI dietary coaching in a single application',
@@ -2439,7 +2635,7 @@ const PROJECTS_EN=[
    points:['Integrated text-based calorie analysis, photo upload calorie estimation, and AI dietary coaching.','Reduced time spent repeatedly searching food calorie data by consolidating multi-source info.','Lowered dependence on manual nutrition planning, making health management more accessible.','Users can complete calorie estimation, diet logging, and AI dietary advice in a single application.'],
    result:'Consolidated scattered health information into a sustainable tool, reducing lookup costs and improving daily usage efficiency.',
    link:'https://github.com/ChengEnLu252/AI-Nutritionist.git'},
-  {id:'cakehunt',caseStudy:'case-study-cakehunt.html',title:'CakeHunt | Multi-Platform Automated Ticket Bot',tag:'Automation Tool',
+  {id:'cakehunt',filterCat:'automation',caseStudy:'case-study-cakehunt.html',title:'CakeHunt | Multi-Platform Automated Ticket Bot',tag:'Automation Tool',
    desc:'A multi-account simultaneous ticket-buying bot that automates the entire ticketing process with OCR CAPTCHA recognition and real-time monitoring.',
    pain:'Manual ticket buying is stressful and low success rate; CAPTCHAs slow things down; multi-account is unmanageable',
    solution:'Multi-account parallel execution + OCR CAPTCHA auto-recognition + real-time monitoring, fully automated',
@@ -2450,7 +2646,7 @@ const PROJECTS_EN=[
    points:['Automated the previously manual, high-pressure ticket-buying process.','Supports multiple accounts running simultaneously for higher overall success rates.','Integrated real-time monitoring to track each account\'s ticketing progress.','Combined OCR CAPTCHA recognition with auto-fill to greatly reduce manual effort.'],
    result:'Transformed ticket buying from a high-pressure manual process into an automated tool, greatly reducing human effort and increasing success rates.',
    link:'https://github.com/ChengEnLu252/CakeHunt.git'},
-  {id:'carebuddy',caseStudy:'case-study-carebuddy.html',title:'line-cloud-webhook | CareBuddy',tag:'LINE Bot / Health Record',
+  {id:'carebuddy',filterCat:'linebot',caseStudy:'case-study-carebuddy.html',title:'line-cloud-webhook | CareBuddy',tag:'LINE Bot / Health Record',
    desc:'A health companion bot integrated into LINE. Records symptoms, auto-writes to database, and provides instant responses, with a focus on emotional support.',
    pain:'Health records were scattered with no feedback loop or quick channel when feeling unwell',
    solution:'LINE Webhook + CRUD database auto-saves symptoms and replies instantly within the chat interface',
@@ -2461,7 +2657,7 @@ const PROJECTS_EN=[
    points:['Full CRUD health record functionality through natural LINE conversations.','Automatically stores symptoms to the database, reducing manual recording effort.','Provides instant symptom responses without giving medical diagnoses; suggests seeking medical attention for serious cases.','Focuses on companionship and emotional comfort — like having a caring friend when you\'re not feeling well.'],
    result:'Integrated health recording and instant responses into daily chat scenarios, lowering barriers and making health management more natural.',
    link:'https://github.com/ChengEnLu252/line-cloud-webhook.git'},
-  {id:'thesis',caseStudy:'case-study-thesis.html',title:'LLM Order Extraction Thesis',tag:'Research / AI',
+  {id:'thesis',filterCat:'ai',caseStudy:'case-study-thesis.html',title:'LLM Order Extraction Thesis',tag:'Research / AI',
    desc:'Research on using large language models for key information extraction and standardization from heterogeneous order documents, establishing a complete pipeline from document parsing to prompt design to evaluation.',
    pain:'Heterogeneous order formats make manual processing slow, error-prone, and impossible to standardize at scale',
    solution:'LLM + Structured Output + JSON Schema — a reproducible, evaluatable standardization pipeline',
@@ -2471,7 +2667,7 @@ const PROJECTS_EN=[
    points:['Addressed field name variations, scattered information, complex formats, and excessive noise in heterogeneous orders.','Established structured schemas and standardized output pipelines for comparable, analyzable, reproducible results.','Level 2 formal results achieved 95.2% Document Accuracy.','Extended to Level 3 OCR/image versions, reducing costs of manually processing unstructured documents.'],
    result:'Converted originally variable-format unstructured order content into standardized JSON, establishing a foundation for enterprise document processing and downstream system integration.',
    link:'https://github.com/ChengEnLu252/LLM_Order_Extraction_Thesis.git'},
-  {id:'heying',caseStudy:'case-study-heying.html',title:'Heying | Brand Website Design',tag:'Web Design',
+  {id:'heying',filterCat:'web',caseStudy:'case-study-heying.html',title:'Heying | Brand Website Design',tag:'Web Design',
    desc:'Built a brand-consistent official website for Heying from scratch, covering visual identity, RWD responsive design, and clear calls-to-action so potential clients can find and connect with the brand.',
    pain:'No external-facing website, potential clients unable to find the brand, no professional storefront',
    solution:'Planned brand visual style, page architecture, and RWD design from scratch — deployed quickly',
@@ -2533,6 +2729,9 @@ renderProjects();
 renderTestimonials();
 renderInsights(currentLang,'all');
 setupInsFilter();
+setupProjFilter();
+setupFaqSearch();
+setupSrvSituation();
 testiGo(0);
 
 /* ══════════════════════════════════════
@@ -2556,15 +2755,49 @@ function toggleLang(){
     }
   });
 
-  // Re-render projects
+  // Re-render projects (keep current filter)
   const track=document.getElementById('projTrack');
   track.innerHTML='';
   const pData=currentLang==='en'?PROJECTS_EN:PROJECTS;
   pData.forEach((p,i)=>{
+    if(currentProjFilter!=='all'&&p.filterCat!==currentProjFilter)return;
     const card=document.createElement('div');card.className='pcard';
     card.innerHTML=buildCard(p,i,currentLang);
     track.appendChild(card);
   });
+  // Update project filter bar labels
+  const pfBar=document.getElementById('projFilterBar');
+  if(pfBar){
+    const pfLabels=currentLang==='en'
+      ?{label:'Filter:',all:'All',ai:'AI / LLM',automation:'Automation',linebot:'LINE Bot',web:'Web Design'}
+      :{label:'篩選：',all:'全部',ai:'AI / LLM',automation:'自動化',linebot:'LINE Bot',web:'網頁設計'};
+    const labelEl=pfBar.querySelector('.proj-filter-label');
+    if(labelEl)labelEl.textContent=pfLabels.label;
+    pfBar.querySelectorAll('.proj-filter-btn').forEach(btn=>{
+      const cat=btn.dataset.cat;
+      if(pfLabels[cat])btn.textContent=pfLabels[cat];
+    });
+  }
+  // Update FAQ search placeholder
+  const faqInp=document.getElementById('faqSearch');
+  if(faqInp)faqInp.placeholder=currentLang==='en'?'Search questions...':'搜尋問題...';
+  const faqNoRes=document.getElementById('faqNoResults');
+  if(faqNoRes)faqNoRes.textContent=currentLang==='en'?'No matching questions — try a different keyword 🙂':'沒有符合的問題，試試其他關鍵字 🙂';
+  // Reset FAQ search on language change
+  const faqClr=document.getElementById('faqSearchClear');
+  if(faqInp&&faqClr){faqInp.value='';faqClr.style.display='none';document.querySelectorAll('#faqList .fq').forEach(fq=>fq.style.display='');}
+  // Update service situation chips
+  const srvSitWrap=document.getElementById('srvSituationWrap');
+  if(srvSitWrap){
+    const sitLabel=srvSitWrap.querySelector('.srv-situation-label');
+    if(sitLabel)sitLabel.childNodes.forEach(n=>{if(n.nodeType===3)n.textContent='';});
+    const sitChipLabels=currentLang==='en'
+      ?['📊 Reports need manual work','💬 Want a LINE Bot','🔗 Systems not connected','🤖 Need an AI knowledge base','🌐 Build a brand website','⚡ Too many manual steps']
+      :['📊 報表要人工整理','💬 想做 LINE Bot','🔗 系統沒串起來','🤖 需要 AI 知識庫','🌐 想建品牌官網','⚡ 流程太多人工'];
+    srvSitWrap.querySelectorAll('.srv-chip').forEach((chip,i)=>{if(sitChipLabels[i])chip.textContent=sitChipLabels[i];});
+    const sitLabelEl=srvSitWrap.querySelector('.srv-situation-label');
+    if(sitLabelEl)sitLabelEl.textContent=currentLang==='en'?'🎯 Find Your Situation':'🎯 找到你的情境';
+  }
 
   // Re-render testimonials
   const ttrack=document.getElementById('testiTrack');
