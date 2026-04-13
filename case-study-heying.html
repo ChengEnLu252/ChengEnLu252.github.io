@@ -3,291 +3,179 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>鶴英 官網設計 | Case Study — 呂承恩 Lu Cheng En</title>
-<meta property="og:title" content="鶴英 品牌官網設計 | NNDoiT AI Studio"/>
-<meta property="og:description" content="從零打造品牌官網：視覺識別、RWD 響應式設計、CTA 轉換優化"/>
-<meta property="og:image" content="images/heying01.png"/>
+<title>鶴英 品牌官網設計 | Case Study — 呂承恩 NNDoiT AI Studio</title>
 <style>
-/* ══════════════════════════════════════
-   CSS Variables — Dark / Light
-══════════════════════════════════════ */
-:root{
-  --bg:#0a050f;--bg2:#110a18;--bg3:#1a0e24;
-  --card:rgba(255,255,255,.06);--card2:rgba(255,255,255,.1);
-  --border:rgba(255,255,255,.1);--border2:rgba(236,72,153,.3);
-  --text:#f0eaf5;--muted:rgba(240,234,245,.5);--muted2:rgba(240,234,245,.35);
-  --primary:#ec4899;--pd:#be185d;--accent:#f97316;
-  --shadow:0 20px 60px rgba(236,72,153,.18);
-  --radius:20px;--max:860px;
-  --nav-bg:rgba(10,5,15,.88);
-}
-[data-theme="light"]{
-  --bg:#fff7fb;--bg2:#ffeaf4;--bg3:#ffd6ec;
-  --card:rgba(255,255,255,.95);--card2:rgba(255,255,255,1);
-  --border:rgba(236,72,153,.18);--border2:rgba(236,72,153,.4);
-  --text:#2d2130;--muted:#6b5c67;--muted2:#9a8a96;
-  --shadow:0 16px 40px rgba(190,24,93,.12);
-  --nav-bg:rgba(255,247,251,.9);
-}
-*{box-sizing:border-box;scroll-behavior:smooth;-webkit-tap-highlight-color:transparent;}
-html{scroll-padding-top:70px;}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.75;transition:background .4s,color .4s;overflow-x:hidden;}
-a{color:inherit;text-decoration:none;}
-strong.kw{color:var(--accent);font-weight:900;}
-.container{width:min(var(--max),calc(100% - 40px));margin:0 auto;}
-
-/* ══ NAV ══ */
+:root{--bg:#0a050f;--bg2:#110a18;--card:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);--border2:rgba(236,72,153,.3);--text:#f0eaf5;--muted:rgba(240,234,245,.5);--primary:#ec4899;--accent:#f97316;--max:860px;--nav-bg:rgba(10,5,15,.88);}
+[data-theme="light"]{--bg:#fff7fb;--bg2:#ffeaf4;--card:rgba(255,255,255,.95);--border:rgba(236,72,153,.18);--border2:rgba(236,72,153,.4);--text:#2d2130;--muted:#6b5c67;--nav-bg:rgba(255,247,251,.9);}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-padding-top:68px;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.8;transition:background .4s,color .4s;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}.container{width:min(var(--max),calc(100% - 40px));margin:0 auto;}
 .nav{position:sticky;top:0;z-index:500;backdrop-filter:blur(18px);background:var(--nav-bg);border-bottom:1px solid var(--border);transition:box-shadow .3s,background .4s;}
-.nav-inner{width:min(1160px,calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;}
-.brand{font-weight:900;font-size:.95rem;}
-.brand small{display:block;color:var(--primary);font-size:.72rem;font-weight:800;margin-top:1px;}
-.nav-controls{display:flex;gap:8px;align-items:center;}
+.nav-inner{width:min(1160px,calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;}
+.brand{font-weight:900;font-size:.95rem;color:var(--text);}.brand small{display:block;color:var(--primary);font-size:.72rem;font-weight:800;margin-top:1px;}
+.nav-back{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-size:.88rem;font-weight:700;padding:7px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);transition:.2s;}
+.nav-back:hover{background:rgba(236,72,153,.12);border-color:var(--border2);color:var(--primary);}
+.nav-controls{display:flex;gap:8px;}
 .icon-btn{width:36px;height:36px;border-radius:12px;border:1px solid var(--border);background:var(--card);display:grid;place-items:center;cursor:pointer;transition:.2s;font-size:1rem;color:var(--text);}
 .icon-btn:hover{background:rgba(236,72,153,.15);border-color:var(--border2);}
-.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:900;color:var(--muted);padding:7px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);transition:.2s;}
-.back-btn:hover{color:var(--primary);border-color:var(--border2);}
-
-/* ══ HERO ══ */
-.cs-hero{padding:80px 0 56px;text-align:center;}
-.cs-tag{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;background:rgba(236,72,153,.14);border:1px solid rgba(236,72,153,.25);color:var(--primary);font-size:.82rem;font-weight:900;margin-bottom:22px;}
-.cs-title{font-size:clamp(2rem,5vw,3.6rem);font-weight:900;letter-spacing:-.04em;margin:0 0 16px;line-height:1.1;}
-.cs-title .grad{background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.cs-desc{color:var(--muted);font-size:1.05rem;max-width:58ch;margin:0 auto 36px;line-height:1.8;}
-.cs-meta-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:16px;}
-.cs-meta-chip{padding:8px 16px;border-radius:999px;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.18);color:#f97316;font-size:.82rem;font-weight:900;}
-.cs-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px;}
-
-/* Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:14px;font-weight:900;border:1px solid transparent;transition:all .2s ease;font-size:.95rem;cursor:pointer;}
-.btn-primary{background:linear-gradient(135deg,#ec4899,#db2777);color:#fff;box-shadow:0 14px 32px rgba(219,39,119,.35);}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(219,39,119,.45);}
-.btn-line{background:linear-gradient(135deg,#06c755,#00a846);color:#fff;box-shadow:0 14px 32px rgba(6,199,85,.3);}
-.btn-line:hover{transform:translateY(-2px);}
-.btn-ghost{background:transparent;border-color:var(--border);color:var(--text);}
-.btn-ghost:hover{background:var(--card);border-color:var(--border2);}
-@media(max-width:600px){.btn{width:100%;font-size:.92rem;padding:14px 20px;}.cs-links{flex-direction:column;}}
-
-/* ══ OVERVIEW CARDS ══ */
-.overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:56px;}
-@media(max-width:640px){.overview-grid{grid-template-columns:1fr;}}
-.ov-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px 20px;}
-.ov-label{font-size:.72rem;font-weight:900;letter-spacing:.06em;color:var(--muted2);margin-bottom:10px;}
-.ov-val{font-size:.95rem;font-weight:700;line-height:1.6;color:var(--text);}
-.ov-pain .ov-label{color:#f87171;}
-.ov-sol .ov-label{color:#818cf8;}
-.ov-res .ov-label{color:#4ade80;}
-[data-theme="light"] .ov-pain .ov-label{color:#dc2626;}
-[data-theme="light"] .ov-sol .ov-label{color:#4f46e5;}
-[data-theme="light"] .ov-res .ov-label{color:#16a34a;}
-
-/* ══ SECTION ══ */
-.cs-section{margin-bottom:56px;}
-.cs-section-title{font-size:1.35rem;font-weight:900;letter-spacing:-.02em;margin:0 0 20px;display:flex;align-items:center;gap:10px;}
-.cs-section-title::after{content:'';flex:1;height:1px;background:var(--border);}
-
-/* ══ IMAGES ══ */
-.img-browser{background:var(--bg2);border:1px solid var(--border);border-radius:18px;overflow:hidden;margin-bottom:14px;}
-.img-bar{background:rgba(255,255,255,.05);padding:10px 14px;display:flex;align-items:center;gap:10px;}
-[data-theme="light"] .img-bar{background:rgba(0,0,0,.04);}
-.img-dots{display:flex;gap:6px;}
-.img-dots span{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.15);}
-.img-dots span:nth-child(1){background:#ff5f57;}
-.img-dots span:nth-child(2){background:#febc2e;}
-.img-dots span:nth-child(3){background:#28c840;}
-.img-url{font-size:.78rem;color:var(--muted2);font-weight:700;background:rgba(255,255,255,.06);padding:4px 12px;border-radius:999px;flex:1;text-align:center;max-width:320px;margin:0 auto;}
-[data-theme="light"] .img-url{background:rgba(0,0,0,.06);}
-.img-body{padding:12px;}
-.img-body img{width:100%;border-radius:12px;display:block;border:1px solid var(--border);}
-.img-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.img-grid img{width:100%;height:200px;object-fit:cover;border-radius:12px;border:1px solid var(--border);}
-@media(max-width:560px){.img-grid{grid-template-columns:1fr;}.img-grid img{height:180px;}}
-
-/* ══ POINTS LIST ══ */
-.cs-points{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
-.cs-points li{display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;font-size:.95rem;line-height:1.65;}
-.cs-points li::before{content:'→';color:var(--primary);font-weight:900;flex-shrink:0;margin-top:2px;}
-
-/* ══ RESULT BOX ══ */
-.result-box{background:linear-gradient(135deg,rgba(236,72,153,.1),rgba(249,115,22,.08));border:1px solid var(--border2);border-radius:18px;padding:28px 28px;margin-bottom:40px;}
-.result-box strong{color:var(--primary);}
-
-/* ══ CTA ══ */
-.cs-cta{background:var(--bg2);border:1px solid var(--border);border-radius:24px;padding:48px 40px;text-align:center;margin-bottom:60px;}
-.cs-cta h3{font-size:1.6rem;font-weight:900;margin:0 0 10px;}
-.cs-cta p{color:var(--muted);margin:0 0 28px;font-size:.97rem;}
-.cs-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-@media(max-width:600px){.cs-cta{padding:36px 24px;}.cs-cta h3{font-size:1.3rem;}.cs-cta-btns{flex-direction:column;}}
-
-/* ══ FOOTER ══ */
-.footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;color:var(--muted2);font-size:.83rem;}
-
-/* ══ DIVIDER ══ */
-hr.sec-div{border:none;border-top:1px solid var(--border);margin:0 0 56px;}
-
-/* Reveal */
-.rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
-.rv.vis{opacity:1;transform:translateY(0);}
-.d1{transition-delay:.05s;}.d2{transition-delay:.12s;}.d3{transition-delay:.19s;}
+.lang-btn{width:auto;padding:0 10px;font-size:.72rem;font-weight:900;letter-spacing:.03em;}
+.cs-hero{padding:72px 0 56px;border-bottom:1px solid var(--border);}
+.cs-tag{display:inline-flex;padding:7px 14px;border-radius:999px;background:rgba(236,72,153,.15);border:1px solid rgba(236,72,153,.25);color:var(--primary);font-size:.8rem;font-weight:900;margin-bottom:18px;}
+.cs-title{font-size:clamp(1.9rem,4vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px;}
+.cs-subtitle{color:var(--muted);font-size:1.05rem;max-width:68ch;margin-bottom:32px;line-height:1.75;}
+.cs-meta-row{display:flex;flex-wrap:wrap;gap:12px;}
+.cs-badge{padding:7px 14px;border-radius:999px;font-size:.82rem;font-weight:900;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.2);color:#f97316;}
+.cs-badge.b-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
+.cs-badge.b-green{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.2);color:#4ade80;}
+.cs-body{padding:60px 0 80px;}.cs-section{margin-bottom:56px;}.cs-section:last-child{margin-bottom:0;}
+.cs-section-label{display:flex;align-items:center;gap:10px;font-size:.75rem;font-weight:900;letter-spacing:.08em;color:var(--primary);text-transform:uppercase;margin-bottom:14px;}
+.cs-section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.cs-section h2{font-size:1.35rem;font-weight:900;letter-spacing:-.02em;margin-bottom:14px;}
+.cs-section p{color:var(--muted);font-size:.97rem;line-height:1.85;margin-bottom:12px;}.cs-section p:last-child{margin-bottom:0;}
+.cs-highlight{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--primary);border-radius:0 14px 14px 0;padding:18px 22px;margin:18px 0;color:var(--muted);font-size:.95rem;line-height:1.8;}
+.cs-highlight strong{color:var(--text);}
+.cs-par-grid{display:grid;gap:12px;margin:18px 0;}
+.cs-par-item{display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;}
+.cs-par-label{flex-shrink:0;font-size:.7rem;font-weight:900;padding:3px 9px;border-radius:6px;letter-spacing:.04em;margin-top:2px;white-space:nowrap;}
+.l-pain{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.22);}
+.l-sol{background:rgba(99,102,241,.14);color:#818cf8;border:1px solid rgba(99,102,241,.22);}
+[data-theme="light"] .l-pain{background:rgba(239,68,68,.1);color:#dc2626;}
+[data-theme="light"] .l-sol{background:rgba(99,102,241,.1);color:#4f46e5;}
+.cs-par-text{color:var(--muted);font-size:.93rem;line-height:1.65;}
+.cs-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px;}
+.cs-chip{padding:8px 14px;border-radius:999px;background:rgba(236,72,153,.1);border:1px solid rgba(236,72,153,.2);color:var(--primary);font-size:.82rem;font-weight:900;}
+.cs-chip.c-orange{background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.2);color:#f97316;}
+.cs-chip.c-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
+.cs-numlist{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:14px;}
+.cs-numlist li{display:flex;gap:14px;align-items:flex-start;color:var(--muted);font-size:.95rem;line-height:1.75;}
+.cs-numlist li .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(236,72,153,.18);border:1px solid rgba(236,72,153,.3);color:var(--primary);font-weight:900;font-size:.8rem;display:grid;place-items:center;margin-top:2px;}
+.cs-result-card{background:linear-gradient(135deg,rgba(236,72,153,.12),rgba(249,115,22,.08));border:1px solid rgba(236,72,153,.25);border-radius:20px;padding:28px 30px;margin-top:18px;}
+.cs-result-card h3{font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--text);}
+.cs-result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
+.crs-item{text-align:center;padding:16px 10px;background:rgba(255,255,255,.04);border-radius:14px;border:1px solid var(--border);}
+.crs-num{font-size:1.7rem;font-weight:900;color:var(--primary);display:block;line-height:1.1;}
+.crs-label{font-size:.76rem;color:var(--muted);margin-top:4px;line-height:1.4;}
+.cs-result-card p{color:var(--muted);font-size:.93rem;line-height:1.8;}
+.cs-imgs{display:grid;gap:12px;border-radius:16px;overflow:hidden;margin:20px 0;border:1px solid var(--border);}
+.cs-imgs.g3{grid-template-columns:1fr 1fr 1fr;}.cs-imgs img{width:100%;object-fit:cover;display:block;}
+.cs-footer-cta{background:var(--bg2);border-top:1px solid var(--border);padding:52px 0;}
+.cs-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.cs-footer-text h3{font-size:1.25rem;font-weight:900;margin-bottom:6px;}
+.cs-footer-text p{color:var(--muted);font-size:.93rem;}
+.cs-footer-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:900;border:1px solid transparent;transition:all .2s;font-size:.93rem;cursor:pointer;}
+.btn-primary{background:linear-gradient(135deg,#ec4899,#db2777);color:#fff;}.btn-primary:hover{transform:translateY(-2px);}
+.btn-ghost{background:var(--card);border-color:var(--border);color:var(--text);}.btn-ghost:hover{background:rgba(236,72,153,.1);border-color:var(--border2);color:var(--primary);}
+.btn-line{background:linear-gradient(135deg,#06c755,#00a846);color:#fff;}.btn-line:hover{transform:translateY(-2px);}
+@media(max-width:768px){.cs-hero{padding:48px 0 36px;}.cs-result-stats{grid-template-columns:1fr 1fr;}.cs-footer-inner{flex-direction:column;align-items:flex-start;}.cs-footer-btns{width:100%;}.cs-footer-btns .btn{flex:1;justify-content:center;}.cs-imgs.g3{grid-template-columns:1fr 1fr;}}
 </style>
 </head>
 <body>
-
-<!-- ════ NAV ════ -->
 <nav class="nav">
   <div class="nav-inner">
-    <div class="brand">呂承恩 Lu Cheng En<small>NNDoiT AI Studio</small></div>
+    <a href="index.html" class="brand">呂承恩 Lu Cheng En<small>NNDoiT AI Studio</small></a>
+    <a href="index.html#projects" class="nav-back" id="navBack">← 回作品集</a>
     <div class="nav-controls">
-      <a href="index.html" class="back-btn">← 回作品集</a>
-      <div class="icon-btn" id="themeBtn" title="Theme" onclick="toggleTheme()">☀️</div>
+      <div class="icon-btn lang-btn" id="langBtn" onclick="toggleLang()">EN</div>
+      <div class="icon-btn" id="themeBtn" onclick="toggleTheme()">☀️</div>
     </div>
   </div>
 </nav>
-
-<!-- ════ HERO ════ -->
-<section class="cs-hero">
-  <div class="container">
-    <div class="cs-tag rv">🌐 Web Design · Brand Identity · RWD</div>
-    <h1 class="cs-title rv"><span class="grad">鶴英</span>｜品牌官網設計</h1>
-    <p class="cs-desc rv">為鶴英品牌從零打造具視覺識別的官方網站，涵蓋品牌形象呈現、RWD 響應式設計與清楚的行動呼籲，讓潛在客戶能快速找到品牌並產生轉換。</p>
-    <div class="cs-meta-bar rv">
-      <span class="cs-meta-chip">HTML / CSS / JavaScript</span>
-      <span class="cs-meta-chip">RWD 響應式設計</span>
-      <span class="cs-meta-chip">Frontend Design</span>
-      <span class="cs-meta-chip">Brand Identity</span>
-    </div>
-    <div class="cs-links rv">
-      <a class="btn btn-primary" href="https://github.com/ChengEnLu252/heying_website.git" target="_blank">🔗 View GitHub</a>
-      <a class="btn btn-line" href="https://lin.ee/Wc5Bozb" target="_blank">💬 討論類似專案</a>
-      <a class="btn btn-ghost" href="index.html">← 回作品集</a>
+<div class="cs-hero"><div class="container">
+  <div class="cs-tag" data-i18n="tag">Web Design</div>
+  <h1 class="cs-title" data-i18n="title">鶴英｜品牌官網設計</h1>
+  <p class="cs-subtitle" data-i18n="subtitle">為鶴英品牌從零打造具視覺識別的官方網站，涵蓋品牌形象呈現、RWD 響應式設計與清楚的行動呼籲，讓潛在客戶能快速找到品牌並產生轉換。</p>
+  <div class="cs-meta-row">
+    <span class="cs-badge">HTML · CSS · JavaScript</span>
+    <span class="cs-badge b-indigo" data-i18n="badge2">品牌官網 / 商業網站</span>
+    <span class="cs-badge b-green" data-i18n="badge3">RWD 全裝置適配</span>
+  </div>
+</div></div>
+<div class="cs-body"><div class="container">
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s1_label">01 — 專案背景</div>
+    <h2 data-i18n="s1_h">品牌需要的第一個對外窗口</h2>
+    <p data-i18n="s1_p1">鶴英是一個具有獨特定位的品牌，但在接到這個專案時，他們完全沒有任何線上存在感——沒有官網、沒有品牌頁面，潛在客戶就算想找也找不到。</p>
+    <p data-i18n="s1_p2">這個專案的挑戰不只是「做一個網站」，而是從零開始理解品牌的視覺語言，並把它轉化成一個能夠自我介紹的網站——讓第一次看到的人就能理解品牌是什麼、為什麼值得信任。</p>
+    <div class="cs-highlight"><span data-i18n="s1_note"><strong>專案核心：</strong>網站不只是展示用，它要能讓潛在客戶「看完就想聯絡」，並且在各種裝置上都能正常閱讀，包括手機。</span></div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s2_label">02 — 問題與痛點</div>
+    <h2 data-i18n="s2_h">沒有官網的品牌在市場上幾乎是隱形的</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p1_lbl">痛點 1</span><span class="cs-par-text" data-i18n="p1_txt">完全沒有對外展示管道，潛在客戶透過搜尋或社群找到品牌名後，沒有任何可以深入了解的地方。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p2_lbl">痛點 2</span><span class="cs-par-text" data-i18n="p2_txt">沒有聯絡入口，有興趣的人不知道要怎麼洽詢，商機直接流失。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p3_lbl">痛點 3</span><span class="cs-par-text" data-i18n="p3_txt">缺乏一致的品牌視覺呈現，讓品牌看起來不夠專業，難以建立信任感。</span></div>
     </div>
   </div>
-</section>
-
-<!-- ════ OVERVIEW ════ -->
-<div class="container">
-  <div class="overview-grid">
-    <div class="ov-card ov-pain rv d1">
-      <div class="ov-label">🔴 痛點 Pain</div>
-      <div class="ov-val">品牌無對外官網，潛在客戶難以搜尋，缺乏專業形象展示入口</div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s3_label">03 — 解法與設計思路</div>
+    <h2 data-i18n="s3_h">從品牌定位出發，設計而非套模板</h2>
+    <p data-i18n="s3_p1">設計前先做品牌理解：鶴英代表的是什麼？目標客群是誰？視覺上要給人什麼感覺？把這些問題確認清楚之後，才開始動手設計。</p>
+    <p data-i18n="s3_p2">整個網站設計圍繞三個核心原則：視覺識別一致、導覽清楚直覺、行動呼籲明確。每個頁面的設計決策都要能回答「這樣設計對品牌有什麼幫助？」</p>
+    <div class="cs-imgs g3">
+      <img src="images/heying01.png" alt="鶴英官網 1" loading="lazy">
+      <img src="images/heying02.png" alt="鶴英官網 2" loading="lazy">
+      <img src="images/heying03.png" alt="鶴英官網 3" loading="lazy">
     </div>
-    <div class="ov-card ov-sol rv d2">
-      <div class="ov-label">🟣 做法 Approach</div>
-      <div class="ov-val">從零規劃品牌視覺風格、頁面架構與 RWD 設計，快速上線部署</div>
-    </div>
-    <div class="ov-card ov-res rv d3">
-      <div class="ov-label">🟢 成果 Result</div>
-      <div class="ov-val">官網上線後品牌形象大幅提升，提供清晰的對外展示窗口與聯絡入口</div>
-    </div>
+    <div class="cs-chips"><span class="cs-chip">HTML</span><span class="cs-chip">CSS</span><span class="cs-chip c-orange">JavaScript</span><span class="cs-chip c-indigo">RWD Design</span><span class="cs-chip">Brand Identity</span><span class="cs-chip">Frontend UI</span></div>
   </div>
-
-  <!-- ════ SCREENSHOTS ════ -->
-  <div class="cs-section rv">
-    <h2 class="cs-section-title">📸 網站截圖</h2>
-    <div class="img-browser">
-      <div class="img-bar">
-        <div class="img-dots"><span></span><span></span><span></span></div>
-        <div class="img-url">鶴英 · Brand Official Website</div>
-      </div>
-      <div class="img-body">
-        <img src="images/heying01.png" alt="鶴英官網 — 首頁" loading="lazy">
-      </div>
-    </div>
-    <div class="img-browser">
-      <div class="img-bar">
-        <div class="img-dots"><span></span><span></span><span></span></div>
-        <div class="img-url">鶴英 · Brand Official Website</div>
-      </div>
-      <div class="img-body">
-        <div class="img-grid">
-          <img src="images/heying02.png" alt="鶴英官網 — 內頁" loading="lazy">
-          <img src="images/heying03.png" alt="鶴英官網 — 行動版" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ════ BACKGROUND ════ -->
-  <div class="cs-section rv">
-    <h2 class="cs-section-title">📋 專案背景</h2>
-    <p style="color:var(--muted);font-size:.97rem;line-height:1.85;margin:0;">
-      鶴英是一個需要對外建立品牌形象的客戶，在與我接洽時完全沒有任何官網或線上展示頁面。潛在合作方或客戶無法透過搜尋引擎或網路找到任何品牌資訊，缺乏可信任的第一印象來源。
-    </p>
-    <br>
-    <p style="color:var(--muted);font-size:.97rem;line-height:1.85;margin:0;">
-      我的任務是從零開始——包含理解品牌定位、規劃網站架構、設計視覺風格，以及確保在不同裝置上的使用體驗，最終交出一個能實際上線、維護門檻低、能直接用的品牌官網。
-    </p>
-  </div>
-
-  <!-- ════ WHAT I DID ════ -->
-  <div class="cs-section rv">
-    <h2 class="cs-section-title">🛠 做了什麼</h2>
-    <ul class="cs-points">
-      <li>從零規劃並設計品牌官網，與客戶對齊品牌定位後，建立一致的視覺風格與識別系統（配色、字型、排版邏輯）。</li>
-      <li>採用 RWD 響應式設計，確保桌面（Desktop）、平板（Tablet）與行動裝置（Mobile）皆能呈現最佳瀏覽體驗，不需分開維護。</li>
-      <li>設計清楚的導覽架構與行動呼籲（CTA），讓訪客能在最短路徑內了解品牌、找到聯絡方式並直接產生轉換行動。</li>
-      <li>完成開發後進行部署，提供可維護、可擴充的網站結構，確保後續更新容易，不需依賴原始開發者每次手動改。</li>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s4_label">04 — 我的負責範圍</div>
+    <h2 data-i18n="s4_h">從品牌理解到上線部署，一人全程負責</h2>
+    <ul class="cs-numlist">
+      <li><span class="n">1</span><span data-i18n="r1">品牌訪談與需求釐清——了解鶴英的定位、目標客群與對網站的期待</span></li>
+      <li><span class="n">2</span><span data-i18n="r2">規劃網站頁面架構與資訊層次，決定呈現順序與視覺重點</span></li>
+      <li><span class="n">3</span><span data-i18n="r3">設計品牌視覺系統——色彩、字型、間距，建立一致的視覺語言</span></li>
+      <li><span class="n">4</span><span data-i18n="r4">以純 HTML / CSS / JS 手工切版，不依賴框架，確保輕量與速度</span></li>
+      <li><span class="n">5</span><span data-i18n="r5">RWD 測試——桌面、平板、手機三個斷點全面確認視覺與操作體驗</span></li>
+      <li><span class="n">6</span><span data-i18n="r6">完成後部署上線，交付可維護的程式碼結構與基本說明文件</span></li>
     </ul>
   </div>
-
-  <!-- ════ TECH STACK ════ -->
-  <div class="cs-section rv">
-    <h2 class="cs-section-title">⚙️ 技術與工具</h2>
-    <div style="display:flex;flex-wrap:wrap;gap:10px;">
-      <span style="padding:9px 16px;border-radius:999px;background:rgba(236,72,153,.12);border:1px solid rgba(236,72,153,.2);color:var(--primary);font-size:.88rem;font-weight:900;">HTML5</span>
-      <span style="padding:9px 16px;border-radius:999px;background:rgba(236,72,153,.12);border:1px solid rgba(236,72,153,.2);color:var(--primary);font-size:.88rem;font-weight:900;">CSS3</span>
-      <span style="padding:9px 16px;border-radius:999px;background:rgba(236,72,153,.12);border:1px solid rgba(236,72,153,.2);color:var(--primary);font-size:.88rem;font-weight:900;">JavaScript</span>
-      <span style="padding:9px 16px;border-radius:999px;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.22);color:#fb923c;font-size:.88rem;font-weight:900;">RWD 響應式設計</span>
-      <span style="padding:9px 16px;border-radius:999px;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.22);color:#fb923c;font-size:.88rem;font-weight:900;">Frontend Design</span>
-      <span style="padding:9px 16px;border-radius:999px;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.22);color:#fb923c;font-size:.88rem;font-weight:900;">Brand Identity</span>
-      <span style="padding:9px 16px;border-radius:999px;background:rgba(99,102,241,.14);border:1px solid rgba(99,102,241,.25);color:#818cf8;font-size:.88rem;font-weight:900;">Git / GitHub</span>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s5_label">05 — 設計重點</div>
+    <h2 data-i18n="s5_h">讓網站真正服務品牌的三個關鍵決策</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c1_lbl">設計重點</span><span class="cs-par-text" data-i18n="c1_txt"><strong style="color:var(--text)">不套模板，從品牌出發：</strong>市面上的網站模板很多，但鶴英有自己的視覺語言。從色調、字型選擇到版面比例，每個決策都有對應的品牌理由，不是隨機選的。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c2_lbl">設計重點</span><span class="cs-par-text" data-i18n="c2_txt"><strong style="color:var(--text)">行動呼籲的層次：</strong>每個區塊都有明確的下一步引導——了解品牌 → 查看服務 → 聯絡我們。網站的結構設計讓訪客自然地走向轉換。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c3_lbl">設計重點</span><span class="cs-par-text" data-i18n="c3_txt"><strong style="color:var(--text)">手機版的閱讀體驗：</strong>大多數訪客會從手機進入，所以手機版不是「縮小版桌面」，而是重新思考資訊在小螢幕上的最佳呈現方式。</span></div>
     </div>
   </div>
-
-  <!-- ════ RESULT ════ -->
-  <div class="cs-section rv">
-    <h2 class="cs-section-title">📊 成果</h2>
-    <div class="result-box">
-      <p style="margin:0;font-size:.97rem;line-height:1.85;">
-        <strong>為鶴英品牌建立專業對外展示窗口，提升品牌可信度，降低潛在客戶與品牌接觸的門檻。</strong>
-        網站上線後，客戶有了可直接分享的品牌連結，不再需要用通訊軟體截圖或文字介紹來說明自己是誰。
-        整站 RWD 完整，在手機與桌面均正常顯示，維護門檻低，客戶可自行更新文字內容。
-      </p>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s6_label">06 — 專案成果 / 價值</div>
+    <h2 data-i18n="s6_h">網站上線後帶來的實際改變</h2>
+    <div class="cs-result-card">
+      <h3 data-i18n="res_h">品牌成果</h3>
+      <div class="cs-result-stats">
+        <div class="crs-item"><span class="crs-num" data-i18n="stat1_num">從零</span><div class="crs-label" data-i18n="stat1">品牌線上<br>存在感建立</div></div>
+        <div class="crs-item"><span class="crs-num">RWD</span><div class="crs-label" data-i18n="stat2">全裝置<br>正常顯示</div></div>
+        <div class="crs-item"><span class="crs-num" data-i18n="stat3_num">快速</span><div class="crs-label" data-i18n="stat3">從設計到<br>上線部署</div></div>
+      </div>
+      <p data-i18n="res_p">網站上線後，鶴英品牌有了第一個可以對外分享的官方連結。潛在客戶可以透過網站了解品牌定位、服務範圍，並透過明確的聯絡入口直接洽詢。品牌形象也因此更加完整與專業。</p>
+    </div>
+    <div class="cs-highlight" style="margin-top:20px;"><span data-i18n="extend"><strong>後續延伸：</strong>這套網站結構可以直接在上面加入新功能——線上預訂系統、作品展示頁面、部落格，不需要重新設計，只需在現有架構上擴充。</span></div>
+  </div>
+</div></div>
+<div class="cs-footer-cta"><div class="container">
+  <div class="cs-footer-inner">
+    <div class="cs-footer-text"><h3 data-i18n="cta_h">需要打造品牌官網或商業網站？</h3><p data-i18n="cta_p">從品牌定位到上線部署，一條龍設計與開發——把你的需求告訴我。</p></div>
+    <div class="cs-footer-btns">
+      <a href="index.html#projects" class="btn btn-ghost" id="backBtn">← 回作品集</a>
+      <a href="https://github.com/ChengEnLu252/heying_website.git" target="_blank" class="btn btn-primary">View GitHub</a>
+      <a href="https://lin.ee/Wc5Bozb" target="_blank" class="btn btn-line" data-i18n="line_btn">💬 加 LINE 討論</a>
     </div>
   </div>
-
-  <!-- ════ CTA ════ -->
-  <div class="cs-cta rv">
-    <h3>需要品牌官網或前端設計？</h3>
-    <p>不論是從零開始的品牌網站、作品集、還是對外展示頁面，都可以跟我聊聊需求。</p>
-    <div class="cs-cta-btns">
-      <a class="btn btn-line" href="https://lin.ee/Wc5Bozb" target="_blank">💬 加 LINE 免費諮詢</a>
-      <a class="btn btn-ghost" href="index.html#projects">← 查看更多作品</a>
-    </div>
-  </div>
-</div>
-
-<!-- ════ FOOTER ════ -->
-<footer class="footer">
-  <div class="container">
-    © 2026 呂承恩 Lu Cheng En / NNDoiT AI Studio · AI Systems · Automation · System Integration
-  </div>
-</footer>
-
+</div></div>
 <script>
-/* Reveal on scroll */
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
-},{threshold:.1});
-document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-
-/* Theme toggle */
-function toggleTheme(){
-  const html=document.documentElement,isDark=html.dataset.theme==='dark';
-  html.dataset.theme=isDark?'light':'dark';
-  document.getElementById('themeBtn').textContent=isDark?'🌙':'☀️';
-}
-/* Nav scroll shadow */
-window.addEventListener('scroll',()=>{document.querySelector('.nav').style.boxShadow=scrollY>50?'0 4px 30px rgba(0,0,0,.3)':'';},{passive:true});
+const C={zh:{tag:'Web Design',title:'鶴英｜品牌官網設計',subtitle:'為鶴英品牌從零打造具視覺識別的官方網站，涵蓋品牌形象呈現、RWD 響應式設計與清楚的行動呼籲，讓潛在客戶能快速找到品牌並產生轉換。',badge2:'品牌官網 / 商業網站',badge3:'RWD 全裝置適配',s1_label:'01 — 專案背景',s1_h:'品牌需要的第一個對外窗口',s1_p1:'鶴英是一個具有獨特定位的品牌，但在接到這個專案時，他們完全沒有任何線上存在感——沒有官網、沒有品牌頁面，潛在客戶就算想找也找不到。',s1_p2:'這個專案的挑戰不只是「做一個網站」，而是從零開始理解品牌的視覺語言，並把它轉化成一個能夠自我介紹的網站——讓第一次看到的人就能理解品牌是什麼、為什麼值得信任。',s1_note:'<strong>專案核心：</strong>網站不只是展示用，它要能讓潛在客戶「看完就想聯絡」，並且在各種裝置上都能正常閱讀，包括手機。',s2_label:'02 — 問題與痛點',s2_h:'沒有官網的品牌在市場上幾乎是隱形的',p1_lbl:'痛點 1',p1_txt:'完全沒有對外展示管道，潛在客戶透過搜尋或社群找到品牌名後，沒有任何可以深入了解的地方。',p2_lbl:'痛點 2',p2_txt:'沒有聯絡入口，有興趣的人不知道要怎麼洽詢，商機直接流失。',p3_lbl:'痛點 3',p3_txt:'缺乏一致的品牌視覺呈現，讓品牌看起來不夠專業，難以建立信任感。',s3_label:'03 — 解法與設計思路',s3_h:'從品牌定位出發，設計而非套模板',s3_p1:'設計前先做品牌理解：鶴英代表的是什麼？目標客群是誰？視覺上要給人什麼感覺？把這些問題確認清楚之後，才開始動手設計。',s3_p2:'整個網站設計圍繞三個核心原則：視覺識別一致、導覽清楚直覺、行動呼籲明確。每個頁面的設計決策都要能回答「這樣設計對品牌有什麼幫助？」',s4_label:'04 — 我的負責範圍',s4_h:'從品牌理解到上線部署，一人全程負責',r1:'品牌訪談與需求釐清——了解鶴英的定位、目標客群與對網站的期待',r2:'規劃網站頁面架構與資訊層次，決定呈現順序與視覺重點',r3:'設計品牌視覺系統——色彩、字型、間距，建立一致的視覺語言',r4:'以純 HTML / CSS / JS 手工切版，不依賴框架，確保輕量與速度',r5:'RWD 測試——桌面、平板、手機三個斷點全面確認視覺與操作體驗',r6:'完成後部署上線，交付可維護的程式碼結構與基本說明文件',s5_label:'05 — 設計重點',s5_h:'讓網站真正服務品牌的三個關鍵決策',c1_lbl:'設計重點',c1_txt:'<strong style="color:var(--text)">不套模板，從品牌出發：</strong>市面上的網站模板很多，但鶴英有自己的視覺語言。從色調、字型選擇到版面比例，每個決策都有對應的品牌理由，不是隨機選的。',c2_lbl:'設計重點',c2_txt:'<strong style="color:var(--text)">行動呼籲的層次：</strong>每個區塊都有明確的下一步引導——了解品牌 → 查看服務 → 聯絡我們。網站的結構設計讓訪客自然地走向轉換。',c3_lbl:'設計重點',c3_txt:'<strong style="color:var(--text)">手機版的閱讀體驗：</strong>大多數訪客會從手機進入，所以手機版不是「縮小版桌面」，而是重新思考資訊在小螢幕上的最佳呈現方式。',s6_label:'06 — 專案成果 / 價值',s6_h:'網站上線後帶來的實際改變',res_h:'品牌成果',stat1_num:'從零',stat1:'品牌線上<br>存在感建立',stat2:'全裝置<br>正常顯示',stat3_num:'快速',stat3:'從設計到<br>上線部署',res_p:'網站上線後，鶴英品牌有了第一個可以對外分享的官方連結。潛在客戶可以透過網站了解品牌定位、服務範圍，並透過明確的聯絡入口直接洽詢。品牌形象也因此更加完整與專業。',extend:'<strong>後續延伸：</strong>這套網站結構可以直接在上面加入新功能——線上預訂系統、作品展示頁面、部落格，不需要重新設計，只需在現有架構上擴充。',cta_h:'需要打造品牌官網或商業網站？',cta_p:'從品牌定位到上線部署，一條龍設計與開發——把你的需求告訴我。',line_btn:'💬 加 LINE 討論',nav_back:'← 回作品集',back_btn:'← 回作品集'},
+en:{tag:'Web Design',title:'Heying | Brand Website Design',subtitle:'Built a brand-consistent official website for Heying from scratch, covering visual identity, RWD responsive design, and clear calls-to-action so potential clients can find, understand, and connect with the brand.',badge2:'Brand Website / Commercial Site',badge3:'RWD · All Devices',s1_label:'01 — Background',s1_h:'Every brand needs a front door',s1_p1:'Heying is a brand with a distinct positioning, but at the time of this project, they had zero online presence — no website, no brand page. Potential clients who searched for them found nothing.',s1_p2:'The challenge wasn\'t just "build a website" — it was understanding the brand\'s visual language from scratch and translating it into a site that could introduce itself. Someone seeing it for the first time should immediately understand what the brand is and why it\'s worth trusting.',s1_note:'<strong>Project goal:</strong> The website shouldn\'t just display information — it should make potential clients want to reach out after viewing it, and work properly on every device including mobile.',s2_label:'02 — Problems & Pain Points',s2_h:'A brand without a website is nearly invisible in the market',p1_lbl:'Pain 1',p1_txt:'No external-facing channel at all. Potential clients who found the brand name through search or social media had nowhere to learn more.',p2_lbl:'Pain 2',p2_txt:'No contact entry point. Interested parties had no idea how to inquire, and opportunities were lost directly.',p3_lbl:'Pain 3',p3_txt:'No consistent visual identity, making the brand appear unprofessional and difficult to trust.',s3_label:'03 — Solution & Design Approach',s3_h:'Design from brand positioning — not from templates',s3_p1:'Before designing, the brand was understood first: What does Heying represent? Who is the target audience? What feeling should the visual communicate? Only after these questions were clear did the design process begin.',s3_p2:'The entire website design was built around three core principles: consistent visual identity, clear and intuitive navigation, and explicit calls-to-action. Every design decision needed to answer: "How does this serve the brand?"',s4_label:'04 — My Responsibilities',s4_h:'Single point of responsibility from brand understanding to go-live',r1:'Brand interview and requirements clarification — understanding Heying\'s positioning, target audience, and expectations for the website.',r2:'Planned the page architecture and information hierarchy, deciding presentation order and visual priorities.',r3:'Designed the brand visual system — color palette, typography, spacing — establishing a consistent visual language.',r4:'Hand-coded in pure HTML / CSS / JS without relying on frameworks, ensuring performance and lightweight loading.',r5:'RWD testing — thoroughly verified visual and interaction experience across desktop, tablet, and mobile breakpoints.',r6:'Deployed on completion and delivered a maintainable code structure with documentation.',s5_label:'05 — Design Highlights',s5_h:'Three key decisions that made the website genuinely serve the brand',c1_lbl:'Key Decision',c1_txt:'<strong style="color:var(--text)">Design from the brand, not from templates:</strong> Generic templates were not an option — Heying has its own visual language. Every choice of tone, typography, and layout proportions had a specific brand rationale behind it.',c2_lbl:'Key Decision',c2_txt:'<strong style="color:var(--text)">Layered calls-to-action:</strong> Every section guides the visitor to a clear next step — learn about the brand → explore services → contact us. The site structure naturally leads visitors toward conversion.',c3_lbl:'Key Decision',c3_txt:'<strong style="color:var(--text)">Mobile reading experience:</strong> Most visitors will arrive on mobile. The mobile version isn\'t a "shrunk desktop" — it\'s a rethought presentation of information optimized for small screens.',s6_label:'06 — Results & Value',s6_h:'Measurable changes after go-live',res_h:'Brand Outcomes',stat1_num:'Zero to One',stat1:'Brand online<br>presence established',stat2:'All devices<br>display correctly',stat3_num:'Fast',stat3:'From design<br>to live deployment',res_p:'After launch, Heying had its first official link to share externally. Potential clients can now explore the brand\'s positioning and services through the website and reach out through a clear contact entry point. The brand\'s overall credibility and professionalism improved significantly.',extend:'<strong>Extensibility:</strong> This website structure can be extended directly — adding an online booking system, portfolio pages, or a blog requires no redesign, just building on the existing architecture.',cta_h:'Need a brand website or commercial site?',cta_p:'From brand positioning to live deployment, full design and development — tell me what you need.',line_btn:'💬 Chat on LINE',nav_back:'← Back to Portfolio',back_btn:'← Back to Portfolio'}
+};
+let lang='zh';try{const s=localStorage.getItem('nndoit_lang');if(s)lang=s;}catch(e){}
+function applyLang(){const c=C[lang];document.documentElement.lang=lang==='zh'?'zh-Hant':'en';document.getElementById('langBtn').textContent=lang==='zh'?'EN':'中';document.getElementById('navBack').innerHTML=c.nav_back;document.getElementById('backBtn').innerHTML=c.back_btn;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(c[k]!==undefined)el.innerHTML=c[k];});}
+function toggleLang(){lang=lang==='zh'?'en':'zh';try{localStorage.setItem('nndoit_lang',lang);}catch(e){}applyLang();}
+function toggleTheme(){const h=document.documentElement,d=h.dataset.theme==='dark';h.dataset.theme=d?'light':'dark';document.getElementById('themeBtn').textContent=d?'🌙':'☀️';}
+window.addEventListener('scroll',()=>{document.querySelector('.nav').style.boxShadow=scrollY>30?'0 4px 30px rgba(0,0,0,.3)':'';},{passive:true});
+applyLang();
 </script>
 </body>
 </html>
