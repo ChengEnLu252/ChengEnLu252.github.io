@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>CareBuddy LINE Bot 健康陪伴機器人 | Case Study — 呂承恩 NNDoiT AI Studio</title>
+<style>
+:root{--bg:#0a050f;--bg2:#110a18;--card:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);--border2:rgba(236,72,153,.3);--text:#f0eaf5;--muted:rgba(240,234,245,.5);--primary:#ec4899;--accent:#f97316;--max:860px;--nav-bg:rgba(10,5,15,.88);}
+[data-theme="light"]{--bg:#fff7fb;--bg2:#ffeaf4;--card:rgba(255,255,255,.95);--border:rgba(236,72,153,.18);--border2:rgba(236,72,153,.4);--text:#2d2130;--muted:#6b5c67;--nav-bg:rgba(255,247,251,.9);}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-padding-top:68px;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.8;transition:background .4s,color .4s;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}.container{width:min(var(--max),calc(100% - 40px));margin:0 auto;}
+.nav{position:sticky;top:0;z-index:500;backdrop-filter:blur(18px);background:var(--nav-bg);border-bottom:1px solid var(--border);transition:box-shadow .3s,background .4s;}
+.nav-inner{width:min(1160px,calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;}
+.brand{font-weight:900;font-size:.95rem;color:var(--text);}.brand small{display:block;color:var(--primary);font-size:.72rem;font-weight:800;margin-top:1px;}
+.nav-back{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-size:.88rem;font-weight:700;padding:7px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);transition:.2s;}
+.nav-back:hover{background:rgba(236,72,153,.12);border-color:var(--border2);color:var(--primary);}
+.nav-controls{display:flex;gap:8px;}
+.icon-btn{width:36px;height:36px;border-radius:12px;border:1px solid var(--border);background:var(--card);display:grid;place-items:center;cursor:pointer;transition:.2s;font-size:1rem;color:var(--text);}
+.icon-btn:hover{background:rgba(236,72,153,.15);border-color:var(--border2);}
+.lang-btn{width:auto;padding:0 10px;font-size:.72rem;font-weight:900;letter-spacing:.03em;}
+.cs-hero{padding:72px 0 56px;border-bottom:1px solid var(--border);}
+.cs-tag{display:inline-flex;padding:7px 14px;border-radius:999px;background:rgba(6,199,85,.15);border:1px solid rgba(6,199,85,.25);color:#06c755;font-size:.8rem;font-weight:900;margin-bottom:18px;}
+.cs-title{font-size:clamp(1.9rem,4vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px;}
+.cs-subtitle{color:var(--muted);font-size:1.05rem;max-width:68ch;margin-bottom:32px;line-height:1.75;}
+.cs-meta-row{display:flex;flex-wrap:wrap;gap:12px;}
+.cs-badge{padding:7px 14px;border-radius:999px;font-size:.82rem;font-weight:900;background:rgba(6,199,85,.12);border:1px solid rgba(6,199,85,.22);color:#06c755;}
+.cs-badge.b-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
+.cs-badge.b-pink{background:rgba(236,72,153,.12);border-color:rgba(236,72,153,.22);color:#ec4899;}
+.cs-body{padding:60px 0 80px;}.cs-section{margin-bottom:56px;}.cs-section:last-child{margin-bottom:0;}
+.cs-section-label{display:flex;align-items:center;gap:10px;font-size:.75rem;font-weight:900;letter-spacing:.08em;color:#06c755;text-transform:uppercase;margin-bottom:14px;}
+.cs-section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.cs-section h2{font-size:1.35rem;font-weight:900;letter-spacing:-.02em;margin-bottom:14px;}
+.cs-section p{color:var(--muted);font-size:.97rem;line-height:1.85;margin-bottom:12px;}.cs-section p:last-child{margin-bottom:0;}
+.cs-highlight{background:var(--bg2);border:1px solid var(--border);border-left:3px solid #06c755;border-radius:0 14px 14px 0;padding:18px 22px;margin:18px 0;color:var(--muted);font-size:.95rem;line-height:1.8;}
+.cs-highlight strong{color:var(--text);}
+.cs-par-grid{display:grid;gap:12px;margin:18px 0;}
+.cs-par-item{display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;}
+.cs-par-label{flex-shrink:0;font-size:.7rem;font-weight:900;padding:3px 9px;border-radius:6px;letter-spacing:.04em;margin-top:2px;white-space:nowrap;}
+.l-pain{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.22);}
+.l-sol{background:rgba(6,199,85,.14);color:#06c755;border:1px solid rgba(6,199,85,.22);}
+[data-theme="light"] .l-pain{background:rgba(239,68,68,.1);color:#dc2626;}
+[data-theme="light"] .l-sol{background:rgba(6,199,85,.1);color:#16a34a;}
+.cs-par-text{color:var(--muted);font-size:.93rem;line-height:1.65;}
+.cs-crud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0;}
+.crud-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;text-align:center;}
+.crud-letter{font-size:2rem;font-weight:900;line-height:1;margin-bottom:6px;}
+.crud-c{color:#06c755;}.crud-r{color:#818cf8;}.crud-u{color:#f97316;}.crud-d{color:#f87171;}
+.crud-word{font-size:.75rem;font-weight:900;color:var(--muted);margin-bottom:8px;}
+.crud-desc{font-size:.82rem;color:var(--muted);line-height:1.55;}
+.cs-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px;}
+.cs-chip{padding:8px 14px;border-radius:999px;background:rgba(6,199,85,.1);border:1px solid rgba(6,199,85,.2);color:#06c755;font-size:.82rem;font-weight:900;}
+.cs-chip.c-orange{background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.2);color:#f97316;}
+.cs-chip.c-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
+.cs-chip.c-pink{background:rgba(236,72,153,.1);border-color:rgba(236,72,153,.2);color:#ec4899;}
+.cs-numlist{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:14px;}
+.cs-numlist li{display:flex;gap:14px;align-items:flex-start;color:var(--muted);font-size:.95rem;line-height:1.75;}
+.cs-numlist li .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(6,199,85,.18);border:1px solid rgba(6,199,85,.3);color:#06c755;font-weight:900;font-size:.8rem;display:grid;place-items:center;margin-top:2px;}
+.cs-arch{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:22px 24px;margin:18px 0;font-size:.9rem;}
+.arch-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);color:var(--muted);}
+.arch-row:last-child{border-bottom:none;}
+.arch-icon{width:32px;height:32px;border-radius:9px;background:rgba(6,199,85,.14);border:1px solid rgba(6,199,85,.2);display:grid;place-items:center;font-size:1rem;flex-shrink:0;}
+.arch-arrow{color:#06c755;font-weight:900;font-size:1rem;}
+.cs-result-card{background:linear-gradient(135deg,rgba(6,199,85,.12),rgba(99,102,241,.08));border:1px solid rgba(6,199,85,.25);border-radius:20px;padding:28px 30px;margin-top:18px;}
+.cs-result-card h3{font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--text);}
+.cs-result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
+.crs-item{text-align:center;padding:16px 10px;background:rgba(255,255,255,.04);border-radius:14px;border:1px solid var(--border);}
+.crs-num{font-size:1.7rem;font-weight:900;color:#06c755;display:block;line-height:1.1;}
+.crs-label{font-size:.76rem;color:var(--muted);margin-top:4px;line-height:1.4;}
+.cs-result-card p{color:var(--muted);font-size:.93rem;line-height:1.8;}
+.cs-footer-cta{background:var(--bg2);border-top:1px solid var(--border);padding:52px 0;}
+.cs-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.cs-footer-text h3{font-size:1.25rem;font-weight:900;margin-bottom:6px;}
+.cs-footer-text p{color:var(--muted);font-size:.93rem;}
+.cs-footer-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:900;border:1px solid transparent;transition:all .2s;font-size:.93rem;cursor:pointer;}
+.btn-primary{background:linear-gradient(135deg,#ec4899,#db2777);color:#fff;}.btn-primary:hover{transform:translateY(-2px);}
+.btn-ghost{background:var(--card);border-color:var(--border);color:var(--text);}.btn-ghost:hover{background:rgba(6,199,85,.08);border-color:rgba(6,199,85,.3);color:#06c755;}
+.btn-line{background:linear-gradient(135deg,#06c755,#00a846);color:#fff;}.btn-line:hover{transform:translateY(-2px);}
+@media(max-width:768px){.cs-hero{padding:48px 0 36px;}.cs-crud-grid{grid-template-columns:1fr 1fr;}.cs-result-stats{grid-template-columns:1fr 1fr;}.cs-footer-inner{flex-direction:column;align-items:flex-start;}.cs-footer-btns{width:100%;}.cs-footer-btns .btn{flex:1;justify-content:center;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">呂承恩 Lu Cheng En<small>NNDoiT AI Studio</small></a>
+    <a href="index.html#projects" class="nav-back" id="navBack">← 回作品集</a>
+    <div class="nav-controls">
+      <div class="icon-btn lang-btn" id="langBtn" onclick="toggleLang()">EN</div>
+      <div class="icon-btn" id="themeBtn" onclick="toggleTheme()">☀️</div>
+    </div>
+  </div>
+</nav>
+<div class="cs-hero"><div class="container">
+  <div class="cs-tag" data-i18n="tag">LINE Bot / Webhook</div>
+  <h1 class="cs-title" data-i18n="title">CareBuddy<br>LINE 健康陪伴機器人</h1>
+  <p class="cs-subtitle" data-i18n="subtitle">透過 LINE Webhook 架構打造的健康陪伴機器人，讓使用者直接在 LINE 聊天視窗完成健康紀錄的新增、查詢、更新與刪除（CRUD），並透過溫暖的對話設計讓健康管理更有人情味。</p>
+  <div class="cs-meta-row">
+    <span class="cs-badge">LINE Bot · Webhook · Python</span>
+    <span class="cs-badge b-indigo" data-i18n="badge2">個人作品 / Open Source</span>
+    <span class="cs-badge b-pink" data-i18n="badge3">CRUD + 健康紀錄 + 陪伴感</span>
+  </div>
+</div></div>
+<div class="cs-body"><div class="container">
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s1_label">01 — 專案背景</div>
+    <h2 data-i18n="s1_h">把健康管理放進你每天都會用的 App</h2>
+    <p data-i18n="s1_p1">大多數人不會專門下載健康管理 App 來記錄身體狀況，因為要另外開 App 本身就是一個門檻。但 LINE 是台灣使用率最高的通訊軟體，幾乎人人每天都會開——如果健康記錄可以直接在 LINE 裡完成，使用頻率就會大幅提升。</p>
+    <p data-i18n="s1_p2">CareBuddy 的設計核心不是「功能盡量多」，而是「讓使用者願意每天來說話」。除了基本的健康紀錄功能，機器人的回應語氣被刻意設計成有溫度、像朋友的風格，而不是冷冰冰的資料庫介面。</p>
+    <div class="cs-highlight"><span data-i18n="s1_note"><strong>設計理念：</strong>健康管理工具最大的問題不是功能不夠，而是沒有人想每天打開它。CareBuddy 選擇待在使用者已經習慣的地方——LINE。</span></div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s2_label">02 — 核心功能：健康紀錄 CRUD</div>
+    <h2 data-i18n="s2_h">完整的資料操作，全部在聊天視窗完成</h2>
+    <div class="cs-crud-grid">
+      <div class="crud-card"><div class="crud-letter crud-c">C</div><div class="crud-word" data-i18n="crud_c_w">Create</div><div class="crud-desc" data-i18n="crud_c">新增健康紀錄——體重、血壓、睡眠時數、心情、運動等，自然語言輸入即可</div></div>
+      <div class="crud-card"><div class="crud-letter crud-r">R</div><div class="crud-word" data-i18n="crud_r_w">Read</div><div class="crud-desc" data-i18n="crud_r">查詢歷史紀錄——「我上週體重」、「最近血壓狀況」，回傳清楚的摘要</div></div>
+      <div class="crud-card"><div class="crud-letter crud-u">U</div><div class="crud-word" data-i18n="crud_u_w">Update</div><div class="crud-desc" data-i18n="crud_u">修改紀錄——輸入錯了或有新資訊，直接在聊天視窗更新，不需要找介面</div></div>
+      <div class="crud-card"><div class="crud-letter crud-d">D</div><div class="crud-word" data-i18n="crud_d_w">Delete</div><div class="crud-desc" data-i18n="crud_d">刪除紀錄——整理不需要的資料，支援單筆刪除或依日期範圍清除</div></div>
+    </div>
+    <div class="cs-arch">
+      <div class="arch-row"><div class="arch-icon">💬</div><span data-i18n="arch1_n"><strong>LINE Messaging API</strong></span><span class="arch-arrow">→</span><span style="color:var(--muted)" data-i18n="arch1_d">接收使用者傳來的訊息，回傳處理後的回應</span></div>
+      <div class="arch-row"><div class="arch-icon">🔗</div><span data-i18n="arch2_n"><strong>Webhook Server</strong>（Python + Flask / FastAPI）</span><span class="arch-arrow">→</span><span style="color:var(--muted)" data-i18n="arch2_d">接收 LINE 推送的事件，解析訊息並執行對應邏輯</span></div>
+      <div class="arch-row"><div class="arch-icon">🧠</div><span data-i18n="arch3_n"><strong>意圖辨識層</strong></span><span class="arch-arrow">→</span><span style="color:var(--muted)" data-i18n="arch3_d">解析使用者輸入，判斷是新增 / 查詢 / 修改 / 刪除哪種操作</span></div>
+      <div class="arch-row"><div class="arch-icon">🗄️</div><span data-i18n="arch4_n"><strong>資料庫</strong>（SQLite / PostgreSQL）</span><span class="arch-arrow">→</span><span style="color:var(--muted)" data-i18n="arch4_d">儲存使用者健康紀錄，支援依 user_id 隔離各人資料</span></div>
+      <div class="arch-row"><div class="arch-icon">🤗</div><span data-i18n="arch5_n"><strong>回應生成層</strong></span><span class="arch-arrow">→</span><span style="color:var(--muted)" data-i18n="arch5_d">組合資料與有溫度的語氣模板，生成符合情境的回應</span></div>
+    </div>
+    <div class="cs-chips"><span class="cs-chip">LINE Bot SDK</span><span class="cs-chip c-orange">Python</span><span class="cs-chip c-indigo">Flask / FastAPI</span><span class="cs-chip">Webhook</span><span class="cs-chip c-orange">SQLite</span><span class="cs-chip c-pink">NLU / Intent</span></div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s3_label">03 — 問題與痛點</div>
+    <h2 data-i18n="s3_h">健康管理工具為什麼都沒人用</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p1_lbl">痛點 1</span><span class="cs-par-text" data-i18n="p1_txt">需要另外下載 App——使用門檻太高，很多人安裝後用一次就忘了。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p2_lbl">痛點 2</span><span class="cs-par-text" data-i18n="p2_txt">介面太冰冷——填表格式的輸入讓「記錄健康」感覺像在填作業，而不是在照顧自己。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p3_lbl">痛點 3</span><span class="cs-par-text" data-i18n="p3_txt">沒有回饋感——記下去之後什麼都沒有，沒有鼓勵、沒有提醒，慢慢就不想記了。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p4_lbl">痛點 4</span><span class="cs-par-text" data-i18n="p4_txt">操作不直覺——要找到「新增」在哪裡、「查詢」在哪裡，學習成本讓人放棄。</span></div>
+    </div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s4_label">04 — 我的負責範圍</div>
+    <h2 data-i18n="s4_h">從架構設計到部署，個人獨立完成</h2>
+    <ul class="cs-numlist">
+      <li><span class="n">1</span><span data-i18n="r1">設計 LINE Bot 的整體對話流程，規劃各種使用情境的回應邏輯</span></li>
+      <li><span class="n">2</span><span data-i18n="r2">建立 Webhook Server——使用 Python 接收並解析 LINE 事件，路由到對應處理器</span></li>
+      <li><span class="n">3</span><span data-i18n="r3">設計資料庫 Schema——健康紀錄表、使用者資料表，支援多種紀錄類型</span></li>
+      <li><span class="n">4</span><span data-i18n="r4">實作 CRUD 完整邏輯——新增、查詢、更新、刪除，含錯誤處理與邊界情況</span></li>
+      <li><span class="n">5</span><span data-i18n="r5">設計意圖辨識層——從自然語言輸入判斷使用者想做什麼操作</span></li>
+      <li><span class="n">6</span><span data-i18n="r6">撰寫有溫度的回應模板，讓機器人感覺像在陪伴而非只是在執行指令</span></li>
+    </ul>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s5_label">05 — 實作重點與難點</div>
+    <h2 data-i18n="s5_h">讓機器人有「陪伴感」的技術決策</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c1_lbl">技術重點</span><span class="cs-par-text" data-i18n="c1_txt"><strong style="color:var(--text)">自然語言意圖辨識：</strong>使用者不會說「/add 體重 65」，他們會說「我今天 65 公斤」或「剛量了體重，65」。需要設計能理解這種非結構化輸入的意圖辨識層。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c2_lbl">技術重點</span><span class="cs-par-text" data-i18n="c2_txt"><strong style="color:var(--text)">多使用者資料隔離：</strong>LINE Bot 可能同時有很多人在用，需要確保每個人只能看到自己的紀錄。以 LINE user_id 作為隔離 key，所有查詢都加上 user_id 過濾條件。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c3_lbl">技術重點</span><span class="cs-par-text" data-i18n="c3_txt"><strong style="color:var(--text)">Webhook 即時性：</strong>LINE 的 Webhook 要求伺服器必須在一定時間內回應，否則使用者會感覺機器人沒反應。需要設計非同步處理架構，避免資料庫操作阻塞回應。</span></div>
+    </div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s6_label">06 — 專案成果 / 價值</div>
+    <h2 data-i18n="s6_h">把健康管理帶進日常對話</h2>
+    <div class="cs-result-card">
+      <h3 data-i18n="res_h">使用者體驗改變</h3>
+      <div class="cs-result-stats">
+        <div class="crs-item"><span class="crs-num">LINE</span><div class="crs-label" data-i18n="stat1">不需安裝 App<br>聊天就能記錄</div></div>
+        <div class="crs-item"><span class="crs-num">CRUD</span><div class="crs-label" data-i18n="stat2">完整資料操作<br>對話式完成</div></div>
+        <div class="crs-item"><span class="crs-num" data-i18n="stat3_num">陪伴感</span><div class="crs-label" data-i18n="stat3">有溫度的回應<br>像朋友在關心</div></div>
+      </div>
+      <p data-i18n="res_p">CareBuddy 把健康管理從「需要意志力才能維持的習慣」，轉化成「順手就能做的日常」。使用者不需要學習新介面，不需要記得打開另一個 App，只需要在 LINE 說幾句話就完成了今天的健康紀錄。</p>
+    </div>
+    <div class="cs-highlight" style="margin-top:20px;"><span data-i18n="extend"><strong>延伸可能：</strong>同樣的 LINE Bot + Webhook 架構可以快速複製到其他場景——客服機器人、預約提醒、任務追蹤、甚至企業內部流程審批，核心技術棧不變，只需替換業務邏輯層。</span></div>
+  </div>
+</div></div>
+<div class="cs-footer-cta"><div class="container">
+  <div class="cs-footer-inner">
+    <div class="cs-footer-text"><h3 data-i18n="cta_h">有 LINE Bot 或聊天機器人的開發需求？</h3><p data-i18n="cta_p">從健康記錄到客服自動化，告訴我你的使用情境，我們來設計最適合的解法。</p></div>
+    <div class="cs-footer-btns">
+      <a href="index.html#projects" class="btn btn-ghost" id="backBtn">← 回作品集</a>
+      <a href="https://github.com/ChengEnLu252/line-cloud-webhook.git" target="_blank" class="btn btn-primary">View GitHub</a>
+      <a href="https://lin.ee/Wc5Bozb" target="_blank" class="btn btn-line" data-i18n="line_btn">💬 加 LINE 討論</a>
+    </div>
+  </div>
+</div></div>
+<script>
+const C={zh:{tag:'LINE Bot / Webhook',title:'CareBuddy<br>LINE 健康陪伴機器人',subtitle:'透過 LINE Webhook 架構打造的健康陪伴機器人，讓使用者直接在 LINE 聊天視窗完成健康紀錄的新增、查詢、更新與刪除（CRUD），並透過溫暖的對話設計讓健康管理更有人情味。',badge2:'個人作品 / Open Source',badge3:'CRUD + 健康紀錄 + 陪伴感',s1_label:'01 — 專案背景',s1_h:'把健康管理放進你每天都會用的 App',s1_p1:'大多數人不會專門下載健康管理 App 來記錄身體狀況，因為要另外開 App 本身就是一個門檻。但 LINE 是台灣使用率最高的通訊軟體，幾乎人人每天都會開——如果健康記錄可以直接在 LINE 裡完成，使用頻率就會大幅提升。',s1_p2:'CareBuddy 的設計核心不是「功能盡量多」，而是「讓使用者願意每天來說話」。除了基本的健康紀錄功能，機器人的回應語氣被刻意設計成有溫度、像朋友的風格，而不是冷冰冰的資料庫介面。',s1_note:'<strong>設計理念：</strong>健康管理工具最大的問題不是功能不夠，而是沒有人想每天打開它。CareBuddy 選擇待在使用者已經習慣的地方——LINE。',s2_label:'02 — 核心功能：健康紀錄 CRUD',s2_h:'完整的資料操作，全部在聊天視窗完成',crud_c_w:'Create',crud_c:'新增健康紀錄——體重、血壓、睡眠時數、心情、運動等，自然語言輸入即可',crud_r_w:'Read',crud_r:'查詢歷史紀錄——「我上週體重」、「最近血壓狀況」，回傳清楚的摘要',crud_u_w:'Update',crud_u:'修改紀錄——輸入錯了或有新資訊，直接在聊天視窗更新，不需要找介面',crud_d_w:'Delete',crud_d:'刪除紀錄——整理不需要的資料，支援單筆刪除或依日期範圍清除',arch1_n:'<strong>LINE Messaging API</strong>',arch1_d:'接收使用者傳來的訊息，回傳處理後的回應',arch2_n:'<strong>Webhook Server</strong>（Python + Flask / FastAPI）',arch2_d:'接收 LINE 推送的事件，解析訊息並執行對應邏輯',arch3_n:'<strong>意圖辨識層</strong>',arch3_d:'解析使用者輸入，判斷是新增 / 查詢 / 修改 / 刪除哪種操作',arch4_n:'<strong>資料庫</strong>（SQLite / PostgreSQL）',arch4_d:'儲存使用者健康紀錄，支援依 user_id 隔離各人資料',arch5_n:'<strong>回應生成層</strong>',arch5_d:'組合資料與有溫度的語氣模板，生成符合情境的回應',s3_label:'03 — 問題與痛點',s3_h:'健康管理工具為什麼都沒人用',p1_lbl:'痛點 1',p1_txt:'需要另外下載 App——使用門檻太高，很多人安裝後用一次就忘了。',p2_lbl:'痛點 2',p2_txt:'介面太冰冷——填表格式的輸入讓「記錄健康」感覺像在填作業，而不是在照顧自己。',p3_lbl:'痛點 3',p3_txt:'沒有回饋感——記下去之後什麼都沒有，沒有鼓勵、沒有提醒，慢慢就不想記了。',p4_lbl:'痛點 4',p4_txt:'操作不直覺——要找到「新增」在哪裡、「查詢」在哪裡，學習成本讓人放棄。',s4_label:'04 — 我的負責範圍',s4_h:'從架構設計到部署，個人獨立完成',r1:'設計 LINE Bot 的整體對話流程，規劃各種使用情境的回應邏輯',r2:'建立 Webhook Server——使用 Python 接收並解析 LINE 事件，路由到對應處理器',r3:'設計資料庫 Schema——健康紀錄表、使用者資料表，支援多種紀錄類型',r4:'實作 CRUD 完整邏輯——新增、查詢、更新、刪除，含錯誤處理與邊界情況',r5:'設計意圖辨識層——從自然語言輸入判斷使用者想做什麼操作',r6:'撰寫有溫度的回應模板，讓機器人感覺像在陪伴而非只是在執行指令',s5_label:'05 — 實作重點與難點',s5_h:'讓機器人有「陪伴感」的技術決策',c1_lbl:'技術重點',c1_txt:'<strong style="color:var(--text)">自然語言意圖辨識：</strong>使用者不會說「/add 體重 65」，他們會說「我今天 65 公斤」或「剛量了體重，65」。需要設計能理解這種非結構化輸入的意圖辨識層。',c2_lbl:'技術重點',c2_txt:'<strong style="color:var(--text)">多使用者資料隔離：</strong>LINE Bot 可能同時有很多人在用，需要確保每個人只能看到自己的紀錄。以 LINE user_id 作為隔離 key，所有查詢都加上 user_id 過濾條件。',c3_lbl:'技術重點',c3_txt:'<strong style="color:var(--text)">Webhook 即時性：</strong>LINE 的 Webhook 要求伺服器必須在一定時間內回應，否則使用者會感覺機器人沒反應。需要設計非同步處理架構，避免資料庫操作阻塞回應。',s6_label:'06 — 專案成果 / 價值',s6_h:'把健康管理帶進日常對話',res_h:'使用者體驗改變',stat1:'不需安裝 App<br>聊天就能記錄',stat2:'完整資料操作<br>對話式完成',stat3_num:'陪伴感',stat3:'有溫度的回應<br>像朋友在關心',res_p:'CareBuddy 把健康管理從「需要意志力才能維持的習慣」，轉化成「順手就能做的日常」。使用者不需要學習新介面，不需要記得打開另一個 App，只需要在 LINE 說幾句話就完成了今天的健康紀錄。',extend:'<strong>延伸可能：</strong>同樣的 LINE Bot + Webhook 架構可以快速複製到其他場景——客服機器人、預約提醒、任務追蹤、甚至企業內部流程審批，核心技術棧不變，只需替換業務邏輯層。',cta_h:'有 LINE Bot 或聊天機器人的開發需求？',cta_p:'從健康記錄到客服自動化，告訴我你的使用情境，我們來設計最適合的解法。',line_btn:'💬 加 LINE 討論',nav_back:'← 回作品集',back_btn:'← 回作品集'},
+en:{tag:'LINE Bot / Webhook',title:'CareBuddy<br>LINE Health Companion Bot',subtitle:'A health companion bot built on the LINE Webhook architecture, letting users add, query, update, and delete (CRUD) health records directly inside the LINE chat window — with warm, conversational design that makes health management feel human.',badge2:'Personal Project / Open Source',badge3:'CRUD + Health Records + Companion Feel',s1_label:'01 — Background',s1_h:'Put health management in the app people use every day',s1_p1:'Most people won\'t download a dedicated health app — the friction of installing yet another app is already too high. But LINE is Taiwan\'s most-used messaging platform, opened by nearly everyone daily. If health logging could be done directly inside LINE, engagement would increase dramatically.',s1_p2:'CareBuddy\'s design isn\'t about packing in features — it\'s about making users want to check in every day. Beyond core health logging, the bot\'s response tone is deliberately designed to feel warm, like a caring friend, rather than a cold database interface.',s1_note:'<strong>Design philosophy:</strong> The biggest problem with health management tools isn\'t insufficient features — it\'s that no one wants to open them every day. CareBuddy lives where users already are: LINE.',s2_label:'02 — Core Feature: Health Record CRUD',s2_h:'Complete data operations, all done inside the chat window',crud_c_w:'Create',crud_c:'Add health records — weight, blood pressure, sleep hours, mood, exercise, and more. Natural language input works.',crud_r_w:'Read',crud_r:'Query history — "my weight last week", "recent blood pressure" — returns a clear, concise summary.',crud_u_w:'Update',crud_u:'Edit records — entered wrong data or have new info, update it directly in the chat window without hunting for a settings screen.',crud_d_w:'Delete',crud_d:'Delete records — clean up unnecessary data, supports single entry deletion or date-range clearing.',arch1_n:'<strong>LINE Messaging API</strong>',arch1_d:'Receives messages from users; returns processed responses',arch2_n:'<strong>Webhook Server</strong> (Python + Flask / FastAPI)',arch2_d:'Receives LINE-pushed events, parses messages, and routes to corresponding handlers',arch3_n:'<strong>Intent Recognition Layer</strong>',arch3_d:'Parses user input to determine whether the intent is to Create / Read / Update / Delete',arch4_n:'<strong>Database</strong> (SQLite / PostgreSQL)',arch4_d:'Stores user health records with user_id-based data isolation per user',arch5_n:'<strong>Response Generation Layer</strong>',arch5_d:'Combines data with warm response templates to generate contextually appropriate replies',s3_label:'03 — Problems & Pain Points',s3_h:'Why health management tools go unused',p1_lbl:'Pain 1',p1_txt:'Requires installing yet another app — too high a barrier. Many people install it, use it once, and never open it again.',p2_lbl:'Pain 2',p2_txt:'The interface is too cold — form-style data entry makes health logging feel like homework rather than self-care.',p3_lbl:'Pain 3',p3_txt:'No feedback loop — after logging something, nothing happens. No encouragement, no reminders. Eventually people stop recording.',p4_lbl:'Pain 4',p4_txt:'Unintuitive navigation — having to find where "add" and "query" are has a learning cost that makes users give up.',s4_label:'04 — My Responsibilities',s4_h:'Independently completed from architecture to deployment',r1:'Designed the overall LINE Bot conversation flow, mapping use cases to response logic.',r2:'Built the Webhook Server — using Python to receive and parse LINE events, routing to the appropriate handlers.',r3:'Designed the database schema — health record table, user data table, supporting multiple record types.',r4:'Implemented full CRUD logic — create, read, update, delete — including error handling and edge cases.',r5:'Designed the intent recognition layer to determine what operation the user wants from natural language input.',r6:'Wrote warm response templates so the bot feels like a companion rather than a command executor.',s5_label:'05 — Technical Challenges',s5_h:'Technical decisions that give the bot a "companion feel"',c1_lbl:'Key Point',c1_txt:'<strong style="color:var(--text)">Natural language intent recognition:</strong> Users don\'t say "/add weight 65" — they say "I\'m 65kg today" or "just weighed myself, 65". The intent recognition layer was designed to understand these unstructured inputs.',c2_lbl:'Key Point',c2_txt:'<strong style="color:var(--text)">Multi-user data isolation:</strong> Many people may use the LINE Bot simultaneously. Each user must only see their own records. LINE user_id serves as the isolation key, added as a filter condition to every query.',c3_lbl:'Key Point',c3_txt:'<strong style="color:var(--text)">Webhook response speed:</strong> LINE\'s Webhook requires the server to respond within a set time limit, or users experience the bot as unresponsive. An asynchronous processing architecture was designed to prevent database operations from blocking the response.',s6_label:'06 — Results & Value',s6_h:'Bringing health management into daily conversation',res_h:'User Experience Shift',stat1:'No separate app<br>log via chat',stat2:'Complete data ops<br>done conversationally',stat3_num:'Companion',stat3:'Warm responses that<br>feel like a friend checking in',res_p:'CareBuddy transformed health management from "a habit that requires willpower to maintain" into "something you can do in passing." Users don\'t need to learn a new interface, don\'t need to remember to open another app — a few messages in LINE and today\'s health record is done.',extend:'<strong>Extensibility:</strong> The same LINE Bot + Webhook architecture can be rapidly adapted to other scenarios — customer service bots, appointment reminders, task tracking, even internal approval workflows. The core technology stack stays the same; only the business logic layer needs to change.',cta_h:'Need a LINE Bot or chatbot?',cta_p:'From health logging to customer service automation — describe your scenario and let\'s design the right solution.',line_btn:'💬 Chat on LINE',nav_back:'← Back to Portfolio',back_btn:'← Back to Portfolio'}
+};
+let lang='zh';try{const s=localStorage.getItem('nndoit_lang');if(s)lang=s;}catch(e){}
+function applyLang(){const c=C[lang];document.documentElement.lang=lang==='zh'?'zh-Hant':'en';document.getElementById('langBtn').textContent=lang==='zh'?'EN':'中';document.getElementById('navBack').innerHTML=c.nav_back;document.getElementById('backBtn').innerHTML=c.back_btn;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(c[k]!==undefined)el.innerHTML=c[k];});}
+function toggleLang(){lang=lang==='zh'?'en':'zh';try{localStorage.setItem('nndoit_lang',lang);}catch(e){}applyLang();}
+function toggleTheme(){const h=document.documentElement,d=h.dataset.theme==='dark';h.dataset.theme=d?'light':'dark';document.getElementById('themeBtn').textContent=d?'🌙':'☀️';}
+window.addEventListener('scroll',()=>{document.querySelector('.nav').style.boxShadow=scrollY>30?'0 4px 30px rgba(0,0,0,.3)':'';},{passive:true});
+applyLang();
+</script>
+</body>
+</html>

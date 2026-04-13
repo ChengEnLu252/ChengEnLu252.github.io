@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>CakeHunt 多平台自動化搶票系統 | Case Study — 呂承恩 NNDoiT AI Studio</title>
+<style>
+:root{--bg:#0a050f;--bg2:#110a18;--card:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);--border2:rgba(236,72,153,.3);--text:#f0eaf5;--muted:rgba(240,234,245,.5);--primary:#ec4899;--accent:#f97316;--max:860px;--nav-bg:rgba(10,5,15,.88);}
+[data-theme="light"]{--bg:#fff7fb;--bg2:#ffeaf4;--card:rgba(255,255,255,.95);--border:rgba(236,72,153,.18);--border2:rgba(236,72,153,.4);--text:#2d2130;--muted:#6b5c67;--nav-bg:rgba(255,247,251,.9);}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-padding-top:68px;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.8;transition:background .4s,color .4s;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}.container{width:min(var(--max),calc(100% - 40px));margin:0 auto;}
+.nav{position:sticky;top:0;z-index:500;backdrop-filter:blur(18px);background:var(--nav-bg);border-bottom:1px solid var(--border);transition:box-shadow .3s,background .4s;}
+.nav-inner{width:min(1160px,calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;}
+.brand{font-weight:900;font-size:.95rem;color:var(--text);}.brand small{display:block;color:var(--primary);font-size:.72rem;font-weight:800;margin-top:1px;}
+.nav-back{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-size:.88rem;font-weight:700;padding:7px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);transition:.2s;}
+.nav-back:hover{background:rgba(236,72,153,.12);border-color:var(--border2);color:var(--primary);}
+.nav-controls{display:flex;gap:8px;}
+.icon-btn{width:36px;height:36px;border-radius:12px;border:1px solid var(--border);background:var(--card);display:grid;place-items:center;cursor:pointer;transition:.2s;font-size:1rem;color:var(--text);}
+.icon-btn:hover{background:rgba(236,72,153,.15);border-color:var(--border2);}
+.lang-btn{width:auto;padding:0 10px;font-size:.72rem;font-weight:900;letter-spacing:.03em;}
+.cs-hero{padding:72px 0 56px;border-bottom:1px solid var(--border);}
+.cs-tag{display:inline-flex;padding:7px 14px;border-radius:999px;background:rgba(236,72,153,.15);border:1px solid rgba(236,72,153,.25);color:var(--primary);font-size:.8rem;font-weight:900;margin-bottom:18px;}
+.cs-title{font-size:clamp(1.9rem,4vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px;}
+.cs-subtitle{color:var(--muted);font-size:1.05rem;max-width:68ch;margin-bottom:32px;line-height:1.75;}
+.cs-meta-row{display:flex;flex-wrap:wrap;gap:12px;}
+.cs-badge{padding:7px 14px;border-radius:999px;font-size:.82rem;font-weight:900;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.2);color:#f97316;}
+.cs-badge.b-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
+.cs-badge.b-green{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.2);color:#4ade80;}
+.cs-body{padding:60px 0 80px;}.cs-section{margin-bottom:56px;}.cs-section:last-child{margin-bottom:0;}
+.cs-section-label{display:flex;align-items:center;gap:10px;font-size:.75rem;font-weight:900;letter-spacing:.08em;color:var(--primary);text-transform:uppercase;margin-bottom:14px;}
+.cs-section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.cs-section h2{font-size:1.35rem;font-weight:900;letter-spacing:-.02em;margin-bottom:14px;}
+.cs-section p{color:var(--muted);font-size:.97rem;line-height:1.85;margin-bottom:12px;}.cs-section p:last-child{margin-bottom:0;}
+.cs-highlight{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--primary);border-radius:0 14px 14px 0;padding:18px 22px;margin:18px 0;color:var(--muted);font-size:.95rem;line-height:1.8;}
+.cs-highlight strong{color:var(--text);}
+.cs-par-grid{display:grid;gap:12px;margin:18px 0;}
+.cs-par-item{display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;}
+.cs-par-label{flex-shrink:0;font-size:.7rem;font-weight:900;padding:3px 9px;border-radius:6px;letter-spacing:.04em;margin-top:2px;white-space:nowrap;}
+.l-pain{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.22);}
+.l-sol{background:rgba(99,102,241,.14);color:#818cf8;border:1px solid rgba(99,102,241,.22);}
+[data-theme="light"] .l-pain{background:rgba(239,68,68,.1);color:#dc2626;}
+[data-theme="light"] .l-sol{background:rgba(99,102,241,.1);color:#4f46e5;}
+.cs-par-text{color:var(--muted);font-size:.93rem;line-height:1.65;}
+.cs-feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:18px 0;}
+.cs-feat{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;}
+.cs-feat-icon{font-size:1.8rem;margin-bottom:10px;}
+.cs-feat h4{font-size:1rem;font-weight:900;margin-bottom:8px;}
+.cs-feat p{color:var(--muted);font-size:.88rem;line-height:1.7;margin:0;}
+.cs-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px;}
+.cs-chip{padding:8px 14px;border-radius:999px;background:rgba(236,72,153,.1);border:1px solid rgba(236,72,153,.2);color:var(--primary);font-size:.82rem;font-weight:900;}
+.cs-chip.c-orange{background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.2);color:#f97316;}
+.cs-chip.c-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
+.cs-numlist{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:14px;}
+.cs-numlist li{display:flex;gap:14px;align-items:flex-start;color:var(--muted);font-size:.95rem;line-height:1.75;}
+.cs-numlist li .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(236,72,153,.18);border:1px solid rgba(236,72,153,.3);color:var(--primary);font-weight:900;font-size:.8rem;display:grid;place-items:center;margin-top:2px;}
+.cs-arch{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:22px 24px;margin:18px 0;font-size:.9rem;}
+.arch-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);color:var(--muted);}
+.arch-row:last-child{border-bottom:none;}
+.arch-icon{width:32px;height:32px;border-radius:9px;background:rgba(236,72,153,.14);border:1px solid rgba(236,72,153,.2);display:grid;place-items:center;font-size:1rem;flex-shrink:0;}
+.arch-arrow{color:var(--primary);font-weight:900;font-size:1rem;}
+.cs-result-card{background:linear-gradient(135deg,rgba(236,72,153,.12),rgba(249,115,22,.08));border:1px solid rgba(236,72,153,.25);border-radius:20px;padding:28px 30px;margin-top:18px;}
+.cs-result-card h3{font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--text);}
+.cs-result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
+.crs-item{text-align:center;padding:16px 10px;background:rgba(255,255,255,.04);border-radius:14px;border:1px solid var(--border);}
+.crs-num{font-size:1.7rem;font-weight:900;color:var(--primary);display:block;line-height:1.1;}
+.crs-label{font-size:.76rem;color:var(--muted);margin-top:4px;line-height:1.4;}
+.cs-result-card p{color:var(--muted);font-size:.93rem;line-height:1.8;}
+.cs-footer-cta{background:var(--bg2);border-top:1px solid var(--border);padding:52px 0;}
+.cs-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.cs-footer-text h3{font-size:1.25rem;font-weight:900;margin-bottom:6px;}
+.cs-footer-text p{color:var(--muted);font-size:.93rem;}
+.cs-footer-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:900;border:1px solid transparent;transition:all .2s;font-size:.93rem;cursor:pointer;}
+.btn-ghost{background:var(--card);border-color:var(--border);color:var(--text);}.btn-ghost:hover{background:rgba(236,72,153,.1);border-color:var(--border2);color:var(--primary);}
+.btn-line{background:linear-gradient(135deg,#06c755,#00a846);color:#fff;}.btn-line:hover{transform:translateY(-2px);}
+@media(max-width:768px){.cs-hero{padding:48px 0 36px;}.cs-feat-grid{grid-template-columns:1fr;}.cs-result-stats{grid-template-columns:1fr 1fr;}.cs-footer-inner{flex-direction:column;align-items:flex-start;}.cs-footer-btns{width:100%;}.cs-footer-btns .btn{flex:1;justify-content:center;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">呂承恩 Lu Cheng En<small>NNDoiT AI Studio</small></a>
+    <a href="index.html#projects" class="nav-back" id="navBack">← 回作品集</a>
+    <div class="nav-controls">
+      <div class="icon-btn lang-btn" id="langBtn" onclick="toggleLang()">EN</div>
+      <div class="icon-btn" id="themeBtn" onclick="toggleTheme()">☀️</div>
+    </div>
+  </div>
+</nav>
+<div class="cs-hero"><div class="container">
+  <div class="cs-tag" data-i18n="tag">Automation / Bot</div>
+  <h1 class="cs-title" data-i18n="title">CakeHunt<br>多平台自動化搶票系統</h1>
+  <p class="cs-subtitle" data-i18n="subtitle">針對多個票務平台設計的自動化搶票機器人，整合 OCR 驗證碼辨識、多帳號並行操作與即時庫存監控，將人工搶票的反應速度從「分鐘級」壓縮到「秒級」。</p>
+  <div class="cs-meta-row">
+    <span class="cs-badge">Python · Selenium · OCR</span>
+    <span class="cs-badge b-indigo" data-i18n="badge2">自動化工具 / 個人作品</span>
+    <span class="cs-badge b-green" data-i18n="badge3">多帳號並行 · OCR 辨識</span>
+  </div>
+</div></div>
+<div class="cs-body"><div class="container">
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s1_label">01 — 專案背景</div>
+    <h2 data-i18n="s1_h">搶票這件事，靠人根本搶不贏</h2>
+    <p data-i18n="s1_p1">熱門活動票券（演唱會、展覽、限定體驗）一開賣往往秒殺，人工操作的速度完全跟不上——光是開網頁、填資料、處理驗證碼就要幾十秒，而票早已售完。</p>
+    <p data-i18n="s1_p2">CakeHunt 的目標是：用程式替代人工的每一個操作步驟，從開賣前的庫存監控、開賣瞬間的搶票動作，到驗證碼辨識與表單填寫，全部自動化——讓速度不再是限制。</p>
+    <div class="cs-highlight"><span data-i18n="s1_note"><strong>核心挑戰：</strong>各平台都有防機器人機制，光是繞過驗證碼就是一個獨立的技術問題；加上各平台流程不同，需要為每個平台設計專屬的操作邏輯。</span></div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s2_label">02 — 問題與痛點</div>
+    <h2 data-i18n="s2_h">人工搶票的根本限制</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p1_lbl">痛點 1</span><span class="cs-par-text" data-i18n="p1_txt">人的反應速度有上限——從看到「開賣」到完成下單，至少需要數十秒，熱門票往往在 5 秒內售完。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p2_lbl">痛點 2</span><span class="cs-par-text" data-i18n="p2_txt">驗證碼是人工搶票的大敵——每次刷新或提交都可能觸發，浪費大量時間，且不同平台的驗證碼形式各異。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p3_lbl">痛點 3</span><span class="cs-par-text" data-i18n="p3_txt">單一帳號有購票數量限制，但手動同時操作多個帳號幾乎不可能——需要在不同裝置、不同視窗間快速切換。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p4_lbl">痛點 4</span><span class="cs-par-text" data-i18n="p4_txt">開賣前需要持續刷新頁面監控庫存，無法事先知道確切開賣時間，需要人工守在電腦前長時間等待。</span></div>
+    </div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s3_label">03 — 功能與技術架構</div>
+    <h2 data-i18n="s3_h">四大核心模組，覆蓋搶票全流程</h2>
+    <div class="cs-feat-grid">
+      <div class="cs-feat"><div class="cs-feat-icon">👁️</div><h4 data-i18n="feat1_h">即時庫存監控</h4><p data-i18n="feat1_p">定時輪詢目標票務頁面，偵測到庫存狀態變化（sold out → available）時立即觸發搶票流程，不需要人工值守。</p></div>
+      <div class="cs-feat"><div class="cs-feat-icon">🔐</div><h4 data-i18n="feat2_h">OCR 驗證碼辨識</h4><p data-i18n="feat2_p">整合 OCR 引擎自動辨識圖片驗證碼，支援多種驗證碼格式，辨識失敗時自動重試或切換備援策略。</p></div>
+      <div class="cs-feat"><div class="cs-feat-icon">👥</div><h4 data-i18n="feat3_h">多帳號並行操作</h4><p data-i18n="feat3_p">同時啟動多個瀏覽器 Session，每個帳號獨立運作、互不干擾，大幅提升成功機率。</p></div>
+      <div class="cs-feat"><div class="cs-feat-icon">📋</div><h4 data-i18n="feat4_h">自動表單填寫</h4><p data-i18n="feat4_p">預先設定購票人資料，觸發後全自動填寫姓名、聯絡方式、座位選擇並送出，從偵測到完成下單全程無需人工介入。</p></div>
+    </div>
+    <div class="cs-arch">
+      <div class="arch-row"><div class="arch-icon">👁️</div><span data-i18n="arch1_n"><strong>監控排程</strong>（Polling / Scheduler）</span><span class="arch-arrow">→</span><span style="color:var(--muted)" data-i18n="arch1_d">定時請求目標頁面，偵測庫存開放信號</span></div>
+      <div class="arch-row"><div class="arch-icon">🤖</div><span data-i18n="arch2_n"><strong>瀏覽器自動化</strong>（Selenium / Playwright）</span><span class="arch-arrow">→</span><span style="color:var(--muted)" data-i18n="arch2_d">模擬真實使用者操作，執行點擊、填表、送出</span></div>
+      <div class="arch-row"><div class="arch-icon">🔤</div><span data-i18n="arch3_n"><strong>OCR 辨識引擎</strong></span><span class="arch-arrow">→</span><span style="color:var(--muted)" data-i18n="arch3_d">截圖驗證碼區域，辨識文字並自動填入</span></div>
+      <div class="arch-row"><div class="arch-icon">⚙️</div><span data-i18n="arch4_n"><strong>多帳號管理層</strong></span><span class="arch-arrow">→</span><span style="color:var(--muted)" data-i18n="arch4_d">並行啟動多個獨立 Session，結果回報與統計</span></div>
+    </div>
+    <div class="cs-chips"><span class="cs-chip c-orange">Python</span><span class="cs-chip c-indigo">Selenium / Playwright</span><span class="cs-chip">OCR</span><span class="cs-chip c-orange">Multi-threading</span><span class="cs-chip">Browser Automation</span><span class="cs-chip c-indigo">CAPTCHA Bypass</span></div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s4_label">04 — 我的負責範圍</div>
+    <h2 data-i18n="s4_h">從搶票流程研究到系統完整實作</h2>
+    <ul class="cs-numlist">
+      <li><span class="n">1</span><span data-i18n="r1">研究目標票務平台的網頁結構、請求流程與反爬蟲機制</span></li>
+      <li><span class="n">2</span><span data-i18n="r2">設計並實作庫存監控模組，支援可配置的輪詢間隔與異常重試邏輯</span></li>
+      <li><span class="n">3</span><span data-i18n="r3">建立 OCR 驗證碼辨識流程——截圖、前處理、辨識、回填、失敗重試</span></li>
+      <li><span class="n">4</span><span data-i18n="r4">實作多帳號並行架構，使用多執行緒 / 多進程管理獨立的瀏覽器 Session</span></li>
+      <li><span class="n">5</span><span data-i18n="r5">設計配置檔系統，讓帳號資料、目標票種、座位偏好可外部設定，無需改程式碼</span></li>
+      <li><span class="n">6</span><span data-i18n="r6">針對不同平台的流程差異，撰寫各平台專屬的操作腳本與適配層</span></li>
+    </ul>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s5_label">05 — 實作重點與難點</div>
+    <h2 data-i18n="s5_h">讓機器人比人更快的三個技術關鍵</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c1_lbl">挑戰 A</span><span class="cs-par-text" data-i18n="c1_txt"><strong style="color:var(--text)">驗證碼辨識準確率：</strong>圖片驗證碼品質參差不齊，辨識率無法做到 100%。解法是加入前處理（去雜訊、二值化、調對比）來提升準確率，並設計失敗重試與多次嘗試策略，而非追求單次完美。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c2_lbl">挑戰 B</span><span class="cs-par-text" data-i18n="c2_txt"><strong style="color:var(--text)">反爬蟲對抗：</strong>票務平台會偵測異常行為（如超快的操作頻率、固定的 User-Agent）。解法包括加入隨機延遲、輪換 User-Agent、使用無痕模式與模擬真實滑鼠軌跡，降低被偵測的機率。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c3_lbl">挑戰 C</span><span class="cs-par-text" data-i18n="c3_txt"><strong style="color:var(--text)">跨平台差異：</strong>每個票務平台的頁面結構、購票流程、驗證方式都不同，需要為每個平台獨立分析並設計對應的操作腳本，無法用同一套邏輯通吃。</span></div>
+    </div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s6_label">06 — 專案成果 / 價值</div>
+    <h2 data-i18n="s6_h">自動化讓速度不再是限制</h2>
+    <div class="cs-result-card">
+      <h3 data-i18n="res_h">核心改變</h3>
+      <div class="cs-result-stats">
+        <div class="crs-item"><span class="crs-num" data-i18n="stat1_num">秒級</span><div class="crs-label" data-i18n="stat1">從偵測庫存到<br>送出訂單</div></div>
+        <div class="crs-item"><span class="crs-num" data-i18n="stat2_num">多帳號</span><div class="crs-label" data-i18n="stat2">並行操作<br>同時執行</div></div>
+        <div class="crs-item"><span class="crs-num">24/7</span><div class="crs-label" data-i18n="stat3">庫存監控<br>無需人工值守</div></div>
+      </div>
+      <p data-i18n="res_p">系統讓整個搶票流程從「需要人盯著螢幕、手動操作每個步驟」，變成「設定好條件、讓系統去跑」。速度比人工快一個數量級，且可以同時運行多個帳號，大幅提升搶票成功機率。</p>
+    </div>
+    <div class="cs-highlight" style="margin-top:20px;"><span data-i18n="extend"><strong>延伸應用：</strong>同樣的技術框架可以延伸到其他「需要搶先手」的場景——限量商品補貨通知、政府名額搶報、飯店特殊日期訂房監控等，核心自動化邏輯高度可複用。</span></div>
+  </div>
+</div></div>
+<div class="cs-footer-cta"><div class="container">
+  <div class="cs-footer-inner">
+    <div class="cs-footer-text"><h3 data-i18n="cta_h">有自動化搶購或流程機器人的需求？</h3><p data-i18n="cta_p">補貨監控、自動預訂、表單機器人——把你的情境告訴我，討論可行方案。</p></div>
+    <div class="cs-footer-btns">
+      <a href="index.html#projects" class="btn btn-ghost" id="backBtn">← 回作品集</a>
+      <a href="https://lin.ee/Wc5Bozb" target="_blank" class="btn btn-line" data-i18n="line_btn">💬 加 LINE 討論</a>
+    </div>
+  </div>
+</div></div>
+<script>
+const C={zh:{tag:'Automation / Bot',title:'CakeHunt<br>多平台自動化搶票系統',subtitle:'針對多個票務平台設計的自動化搶票機器人，整合 OCR 驗證碼辨識、多帳號並行操作與即時庫存監控，將人工搶票的反應速度從「分鐘級」壓縮到「秒級」。',badge2:'自動化工具 / 個人作品',badge3:'多帳號並行 · OCR 辨識',s1_label:'01 — 專案背景',s1_h:'搶票這件事，靠人根本搶不贏',s1_p1:'熱門活動票券（演唱會、展覽、限定體驗）一開賣往往秒殺，人工操作的速度完全跟不上——光是開網頁、填資料、處理驗證碼就要幾十秒，而票早已售完。',s1_p2:'CakeHunt 的目標是：用程式替代人工的每一個操作步驟，從開賣前的庫存監控、開賣瞬間的搶票動作，到驗證碼辨識與表單填寫，全部自動化——讓速度不再是限制。',s1_note:'<strong>核心挑戰：</strong>各平台都有防機器人機制，光是繞過驗證碼就是一個獨立的技術問題；加上各平台流程不同，需要為每個平台設計專屬的操作邏輯。',s2_label:'02 — 問題與痛點',s2_h:'人工搶票的根本限制',p1_lbl:'痛點 1',p1_txt:'人的反應速度有上限——從看到「開賣」到完成下單，至少需要數十秒，熱門票往往在 5 秒內售完。',p2_lbl:'痛點 2',p2_txt:'驗證碼是人工搶票的大敵——每次刷新或提交都可能觸發，浪費大量時間，且不同平台的驗證碼形式各異。',p3_lbl:'痛點 3',p3_txt:'單一帳號有購票數量限制，但手動同時操作多個帳號幾乎不可能——需要在不同裝置、不同視窗間快速切換。',p4_lbl:'痛點 4',p4_txt:'開賣前需要持續刷新頁面監控庫存，無法事先知道確切開賣時間，需要人工守在電腦前長時間等待。',s3_label:'03 — 功能與技術架構',s3_h:'四大核心模組，覆蓋搶票全流程',feat1_h:'即時庫存監控',feat1_p:'定時輪詢目標票務頁面，偵測到庫存狀態變化（sold out → available）時立即觸發搶票流程，不需要人工值守。',feat2_h:'OCR 驗證碼辨識',feat2_p:'整合 OCR 引擎自動辨識圖片驗證碼，支援多種驗證碼格式，辨識失敗時自動重試或切換備援策略。',feat3_h:'多帳號並行操作',feat3_p:'同時啟動多個瀏覽器 Session，每個帳號獨立運作、互不干擾，大幅提升成功機率。',feat4_h:'自動表單填寫',feat4_p:'預先設定購票人資料，觸發後全自動填寫姓名、聯絡方式、座位選擇並送出，從偵測到完成下單全程無需人工介入。',arch1_n:'<strong>監控排程</strong>（Polling / Scheduler）',arch1_d:'定時請求目標頁面，偵測庫存開放信號',arch2_n:'<strong>瀏覽器自動化</strong>（Selenium / Playwright）',arch2_d:'模擬真實使用者操作，執行點擊、填表、送出',arch3_n:'<strong>OCR 辨識引擎</strong>',arch3_d:'截圖驗證碼區域，辨識文字並自動填入',arch4_n:'<strong>多帳號管理層</strong>',arch4_d:'並行啟動多個獨立 Session，結果回報與統計',s4_label:'04 — 我的負責範圍',s4_h:'從搶票流程研究到系統完整實作',r1:'研究目標票務平台的網頁結構、請求流程與反爬蟲機制',r2:'設計並實作庫存監控模組，支援可配置的輪詢間隔與異常重試邏輯',r3:'建立 OCR 驗證碼辨識流程——截圖、前處理、辨識、回填、失敗重試',r4:'實作多帳號並行架構，使用多執行緒 / 多進程管理獨立的瀏覽器 Session',r5:'設計配置檔系統，讓帳號資料、目標票種、座位偏好可外部設定，無需改程式碼',r6:'針對不同平台的流程差異，撰寫各平台專屬的操作腳本與適配層',s5_label:'05 — 實作重點與難點',s5_h:'讓機器人比人更快的三個技術關鍵',c1_lbl:'挑戰 A',c1_txt:'<strong style="color:var(--text)">驗證碼辨識準確率：</strong>圖片驗證碼品質參差不齊，辨識率無法做到 100%。解法是加入前處理（去雜訊、二值化、調對比）來提升準確率，並設計失敗重試與多次嘗試策略，而非追求單次完美。',c2_lbl:'挑戰 B',c2_txt:'<strong style="color:var(--text)">反爬蟲對抗：</strong>票務平台會偵測異常行為（如超快的操作頻率、固定的 User-Agent）。解法包括加入隨機延遲、輪換 User-Agent、使用無痕模式與模擬真實滑鼠軌跡，降低被偵測的機率。',c3_lbl:'挑戰 C',c3_txt:'<strong style="color:var(--text)">跨平台差異：</strong>每個票務平台的頁面結構、購票流程、驗證方式都不同，需要為每個平台獨立分析並設計對應的操作腳本，無法用同一套邏輯通吃。',s6_label:'06 — 專案成果 / 價值',s6_h:'自動化讓速度不再是限制',res_h:'核心改變',stat1_num:'秒級',stat1:'從偵測庫存到<br>送出訂單',stat2_num:'多帳號',stat2:'並行操作<br>同時執行',stat3:'庫存監控<br>無需人工值守',res_p:'系統讓整個搶票流程從「需要人盯著螢幕、手動操作每個步驟」，變成「設定好條件、讓系統去跑」。速度比人工快一個數量級，且可以同時運行多個帳號，大幅提升搶票成功機率。',extend:'<strong>延伸應用：</strong>同樣的技術框架可以延伸到其他「需要搶先手」的場景——限量商品補貨通知、政府名額搶報、飯店特殊日期訂房監控等，核心自動化邏輯高度可複用。',cta_h:'有自動化搶購或流程機器人的需求？',cta_p:'補貨監控、自動預訂、表單機器人——把你的情境告訴我，討論可行方案。',line_btn:'💬 加 LINE 討論',nav_back:'← 回作品集',back_btn:'← 回作品集'},
+en:{tag:'Automation / Bot',title:'CakeHunt<br>Multi-Platform Automated Ticket Bot',subtitle:'An automated ticket-grabbing bot designed for multiple ticketing platforms, integrating OCR CAPTCHA recognition, multi-account parallel operation, and real-time inventory monitoring — compressing human reaction time from "minutes" to "seconds".',badge2:'Automation Tool / Personal Project',badge3:'Multi-account Parallel · OCR',s1_label:'01 — Background',s1_h:'You simply can\'t beat bots when tickets go on sale',s1_p1:'Popular event tickets (concerts, exhibitions, limited experiences) frequently sell out in seconds. Human reaction speed can\'t keep up — just loading the page, filling in details, and handling a CAPTCHA takes tens of seconds, while tickets are already gone.',s1_p2:'CakeHunt\'s goal: replace every manual step with automated code. From inventory monitoring before sales open, to the purchase action the moment tickets drop, to CAPTCHA recognition and form submission — fully automated so speed is no longer the bottleneck.',s1_note:'<strong>Core challenge:</strong> Every platform has anti-bot mechanisms. Bypassing CAPTCHAs alone is an independent technical problem. And since each platform\'s flow is different, custom operation logic is required for each.',s2_label:'02 — Problems & Pain Points',s2_h:'The fundamental limitations of manual ticket grabbing',p1_lbl:'Pain 1',p1_txt:'Human reaction speed has a ceiling — from seeing "on sale" to completing a purchase takes at least tens of seconds, while popular tickets vanish in under 5.',p2_lbl:'Pain 2',p2_txt:'CAPTCHAs are the enemy of manual purchasing — triggered on every refresh or submission, wasting precious seconds, and appearing in different forms across different platforms.',p3_lbl:'Pain 3',p3_txt:'Single accounts have purchase quantity limits, but manually operating multiple accounts simultaneously is nearly impossible — requires rapid switching between different devices and windows.',p4_lbl:'Pain 4',p4_txt:'Monitoring for stock requires continuously refreshing the page before sales open. Without knowing the exact launch time, someone must sit in front of a screen for extended periods.',s3_label:'03 — Features & Architecture',s3_h:'Four core modules covering the complete ticket-grabbing flow',feat1_h:'Real-Time Inventory Monitoring',feat1_p:'Polls the target ticketing page on a schedule; immediately triggers the purchase flow when inventory status changes (sold out → available), with no human required.',feat2_h:'OCR CAPTCHA Recognition',feat2_p:'Integrates an OCR engine to automatically recognize image CAPTCHAs, supporting multiple CAPTCHA formats, with auto-retry or fallback strategy on recognition failure.',feat3_h:'Multi-Account Parallel Operation',feat3_p:'Simultaneously launches multiple independent browser sessions, each account operating independently without interference — dramatically increasing success probability.',feat4_h:'Automated Form Submission',feat4_p:'Pre-configured user data is automatically filled in upon trigger — name, contact info, seat selection, and submission — from detection to completed order with zero human intervention.',arch1_n:'<strong>Monitoring Scheduler</strong> (Polling / Scheduler)',arch1_d:'Periodically requests target pages, detects inventory availability signal',arch2_n:'<strong>Browser Automation</strong> (Selenium / Playwright)',arch2_d:'Simulates real user actions: clicks, form fills, and submissions',arch3_n:'<strong>OCR Recognition Engine</strong>',arch3_d:'Screenshots the CAPTCHA region, recognizes text, auto-fills response',arch4_n:'<strong>Multi-Account Management Layer</strong>',arch4_d:'Launches parallel independent sessions; aggregates results and statistics',s4_label:'04 — My Responsibilities',s4_h:'From flow research to complete system implementation',r1:'Analyzed target ticketing platforms\' page structure, request flows, and anti-bot mechanisms.',r2:'Designed and implemented the inventory monitoring module with configurable polling intervals and retry logic.',r3:'Built the OCR CAPTCHA recognition flow: screenshot → pre-processing → recognition → auto-fill → failure retry.',r4:'Implemented multi-account parallel architecture using multi-threading / multi-processing to manage independent browser sessions.',r5:'Designed a config file system so account data, target ticket types, and seat preferences can be set externally without code changes.',r6:'Wrote platform-specific operation scripts and adapter layers for each platform\'s unique flow differences.',s5_label:'05 — Technical Challenges',s5_h:'Three technical keys to making the bot faster than humans',c1_lbl:'Challenge A',c1_txt:'<strong style="color:var(--text)">CAPTCHA recognition accuracy:</strong> Image CAPTCHA quality varies widely; 100% recognition isn\'t achievable. The solution is pre-processing (denoising, binarization, contrast adjustment) to improve accuracy, combined with retry and multi-attempt strategies rather than chasing single-shot perfection.',c2_lbl:'Challenge B',c2_txt:'<strong style="color:var(--text)">Anti-bot countermeasures:</strong> Ticketing platforms detect abnormal behavior (extremely fast action sequences, fixed User-Agents). Solutions include randomized delays, User-Agent rotation, incognito mode, and simulated realistic mouse trajectories.',c3_lbl:'Challenge C',c3_txt:'<strong style="color:var(--text)">Cross-platform differences:</strong> Every ticketing platform has different page structures, purchase flows, and verification methods. Each required independent analysis and custom operation scripts — no single logic set could cover all platforms.',s6_label:'06 — Results & Value',s6_h:'Automation removes speed as a limiting factor',res_h:'Core Outcomes',stat1_num:'Seconds',stat1:'From inventory detection<br>to order submission',stat2_num:'Multi-account',stat2:'Parallel operation<br>running simultaneously',stat3:'Inventory monitoring<br>no human required',res_p:'The system transformed ticket-grabbing from "someone staring at a screen, manually executing every step" into "configure the conditions, let the system run." Operates an order of magnitude faster than manual, and running multiple accounts simultaneously dramatically improves success rates.',extend:'<strong>Extended applications:</strong> The same technical framework can be applied to any "need to be first" scenario — limited-edition restock alerts, government quota registration, hotel availability monitoring on special dates. The core automation logic is highly reusable.',cta_h:'Need automated purchasing or a process bot?',cta_p:'Restock monitoring, auto-reservation, form bots — describe your scenario and let\'s discuss what\'s possible.',line_btn:'💬 Chat on LINE',nav_back:'← Back to Portfolio',back_btn:'← Back to Portfolio'}
+};
+let lang='zh';try{const s=localStorage.getItem('nndoit_lang');if(s)lang=s;}catch(e){}
+function applyLang(){const c=C[lang];document.documentElement.lang=lang==='zh'?'zh-Hant':'en';document.getElementById('langBtn').textContent=lang==='zh'?'EN':'中';document.getElementById('navBack').innerHTML=c.nav_back;document.getElementById('backBtn').innerHTML=c.back_btn;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(c[k]!==undefined)el.innerHTML=c[k];});}
+function toggleLang(){lang=lang==='zh'?'en':'zh';try{localStorage.setItem('nndoit_lang',lang);}catch(e){}applyLang();}
+function toggleTheme(){const h=document.documentElement,d=h.dataset.theme==='dark';h.dataset.theme=d?'light':'dark';document.getElementById('themeBtn').textContent=d?'🌙':'☀️';}
+window.addEventListener('scroll',()=>{document.querySelector('.nav').style.boxShadow=scrollY>30?'0 4px 30px rgba(0,0,0,.3)':'';},{passive:true});
+applyLang();
+</script>
+</body>
+</html>
