@@ -4,57 +4,34 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>LLM Order Extraction Thesis | Case Study — 呂承恩 NNDoiT AI Studio</title>
-<meta property="og:title" content="LLM Order Extraction Thesis | Case Study"/>
-<meta property="og:description" content="研究大型語言模型於異質訂單文件之關鍵資訊擷取，達到 95.2% Document Accuracy。"/>
 <style>
-:root{
-  --bg:#0a050f;--bg2:#110a18;--bg3:#1a0e24;
-  --card:rgba(255,255,255,.06);--card2:rgba(255,255,255,.1);
-  --border:rgba(255,255,255,.1);--border2:rgba(236,72,153,.3);
-  --text:#f0eaf5;--muted:rgba(240,234,245,.5);--muted2:rgba(240,234,245,.35);
-  --primary:#ec4899;--accent:#f97316;
-  --shadow:0 20px 60px rgba(236,72,153,.18);
-  --radius:20px;--max:860px;
-  --nav-bg:rgba(10,5,15,.88);
-}
-[data-theme="light"]{
-  --bg:#fff7fb;--bg2:#ffeaf4;--bg3:#ffd6ec;
-  --card:rgba(255,255,255,.95);--card2:rgba(255,255,255,1);
-  --border:rgba(236,72,153,.18);--border2:rgba(236,72,153,.4);
-  --text:#2d2130;--muted:#6b5c67;--muted2:#9a8a96;
-  --shadow:0 16px 40px rgba(190,24,93,.12);
-  --nav-bg:rgba(255,247,251,.9);
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-padding-top:68px;}
+:root{--bg:#0a050f;--bg2:#110a18;--card:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);--border2:rgba(236,72,153,.3);--text:#f0eaf5;--muted:rgba(240,234,245,.5);--primary:#ec4899;--accent:#f97316;--max:860px;--nav-bg:rgba(10,5,15,.88);}
+[data-theme="light"]{--bg:#fff7fb;--bg2:#ffeaf4;--card:rgba(255,255,255,.95);--border:rgba(236,72,153,.18);--border2:rgba(236,72,153,.4);--text:#2d2130;--muted:#6b5c67;--nav-bg:rgba(255,247,251,.9);}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-padding-top:68px;}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.8;transition:background .4s,color .4s;overflow-x:hidden;}
-a{color:inherit;text-decoration:none;}
-.container{width:min(var(--max),calc(100% - 40px));margin:0 auto;}
+a{color:inherit;text-decoration:none;}.container{width:min(var(--max),calc(100% - 40px));margin:0 auto;}
 .nav{position:sticky;top:0;z-index:500;backdrop-filter:blur(18px);background:var(--nav-bg);border-bottom:1px solid var(--border);transition:box-shadow .3s,background .4s;}
 .nav-inner{width:min(1160px,calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;}
-.brand{font-weight:900;font-size:.95rem;color:var(--text);}
-.brand small{display:block;color:var(--primary);font-size:.72rem;font-weight:800;margin-top:1px;}
+.brand{font-weight:900;font-size:.95rem;color:var(--text);}.brand small{display:block;color:var(--primary);font-size:.72rem;font-weight:800;margin-top:1px;}
 .nav-back{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-size:.88rem;font-weight:700;padding:7px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);transition:.2s;}
 .nav-back:hover{background:rgba(236,72,153,.12);border-color:var(--border2);color:var(--primary);}
 .nav-controls{display:flex;gap:8px;}
 .icon-btn{width:36px;height:36px;border-radius:12px;border:1px solid var(--border);background:var(--card);display:grid;place-items:center;cursor:pointer;transition:.2s;font-size:1rem;color:var(--text);}
 .icon-btn:hover{background:rgba(236,72,153,.15);border-color:var(--border2);}
+.lang-btn{width:auto;padding:0 10px;font-size:.72rem;font-weight:900;letter-spacing:.03em;}
 .cs-hero{padding:72px 0 56px;border-bottom:1px solid var(--border);}
-.cs-tag{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(236,72,153,.15);border:1px solid rgba(236,72,153,.25);color:var(--primary);font-size:.8rem;font-weight:900;margin-bottom:18px;}
+.cs-tag{display:inline-flex;padding:7px 14px;border-radius:999px;background:rgba(236,72,153,.15);border:1px solid rgba(236,72,153,.25);color:var(--primary);font-size:.8rem;font-weight:900;margin-bottom:18px;}
 .cs-title{font-size:clamp(1.9rem,4vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px;}
 .cs-subtitle{color:var(--muted);font-size:1.05rem;max-width:68ch;margin-bottom:32px;line-height:1.75;}
 .cs-meta-row{display:flex;flex-wrap:wrap;gap:12px;}
 .cs-badge{padding:7px 14px;border-radius:999px;font-size:.82rem;font-weight:900;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.2);color:#f97316;}
 .cs-badge.b-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
 .cs-badge.b-green{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.2);color:#4ade80;}
-.cs-body{padding:60px 0 80px;}
-.cs-section{margin-bottom:56px;}
-.cs-section:last-child{margin-bottom:0;}
+.cs-body{padding:60px 0 80px;}.cs-section{margin-bottom:56px;}.cs-section:last-child{margin-bottom:0;}
 .cs-section-label{display:flex;align-items:center;gap:10px;font-size:.75rem;font-weight:900;letter-spacing:.08em;color:var(--primary);text-transform:uppercase;margin-bottom:14px;}
 .cs-section-label::after{content:'';flex:1;height:1px;background:var(--border);}
 .cs-section h2{font-size:1.35rem;font-weight:900;letter-spacing:-.02em;margin-bottom:14px;}
-.cs-section p{color:var(--muted);font-size:.97rem;line-height:1.85;margin-bottom:12px;}
-.cs-section p:last-child{margin-bottom:0;}
+.cs-section p{color:var(--muted);font-size:.97rem;line-height:1.85;margin-bottom:12px;}.cs-section p:last-child{margin-bottom:0;}
 .cs-highlight{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--primary);border-radius:0 14px 14px 0;padding:18px 22px;margin:18px 0;color:var(--muted);font-size:.95rem;line-height:1.8;}
 .cs-highlight strong{color:var(--text);}
 .cs-par-grid{display:grid;gap:12px;margin:18px 0;}
@@ -62,10 +39,8 @@ a{color:inherit;text-decoration:none;}
 .cs-par-label{flex-shrink:0;font-size:.7rem;font-weight:900;padding:3px 9px;border-radius:6px;letter-spacing:.04em;margin-top:2px;white-space:nowrap;}
 .l-pain{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.22);}
 .l-sol{background:rgba(99,102,241,.14);color:#818cf8;border:1px solid rgba(99,102,241,.22);}
-.l-res{background:rgba(34,197,94,.14);color:#4ade80;border:1px solid rgba(34,197,94,.22);}
 [data-theme="light"] .l-pain{background:rgba(239,68,68,.1);color:#dc2626;}
 [data-theme="light"] .l-sol{background:rgba(99,102,241,.1);color:#4f46e5;}
-[data-theme="light"] .l-res{background:rgba(34,197,94,.1);color:#16a34a;}
 .cs-par-text{color:var(--muted);font-size:.93rem;line-height:1.65;}
 .cs-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px;}
 .cs-chip{padding:8px 14px;border-radius:999px;background:rgba(236,72,153,.1);border:1px solid rgba(236,72,153,.2);color:var(--primary);font-size:.82rem;font-weight:900;}
@@ -74,6 +49,18 @@ a{color:inherit;text-decoration:none;}
 .cs-numlist{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:14px;}
 .cs-numlist li{display:flex;gap:14px;align-items:flex-start;color:var(--muted);font-size:.95rem;line-height:1.75;}
 .cs-numlist li .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(236,72,153,.18);border:1px solid rgba(236,72,153,.3);color:var(--primary);font-weight:900;font-size:.8rem;display:grid;place-items:center;margin-top:2px;}
+.cs-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem;}
+.cs-table th{background:rgba(236,72,153,.15);color:var(--primary);font-weight:900;padding:10px 14px;text-align:left;border-bottom:1px solid var(--border2);}
+.cs-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--muted);}
+.cs-table .acc{color:#4ade80;font-weight:900;}
+.cs-arch{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:22px 24px;margin:18px 0;font-size:.9rem;}
+.arch-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);color:var(--muted);}
+.arch-row:last-child{border-bottom:none;}
+.arch-icon{width:32px;height:32px;border-radius:9px;background:rgba(236,72,153,.14);border:1px solid rgba(236,72,153,.2);display:grid;place-items:center;font-size:1rem;flex-shrink:0;}
+.arch-arrow{color:var(--primary);font-weight:900;font-size:1rem;}
+.cs-code{background:#0d0d0d;border:1px solid var(--border);border-radius:12px;padding:18px 20px;font-family:monospace;font-size:.85rem;line-height:1.7;margin:16px 0;overflow-x:auto;white-space:pre;}
+[data-theme="light"] .cs-code{background:#f5f5f5;}
+.cs-code .k{color:#ec4899;}.cs-code .s{color:#f97316;}.cs-code .c{color:#6b7280;}
 .cs-result-card{background:linear-gradient(135deg,rgba(236,72,153,.12),rgba(249,115,22,.08));border:1px solid rgba(236,72,153,.25);border-radius:20px;padding:28px 30px;margin-top:18px;}
 .cs-result-card h3{font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--text);}
 .cs-result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
@@ -87,133 +74,61 @@ a{color:inherit;text-decoration:none;}
 .cs-footer-text p{color:var(--muted);font-size:.93rem;}
 .cs-footer-btns{display:flex;gap:12px;flex-wrap:wrap;}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:900;border:1px solid transparent;transition:all .2s;font-size:.93rem;cursor:pointer;}
-.btn-primary{background:linear-gradient(135deg,#ec4899,#db2777);color:#fff;box-shadow:0 10px 28px rgba(219,39,119,.3);}
-.btn-primary:hover{transform:translateY(-2px);}
-.btn-ghost{background:var(--card);border-color:var(--border);color:var(--text);}
-.btn-ghost:hover{background:rgba(236,72,153,.1);border-color:var(--border2);color:var(--primary);}
-.btn-line{background:linear-gradient(135deg,#06c755,#00a846);color:#fff;}
-.btn-line:hover{transform:translateY(-2px);}
-
-/* Level table */
-.cs-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.9rem;}
-.cs-table th{text-align:left;padding:10px 14px;border-bottom:1px solid var(--border);color:var(--primary);font-size:.78rem;font-weight:900;letter-spacing:.05em;}
-.cs-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top;}
-.cs-table tr:last-child td{border-bottom:none;}
-.cs-table .acc{color:#4ade80;font-weight:900;}
-
-/* Code block */
-.cs-code{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:12px;padding:16px 20px;font-family:'SF Mono','Fira Code',monospace;font-size:.83rem;color:#e2e8f0;margin:14px 0;overflow-x:auto;line-height:1.7;}
-[data-theme="light"] .cs-code{background:rgba(0,0,0,.06);color:#1e293b;}
-.cs-code .k{color:#ec4899;}
-.cs-code .s{color:#4ade80;}
-.cs-code .c{color:rgba(150,150,180,.6);}
-
-.cs-arch{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:22px 24px;margin:18px 0;font-size:.9rem;}
-.arch-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);color:var(--muted);}
-.arch-row:last-child{border-bottom:none;}
-.arch-icon{width:32px;height:32px;border-radius:9px;background:rgba(236,72,153,.14);border:1px solid rgba(236,72,153,.2);display:grid;place-items:center;font-size:1rem;flex-shrink:0;}
-.arch-arrow{color:var(--primary);font-weight:900;font-size:1rem;}
-
-@media(max-width:768px){
-  .cs-hero{padding:48px 0 36px;}
-  .cs-result-stats{grid-template-columns:1fr 1fr;}
-  .cs-footer-inner{flex-direction:column;align-items:flex-start;}
-  .cs-footer-btns{width:100%;}
-  .cs-footer-btns .btn{flex:1;justify-content:center;}
-  .cs-table{font-size:.82rem;}
-}
+.btn-primary{background:linear-gradient(135deg,#ec4899,#db2777);color:#fff;box-shadow:0 10px 28px rgba(219,39,119,.3);}.btn-primary:hover{transform:translateY(-2px);}
+.btn-ghost{background:var(--card);border-color:var(--border);color:var(--text);}.btn-ghost:hover{background:rgba(236,72,153,.1);border-color:var(--border2);color:var(--primary);}
+.btn-line{background:linear-gradient(135deg,#06c755,#00a846);color:#fff;}.btn-line:hover{transform:translateY(-2px);}
+@media(max-width:768px){.cs-hero{padding:48px 0 36px;}.cs-result-stats{grid-template-columns:1fr 1fr;}.cs-footer-inner{flex-direction:column;align-items:flex-start;}.cs-footer-btns{width:100%;}.cs-footer-btns .btn{flex:1;justify-content:center;}}
 </style>
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="brand">呂承恩 Lu Cheng En<small>NNDoiT AI Studio</small></a>
-    <a href="index.html#projects" class="nav-back">← 回作品集</a>
+    <a href="index.html#projects" class="nav-back" id="navBack">← 回作品集</a>
     <div class="nav-controls">
+      <div class="icon-btn lang-btn" id="langBtn" onclick="toggleLang()">EN</div>
       <div class="icon-btn" id="themeBtn" onclick="toggleTheme()">☀️</div>
     </div>
   </div>
 </nav>
-
-<div class="cs-hero">
-  <div class="container">
-    <div class="cs-tag">Research / AI</div>
-    <h1 class="cs-title">LLM Order Extraction<br>Thesis</h1>
-    <p class="cs-subtitle">研究大型語言模型於異質訂單文件之關鍵資訊擷取與標準化，建立從文件解析、Prompt 設計到評估分析的完整可重現流程，Level 2 正式結果達 95.2% Document Accuracy。</p>
-    <div class="cs-meta-row">
-      <span class="cs-badge">Python · LLM · Prompt Engineering</span>
-      <span class="cs-badge b-indigo">學術研究 / 畢業論文</span>
-      <span class="cs-badge b-green">95.2% Document Accuracy</span>
+<div class="cs-hero"><div class="container">
+  <div class="cs-tag" data-i18n="tag">Research / AI</div>
+  <h1 class="cs-title" data-i18n="title">LLM Order Extraction<br>Thesis</h1>
+  <p class="cs-subtitle" data-i18n="subtitle">研究大型語言模型於異質訂單文件之關鍵資訊擷取與標準化，建立從文件解析、Prompt 設計到評估分析的完整可重現流程，Level 2 正式結果達 95.2% Document Accuracy。</p>
+  <div class="cs-meta-row">
+    <span class="cs-badge">Python · LLM · Prompt Engineering</span>
+    <span class="cs-badge b-indigo" data-i18n="badge2">學術研究 / 畢業論文</span>
+    <span class="cs-badge b-green">95.2% Document Accuracy</span>
+  </div>
+</div></div>
+<div class="cs-body"><div class="container">
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s1_label">01 — 專案背景</div>
+    <h2 data-i18n="s1_h">為什麼要研究訂單資訊抽取？</h2>
+    <p data-i18n="s1_p1">企業每天收到大量來自不同客戶、不同格式的訂單文件——有 PDF、有 Excel、有掃描圖片，每份的欄位命名、排版、語言都不同。要把這些訂單「讀懂」並整理成系統能用的結構化資料，傳統方法是人工鍵入，或是用規則型 OCR（非常不靈活，每換一個格式就需要重新設定）。</p>
+    <p data-i18n="s1_p2">這篇論文的核心命題是：能不能用 LLM 來做到格式無關的訂單資訊抽取，同時讓結果是結構化、可評估、可重現的？</p>
+    <div class="cs-highlight"><span data-i18n="s1_goal"><strong>研究目標：</strong>建立一套 LLM-based 的訂單抽取 Pipeline，輸入任意格式訂單 → 輸出標準化 JSON，並提出可量化的評估指標體系。</span></div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s2_label">02 — 問題與挑戰</div>
+    <h2 data-i18n="s2_h">異質訂單文件的核心難題</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p1_lbl">難題 1</span><span class="cs-par-text" data-i18n="p1_txt"><strong style="color:var(--text)">欄位名稱多變：</strong>同一欄位在不同訂單叫「數量」、「Qty」、「Q'ty」、「pcs」，語意相同但字面完全不同，規則型方法幾乎無法覆蓋。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p2_lbl">難題 2</span><span class="cs-par-text" data-i18n="p2_txt"><strong style="color:var(--text)">資訊分散與干擾：</strong>訂單中常夾雜備註、免責聲明、頁首頁尾等無關文字，模型需要精準找到有效資訊並忽略噪音。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p3_lbl">難題 3</span><span class="cs-par-text" data-i18n="p3_txt"><strong style="color:var(--text)">評估困難：</strong>LLM 輸出是文字，怎麼定義「正確」？如何量化比較不同 Prompt 的效果？需要自行設計評估框架。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p4_lbl">難題 4</span><span class="cs-par-text" data-i18n="p4_txt"><strong style="color:var(--text)">格式一致性：</strong>即使抽取正確，輸出格式若不固定，下游系統就無法直接串接，需要強制結構化輸出。</span></div>
     </div>
   </div>
-</div>
-
-<div class="cs-body">
-  <div class="container">
-
-    <!-- 1. 背景 -->
-    <div class="cs-section">
-      <div class="cs-section-label">01 — 專案背景</div>
-      <h2>為什麼要研究訂單資訊抽取？</h2>
-      <p>企業每天收到大量來自不同客戶、不同格式的訂單文件——有 PDF、有 Excel、有掃描圖片，每份的欄位命名、排版、語言都不同。要把這些訂單「讀懂」並整理成系統能用的結構化資料，傳統方法是人工鍵入，或是用規則型 OCR（非常不靈活，每換一個格式就需要重新設定）。</p>
-      <p>這篇論文的核心命題是：<strong>能不能用 LLM 來做到格式無關的訂單資訊抽取，同時讓結果是結構化、可評估、可重現的？</strong></p>
-      <div class="cs-highlight">
-        <strong>研究目標：</strong>建立一套 LLM-based 的訂單抽取 Pipeline，輸入任意格式訂單 → 輸出標準化 JSON，並提出可量化的評估指標體系。
-      </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s3_label">03 — 解法與技術架構</div>
+    <h2 data-i18n="s3_h">三層 Pipeline + JSON Schema 強制結構化</h2>
+    <div class="cs-arch">
+      <div class="arch-row"><div class="arch-icon">📄</div><span data-i18n="arch1_n"><strong>文件解析層</strong></span><span class="arch-arrow">→</span><span style="color:var(--muted)" data-i18n="arch1_d">PDF 文字抽取 / OCR 掃描圖片（Level 3），將原始文件轉成純文字</span></div>
+      <div class="arch-row"><div class="arch-icon">🧠</div><span data-i18n="arch2_n"><strong>LLM 抽取層</strong></span><span class="arch-arrow">→</span><span style="color:var(--muted)" data-i18n="arch2_d">Prompt Engineering + JSON Schema 指定輸出格式，呼叫 OpenAI API</span></div>
+      <div class="arch-row"><div class="arch-icon">📊</div><span data-i18n="arch3_n"><strong>評估層</strong></span><span class="arch-arrow">→</span><span style="color:var(--muted)" data-i18n="arch3_d">欄位級別 / 文件級別精確率，多組 Prompt 對比分析</span></div>
     </div>
-
-    <!-- 2. 問題 -->
-    <div class="cs-section">
-      <div class="cs-section-label">02 — 問題與挑戰</div>
-      <h2>異質訂單文件的核心難題</h2>
-      <div class="cs-par-grid">
-        <div class="cs-par-item">
-          <span class="cs-par-label l-pain">難題 1</span>
-          <span class="cs-par-text"><strong style="color:var(--text)">欄位名稱多變：</strong>同一欄位在不同訂單叫「數量」、「Qty」、「Q'ty」、「pcs」，語意相同但字面完全不同，規則型方法幾乎無法覆蓋。</span>
-        </div>
-        <div class="cs-par-item">
-          <span class="cs-par-label l-pain">難題 2</span>
-          <span class="cs-par-text"><strong style="color:var(--text)">資訊分散與干擾：</strong>訂單中常夾雜備註、免責聲明、頁首頁尾等無關文字，模型需要精準找到有效資訊並忽略噪音。</span>
-        </div>
-        <div class="cs-par-item">
-          <span class="cs-par-label l-pain">難題 3</span>
-          <span class="cs-par-text"><strong style="color:var(--text)">評估困難：</strong>LLM 輸出是文字，怎麼定義「正確」？如何量化比較不同 Prompt 的效果？需要自行設計評估框架。</span>
-        </div>
-        <div class="cs-par-item">
-          <span class="cs-par-label l-pain">難題 4</span>
-          <span class="cs-par-text"><strong style="color:var(--text)">格式一致性：</strong>即使抽取正確，輸出格式若不固定，下游系統就無法直接串接，需要強制結構化輸出。</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3. 解法 -->
-    <div class="cs-section">
-      <div class="cs-section-label">03 — 解法與技術架構</div>
-      <h2>三層 Pipeline + JSON Schema 強制結構化</h2>
-      <div class="cs-arch">
-        <div class="arch-row">
-          <div class="arch-icon">📄</div>
-          <span><strong>文件解析層</strong></span>
-          <span class="arch-arrow">→</span>
-          <span style="color:var(--muted)">PDF 文字抽取 / OCR 掃描圖片（Level 3），將原始文件轉成純文字</span>
-        </div>
-        <div class="arch-row">
-          <div class="arch-icon">🧠</div>
-          <span><strong>LLM 抽取層</strong></span>
-          <span class="arch-arrow">→</span>
-          <span style="color:var(--muted)">Prompt Engineering + JSON Schema 指定輸出格式，呼叫 OpenAI API</span>
-        </div>
-        <div class="arch-row">
-          <div class="arch-icon">📊</div>
-          <span><strong>評估層</strong></span>
-          <span class="arch-arrow">→</span>
-          <span style="color:var(--muted)">欄位級別 / 文件級別精確率，多組 Prompt 對比分析</span>
-        </div>
-      </div>
-      <p>關鍵設計決策是使用 <strong>JSON Schema</strong> 作為 LLM 的輸出約束——明確告訴模型「你只能回傳這個格式的 JSON，每個欄位的型別與允許值如下」，大幅降低輸出格式不一致的問題。</p>
-      <div class="cs-code">
-<span class="c">// JSON Schema 片段（部分欄位）</span>
+    <p data-i18n="s3_p1">關鍵設計決策是使用 JSON Schema 作為 LLM 的輸出約束——明確告訴模型「你只能回傳這個格式的 JSON，每個欄位的型別與允許值如下」，大幅降低輸出格式不一致的問題。</p>
+    <div class="cs-code"><span class="c">// JSON Schema 片段（部分欄位）</span>
 {
   <span class="k">"type"</span>: <span class="s">"object"</span>,
   <span class="k">"properties"</span>: {
@@ -223,117 +138,73 @@ a{color:inherit;text-decoration:none;}
     <span class="k">"total_amount"</span>: { <span class="k">"type"</span>: <span class="s">"number"</span> }
   },
   <span class="k">"required"</span>: [<span class="s">"po_number"</span>, <span class="s">"line_items"</span>]
-}
-      </div>
-      <div class="cs-chips">
-        <span class="cs-chip c-orange">Python</span>
-        <span class="cs-chip c-orange">OpenAI API</span>
-        <span class="cs-chip">Prompt Engineering</span>
-        <span class="cs-chip">JSON Schema</span>
-        <span class="cs-chip c-indigo">PaddleOCR</span>
-        <span class="cs-chip c-indigo">Evaluation Framework</span>
-      </div>
-    </div>
-
-    <!-- 4. 我的角色 -->
-    <div class="cs-section">
-      <div class="cs-section-label">04 — 我的負責範圍</div>
-      <h2>從研究設計到實作評估，獨立完成</h2>
-      <ul class="cs-numlist">
-        <li><span class="n">1</span><span>文獻回顧——整理 LLM 資訊抽取、IE（Information Extraction）與 OCR 相關研究背景</span></li>
-        <li><span class="n">2</span><span>收集並標注真實異質訂單資料集，建立 Ground Truth 標注規範</span></li>
-        <li><span class="n">3</span><span>設計三個評估層級（Level 1~3）與對應評估指標：Field-level、Document-level Accuracy</span></li>
-        <li><span class="n">4</span><span>Prompt 工程實驗——設計多組 Prompt 策略（Zero-shot、Few-shot、Chain-of-thought），對比效果</span></li>
-        <li><span class="n">5</span><span>建立自動化評估腳本，批次跑測試集並輸出比較報告</span></li>
-        <li><span class="n">6</span><span>延伸至 Level 3 OCR 版本，處理掃描圖片訂單，整合 PaddleOCR</span></li>
-      </ul>
-    </div>
-
-    <!-- 5. 難點 -->
-    <div class="cs-section">
-      <div class="cs-section-label">05 — 實作重點與難點</div>
-      <h2>讓研究「可重現、可比較」是最難的部分</h2>
-      <div class="cs-par-grid">
-        <div class="cs-par-item">
-          <span class="cs-par-label l-sol">技術重點</span>
-          <span class="cs-par-text"><strong style="color:var(--text)">評估框架設計：</strong>自定義 Field-level Accuracy（每個欄位對不對）與 Document-level Accuracy（整份訂單全對才算對），讓不同 Prompt 策略的效果可以客觀比較。</span>
-        </div>
-        <div class="cs-par-item">
-          <span class="cs-par-label l-sol">技術重點</span>
-          <span class="cs-par-text"><strong style="color:var(--text)">Prompt 控制變數：</strong>同一份訂單、同一個模型，只改 Prompt 寫法，確保實驗結果差異是來自 Prompt 而非其他因素，建立嚴謹的對照組設計。</span>
-        </div>
-        <div class="cs-par-item">
-          <span class="cs-par-label l-sol">技術重點</span>
-          <span class="cs-par-text"><strong style="color:var(--text)">OCR 誤字修正：</strong>Level 3 的 OCR 輸出常有誤字（數字 0 / O 混淆、中文斷字等），需要在 LLM Prompt 中加入糾錯指令並在後處理層做驗證。</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 6. 成果 -->
-    <div class="cs-section">
-      <div class="cs-section-label">06 — 專案成果 / 價值</div>
-      <h2>評估結果與研究貢獻</h2>
-      <table class="cs-table">
-        <thead>
-          <tr><th>評估層級</th><th>說明</th><th>Document Accuracy</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Level 1</td><td>純文字訂單（最佳格式）</td><td class="acc">~98%+</td></tr>
-          <tr><td>Level 2</td><td>含表格的 PDF 訂單（正式測試）</td><td class="acc">95.2%</td></tr>
-          <tr><td>Level 3</td><td>掃描圖片訂單（OCR 前置）</td><td class="acc">研究延伸中</td></tr>
-        </tbody>
-      </table>
-      <div class="cs-result-card">
-        <h3>研究貢獻</h3>
-        <div class="cs-result-stats">
-          <div class="crs-item">
-            <span class="crs-num">95.2%</span>
-            <div class="crs-label">Level 2<br>Document Accuracy</div>
-          </div>
-          <div class="crs-item">
-            <span class="crs-num">3層</span>
-            <div class="crs-label">可重現評估<br>框架設計</div>
-          </div>
-          <div class="crs-item">
-            <span class="crs-num">JSON</span>
-            <div class="crs-label">直接可串接<br>下游系統</div>
-          </div>
-        </div>
-        <p>研究成果不只是一個數字——更重要的是建立了一套可重現、可量化的評估體系，讓後續研究者能在同一基準上比較不同方法的效果。輸出的標準 JSON 可直接串接 ERP 或訂單管理系統，具備實際落地價值。</p>
-      </div>
-      <div class="cs-highlight" style="margin-top:20px;">
-        <strong>企業應用延伸：</strong>這套框架可以直接應用於企業的文件自動化場景——合約資訊抽取、採購單解析、客服紀錄結構化等，不需要重新設計，只需調整 JSON Schema 的欄位定義。
-      </div>
-    </div>
-
+}</div>
+    <div class="cs-chips"><span class="cs-chip c-orange">Python</span><span class="cs-chip c-orange">OpenAI API</span><span class="cs-chip">Prompt Engineering</span><span class="cs-chip">JSON Schema</span><span class="cs-chip c-indigo">PaddleOCR</span><span class="cs-chip c-indigo">Evaluation Framework</span></div>
   </div>
-</div>
-
-<div class="cs-footer-cta">
-  <div class="container">
-    <div class="cs-footer-inner">
-      <div class="cs-footer-text">
-        <h3>有文件自動化或 LLM 抽取需求？</h3>
-        <p>合約、訂單、表單——把你的文件處理痛點告訴我。</p>
-      </div>
-      <div class="cs-footer-btns">
-        <a href="index.html#projects" class="btn btn-ghost">← 回作品集</a>
-        <a href="https://github.com/ChengEnLu252/LLM_Order_Extraction_Thesis.git" target="_blank" class="btn btn-primary">View GitHub</a>
-        <a href="https://lin.ee/Wc5Bozb" target="_blank" class="btn btn-line">💬 加 LINE 討論</a>
-      </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s4_label">04 — 我的負責範圍</div>
+    <h2 data-i18n="s4_h">從研究設計到實作評估，獨立完成</h2>
+    <ul class="cs-numlist">
+      <li><span class="n">1</span><span data-i18n="r1">文獻回顧——整理 LLM 資訊抽取、IE（Information Extraction）與 OCR 相關研究背景</span></li>
+      <li><span class="n">2</span><span data-i18n="r2">收集並標注真實異質訂單資料集，建立 Ground Truth 標注規範</span></li>
+      <li><span class="n">3</span><span data-i18n="r3">設計三個評估層級（Level 1~3）與對應評估指標：Field-level、Document-level Accuracy</span></li>
+      <li><span class="n">4</span><span data-i18n="r4">Prompt 工程實驗——設計多組 Prompt 策略（Zero-shot、Few-shot、Chain-of-thought），對比效果</span></li>
+      <li><span class="n">5</span><span data-i18n="r5">建立自動化評估腳本，批次跑測試集並輸出比較報告</span></li>
+      <li><span class="n">6</span><span data-i18n="r6">延伸至 Level 3 OCR 版本，處理掃描圖片訂單，整合 PaddleOCR</span></li>
+    </ul>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s5_label">05 — 實作重點與難點</div>
+    <h2 data-i18n="s5_h">讓研究「可重現、可比較」是最難的部分</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c1_lbl">技術重點</span><span class="cs-par-text" data-i18n="c1_txt"><strong style="color:var(--text)">評估框架設計：</strong>自定義 Field-level Accuracy（每個欄位對不對）與 Document-level Accuracy（整份訂單全對才算對），讓不同 Prompt 策略的效果可以客觀比較。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c2_lbl">技術重點</span><span class="cs-par-text" data-i18n="c2_txt"><strong style="color:var(--text)">Prompt 控制變數：</strong>同一份訂單、同一個模型，只改 Prompt 寫法，確保實驗結果差異是來自 Prompt 而非其他因素，建立嚴謹的對照組設計。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c3_lbl">技術重點</span><span class="cs-par-text" data-i18n="c3_txt"><strong style="color:var(--text)">OCR 誤字修正：</strong>Level 3 的 OCR 輸出常有誤字（數字 0 / O 混淆、中文斷字等），需要在 LLM Prompt 中加入糾錯指令並在後處理層做驗證。</span></div>
     </div>
   </div>
-</div>
-
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s6_label">06 — 專案成果 / 價值</div>
+    <h2 data-i18n="s6_h">評估結果與研究貢獻</h2>
+    <table class="cs-table">
+      <thead><tr><th data-i18n="th1">評估層級</th><th data-i18n="th2">說明</th><th data-i18n="th3">Document Accuracy</th></tr></thead>
+      <tbody>
+        <tr><td>Level 1</td><td data-i18n="td1_2">純文字訂單（最佳格式）</td><td class="acc">~98%+</td></tr>
+        <tr><td>Level 2</td><td data-i18n="td2_2">含表格的 PDF 訂單（正式測試）</td><td class="acc">95.2%</td></tr>
+        <tr><td>Level 3</td><td data-i18n="td3_2">掃描圖片訂單（OCR 前置）</td><td class="acc" data-i18n="td3_3">研究延伸中</td></tr>
+      </tbody>
+    </table>
+    <div class="cs-result-card">
+      <h3 data-i18n="res_h">研究貢獻</h3>
+      <div class="cs-result-stats">
+        <div class="crs-item"><span class="crs-num">95.2%</span><div class="crs-label" data-i18n="stat1">Level 2<br>Document Accuracy</div></div>
+        <div class="crs-item"><span class="crs-num" data-i18n="stat2_num">3層</span><div class="crs-label" data-i18n="stat2">可重現評估<br>框架設計</div></div>
+        <div class="crs-item"><span class="crs-num">JSON</span><div class="crs-label" data-i18n="stat3">直接可串接<br>下游系統</div></div>
+      </div>
+      <p data-i18n="res_p">研究成果不只是一個數字——更重要的是建立了一套可重現、可量化的評估體系，讓後續研究者能在同一基準上比較不同方法的效果。輸出的標準 JSON 可直接串接 ERP 或訂單管理系統，具備實際落地價值。</p>
+    </div>
+    <div class="cs-highlight" style="margin-top:20px;"><span data-i18n="extend"><strong>企業應用延伸：</strong>這套框架可以直接應用於企業的文件自動化場景——合約資訊抽取、採購單解析、客服紀錄結構化等，不需要重新設計，只需調整 JSON Schema 的欄位定義。</span></div>
+  </div>
+</div></div>
+<div class="cs-footer-cta"><div class="container">
+  <div class="cs-footer-inner">
+    <div class="cs-footer-text"><h3 data-i18n="cta_h">有文件自動化或 LLM 抽取需求？</h3><p data-i18n="cta_p">合約、訂單、表單——把你的文件處理痛點告訴我。</p></div>
+    <div class="cs-footer-btns">
+      <a href="index.html#projects" class="btn btn-ghost" id="backBtn">← 回作品集</a>
+      <a href="https://github.com/ChengEnLu252/LLM_Order_Extraction_Thesis.git" target="_blank" class="btn btn-primary">View GitHub</a>
+      <a href="https://lin.ee/Wc5Bozb" target="_blank" class="btn btn-line" data-i18n="line_btn">💬 加 LINE 討論</a>
+    </div>
+  </div>
+</div></div>
 <script>
-function toggleTheme(){
-  const html=document.documentElement,isDark=html.dataset.theme==='dark';
-  html.dataset.theme=isDark?'light':'dark';
-  document.getElementById('themeBtn').textContent=isDark?'🌙':'☀️';
-}
-window.addEventListener('scroll',()=>{
-  document.querySelector('.nav').style.boxShadow=scrollY>30?'0 4px 30px rgba(0,0,0,.3)':'';
-},{passive:true});
+const C={zh:{tag:'Research / AI',title:'LLM Order Extraction<br>Thesis',subtitle:'研究大型語言模型於異質訂單文件之關鍵資訊擷取與標準化，建立從文件解析、Prompt 設計到評估分析的完整可重現流程，Level 2 正式結果達 95.2% Document Accuracy。',badge2:'學術研究 / 畢業論文',s1_label:'01 — 專案背景',s1_h:'為什麼要研究訂單資訊抽取？',s1_p1:'企業每天收到大量來自不同客戶、不同格式的訂單文件——有 PDF、有 Excel、有掃描圖片，每份的欄位命名、排版、語言都不同。要把這些訂單「讀懂」並整理成系統能用的結構化資料，傳統方法是人工鍵入，或是用規則型 OCR（非常不靈活，每換一個格式就需要重新設定）。',s1_p2:'這篇論文的核心命題是：能不能用 LLM 來做到格式無關的訂單資訊抽取，同時讓結果是結構化、可評估、可重現的？',s1_goal:'<strong>研究目標：</strong>建立一套 LLM-based 的訂單抽取 Pipeline，輸入任意格式訂單 → 輸出標準化 JSON，並提出可量化的評估指標體系。',s2_label:'02 — 問題與挑戰',s2_h:'異質訂單文件的核心難題',p1_lbl:'難題 1',p1_txt:'<strong style="color:var(--text)">欄位名稱多變：</strong>同一欄位在不同訂單叫「數量」、「Qty」、「Q\'ty」、「pcs」，語意相同但字面完全不同，規則型方法幾乎無法覆蓋。',p2_lbl:'難題 2',p2_txt:'<strong style="color:var(--text)">資訊分散與干擾：</strong>訂單中常夾雜備註、免責聲明、頁首頁尾等無關文字，模型需要精準找到有效資訊並忽略噪音。',p3_lbl:'難題 3',p3_txt:'<strong style="color:var(--text)">評估困難：</strong>LLM 輸出是文字，怎麼定義「正確」？如何量化比較不同 Prompt 的效果？需要自行設計評估框架。',p4_lbl:'難題 4',p4_txt:'<strong style="color:var(--text)">格式一致性：</strong>即使抽取正確，輸出格式若不固定，下游系統就無法直接串接，需要強制結構化輸出。',s3_label:'03 — 解法與技術架構',s3_h:'三層 Pipeline + JSON Schema 強制結構化',arch1_n:'<strong>文件解析層</strong>',arch1_d:'PDF 文字抽取 / OCR 掃描圖片（Level 3），將原始文件轉成純文字',arch2_n:'<strong>LLM 抽取層</strong>',arch2_d:'Prompt Engineering + JSON Schema 指定輸出格式，呼叫 OpenAI API',arch3_n:'<strong>評估層</strong>',arch3_d:'欄位級別 / 文件級別精確率，多組 Prompt 對比分析',s3_p1:'關鍵設計決策是使用 JSON Schema 作為 LLM 的輸出約束——明確告訴模型「你只能回傳這個格式的 JSON，每個欄位的型別與允許值如下」，大幅降低輸出格式不一致的問題。',s4_label:'04 — 我的負責範圍',s4_h:'從研究設計到實作評估，獨立完成',r1:'文獻回顧——整理 LLM 資訊抽取、IE（Information Extraction）與 OCR 相關研究背景',r2:'收集並標注真實異質訂單資料集，建立 Ground Truth 標注規範',r3:'設計三個評估層級（Level 1~3）與對應評估指標：Field-level、Document-level Accuracy',r4:'Prompt 工程實驗——設計多組 Prompt 策略（Zero-shot、Few-shot、Chain-of-thought），對比效果',r5:'建立自動化評估腳本，批次跑測試集並輸出比較報告',r6:'延伸至 Level 3 OCR 版本，處理掃描圖片訂單，整合 PaddleOCR',s5_label:'05 — 實作重點與難點',s5_h:'讓研究「可重現、可比較」是最難的部分',c1_lbl:'技術重點',c1_txt:'<strong style="color:var(--text)">評估框架設計：</strong>自定義 Field-level Accuracy（每個欄位對不對）與 Document-level Accuracy（整份訂單全對才算對），讓不同 Prompt 策略的效果可以客觀比較。',c2_lbl:'技術重點',c2_txt:'<strong style="color:var(--text)">Prompt 控制變數：</strong>同一份訂單、同一個模型，只改 Prompt 寫法，確保實驗結果差異是來自 Prompt 而非其他因素，建立嚴謹的對照組設計。',c3_lbl:'技術重點',c3_txt:'<strong style="color:var(--text)">OCR 誤字修正：</strong>Level 3 的 OCR 輸出常有誤字（數字 0 / O 混淆、中文斷字等），需要在 LLM Prompt 中加入糾錯指令並在後處理層做驗證。',s6_label:'06 — 專案成果 / 價值',s6_h:'評估結果與研究貢獻',th1:'評估層級',th2:'說明',th3:'Document Accuracy',td1_2:'純文字訂單（最佳格式）',td2_2:'含表格的 PDF 訂單（正式測試）',td3_2:'掃描圖片訂單（OCR 前置）',td3_3:'研究延伸中',res_h:'研究貢獻',stat1:'Level 2<br>Document Accuracy',stat2_num:'3層',stat2:'可重現評估<br>框架設計',stat3:'直接可串接<br>下游系統',res_p:'研究成果不只是一個數字——更重要的是建立了一套可重現、可量化的評估體系，讓後續研究者能在同一基準上比較不同方法的效果。輸出的標準 JSON 可直接串接 ERP 或訂單管理系統，具備實際落地價值。',extend:'<strong>企業應用延伸：</strong>這套框架可以直接應用於企業的文件自動化場景——合約資訊抽取、採購單解析、客服紀錄結構化等，不需要重新設計，只需調整 JSON Schema 的欄位定義。',cta_h:'有文件自動化或 LLM 抽取需求？',cta_p:'合約、訂單、表單——把你的文件處理痛點告訴我。',line_btn:'💬 加 LINE 討論',nav_back:'← 回作品集',back_btn:'← 回作品集'},
+en:{tag:'Research / AI',title:'LLM Order Extraction<br>Thesis',subtitle:'Research on using large language models to extract and standardize key information from heterogeneous order documents — establishing a complete, reproducible pipeline from document parsing and prompt design to evaluation. Level 2 formal result: 95.2% Document Accuracy.',badge2:'Academic Research / Thesis',s1_label:'01 — Background',s1_h:'Why research order information extraction?',s1_p1:'Enterprises receive large volumes of order documents daily from different clients in different formats — PDFs, Excel files, scanned images — each with different field names, layouts, and languages. Making sense of these and converting them into structured data has traditionally meant manual data entry or rule-based OCR (highly inflexible; each new format requires reconfiguration).',s1_p2:'The central question of this thesis: Can LLMs achieve format-agnostic order information extraction while producing results that are structured, evaluatable, and reproducible?',s1_goal:'<strong>Research objective:</strong> Build an LLM-based order extraction pipeline that accepts orders in any format and outputs standardized JSON, with a quantifiable evaluation framework.',s2_label:'02 — Problems & Challenges',s2_h:'Core challenges with heterogeneous order documents',p1_lbl:'Challenge 1',p1_txt:'<strong style="color:var(--text)">Field name variation:</strong> The same field appears as "數量", "Qty", "Q\'ty", or "pcs" across different orders — same meaning, completely different text. Rule-based methods cannot cover this.',p2_lbl:'Challenge 2',p2_txt:'<strong style="color:var(--text)">Scattered information and noise:</strong> Orders frequently contain remarks, disclaimers, headers, and footers unrelated to the actual order data. The model must find the relevant information and ignore the noise.',p3_lbl:'Challenge 3',p3_txt:'<strong style="color:var(--text)">Evaluation difficulty:</strong> LLM output is text — how do you define "correct"? How do you quantify and compare different prompts objectively? A custom evaluation framework was needed.',p4_lbl:'Challenge 4',p4_txt:'<strong style="color:var(--text)">Output format consistency:</strong> Even when extraction is correct, inconsistent output formats prevent direct downstream integration. Enforced structured output was essential.',s3_label:'03 — Solution & Architecture',s3_h:'Three-layer pipeline + JSON Schema enforced structure',arch1_n:'<strong>Document Parsing Layer</strong>',arch1_d:'PDF text extraction / OCR for scanned images (Level 3) — converts raw documents to plain text',arch2_n:'<strong>LLM Extraction Layer</strong>',arch2_d:'Prompt Engineering + JSON Schema to specify output format, calling OpenAI API',arch3_n:'<strong>Evaluation Layer</strong>',arch3_d:'Field-level / Document-level accuracy, multi-prompt comparative analysis',s3_p1:'The key design decision was using JSON Schema as an output constraint for the LLM — explicitly telling the model "you may only return JSON in this format, with these field types and allowed values." This dramatically reduced output format inconsistency.',s4_label:'04 — My Responsibilities',s4_h:'Independently completed from research design to evaluation',r1:'Literature review — surveyed LLM information extraction, IE (Information Extraction), and OCR research backgrounds.',r2:'Collected and annotated a real-world heterogeneous order dataset; established Ground Truth annotation standards.',r3:'Designed three evaluation levels (Level 1–3) with corresponding metrics: Field-level and Document-level Accuracy.',r4:'Prompt engineering experiments — designed multiple prompt strategies (Zero-shot, Few-shot, Chain-of-thought) and compared their effectiveness.',r5:'Built automated evaluation scripts for batch testing and comparative report generation.',r6:'Extended to Level 3 OCR version to handle scanned image orders, integrating PaddleOCR.',s5_label:'05 — Technical Challenges',s5_h:'Making research "reproducible and comparable" was the hardest part',c1_lbl:'Key Point',c1_txt:'<strong style="color:var(--text)">Evaluation framework design:</strong> Custom Field-level Accuracy (is each field correct?) and Document-level Accuracy (is the entire document correct?) enable objective, apples-to-apples comparison of different prompt strategies.',c2_lbl:'Key Point',c2_txt:'<strong style="color:var(--text)">Prompt as the controlled variable:</strong> Same document, same model, only the prompt wording changes — ensuring that differences in results are caused by the prompt, not other factors. Rigorous controlled experiment design.',c3_lbl:'Key Point',c3_txt:'<strong style="color:var(--text)">OCR error correction:</strong> Level 3 OCR output frequently contains errors (0 vs O confusion, character segmentation issues). The LLM prompt was augmented with error correction instructions and a post-processing validation layer.',s6_label:'06 — Results & Value',s6_h:'Evaluation results and research contributions',th1:'Level',th2:'Description',th3:'Document Accuracy',td1_2:'Plain text orders (best-case format)',td2_2:'PDF orders with tables (formal evaluation)',td3_2:'Scanned image orders (OCR pre-processing)',td3_3:'Research ongoing',res_h:'Research Contributions',stat1:'Level 2<br>Document Accuracy',stat2_num:'3-level',stat2:'Reproducible evaluation<br>framework designed',stat3:'JSON output ready for<br>direct system integration',res_p:'The contribution isn\'t just a number — it\'s a reproducible, quantifiable evaluation system that allows future researchers to compare different approaches on the same benchmark. The standardized JSON output is ready for direct integration with ERP or order management systems.',extend:'<strong>Enterprise application:</strong> This framework can be applied directly to enterprise document automation — contract information extraction, purchase order parsing, structured customer service records — with no redesign required, just adjusting the JSON Schema field definitions.',cta_h:'Need document automation or LLM extraction?',cta_p:'Contracts, orders, forms — tell me your document processing pain point.',line_btn:'💬 Chat on LINE',nav_back:'← Back to Portfolio',back_btn:'← Back to Portfolio'}
+};
+let lang='zh';try{const s=localStorage.getItem('nndoit_lang');if(s)lang=s;}catch(e){}
+function applyLang(){const c=C[lang];document.documentElement.lang=lang==='zh'?'zh-Hant':'en';document.getElementById('langBtn').textContent=lang==='zh'?'EN':'中';document.getElementById('navBack').innerHTML=c.nav_back;document.getElementById('backBtn').innerHTML=c.back_btn;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(c[k]!==undefined)el.innerHTML=c[k];});}
+function toggleLang(){lang=lang==='zh'?'en':'zh';try{localStorage.setItem('nndoit_lang',lang);}catch(e){}applyLang();}
+function toggleTheme(){const h=document.documentElement,d=h.dataset.theme==='dark';h.dataset.theme=d?'light':'dark';document.getElementById('themeBtn').textContent=d?'🌙':'☀️';}
+window.addEventListener('scroll',()=>{document.querySelector('.nav').style.boxShadow=scrollY>30?'0 4px 30px rgba(0,0,0,.3)':'';},{passive:true});
+applyLang();
 </script>
 </body>
 </html>
