@@ -4,53 +4,34 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>AI Nutritionist | Case Study — 呂承恩 NNDoiT AI Studio</title>
-<meta property="og:title" content="AI Nutritionist | Case Study"/>
-<meta property="og:description" content="整合熱量查詢、圖片辨識與 AI 飲食教練三大功能的健康管理系統。"/>
 <style>
-:root{
-  --bg:#0a050f;--bg2:#110a18;--bg3:#1a0e24;
-  --card:rgba(255,255,255,.06);
-  --border:rgba(255,255,255,.1);--border2:rgba(236,72,153,.3);
-  --text:#f0eaf5;--muted:rgba(240,234,245,.5);--muted2:rgba(240,234,245,.35);
-  --primary:#ec4899;--accent:#f97316;
-  --max:860px;--nav-bg:rgba(10,5,15,.88);
-}
-[data-theme="light"]{
-  --bg:#fff7fb;--bg2:#ffeaf4;
-  --card:rgba(255,255,255,.95);
-  --border:rgba(236,72,153,.18);--border2:rgba(236,72,153,.4);
-  --text:#2d2130;--muted:#6b5c67;--muted2:#9a8a96;
-  --nav-bg:rgba(255,247,251,.9);
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-padding-top:68px;}
+:root{--bg:#0a050f;--bg2:#110a18;--card:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);--border2:rgba(236,72,153,.3);--text:#f0eaf5;--muted:rgba(240,234,245,.5);--primary:#ec4899;--accent:#f97316;--max:860px;--nav-bg:rgba(10,5,15,.88);}
+[data-theme="light"]{--bg:#fff7fb;--bg2:#ffeaf4;--card:rgba(255,255,255,.95);--border:rgba(236,72,153,.18);--border2:rgba(236,72,153,.4);--text:#2d2130;--muted:#6b5c67;--nav-bg:rgba(255,247,251,.9);}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-padding-top:68px;}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.8;transition:background .4s,color .4s;overflow-x:hidden;}
-a{color:inherit;text-decoration:none;}
-.container{width:min(var(--max),calc(100% - 40px));margin:0 auto;}
+a{color:inherit;text-decoration:none;}.container{width:min(var(--max),calc(100% - 40px));margin:0 auto;}
 .nav{position:sticky;top:0;z-index:500;backdrop-filter:blur(18px);background:var(--nav-bg);border-bottom:1px solid var(--border);transition:box-shadow .3s,background .4s;}
 .nav-inner{width:min(1160px,calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;}
-.brand{font-weight:900;font-size:.95rem;color:var(--text);}
-.brand small{display:block;color:var(--primary);font-size:.72rem;font-weight:800;margin-top:1px;}
+.brand{font-weight:900;font-size:.95rem;color:var(--text);}.brand small{display:block;color:var(--primary);font-size:.72rem;font-weight:800;margin-top:1px;}
 .nav-back{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-size:.88rem;font-weight:700;padding:7px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);transition:.2s;}
 .nav-back:hover{background:rgba(236,72,153,.12);border-color:var(--border2);color:var(--primary);}
+.nav-controls{display:flex;gap:8px;}
 .icon-btn{width:36px;height:36px;border-radius:12px;border:1px solid var(--border);background:var(--card);display:grid;place-items:center;cursor:pointer;transition:.2s;font-size:1rem;color:var(--text);}
 .icon-btn:hover{background:rgba(236,72,153,.15);border-color:var(--border2);}
+.lang-btn{width:auto;padding:0 10px;font-size:.72rem;font-weight:900;letter-spacing:.03em;}
 .cs-hero{padding:72px 0 56px;border-bottom:1px solid var(--border);}
-.cs-tag{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(236,72,153,.15);border:1px solid rgba(236,72,153,.25);color:var(--primary);font-size:.8rem;font-weight:900;margin-bottom:18px;}
+.cs-tag{display:inline-flex;padding:7px 14px;border-radius:999px;background:rgba(236,72,153,.15);border:1px solid rgba(236,72,153,.25);color:var(--primary);font-size:.8rem;font-weight:900;margin-bottom:18px;}
 .cs-title{font-size:clamp(1.9rem,4vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px;}
 .cs-subtitle{color:var(--muted);font-size:1.05rem;max-width:68ch;margin-bottom:32px;line-height:1.75;}
 .cs-meta-row{display:flex;flex-wrap:wrap;gap:12px;}
 .cs-badge{padding:7px 14px;border-radius:999px;font-size:.82rem;font-weight:900;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.2);color:#f97316;}
 .cs-badge.b-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
 .cs-badge.b-green{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.2);color:#4ade80;}
-.cs-body{padding:60px 0 80px;}
-.cs-section{margin-bottom:56px;}
-.cs-section:last-child{margin-bottom:0;}
+.cs-body{padding:60px 0 80px;}.cs-section{margin-bottom:56px;}.cs-section:last-child{margin-bottom:0;}
 .cs-section-label{display:flex;align-items:center;gap:10px;font-size:.75rem;font-weight:900;letter-spacing:.08em;color:var(--primary);text-transform:uppercase;margin-bottom:14px;}
 .cs-section-label::after{content:'';flex:1;height:1px;background:var(--border);}
 .cs-section h2{font-size:1.35rem;font-weight:900;letter-spacing:-.02em;margin-bottom:14px;}
-.cs-section p{color:var(--muted);font-size:.97rem;line-height:1.85;margin-bottom:12px;}
-.cs-section p:last-child{margin-bottom:0;}
+.cs-section p{color:var(--muted);font-size:.97rem;line-height:1.85;margin-bottom:12px;}.cs-section p:last-child{margin-bottom:0;}
 .cs-highlight{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--primary);border-radius:0 14px 14px 0;padding:18px 22px;margin:18px 0;color:var(--muted);font-size:.95rem;line-height:1.8;}
 .cs-highlight strong{color:var(--text);}
 .cs-par-grid{display:grid;gap:12px;margin:18px 0;}
@@ -58,11 +39,14 @@ a{color:inherit;text-decoration:none;}
 .cs-par-label{flex-shrink:0;font-size:.7rem;font-weight:900;padding:3px 9px;border-radius:6px;letter-spacing:.04em;margin-top:2px;white-space:nowrap;}
 .l-pain{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.22);}
 .l-sol{background:rgba(99,102,241,.14);color:#818cf8;border:1px solid rgba(99,102,241,.22);}
-.l-res{background:rgba(34,197,94,.14);color:#4ade80;border:1px solid rgba(34,197,94,.22);}
 [data-theme="light"] .l-pain{background:rgba(239,68,68,.1);color:#dc2626;}
 [data-theme="light"] .l-sol{background:rgba(99,102,241,.1);color:#4f46e5;}
-[data-theme="light"] .l-res{background:rgba(34,197,94,.1);color:#16a34a;}
 .cs-par-text{color:var(--muted);font-size:.93rem;line-height:1.65;}
+.cs-feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0;}
+.cs-feat{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;}
+.cs-feat-icon{font-size:1.8rem;margin-bottom:10px;}
+.cs-feat h4{font-size:1rem;font-weight:900;margin-bottom:8px;}
+.cs-feat p{color:var(--muted);font-size:.88rem;line-height:1.7;margin:0;}
 .cs-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px;}
 .cs-chip{padding:8px 14px;border-radius:999px;background:rgba(236,72,153,.1);border:1px solid rgba(236,72,153,.2);color:var(--primary);font-size:.82rem;font-weight:900;}
 .cs-chip.c-orange{background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.2);color:#f97316;}
@@ -83,260 +67,136 @@ a{color:inherit;text-decoration:none;}
 .cs-footer-text p{color:var(--muted);font-size:.93rem;}
 .cs-footer-btns{display:flex;gap:12px;flex-wrap:wrap;}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:900;border:1px solid transparent;transition:all .2s;font-size:.93rem;cursor:pointer;}
-.btn-primary{background:linear-gradient(135deg,#ec4899,#db2777);color:#fff;}
+.btn-primary{background:linear-gradient(135deg,#ec4899,#db2777);color:#fff;box-shadow:0 10px 28px rgba(219,39,119,.3);}
 .btn-primary:hover{transform:translateY(-2px);}
-.btn-ghost{background:var(--card);border-color:var(--border);color:var(--text);}
-.btn-ghost:hover{background:rgba(236,72,153,.1);border-color:var(--border2);color:var(--primary);}
-.btn-line{background:linear-gradient(135deg,#06c755,#00a846);color:#fff;}
-.btn-line:hover{transform:translateY(-2px);}
-
-/* Feature cards */
-.cs-feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0;}
-.cs-feat{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 16px;text-align:center;}
-.cs-feat-icon{font-size:1.8rem;margin-bottom:10px;}
-.cs-feat h4{font-size:.95rem;font-weight:900;margin-bottom:6px;}
-.cs-feat p{color:var(--muted);font-size:.82rem;line-height:1.65;margin:0;}
-
-/* Screenshots */
-.cs-imgs{display:grid;gap:10px;border-radius:14px;overflow:hidden;margin:18px 0;border:1px solid var(--border);}
-.cs-imgs.g3{grid-template-columns:1fr 1fr 1fr;}
-.cs-imgs img{width:100%;object-fit:cover;display:block;}
-
+.btn-ghost{background:var(--card);border-color:var(--border);color:var(--text);}.btn-ghost:hover{background:rgba(236,72,153,.1);border-color:var(--border2);color:var(--primary);}
+.btn-line{background:linear-gradient(135deg,#06c755,#00a846);color:#fff;}.btn-line:hover{transform:translateY(-2px);}
 .cs-arch{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:22px 24px;margin:18px 0;font-size:.9rem;}
 .arch-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);color:var(--muted);}
 .arch-row:last-child{border-bottom:none;}
 .arch-icon{width:32px;height:32px;border-radius:9px;background:rgba(236,72,153,.14);border:1px solid rgba(236,72,153,.2);display:grid;place-items:center;font-size:1rem;flex-shrink:0;}
 .arch-arrow{color:var(--primary);font-weight:900;font-size:1rem;}
-
-@media(max-width:768px){
-  .cs-hero{padding:48px 0 36px;}
-  .cs-feature-grid{grid-template-columns:1fr;}
-  .cs-result-stats{grid-template-columns:1fr 1fr;}
-  .cs-footer-inner{flex-direction:column;align-items:flex-start;}
-  .cs-footer-btns{width:100%;}
-  .cs-footer-btns .btn{flex:1;justify-content:center;}
-  .cs-imgs.g3{grid-template-columns:1fr 1fr;}
-}
+.cs-imgs{display:grid;gap:12px;border-radius:16px;overflow:hidden;margin:20px 0;border:1px solid var(--border);}
+.cs-imgs.g3{grid-template-columns:1fr 1fr 1fr;}.cs-imgs img{width:100%;object-fit:cover;display:block;}
+@media(max-width:768px){.cs-hero{padding:48px 0 36px;}.cs-feat-grid{grid-template-columns:1fr;}.cs-result-stats{grid-template-columns:1fr 1fr;}.cs-footer-inner{flex-direction:column;align-items:flex-start;}.cs-footer-btns{width:100%;}.cs-footer-btns .btn{flex:1;justify-content:center;}.cs-imgs.g3{grid-template-columns:1fr 1fr;}}
 </style>
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="brand">呂承恩 Lu Cheng En<small>NNDoiT AI Studio</small></a>
-    <a href="index.html#projects" class="nav-back">← 回作品集</a>
+    <a href="index.html#projects" class="nav-back" id="navBack">← 回作品集</a>
     <div class="nav-controls">
+      <div class="icon-btn lang-btn" id="langBtn" onclick="toggleLang()">EN</div>
       <div class="icon-btn" id="themeBtn" onclick="toggleTheme()">☀️</div>
     </div>
   </div>
 </nav>
-
-<div class="cs-hero">
-  <div class="container">
-    <div class="cs-tag">AI Health App</div>
-    <h1 class="cs-title">AI Nutritionist</h1>
-    <p class="cs-subtitle">整合熱量分析、圖片辨識熱量與 AI 飲食教練三大功能，把分散的健康查詢工具收進同一套系統，讓日常健康管理的門檻大幅降低。</p>
-    <div class="cs-meta-row">
-      <span class="cs-badge">Python · LLM · RAG</span>
-      <span class="cs-badge b-indigo">個人作品 / Open Source</span>
-      <span class="cs-badge b-green">三合一健康管理</span>
+<div class="cs-hero"><div class="container">
+  <div class="cs-tag" data-i18n="tag">AI Health App</div>
+  <h1 class="cs-title" data-i18n="title">AI Nutritionist</h1>
+  <p class="cs-subtitle" data-i18n="subtitle">整合熱量分析、圖片辨識熱量與 AI 飲食教練三大功能，把分散的健康查詢工具收進同一套系統，讓日常健康管理的門檻大幅降低。</p>
+  <div class="cs-meta-row">
+    <span class="cs-badge">Python · LLM · RAG</span>
+    <span class="cs-badge b-indigo" data-i18n="badge2">個人作品 / Open Source</span>
+    <span class="cs-badge b-green" data-i18n="badge3">三合一健康管理</span>
+  </div>
+</div></div>
+<div class="cs-body"><div class="container">
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s1_label">01 — 專案背景</div>
+    <h2 data-i18n="s1_h">為什麼要做這個工具？</h2>
+    <p data-i18n="s1_p1">想管理飲食健康，通常要用到好幾個工具：查熱量用一個 App、拍照估熱量要另一個、想問「我這樣吃合理嗎」又要去找別的地方。這些工具各自為政，沒有辦法形成一個完整的使用流程。</p>
+    <p data-i18n="s1_p2">這個專案的出發點是：把最常用的三個健康查詢動作整合在一個系統裡，讓使用者不需要切換工具，從查詢、記錄到獲得建議都在同一個介面完成。</p>
+    <div class="cs-highlight"><span data-i18n="s1_note"><strong>設計理念：</strong>不是做一個功能很多但沒人用完的 App，而是聚焦在「每天真的會用到的三個動作」上，做到每個功能都夠好用。</span></div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s2_label">02 — 問題與痛點</div>
+    <h2 data-i18n="s2_h">健康管理工具的使用斷點在哪裡</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p1_lbl">痛點 1</span><span class="cs-par-text" data-i18n="p1_txt">熱量資料散落各地——要查一個食物的熱量，可能要搜尋好幾個網站或 App 才找到可信的數字。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p2_lbl">痛點 2</span><span class="cs-par-text" data-i18n="p2_txt">拍照估熱量的需求很強，但多數工具要另外下載、另外登入，使用門檻高，用一次就不想用第二次。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p3_lbl">痛點 3</span><span class="cs-par-text" data-i18n="p3_txt">想問「我今天這樣吃熱量夠嗎」、「減脂期要怎麼配比」，但沒有一個工具能回答個人化的飲食問題。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p4_lbl">痛點 4</span><span class="cs-par-text" data-i18n="p4_txt">沒有整合——查完熱量、拍完照片、問完問題，資料都在不同地方，無法形成完整的飲食紀錄。</span></div>
     </div>
   </div>
-</div>
-
-<div class="cs-body">
-  <div class="container">
-
-    <!-- 1. 背景 -->
-    <div class="cs-section">
-      <div class="cs-section-label">01 — 專案背景</div>
-      <h2>為什麼要做這個工具？</h2>
-      <p>想管理飲食健康，通常要用到好幾個工具：查熱量用一個 App、拍照估熱量要另一個、想問「我這樣吃合理嗎」又要去找別的地方。這些工具各自為政，沒有辦法形成一個完整的使用流程。</p>
-      <p>這個專案的出發點是：<strong>把最常用的三個健康查詢動作整合在一個系統裡</strong>，讓使用者不需要切換工具，從查詢、記錄到獲得建議都在同一個介面完成。</p>
-      <div class="cs-highlight">
-        <strong>設計理念：</strong>不是做一個功能很多但沒人用完的 App，而是聚焦在「每天真的會用到的三個動作」上，做到每個功能都夠好用。
-      </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s3_label">03 — 功能與技術架構</div>
+    <h2 data-i18n="s3_h">三大核心功能模組</h2>
+    <div class="cs-feat-grid">
+      <div class="cs-feat"><div class="cs-feat-icon">🔍</div><h4 data-i18n="feat1_h">文字熱量查詢</h4><p data-i18n="feat1_p">輸入食物名稱，整合營養資料庫與 LLM，快速返回熱量、蛋白質、脂肪、碳水等完整數據。</p></div>
+      <div class="cs-feat"><div class="cs-feat-icon">📸</div><h4 data-i18n="feat2_h">圖片熱量辨識</h4><p data-i18n="feat2_p">上傳餐點照片，AI 自動辨識食物種類並估算熱量，不需要逐一手動查詢。</p></div>
+      <div class="cs-feat"><div class="cs-feat-icon">🤖</div><h4 data-i18n="feat3_h">AI 飲食教練</h4><p data-i18n="feat3_p">結合 RAG 知識庫，根據使用者的飲食目標與紀錄，給出個人化的飲食建議與規劃方向。</p></div>
     </div>
-
-    <!-- 2. 問題 -->
-    <div class="cs-section">
-      <div class="cs-section-label">02 — 問題與痛點</div>
-      <h2>健康管理工具的使用斷點在哪裡</h2>
-      <div class="cs-par-grid">
-        <div class="cs-par-item">
-          <span class="cs-par-label l-pain">痛點 1</span>
-          <span class="cs-par-text">熱量資料散落各地——要查一個食物的熱量，可能要搜尋好幾個網站或 App 才找到可信的數字。</span>
-        </div>
-        <div class="cs-par-item">
-          <span class="cs-par-label l-pain">痛點 2</span>
-          <span class="cs-par-text">拍照估熱量的需求很強，但多數工具要另外下載、另外登入，使用門檻高，用一次就不想用第二次。</span>
-        </div>
-        <div class="cs-par-item">
-          <span class="cs-par-label l-pain">痛點 3</span>
-          <span class="cs-par-text">想問「我今天這樣吃熱量夠嗎」、「減脂期要怎麼配比」，但沒有一個工具能回答個人化的飲食問題。</span>
-        </div>
-        <div class="cs-par-item">
-          <span class="cs-par-label l-pain">痛點 4</span>
-          <span class="cs-par-text">沒有整合——查完熱量、拍完照片、問完問題，資料都在不同地方，無法形成完整的飲食紀錄。</span>
-        </div>
-      </div>
+    <div class="cs-arch">
+      <div class="arch-row"><div class="arch-icon">🖥️</div><span data-i18n="arch1_n"><strong>前端介面</strong>（Python / Streamlit 或 Web UI）</span><span class="arch-arrow">→</span><span style="color:var(--muted)" data-i18n="arch1_d">三個功能模組的統一入口</span></div>
+      <div class="arch-row"><div class="arch-icon">🧠</div><span data-i18n="arch2_n"><strong>LLM 核心</strong>（OpenAI API）</span><span class="arch-arrow">→</span><span style="color:var(--muted)" data-i18n="arch2_d">文字查詢、圖片解析、對話式教練</span></div>
+      <div class="arch-row"><div class="arch-icon">📚</div><span data-i18n="arch3_n"><strong>RAG 知識庫</strong></span><span class="arch-arrow">→</span><span style="color:var(--muted)" data-i18n="arch3_d">營養學知識向量化，提升飲食建議準確度</span></div>
+      <div class="arch-row"><div class="arch-icon">🗄️</div><span data-i18n="arch4_n"><strong>飲食紀錄儲存</strong></span><span class="arch-arrow">→</span><span style="color:var(--muted)" data-i18n="arch4_d">保存查詢歷程，供 AI 教練參考做個人化建議</span></div>
     </div>
-
-    <!-- 3. 功能架構 -->
-    <div class="cs-section">
-      <div class="cs-section-label">03 — 功能與技術架構</div>
-      <h2>三大核心功能模組</h2>
-      <div class="cs-feature-grid">
-        <div class="cs-feat">
-          <div class="cs-feat-icon">🔍</div>
-          <h4>文字熱量查詢</h4>
-          <p>輸入食物名稱，整合營養資料庫與 LLM，快速返回熱量、蛋白質、脂肪、碳水等完整數據。</p>
-        </div>
-        <div class="cs-feat">
-          <div class="cs-feat-icon">📸</div>
-          <h4>圖片熱量辨識</h4>
-          <p>上傳餐點照片，AI 自動辨識食物種類並估算熱量，不需要逐一手動查詢。</p>
-        </div>
-        <div class="cs-feat">
-          <div class="cs-feat-icon">🤖</div>
-          <h4>AI 飲食教練</h4>
-          <p>結合 RAG 知識庫，根據使用者的飲食目標與紀錄，給出個人化的飲食建議與規劃方向。</p>
-        </div>
-      </div>
-
-      <div class="cs-arch">
-        <div class="arch-row">
-          <div class="arch-icon">🖥️</div>
-          <span><strong>前端介面</strong>（Python / Streamlit 或 Web UI）</span>
-          <span class="arch-arrow">→</span>
-          <span style="color:var(--muted)">三個功能模組的統一入口</span>
-        </div>
-        <div class="arch-row">
-          <div class="arch-icon">🧠</div>
-          <span><strong>LLM 核心</strong>（OpenAI API）</span>
-          <span class="arch-arrow">→</span>
-          <span style="color:var(--muted)">文字查詢、圖片解析、對話式教練</span>
-        </div>
-        <div class="arch-row">
-          <div class="arch-icon">📚</div>
-          <span><strong>RAG 知識庫</strong></span>
-          <span class="arch-arrow">→</span>
-          <span style="color:var(--muted)">營養學知識向量化，提升飲食建議準確度</span>
-        </div>
-        <div class="arch-row">
-          <div class="arch-icon">🗄️</div>
-          <span><strong>飲食紀錄儲存</strong></span>
-          <span class="arch-arrow">→</span>
-          <span style="color:var(--muted)">保存查詢歷程，供 AI 教練參考做個人化建議</span>
-        </div>
-      </div>
-
-      <div class="cs-imgs g3">
-        <img src="images/ai-nutritionist-1.png" alt="AI Nutritionist 截圖 1" loading="lazy">
-        <img src="images/ai-nutritionist-3.png" alt="AI Nutritionist 截圖 2" loading="lazy">
-        <img src="images/ai-nutritionist-4.png" alt="AI Nutritionist 截圖 3" loading="lazy">
-      </div>
-
-      <div class="cs-chips">
-        <span class="cs-chip c-orange">Python</span>
-        <span class="cs-chip c-orange">OpenAI API</span>
-        <span class="cs-chip">LLM</span>
-        <span class="cs-chip c-indigo">RAG</span>
-        <span class="cs-chip c-indigo">Vector Database</span>
-        <span class="cs-chip">Image Analysis</span>
-        <span class="cs-chip">Nutrition Database</span>
-      </div>
+    <div class="cs-imgs g3">
+      <img src="images/ai-nutritionist-1.png" alt="AI Nutritionist 1" loading="lazy">
+      <img src="images/ai-nutritionist-3.png" alt="AI Nutritionist 2" loading="lazy">
+      <img src="images/ai-nutritionist-4.png" alt="AI Nutritionist 3" loading="lazy">
     </div>
-
-    <!-- 4. 角色 -->
-    <div class="cs-section">
-      <div class="cs-section-label">04 — 我的負責範圍</div>
-      <h2>從需求定義到功能實作，個人獨立開發</h2>
-      <ul class="cs-numlist">
-        <li><span class="n">1</span><span>確認三大核心功能範疇與使用者流程設計</span></li>
-        <li><span class="n">2</span><span>建立營養資訊 RAG 知識庫——收集、清理、向量化營養學資料</span></li>
-        <li><span class="n">3</span><span>設計文字查詢模組的 Prompt，確保輸出格式一致（熱量、三大營養素、份量說明）</span></li>
-        <li><span class="n">4</span><span>實作圖片辨識模組，整合 Vision API 並設計提示詞引導準確估算</span></li>
-        <li><span class="n">5</span><span>建立 AI 飲食教練的對話邏輯，支援多輪對話與根據歷史紀錄給建議</span></li>
-        <li><span class="n">6</span><span>整合三個模組為統一介面，上傳至 GitHub 開源</span></li>
-      </ul>
-    </div>
-
-    <!-- 5. 難點 -->
-    <div class="cs-section">
-      <div class="cs-section-label">05 — 實作重點與難點</div>
-      <h2>讓三個功能「感覺像同一個系統」</h2>
-      <div class="cs-par-grid">
-        <div class="cs-par-item">
-          <span class="cs-par-label l-sol">技術重點</span>
-          <span class="cs-par-text"><strong style="color:var(--text)">圖片估算的準確性：</strong>圖片辨識熱量本質上是估算，關鍵在 Prompt 設計——要引導模型先辨識食物種類、再估份量、再算熱量，分步驟比直接問答準確得多。</span>
-        </div>
-        <div class="cs-par-item">
-          <span class="cs-par-label l-sol">技術重點</span>
-          <span class="cs-par-text"><strong style="color:var(--text)">RAG 知識庫的邊界設定：</strong>飲食建議很容易被使用者導到「醫療建議」，需要在 Prompt 中明確設定邊界——建議飲食方向可以，但特定疾病的飲食治療要引導就醫。</span>
-        </div>
-        <div class="cs-par-item">
-          <span class="cs-par-label l-sol">技術重點</span>
-          <span class="cs-par-text"><strong style="color:var(--text)">跨模組資料共享：</strong>三個功能需要共享使用者的飲食紀錄，這樣 AI 教練才能根據「你今天已經吃了什麼」給個人化建議，需要設計共用的 session 狀態管理。</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 6. 成果 -->
-    <div class="cs-section">
-      <div class="cs-section-label">06 — 專案成果 / 價值</div>
-      <h2>把分散的工具收進同一套系統</h2>
-      <div class="cs-result-card">
-        <h3>使用者體驗改變</h3>
-        <div class="cs-result-stats">
-          <div class="crs-item">
-            <span class="crs-num">3合1</span>
-            <div class="crs-label">查詢 / 拍照 / 建議<br>同一介面完成</div>
-          </div>
-          <div class="crs-item">
-            <span class="crs-num">0</span>
-            <div class="crs-label">需要切換<br>的工具數</div>
-          </div>
-          <div class="crs-item">
-            <span class="crs-num">個人化</span>
-            <div class="crs-label">根據歷史紀錄<br>給出的建議</div>
-          </div>
-        </div>
-        <p>把原本需要跨多個 App 才能完成的健康管理流程，收進同一套系統。使用者不再需要在多個工具之間切換，也不需要手動彙整資料——系統自動保存紀錄並作為後續建議的依據。</p>
-      </div>
-      <div class="cs-highlight" style="margin-top:20px;">
-        <strong>延伸可能：</strong>這套架構可以很容易地擴展成企業的員工健康管理平台，或是結合 LINE Bot 讓使用者在聊天視窗就能完成所有功能，不需要另外開 App。
-      </div>
-    </div>
-
+    <div class="cs-chips"><span class="cs-chip c-orange">Python</span><span class="cs-chip c-orange">OpenAI API</span><span class="cs-chip">LLM</span><span class="cs-chip c-indigo">RAG</span><span class="cs-chip c-indigo">Vector Database</span><span class="cs-chip">Image Analysis</span></div>
   </div>
-</div>
-
-<div class="cs-footer-cta">
-  <div class="container">
-    <div class="cs-footer-inner">
-      <div class="cs-footer-text">
-        <h3>有 AI 應用或 LLM 整合的想法？</h3>
-        <p>從查詢工具、知識庫到個人化建議系統，都可以來討論。</p>
-      </div>
-      <div class="cs-footer-btns">
-        <a href="index.html#projects" class="btn btn-ghost">← 回作品集</a>
-        <a href="https://github.com/ChengEnLu252/AI-Nutritionist.git" target="_blank" class="btn btn-primary">View GitHub</a>
-        <a href="https://lin.ee/Wc5Bozb" target="_blank" class="btn btn-line">💬 加 LINE 討論</a>
-      </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s4_label">04 — 我的負責範圍</div>
+    <h2 data-i18n="s4_h">從需求定義到功能實作，個人獨立開發</h2>
+    <ul class="cs-numlist">
+      <li><span class="n">1</span><span data-i18n="r1">確認三大核心功能範疇與使用者流程設計</span></li>
+      <li><span class="n">2</span><span data-i18n="r2">建立營養資訊 RAG 知識庫——收集、清理、向量化營養學資料</span></li>
+      <li><span class="n">3</span><span data-i18n="r3">設計文字查詢模組的 Prompt，確保輸出格式一致（熱量、三大營養素、份量說明）</span></li>
+      <li><span class="n">4</span><span data-i18n="r4">實作圖片辨識模組，整合 Vision API 並設計提示詞引導準確估算</span></li>
+      <li><span class="n">5</span><span data-i18n="r5">建立 AI 飲食教練的對話邏輯，支援多輪對話與根據歷史紀錄給建議</span></li>
+      <li><span class="n">6</span><span data-i18n="r6">整合三個模組為統一介面，上傳至 GitHub 開源</span></li>
+    </ul>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s5_label">05 — 實作重點與難點</div>
+    <h2 data-i18n="s5_h">讓三個功能「感覺像同一個系統」</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c1_lbl">技術重點</span><span class="cs-par-text" data-i18n="c1_txt"><strong style="color:var(--text)">圖片估算的準確性：</strong>圖片辨識熱量本質上是估算，關鍵在 Prompt 設計——要引導模型先辨識食物種類、再估份量、再算熱量，分步驟比直接問答準確得多。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c2_lbl">技術重點</span><span class="cs-par-text" data-i18n="c2_txt"><strong style="color:var(--text)">RAG 知識庫的邊界設定：</strong>飲食建議很容易被使用者導到「醫療建議」，需要在 Prompt 中明確設定邊界——建議飲食方向可以，但特定疾病的飲食治療要引導就醫。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c3_lbl">技術重點</span><span class="cs-par-text" data-i18n="c3_txt"><strong style="color:var(--text)">跨模組資料共享：</strong>三個功能需要共享使用者的飲食紀錄，這樣 AI 教練才能根據「你今天已經吃了什麼」給個人化建議，需要設計共用的 session 狀態管理。</span></div>
     </div>
   </div>
-</div>
-
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s6_label">06 — 專案成果 / 價值</div>
+    <h2 data-i18n="s6_h">把分散的工具收進同一套系統</h2>
+    <div class="cs-result-card">
+      <h3 data-i18n="res_h">使用者體驗改變</h3>
+      <div class="cs-result-stats">
+        <div class="crs-item"><span class="crs-num" data-i18n="stat1_num">3合1</span><div class="crs-label" data-i18n="stat1">查詢 / 拍照 / 建議<br>同一介面完成</div></div>
+        <div class="crs-item"><span class="crs-num">0</span><div class="crs-label" data-i18n="stat2">需要切換<br>的工具數</div></div>
+        <div class="crs-item"><span class="crs-num" data-i18n="stat3_num">個人化</span><div class="crs-label" data-i18n="stat3">根據歷史紀錄<br>給出的建議</div></div>
+      </div>
+      <p data-i18n="res_p">把原本需要跨多個 App 才能完成的健康管理流程，收進同一套系統。使用者不再需要在多個工具之間切換，也不需要手動彙整資料——系統自動保存紀錄並作為後續建議的依據。</p>
+    </div>
+    <div class="cs-highlight" style="margin-top:20px;"><span data-i18n="extend"><strong>延伸可能：</strong>這套架構可以很容易地擴展成企業的員工健康管理平台，或是結合 LINE Bot 讓使用者在聊天視窗就能完成所有功能，不需要另外開 App。</span></div>
+  </div>
+</div></div>
+<div class="cs-footer-cta"><div class="container">
+  <div class="cs-footer-inner">
+    <div class="cs-footer-text"><h3 data-i18n="cta_h">有 AI 應用或 LLM 整合的想法？</h3><p data-i18n="cta_p">從查詢工具、知識庫到個人化建議系統，都可以來討論。</p></div>
+    <div class="cs-footer-btns">
+      <a href="index.html#projects" class="btn btn-ghost" id="backBtn">← 回作品集</a>
+      <a href="https://github.com/ChengEnLu252/AI-Nutritionist.git" target="_blank" class="btn btn-primary">View GitHub</a>
+      <a href="https://lin.ee/Wc5Bozb" target="_blank" class="btn btn-line" data-i18n="line_btn">💬 加 LINE 討論</a>
+    </div>
+  </div>
+</div></div>
 <script>
-function toggleTheme(){
-  const html=document.documentElement,isDark=html.dataset.theme==='dark';
-  html.dataset.theme=isDark?'light':'dark';
-  document.getElementById('themeBtn').textContent=isDark?'🌙':'☀️';
-}
-window.addEventListener('scroll',()=>{
-  document.querySelector('.nav').style.boxShadow=scrollY>30?'0 4px 30px rgba(0,0,0,.3)':'';
-},{passive:true});
+const C={zh:{tag:'AI Health App',title:'AI Nutritionist',subtitle:'整合熱量分析、圖片辨識熱量與 AI 飲食教練三大功能，把分散的健康查詢工具收進同一套系統，讓日常健康管理的門檻大幅降低。',badge2:'個人作品 / Open Source',badge3:'三合一健康管理',s1_label:'01 — 專案背景',s1_h:'為什麼要做這個工具？',s1_p1:'想管理飲食健康，通常要用到好幾個工具：查熱量用一個 App、拍照估熱量要另一個、想問「我這樣吃合理嗎」又要去找別的地方。這些工具各自為政，沒有辦法形成一個完整的使用流程。',s1_p2:'這個專案的出發點是：把最常用的三個健康查詢動作整合在一個系統裡，讓使用者不需要切換工具，從查詢、記錄到獲得建議都在同一個介面完成。',s1_note:'<strong>設計理念：</strong>不是做一個功能很多但沒人用完的 App，而是聚焦在「每天真的會用到的三個動作」上，做到每個功能都夠好用。',s2_label:'02 — 問題與痛點',s2_h:'健康管理工具的使用斷點在哪裡',p1_lbl:'痛點 1',p1_txt:'熱量資料散落各地——要查一個食物的熱量，可能要搜尋好幾個網站或 App 才找到可信的數字。',p2_lbl:'痛點 2',p2_txt:'拍照估熱量的需求很強，但多數工具要另外下載、另外登入，使用門檻高，用一次就不想用第二次。',p3_lbl:'痛點 3',p3_txt:'想問「我今天這樣吃熱量夠嗎」、「減脂期要怎麼配比」，但沒有一個工具能回答個人化的飲食問題。',p4_lbl:'痛點 4',p4_txt:'沒有整合——查完熱量、拍完照片、問完問題，資料都在不同地方，無法形成完整的飲食紀錄。',s3_label:'03 — 功能與技術架構',s3_h:'三大核心功能模組',feat1_h:'文字熱量查詢',feat1_p:'輸入食物名稱，整合營養資料庫與 LLM，快速返回熱量、蛋白質、脂肪、碳水等完整數據。',feat2_h:'圖片熱量辨識',feat2_p:'上傳餐點照片，AI 自動辨識食物種類並估算熱量，不需要逐一手動查詢。',feat3_h:'AI 飲食教練',feat3_p:'結合 RAG 知識庫，根據使用者的飲食目標與紀錄，給出個人化的飲食建議與規劃方向。',arch1_n:'<strong>前端介面</strong>（Python / Streamlit 或 Web UI）',arch1_d:'三個功能模組的統一入口',arch2_n:'<strong>LLM 核心</strong>（OpenAI API）',arch2_d:'文字查詢、圖片解析、對話式教練',arch3_n:'<strong>RAG 知識庫</strong>',arch3_d:'營養學知識向量化，提升飲食建議準確度',arch4_n:'<strong>飲食紀錄儲存</strong>',arch4_d:'保存查詢歷程，供 AI 教練參考做個人化建議',s4_label:'04 — 我的負責範圍',s4_h:'從需求定義到功能實作，個人獨立開發',r1:'確認三大核心功能範疇與使用者流程設計',r2:'建立營養資訊 RAG 知識庫——收集、清理、向量化營養學資料',r3:'設計文字查詢模組的 Prompt，確保輸出格式一致（熱量、三大營養素、份量說明）',r4:'實作圖片辨識模組，整合 Vision API 並設計提示詞引導準確估算',r5:'建立 AI 飲食教練的對話邏輯，支援多輪對話與根據歷史紀錄給建議',r6:'整合三個模組為統一介面，上傳至 GitHub 開源',s5_label:'05 — 實作重點與難點',s5_h:'讓三個功能「感覺像同一個系統」',c1_lbl:'技術重點',c1_txt:'<strong style="color:var(--text)">圖片估算的準確性：</strong>圖片辨識熱量本質上是估算，關鍵在 Prompt 設計——要引導模型先辨識食物種類、再估份量、再算熱量，分步驟比直接問答準確得多。',c2_lbl:'技術重點',c2_txt:'<strong style="color:var(--text)">RAG 知識庫的邊界設定：</strong>飲食建議很容易被使用者導到「醫療建議」，需要在 Prompt 中明確設定邊界——建議飲食方向可以，但特定疾病的飲食治療要引導就醫。',c3_lbl:'技術重點',c3_txt:'<strong style="color:var(--text)">跨模組資料共享：</strong>三個功能需要共享使用者的飲食紀錄，這樣 AI 教練才能根據「你今天已經吃了什麼」給個人化建議，需要設計共用的 session 狀態管理。',s6_label:'06 — 專案成果 / 價值',s6_h:'把分散的工具收進同一套系統',res_h:'使用者體驗改變',stat1_num:'3合1',stat1:'查詢 / 拍照 / 建議<br>同一介面完成',stat2:'需要切換<br>的工具數',stat3_num:'個人化',stat3:'根據歷史紀錄<br>給出的建議',res_p:'把原本需要跨多個 App 才能完成的健康管理流程，收進同一套系統。使用者不再需要在多個工具之間切換，也不需要手動彙整資料——系統自動保存紀錄並作為後續建議的依據。',extend:'<strong>延伸可能：</strong>這套架構可以很容易地擴展成企業的員工健康管理平台，或是結合 LINE Bot 讓使用者在聊天視窗就能完成所有功能，不需要另外開 App。',cta_h:'有 AI 應用或 LLM 整合的想法？',cta_p:'從查詢工具、知識庫到個人化建議系統，都可以來討論。',line_btn:'💬 加 LINE 討論',nav_back:'← 回作品集',back_btn:'← 回作品集'},
+en:{tag:'AI Health App',title:'AI Nutritionist',subtitle:'An integrated health management system combining calorie analysis, photo-based calorie recognition, and an AI dietary coach — all in one place, dramatically lowering the barrier to daily health tracking.',badge2:'Personal Project / Open Source',badge3:'3-in-1 Health Management',s1_label:'01 — Background',s1_h:'Why build this tool?',s1_p1:'Managing your diet typically requires multiple apps: one to look up calories, another to take food photos, yet another to ask "is my diet actually reasonable?" These tools are completely disconnected with no unified workflow.',s1_p2:'The premise of this project: consolidate the three most common daily health queries into a single system — so users don\'t need to switch tools. Query, log, and get advice, all in one interface.',s1_note:'<strong>Design philosophy:</strong> Not an app packed with features no one finishes. The focus is on the three actions people actually do every day — and making each one genuinely good.',s2_label:'02 — Problems & Pain Points',s2_h:'Where health management tools fall apart',p1_lbl:'Pain 1',p1_txt:'Calorie data is scattered — finding a reliable number for a single food might mean searching multiple websites or apps.',p2_lbl:'Pain 2',p2_txt:'Photo calorie estimation is a strong need, but most tools require a separate download and login — high barrier means people try it once and stop.',p3_lbl:'Pain 3',p3_txt:'Questions like "am I eating enough today?" or "how should I balance macros for fat loss?" have no tool to answer them in a personalized way.',p4_lbl:'Pain 4',p4_txt:'No integration — after looking up calories, taking a photo, and asking a question, data ends up in completely different places with no way to build a comprehensive diet log.',s3_label:'03 — Features & Architecture',s3_h:'Three core functional modules',feat1_h:'Text-Based Calorie Lookup',feat1_p:'Enter a food name — integrated nutrition database + LLM returns full data: calories, protein, fat, carbs, and portion details instantly.',feat2_h:'Photo Calorie Recognition',feat2_p:'Upload a meal photo and AI automatically identifies the food and estimates its calorie count — no manual searching required.',feat3_h:'AI Dietary Coach',feat3_p:'Powered by a RAG knowledge base, gives personalized dietary advice and planning based on the user\'s goals and logged history.',arch1_n:'<strong>Frontend Interface</strong> (Python / Streamlit or Web UI)',arch1_d:'Unified entry point for all three functional modules',arch2_n:'<strong>LLM Core</strong> (OpenAI API)',arch2_d:'Text lookup, image analysis, and conversational coaching',arch3_n:'<strong>RAG Knowledge Base</strong>',arch3_d:'Vectorized nutritional knowledge for higher accuracy dietary advice',arch4_n:'<strong>Diet Record Storage</strong>',arch4_d:'Saves query history for AI coach to reference in personalized recommendations',s4_label:'04 — My Responsibilities',s4_h:'Solo development from requirements to release',r1:'Defined the three core feature scopes and designed the user flow.',r2:'Built the nutritional information RAG knowledge base — collected, cleaned, and vectorized nutritional science data.',r3:'Designed the text query module Prompt to ensure consistent output format (calories, macros, portion descriptions).',r4:'Implemented the photo recognition module, integrated Vision API, and crafted prompts to guide accurate estimation.',r5:'Built the AI dietary coach conversational logic with multi-turn dialogue and history-aware personalized recommendations.',r6:'Integrated all three modules into a unified interface and published as open source on GitHub.',s5_label:'05 — Technical Challenges',s5_h:'Making three features feel like one coherent system',c1_lbl:'Key Challenge',c1_txt:'<strong style="color:var(--text)">Photo estimation accuracy:</strong> Image-based calorie counting is inherently an estimate. The key is prompt design — guiding the model to first identify the food, then estimate portion size, then calculate calories, step by step. This is significantly more accurate than asking directly.',c2_lbl:'Key Challenge',c2_txt:'<strong style="color:var(--text)">Setting RAG knowledge base boundaries:</strong> Dietary advice can easily drift into medical advice. The prompt must explicitly define the boundary — dietary direction is fine, but specific disease-related dietary treatment must be redirected to medical professionals.',c3_lbl:'Key Challenge',c3_txt:'<strong style="color:var(--text)">Cross-module data sharing:</strong> All three features need to share the user\'s diet log so the AI coach can give advice based on "what you\'ve already eaten today." This required designing a shared session state management layer.',s6_label:'06 — Results & Value',s6_h:'Bringing scattered tools into one system',res_h:'User Experience Shift',stat1_num:'3-in-1',stat1:'Lookup / Photo / Advice<br>one interface does all',stat2:'Tools needed<br>to switch between',stat3_num:'Personalized',stat3:'Recommendations based<br>on logged history',res_p:'The health management workflow that previously required multiple apps now lives in a single system. Users no longer need to switch between tools or manually compile data — the system auto-saves records and uses them as the basis for future recommendations.',extend:'<strong>Extensibility:</strong> This architecture can be extended into an enterprise employee health management platform, or combined with a LINE Bot so users can access all features directly within their chat window — no separate app needed.',cta_h:'Have an AI application or LLM integration idea?',cta_p:'From query tools and knowledge bases to personalized advisory systems — let\'s talk.',line_btn:'💬 Chat on LINE',nav_back:'← Back to Portfolio',back_btn:'← Back to Portfolio'}
+};
+let lang='zh';try{const s=localStorage.getItem('nndoit_lang');if(s)lang=s;}catch(e){}
+function applyLang(){const c=C[lang];document.documentElement.lang=lang==='zh'?'zh-Hant':'en';document.getElementById('langBtn').textContent=lang==='zh'?'EN':'中';document.getElementById('navBack').innerHTML=c.nav_back;document.getElementById('backBtn').innerHTML=c.back_btn;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(c[k]!==undefined)el.innerHTML=c[k];});}
+function toggleLang(){lang=lang==='zh'?'en':'zh';try{localStorage.setItem('nndoit_lang',lang);}catch(e){}applyLang();}
+function toggleTheme(){const h=document.documentElement,d=h.dataset.theme==='dark';h.dataset.theme=d?'light':'dark';document.getElementById('themeBtn').textContent=d?'🌙':'☀️';}
+window.addEventListener('scroll',()=>{document.querySelector('.nav').style.boxShadow=scrollY>30?'0 4px 30px rgba(0,0,0,.3)':'';},{passive:true});
+applyLang();
 </script>
 </body>
 </html>
