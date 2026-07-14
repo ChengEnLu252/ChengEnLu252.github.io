@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>月翔商行 日用品批發商官網 | Case Study — 呂承恩 NNDoiT AI Studio</title>
+<style>
+:root{--bg:#0a050f;--bg2:#110a18;--card:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);--border2:rgba(236,72,153,.3);--text:#f0eaf5;--muted:rgba(240,234,245,.5);--primary:#ec4899;--accent:#f97316;--max:860px;--nav-bg:rgba(10,5,15,.88);}
+[data-theme="light"]{--bg:#fff7fb;--bg2:#ffeaf4;--card:rgba(255,255,255,.95);--border:rgba(236,72,153,.18);--border2:rgba(236,72,153,.4);--text:#2d2130;--muted:#6b5c67;--nav-bg:rgba(255,247,251,.9);}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-padding-top:68px;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.8;transition:background .4s,color .4s;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}.container{width:min(var(--max),calc(100% - 40px));margin:0 auto;}
+.nav{position:sticky;top:0;z-index:500;backdrop-filter:blur(18px);background:var(--nav-bg);border-bottom:1px solid var(--border);transition:box-shadow .3s,background .4s;}
+.nav-inner{width:min(1160px,calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;}
+.brand{font-weight:900;font-size:.95rem;color:var(--text);}.brand small{display:block;color:var(--primary);font-size:.72rem;font-weight:800;margin-top:1px;}
+.nav-back{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-size:.88rem;font-weight:700;padding:7px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);transition:.2s;}
+.nav-back:hover{background:rgba(236,72,153,.12);border-color:var(--border2);color:var(--primary);}
+.nav-controls{display:flex;gap:8px;}
+.icon-btn{width:36px;height:36px;border-radius:12px;border:1px solid var(--border);background:var(--card);display:grid;place-items:center;cursor:pointer;transition:.2s;font-size:1rem;color:var(--text);}
+.icon-btn:hover{background:rgba(236,72,153,.15);border-color:var(--border2);}
+.lang-btn{width:auto;padding:0 10px;font-size:.72rem;font-weight:900;letter-spacing:.03em;}
+.cs-hero{padding:72px 0 56px;border-bottom:1px solid var(--border);}
+.cs-tag{display:inline-flex;padding:7px 14px;border-radius:999px;background:rgba(236,72,153,.15);border:1px solid rgba(236,72,153,.25);color:var(--primary);font-size:.8rem;font-weight:900;margin-bottom:18px;}
+.cs-title{font-size:clamp(1.9rem,4vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px;}
+.cs-subtitle{color:var(--muted);font-size:1.05rem;max-width:68ch;margin-bottom:32px;line-height:1.75;}
+.cs-meta-row{display:flex;flex-wrap:wrap;gap:12px;}
+.cs-badge{padding:7px 14px;border-radius:999px;font-size:.82rem;font-weight:900;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.2);color:#f97316;}
+.cs-badge.b-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
+.cs-badge.b-green{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.2);color:#4ade80;}
+.cs-body{padding:60px 0 80px;}.cs-section{margin-bottom:56px;}.cs-section:last-child{margin-bottom:0;}
+.cs-section-label{display:flex;align-items:center;gap:10px;font-size:.75rem;font-weight:900;letter-spacing:.08em;color:var(--primary);text-transform:uppercase;margin-bottom:14px;}
+.cs-section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.cs-section h2{font-size:1.35rem;font-weight:900;letter-spacing:-.02em;margin-bottom:14px;}
+.cs-section p{color:var(--muted);font-size:.97rem;line-height:1.85;margin-bottom:12px;}.cs-section p:last-child{margin-bottom:0;}
+.cs-highlight{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--primary);border-radius:0 14px 14px 0;padding:18px 22px;margin:18px 0;color:var(--muted);font-size:.95rem;line-height:1.8;}
+.cs-highlight strong{color:var(--text);}
+.cs-par-grid{display:grid;gap:12px;margin:18px 0;}
+.cs-par-item{display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;}
+.cs-par-label{flex-shrink:0;font-size:.7rem;font-weight:900;padding:3px 9px;border-radius:6px;letter-spacing:.04em;margin-top:2px;white-space:nowrap;}
+.l-pain{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.22);}
+.l-sol{background:rgba(99,102,241,.14);color:#818cf8;border:1px solid rgba(99,102,241,.22);}
+[data-theme="light"] .l-pain{background:rgba(239,68,68,.1);color:#dc2626;}
+[data-theme="light"] .l-sol{background:rgba(99,102,241,.1);color:#4f46e5;}
+.cs-par-text{color:var(--muted);font-size:.93rem;line-height:1.65;}
+.cs-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px;}
+.cs-chip{padding:8px 14px;border-radius:999px;background:rgba(236,72,153,.1);border:1px solid rgba(236,72,153,.2);color:var(--primary);font-size:.82rem;font-weight:900;}
+.cs-chip.c-orange{background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.2);color:#f97316;}
+.cs-chip.c-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
+.cs-numlist{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:14px;}
+.cs-numlist li{display:flex;gap:14px;align-items:flex-start;color:var(--muted);font-size:.95rem;line-height:1.75;}
+.cs-numlist li .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(236,72,153,.18);border:1px solid rgba(236,72,153,.3);color:var(--primary);font-weight:900;font-size:.8rem;display:grid;place-items:center;margin-top:2px;}
+.cs-result-card{background:linear-gradient(135deg,rgba(236,72,153,.12),rgba(249,115,22,.08));border:1px solid rgba(236,72,153,.25);border-radius:20px;padding:28px 30px;margin-top:18px;}
+.cs-result-card h3{font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--text);}
+.cs-result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
+.crs-item{text-align:center;padding:16px 10px;background:rgba(255,255,255,.04);border-radius:14px;border:1px solid var(--border);}
+.crs-num{font-size:1.7rem;font-weight:900;color:var(--primary);display:block;line-height:1.1;}
+.crs-label{font-size:.76rem;color:var(--muted);margin-top:4px;line-height:1.4;}
+.cs-result-card p{color:var(--muted);font-size:.93rem;line-height:1.8;}
+.cs-imgs{display:grid;gap:12px;border-radius:16px;overflow:hidden;margin:20px 0;border:1px solid var(--border);}
+.cs-imgs.g3{grid-template-columns:1fr 1fr 1fr;}.cs-imgs.g2{grid-template-columns:1fr 1fr;}.cs-imgs img{width:100%;object-fit:cover;display:block;}
+.cs-footer-cta{background:var(--bg2);border-top:1px solid var(--border);padding:52px 0;}
+.cs-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.cs-footer-text h3{font-size:1.25rem;font-weight:900;margin-bottom:6px;}
+.cs-footer-text p{color:var(--muted);font-size:.93rem;}
+.cs-footer-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:900;border:1px solid transparent;transition:all .2s;font-size:.93rem;cursor:pointer;}
+.btn-primary{background:linear-gradient(135deg,#ec4899,#db2777);color:#fff;}.btn-primary:hover{transform:translateY(-2px);}
+.btn-ghost{background:var(--card);border-color:var(--border);color:var(--text);}.btn-ghost:hover{background:rgba(236,72,153,.1);border-color:var(--border2);color:var(--primary);}
+.btn-line{background:linear-gradient(135deg,#06c755,#00a846);color:#fff;}.btn-line:hover{transform:translateY(-2px);}
+@media(max-width:768px){.cs-imgs.g2{grid-template-columns:1fr;}.cs-hero{padding:48px 0 36px;}.cs-result-stats{grid-template-columns:1fr 1fr;}.cs-footer-inner{flex-direction:column;align-items:flex-start;}.cs-footer-btns{width:100%;}.cs-footer-btns .btn{flex:1;justify-content:center;}.cs-imgs.g3{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">呂承恩 Lu Cheng En<small>NNDoiT AI Studio</small></a>
+    <a href="index.html#projects" class="nav-back" id="navBack">← 回作品集</a>
+    <div class="nav-controls">
+      <div class="icon-btn lang-btn" id="langBtn" onclick="toggleLang()">EN</div>
+      <div class="icon-btn" id="themeBtn" onclick="toggleTheme()">☀️</div>
+    </div>
+  </div>
+</nav>
+<div class="cs-hero"><div class="container">
+  <div class="cs-tag" data-i18n="tag">Web Design</div>
+  <h1 class="cs-title" data-i18n="title">月翔商行｜日用品批發商官網</h1>
+  <p class="cs-subtitle" data-i18n="subtitle">為板橋在地日用品批發商「月翔商行」打造品牌官網。把原本只靠電話與熟客口碑的批發生意，變成線上就能查商品、看品牌、直接 LINE 詢價的完整門面——同時服務批發商與一般消費者兩種客群。</p>
+  <div class="cs-meta-row">
+    <span class="cs-badge">HTML · CSS · JavaScript</span>
+    <span class="cs-badge b-indigo" data-i18n="badge2">B2B + B2C 批發零售</span>
+    <span class="cs-badge b-green" data-i18n="badge3">RWD 全裝置適配</span>
+  </div>
+</div></div>
+<div class="cs-body"><div class="container">
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s1_label">01 — 專案背景</div>
+    <h2 data-i18n="s1_h">實實在在的老店，需要被新客戶找到</h2>
+    <p data-i18n="s1_p1">月翔商行位於新北板橋，專營日用品批發，代理多芬、麗仕、白蘭、熊寶貝、黑人、春風等多家知名品牌。多年來生意靠的是實在的價格與熟客口碑——但這也意味著，不認識他們的人，幾乎沒有管道找到他們。</p>
+    <p data-i18n="s1_p2">新客想知道「你們有代理哪些品牌？」「有沒有我要的商品？」「可以散裝零售嗎？」，只能打電話問。這些問題其實都可以在官網上一次回答清楚，把詢問門檻降到最低。</p>
+    <div class="cs-highlight"><span data-i18n="s1_note"><strong>專案核心：</strong>批發商的官網不是形象櫥窗，而是詢價的第一站——商品要查得到、品牌要看得清、要詢價時一鍵就能聯絡上。</span></div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s2_label">02 — 問題與痛點</div>
+    <h2 data-i18n="s2_h">口碑生意的天花板，就在「找不到」這三個字</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p1_lbl">痛點 1</span><span class="cs-par-text" data-i18n="p1_txt">代理的品牌與商品品項完全沒有線上資訊，新客搜尋不到，只能靠人介紹才知道有這家店。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p2_lbl">痛點 2</span><span class="cs-par-text" data-i18n="p2_txt">「可不可以散裝買？」「一般人可以買嗎？」這類問題每天用電話重複回答，佔用營業時間。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p3_lbl">痛點 3</span><span class="cs-par-text" data-i18n="p3_txt">批發客與一般消費者的需求不同，卻沒有分別引導的管道，詢價入口單一且不明確。</span></div>
+    </div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s3_label">03 — 解法與設計思路</div>
+    <h2 data-i18n="s3_h">把電話裡的答案，搬到官網上一次講清楚</h2>
+    <p data-i18n="s3_p1">先把客人最常問的問題整理出來，直接轉成網站的資訊架構：關於我們、商品分類、所有商品、聯絡詢價——一路看下來，客人的疑問自然被解答。</p>
+    <p data-i18n="s3_p2">視覺上以沉穩的墨綠搭配磚橘，配上實體門市與老闆的照片，傳達在地老店的實在感與信任感；同時放上 41 項商品、15+ 合作品牌、B2B+B2C 等具體數字，讓專業度一眼可見。</p>
+    <div class="cs-imgs g2">
+      <img src="images/yuexiang1.png" alt="月翔商行官網 1" loading="lazy">
+      <img src="images/yuexiang2.png" alt="月翔商行官網 2" loading="lazy">
+    </div>
+    <div class="cs-chips"><span class="cs-chip">HTML</span><span class="cs-chip c-orange">CSS</span><span class="cs-chip c-indigo">JavaScript</span><span class="cs-chip">RWD</span><span class="cs-chip c-orange">Brand Design</span><span class="cs-chip c-indigo">LINE 導流</span></div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s4_label">04 — 我的負責範圍</div>
+    <h2 data-i18n="s4_h">從需求訪談到上線部署，一人全程負責</h2>
+    <ul class="cs-numlist">
+      <li><span class="n">1</span><span data-i18n="r1">與月翔商行訪談，釐清代理品牌、商品品項、客群結構與最常被問到的問題</span></li>
+      <li><span class="n">2</span><span data-i18n="r2">規劃資訊架構——關於我們、商品分類、所有商品、聯絡詢價，依客人的疑問順序排列</span></li>
+      <li><span class="n">3</span><span data-i18n="r3">設計品牌視覺——墨綠與磚橘的配色、中文襯線字體，呈現老店的沉穩與信任感</span></li>
+      <li><span class="n">4</span><span data-i18n="r4">整理並上架商品資料與合作品牌清單，讓商品線上可查</span></li>
+      <li><span class="n">5</span><span data-i18n="r5">設計 LINE 詢價與一鍵撥號雙入口，並加上常駐浮動按鈕</span></li>
+      <li><span class="n">6</span><span data-i18n="r6">RWD 響應式開發與測試，部署上線</span></li>
+    </ul>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s5_label">05 — 設計重點</div>
+    <h2 data-i18n="s5_h">為批發生意量身設計的三個關鍵</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c1_lbl">設計重點</span><span class="cs-par-text" data-i18n="c1_txt"><strong style="color:var(--text)">兩種客群，一個網站：</strong>批發商要看品項與箱裝規格，一般消費者關心能不能散買。網站同時服務兩者，文案明講「批發零售皆可、單箱或散裝都歡迎」，直接消除猶豫。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c2_lbl">設計重點</span><span class="cs-par-text" data-i18n="c2_txt"><strong style="color:var(--text)">詢價零阻力：</strong>LINE 詢價與電話聯絡做成常駐浮動按鈕，不論滑到哪一段，想問就能立刻問——批發生意的成交往往就發生在那通電話。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c3_lbl">設計重點</span><span class="cs-par-text" data-i18n="c3_txt"><strong style="color:var(--text)">用真實建立信任：</strong>實體門市照片、老闆本人、明確地址與營業時間、具體的品牌與商品數字——批發生意講的是可靠，網站也該傳達同一件事。</span></div>
+    </div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s6_label">06 — 專案成果 / 價值</div>
+    <h2 data-i18n="s6_h">從「要有人介紹」到「自己找得到」</h2>
+    <div class="cs-result-card">
+      <h3 data-i18n="res_h">品牌成果</h3>
+      <div class="cs-result-stats">
+        <div class="crs-item"><span class="crs-num" data-i18n="stat1_num">41</span><div class="crs-label" data-i18n="stat1">項商品<br>線上可查</div></div>
+        <div class="crs-item"><span class="crs-num" data-i18n="stat2_num">15+</span><div class="crs-label" data-i18n="stat2">合作品牌<br>完整展示</div></div>
+        <div class="crs-item"><span class="crs-num" data-i18n="stat3_num">2 種</span><div class="crs-label" data-i18n="stat3">B2B + B2C<br>客群通吃</div></div>
+      </div>
+      <p data-i18n="res_p">官網上線後，月翔商行有了可以主動分享的線上門面。新客能搜尋到、能自己查商品與品牌、能直接 LINE 詢價，不必再靠人介紹；重複的電話問答也大幅減少，實體門市的時間可以留給真正的生意。</p>
+    </div>
+    <div class="cs-highlight" style="margin-top:20px;"><span data-i18n="extend"><strong>後續延伸：</strong>網站架構可持續擴充——線上型錄、報價單下載、常見問答，甚至簡易的線上下單，都能在現有基礎上直接加入。</span></div>
+  </div>
+</div></div>
+<div class="cs-footer-cta"><div class="container">
+  <div class="cs-footer-inner">
+    <div class="cs-footer-text"><h3 data-i18n="cta_h">在地商家也想要自己的官網？</h3><p data-i18n="cta_p">從商品整理、品牌視覺到上線部署，一條龍設計與開發——把你的生意告訴我。</p></div>
+    <div class="cs-footer-btns">
+      <a href="index.html#projects" class="btn btn-ghost" id="backBtn">← 回作品集</a>
+      <a href="https://lin.ee/Wc5Bozb" target="_blank" class="btn btn-line" data-i18n="line_btn">💬 加 LINE 討論</a>
+    </div>
+  </div>
+</div></div>
+<script>
+const C={zh:{"tag": "Web Design", "title": "月翔商行｜日用品批發商官網", "subtitle": "為板橋在地日用品批發商「月翔商行」打造品牌官網。把原本只靠電話與熟客口碑的批發生意，變成線上就能查商品、看品牌、直接 LINE 詢價的完整門面——同時服務批發商與一般消費者兩種客群。", "badge2": "B2B + B2C 批發零售", "badge3": "RWD 全裝置適配", "s1_label": "01 — 專案背景", "s1_h": "實實在在的老店，需要被新客戶找到", "s1_p1": "月翔商行位於新北板橋，專營日用品批發，代理多芬、麗仕、白蘭、熊寶貝、黑人、春風等多家知名品牌。多年來生意靠的是實在的價格與熟客口碑——但這也意味著，不認識他們的人，幾乎沒有管道找到他們。", "s1_p2": "新客想知道「你們有代理哪些品牌？」「有沒有我要的商品？」「可以散裝零售嗎？」，只能打電話問。這些問題其實都可以在官網上一次回答清楚，把詢問門檻降到最低。", "s1_note": "<strong>專案核心：</strong>批發商的官網不是形象櫥窗，而是詢價的第一站——商品要查得到、品牌要看得清、要詢價時一鍵就能聯絡上。", "s2_label": "02 — 問題與痛點", "s2_h": "口碑生意的天花板，就在「找不到」這三個字", "p1_lbl": "痛點 1", "p1_txt": "代理的品牌與商品品項完全沒有線上資訊，新客搜尋不到，只能靠人介紹才知道有這家店。", "p2_lbl": "痛點 2", "p2_txt": "「可不可以散裝買？」「一般人可以買嗎？」這類問題每天用電話重複回答，佔用營業時間。", "p3_lbl": "痛點 3", "p3_txt": "批發客與一般消費者的需求不同，卻沒有分別引導的管道，詢價入口單一且不明確。", "s3_label": "03 — 解法與設計思路", "s3_h": "把電話裡的答案，搬到官網上一次講清楚", "s3_p1": "先把客人最常問的問題整理出來，直接轉成網站的資訊架構：關於我們、商品分類、所有商品、聯絡詢價——一路看下來，客人的疑問自然被解答。", "s3_p2": "視覺上以沉穩的墨綠搭配磚橘，配上實體門市與老闆的照片，傳達在地老店的實在感與信任感；同時放上 41 項商品、15+ 合作品牌、B2B+B2C 等具體數字，讓專業度一眼可見。", "s4_label": "04 — 我的負責範圍", "s4_h": "從需求訪談到上線部署，一人全程負責", "r1": "與月翔商行訪談，釐清代理品牌、商品品項、客群結構與最常被問到的問題", "r2": "規劃資訊架構——關於我們、商品分類、所有商品、聯絡詢價，依客人的疑問順序排列", "r3": "設計品牌視覺——墨綠與磚橘的配色、中文襯線字體，呈現老店的沉穩與信任感", "r4": "整理並上架商品資料與合作品牌清單，讓商品線上可查", "r5": "設計 LINE 詢價與一鍵撥號雙入口，並加上常駐浮動按鈕", "r6": "RWD 響應式開發與測試，部署上線", "s5_label": "05 — 設計重點", "s5_h": "為批發生意量身設計的三個關鍵", "c1_lbl": "設計重點", "c1_txt": "<strong style=\"color:var(--text)\">兩種客群，一個網站：</strong>批發商要看品項與箱裝規格，一般消費者關心能不能散買。網站同時服務兩者，文案明講「批發零售皆可、單箱或散裝都歡迎」，直接消除猶豫。", "c2_lbl": "設計重點", "c2_txt": "<strong style=\"color:var(--text)\">詢價零阻力：</strong>LINE 詢價與電話聯絡做成常駐浮動按鈕，不論滑到哪一段，想問就能立刻問——批發生意的成交往往就發生在那通電話。", "c3_lbl": "設計重點", "c3_txt": "<strong style=\"color:var(--text)\">用真實建立信任：</strong>實體門市照片、老闆本人、明確地址與營業時間、具體的品牌與商品數字——批發生意講的是可靠，網站也該傳達同一件事。", "s6_label": "06 — 專案成果 / 價值", "s6_h": "從「要有人介紹」到「自己找得到」", "res_h": "品牌成果", "stat1_num": "41", "stat1": "項商品<br>線上可查", "stat2_num": "15+", "stat2": "合作品牌<br>完整展示", "stat3_num": "2 種", "stat3": "B2B + B2C<br>客群通吃", "res_p": "官網上線後，月翔商行有了可以主動分享的線上門面。新客能搜尋到、能自己查商品與品牌、能直接 LINE 詢價，不必再靠人介紹；重複的電話問答也大幅減少，實體門市的時間可以留給真正的生意。", "extend": "<strong>後續延伸：</strong>網站架構可持續擴充——線上型錄、報價單下載、常見問答，甚至簡易的線上下單，都能在現有基礎上直接加入。", "cta_h": "在地商家也想要自己的官網？", "cta_p": "從商品整理、品牌視覺到上線部署，一條龍設計與開發——把你的生意告訴我。", "line_btn": "💬 加 LINE 討論", "nav_back": "← 回作品集", "back_btn": "← 回作品集"},
+en:{"tag": "Web Design", "title": "Yue Xiang Trading | Wholesaler Brand Website", "subtitle": "A brand website for Yue Xiang Trading, a daily-goods wholesaler in Banqiao. It turned a business built on phone calls and regulars into a proper online front door — browse products, see partner brands, inquire via LINE — serving wholesale buyers and retail customers alike.", "badge2": "B2B + B2C Wholesale & Retail", "badge3": "RWD · All Devices", "s1_label": "01 — Background", "s1_h": "A solid old shop that new customers couldn't find", "s1_p1": "Yue Xiang Trading operates in Banqiao, New Taipei, wholesaling daily goods and carrying well-known brands including Dove, LUX, White Orchid, Comfort, Darlie, and more. For years the business ran on honest pricing and word of mouth — which also meant anyone outside that circle had almost no way to find them.", "s1_p2": "New customers wanting to know \"Which brands do you carry?\" \"Do you have what I need?\" \"Can I buy in small quantities?\" had only one option: call. Every one of those questions could be answered clearly on a website, dropping the barrier to inquiry to near zero.", "s1_note": "<strong>Project goal:</strong> A wholesaler's website isn't a showcase — it's the first stop before an inquiry. Products must be findable, brands visible, and contact one tap away.", "s2_label": "02 — Problems & Pain Points", "s2_h": "The ceiling on word-of-mouth business is simply being unfindable", "p1_lbl": "Pain 1", "p1_txt": "No online information about the brands carried or products stocked — new customers couldn't search their way in; only referrals worked.", "p2_lbl": "Pain 2", "p2_txt": "Questions like \"Can I buy in small quantities?\" and \"Can individuals buy here?\" were answered by phone every day, eating into business hours.", "p3_lbl": "Pain 3", "p3_txt": "Wholesale buyers and retail customers have different needs, but there was no separate guidance and only one vague path to inquire.", "s3_label": "03 — Solution & Design Approach", "s3_h": "Move the answers from the phone calls onto the website", "s3_p1": "The most frequently asked questions were collected first and turned directly into the site's information architecture: About Us, Product Categories, All Products, Contact & Inquiry — reading top to bottom answers the customer's questions naturally.", "s3_p2": "Visually, deep green paired with terracotta, alongside photos of the physical storefront and the owners, conveys the reliability of a long-standing local business. Concrete numbers — 41 products, 15+ partner brands, B2B+B2C — make the professionalism visible at a glance.", "s4_label": "04 — My Responsibilities", "s4_h": "From interview to deployment, single point of responsibility", "r1": "Interviewed Yue Xiang Trading to clarify brands carried, product lines, customer mix, and the most frequently asked questions.", "r2": "Planned the information architecture — About, categories, products, inquiry — ordered by the customer's natural questions.", "r3": "Designed the brand visuals — deep green and terracotta palette with Chinese serif type, conveying steadiness and trust.", "r4": "Compiled and published the product data and partner brand list so inventory is browsable online.", "r5": "Designed dual LINE and one-tap-call inquiry entry points, plus persistent floating buttons.", "r6": "RWD responsive development, testing, and deployment.", "s5_label": "05 — Design Highlights", "s5_h": "Three keys designed for a wholesale business", "c1_lbl": "Key Decision", "c1_txt": "<strong style=\"color:var(--text)\">Two audiences, one site:</strong> Wholesalers want product lines and case specs; consumers want to know if they can buy small. The site serves both, stating plainly that wholesale and retail are both welcome — removing hesitation outright.", "c2_lbl": "Key Decision", "c2_txt": "<strong style=\"color:var(--text)\">Zero-friction inquiry:</strong> LINE and phone contact live in persistent floating buttons — wherever a visitor scrolls, they can ask immediately. In wholesale, the deal often happens on that one call.", "c3_lbl": "Key Decision", "c3_txt": "<strong style=\"color:var(--text)\">Trust through the real:</strong> Storefront photos, the owners themselves, a clear address and opening hours, concrete brand and product counts — wholesale is about reliability, and the website should say the same thing.", "s6_label": "06 — Results & Value", "s6_h": "From \"you need a referral\" to \"customers find you\"", "res_h": "Brand Outcomes", "stat1_num": "41", "stat1": "products<br>browsable online", "stat2_num": "15+", "stat2": "partner brands<br>fully showcased", "stat3_num": "2", "stat3": "B2B + B2C<br>audiences served", "res_p": "With the website live, Yue Xiang Trading has an online front door it can share proactively. New customers can search, browse products and brands themselves, and inquire straight through LINE — no referral needed. Repetitive phone Q&A dropped sharply, freeing store hours for actual business.", "extend": "<strong>Extensibility:</strong> The structure can keep growing — an online catalog, downloadable quote sheets, an FAQ, even simple online ordering can be added on the existing foundation.", "cta_h": "A local business that wants its own website?", "cta_p": "From organizing products to brand visuals and deployment — full design and development. Tell me about your business.", "line_btn": "💬 Chat on LINE", "nav_back": "← Back to Portfolio", "back_btn": "← Back to Portfolio"}};
+let lang='zh';try{const s=localStorage.getItem('nndoit_lang');if(s)lang=s;}catch(e){}
+function applyLang(){const c=C[lang];document.documentElement.lang=lang==='zh'?'zh-Hant':'en';document.getElementById('langBtn').textContent=lang==='zh'?'EN':'中';document.getElementById('navBack').innerHTML=c.nav_back;document.getElementById('backBtn').innerHTML=c.back_btn;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(c[k]!==undefined)el.innerHTML=c[k];});}
+function toggleLang(){lang=lang==='zh'?'en':'zh';try{localStorage.setItem('nndoit_lang',lang);}catch(e){}applyLang();}
+function toggleTheme(){const h=document.documentElement,d=h.dataset.theme==='dark';h.dataset.theme=d?'light':'dark';document.getElementById('themeBtn').textContent=d?'🌙':'☀️';}
+window.addEventListener('scroll',()=>{document.querySelector('.nav').style.boxShadow=scrollY>30?'0 4px 30px rgba(0,0,0,.3)':'';},{passive:true});
+applyLang();
+</script>
+</body>
+</html>
