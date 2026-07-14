@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>天耀科技 企業形象官網 | Case Study — 呂承恩 NNDoiT AI Studio</title>
+<style>
+:root{--bg:#0a050f;--bg2:#110a18;--card:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);--border2:rgba(236,72,153,.3);--text:#f0eaf5;--muted:rgba(240,234,245,.5);--primary:#ec4899;--accent:#f97316;--max:860px;--nav-bg:rgba(10,5,15,.88);}
+[data-theme="light"]{--bg:#fff7fb;--bg2:#ffeaf4;--card:rgba(255,255,255,.95);--border:rgba(236,72,153,.18);--border2:rgba(236,72,153,.4);--text:#2d2130;--muted:#6b5c67;--nav-bg:rgba(255,247,251,.9);}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-padding-top:68px;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.8;transition:background .4s,color .4s;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}.container{width:min(var(--max),calc(100% - 40px));margin:0 auto;}
+.nav{position:sticky;top:0;z-index:500;backdrop-filter:blur(18px);background:var(--nav-bg);border-bottom:1px solid var(--border);transition:box-shadow .3s,background .4s;}
+.nav-inner{width:min(1160px,calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;}
+.brand{font-weight:900;font-size:.95rem;color:var(--text);}.brand small{display:block;color:var(--primary);font-size:.72rem;font-weight:800;margin-top:1px;}
+.nav-back{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-size:.88rem;font-weight:700;padding:7px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);transition:.2s;}
+.nav-back:hover{background:rgba(236,72,153,.12);border-color:var(--border2);color:var(--primary);}
+.nav-controls{display:flex;gap:8px;}
+.icon-btn{width:36px;height:36px;border-radius:12px;border:1px solid var(--border);background:var(--card);display:grid;place-items:center;cursor:pointer;transition:.2s;font-size:1rem;color:var(--text);}
+.icon-btn:hover{background:rgba(236,72,153,.15);border-color:var(--border2);}
+.lang-btn{width:auto;padding:0 10px;font-size:.72rem;font-weight:900;letter-spacing:.03em;}
+.cs-hero{padding:72px 0 56px;border-bottom:1px solid var(--border);}
+.cs-tag{display:inline-flex;padding:7px 14px;border-radius:999px;background:rgba(236,72,153,.15);border:1px solid rgba(236,72,153,.25);color:var(--primary);font-size:.8rem;font-weight:900;margin-bottom:18px;}
+.cs-title{font-size:clamp(1.9rem,4vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px;}
+.cs-subtitle{color:var(--muted);font-size:1.05rem;max-width:68ch;margin-bottom:32px;line-height:1.75;}
+.cs-meta-row{display:flex;flex-wrap:wrap;gap:12px;}
+.cs-badge{padding:7px 14px;border-radius:999px;font-size:.82rem;font-weight:900;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.2);color:#f97316;}
+.cs-badge.b-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
+.cs-badge.b-green{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.2);color:#4ade80;}
+.cs-body{padding:60px 0 80px;}.cs-section{margin-bottom:56px;}.cs-section:last-child{margin-bottom:0;}
+.cs-section-label{display:flex;align-items:center;gap:10px;font-size:.75rem;font-weight:900;letter-spacing:.08em;color:var(--primary);text-transform:uppercase;margin-bottom:14px;}
+.cs-section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.cs-section h2{font-size:1.35rem;font-weight:900;letter-spacing:-.02em;margin-bottom:14px;}
+.cs-section p{color:var(--muted);font-size:.97rem;line-height:1.85;margin-bottom:12px;}.cs-section p:last-child{margin-bottom:0;}
+.cs-highlight{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--primary);border-radius:0 14px 14px 0;padding:18px 22px;margin:18px 0;color:var(--muted);font-size:.95rem;line-height:1.8;}
+.cs-highlight strong{color:var(--text);}
+.cs-par-grid{display:grid;gap:12px;margin:18px 0;}
+.cs-par-item{display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;}
+.cs-par-label{flex-shrink:0;font-size:.7rem;font-weight:900;padding:3px 9px;border-radius:6px;letter-spacing:.04em;margin-top:2px;white-space:nowrap;}
+.l-pain{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.22);}
+.l-sol{background:rgba(99,102,241,.14);color:#818cf8;border:1px solid rgba(99,102,241,.22);}
+[data-theme="light"] .l-pain{background:rgba(239,68,68,.1);color:#dc2626;}
+[data-theme="light"] .l-sol{background:rgba(99,102,241,.1);color:#4f46e5;}
+.cs-par-text{color:var(--muted);font-size:.93rem;line-height:1.65;}
+.cs-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px;}
+.cs-chip{padding:8px 14px;border-radius:999px;background:rgba(236,72,153,.1);border:1px solid rgba(236,72,153,.2);color:var(--primary);font-size:.82rem;font-weight:900;}
+.cs-chip.c-orange{background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.2);color:#f97316;}
+.cs-chip.c-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
+.cs-numlist{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:14px;}
+.cs-numlist li{display:flex;gap:14px;align-items:flex-start;color:var(--muted);font-size:.95rem;line-height:1.75;}
+.cs-numlist li .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(236,72,153,.18);border:1px solid rgba(236,72,153,.3);color:var(--primary);font-weight:900;font-size:.8rem;display:grid;place-items:center;margin-top:2px;}
+.cs-result-card{background:linear-gradient(135deg,rgba(236,72,153,.12),rgba(249,115,22,.08));border:1px solid rgba(236,72,153,.25);border-radius:20px;padding:28px 30px;margin-top:18px;}
+.cs-result-card h3{font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--text);}
+.cs-result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
+.crs-item{text-align:center;padding:16px 10px;background:rgba(255,255,255,.04);border-radius:14px;border:1px solid var(--border);}
+.crs-num{font-size:1.7rem;font-weight:900;color:var(--primary);display:block;line-height:1.1;}
+.crs-label{font-size:.76rem;color:var(--muted);margin-top:4px;line-height:1.4;}
+.cs-result-card p{color:var(--muted);font-size:.93rem;line-height:1.8;}
+.cs-imgs{display:grid;gap:12px;border-radius:16px;overflow:hidden;margin:20px 0;border:1px solid var(--border);}
+.cs-imgs.g3{grid-template-columns:1fr 1fr 1fr;}.cs-imgs.g2{grid-template-columns:1fr 1fr;}.cs-imgs img{width:100%;object-fit:cover;display:block;}
+.cs-footer-cta{background:var(--bg2);border-top:1px solid var(--border);padding:52px 0;}
+.cs-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.cs-footer-text h3{font-size:1.25rem;font-weight:900;margin-bottom:6px;}
+.cs-footer-text p{color:var(--muted);font-size:.93rem;}
+.cs-footer-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:900;border:1px solid transparent;transition:all .2s;font-size:.93rem;cursor:pointer;}
+.btn-primary{background:linear-gradient(135deg,#ec4899,#db2777);color:#fff;}.btn-primary:hover{transform:translateY(-2px);}
+.btn-ghost{background:var(--card);border-color:var(--border);color:var(--text);}.btn-ghost:hover{background:rgba(236,72,153,.1);border-color:var(--border2);color:var(--primary);}
+.btn-line{background:linear-gradient(135deg,#06c755,#00a846);color:#fff;}.btn-line:hover{transform:translateY(-2px);}
+@media(max-width:768px){.cs-imgs.g2{grid-template-columns:1fr;}.cs-hero{padding:48px 0 36px;}.cs-result-stats{grid-template-columns:1fr 1fr;}.cs-footer-inner{flex-direction:column;align-items:flex-start;}.cs-footer-btns{width:100%;}.cs-footer-btns .btn{flex:1;justify-content:center;}.cs-imgs.g3{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">呂承恩 Lu Cheng En<small>NNDoiT AI Studio</small></a>
+    <a href="index.html#projects" class="nav-back" id="navBack">← 回作品集</a>
+    <div class="nav-controls">
+      <div class="icon-btn lang-btn" id="langBtn" onclick="toggleLang()">EN</div>
+      <div class="icon-btn" id="themeBtn" onclick="toggleTheme()">☀️</div>
+    </div>
+  </div>
+</nav>
+<div class="cs-hero"><div class="container">
+  <div class="cs-tag" data-i18n="tag">Web Design</div>
+  <h1 class="cs-title" data-i18n="title">天耀科技｜企業形象官網</h1>
+  <p class="cs-subtitle" data-i18n="subtitle">為天耀科技打造專業的企業形象官網。以清晰的資訊架構呈現公司實力、服務項目與合作洽詢入口，讓潛在客戶第一眼就建立信任、快速找到下一步。</p>
+  <div class="cs-meta-row">
+    <span class="cs-badge">HTML · CSS · JavaScript</span>
+    <span class="cs-badge b-indigo" data-i18n="badge2">企業形象官網</span>
+    <span class="cs-badge b-green" data-i18n="badge3">RWD 全裝置適配</span>
+  </div>
+</div></div>
+<div class="cs-body"><div class="container">
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s1_label">01 — 專案背景</div>
+    <h2 data-i18n="s1_h">B2B 生意，第一印象常常發生在官網</h2>
+    <p data-i18n="s1_p1">天耀科技在自己的領域有紮實的實力，但在數位門面上是空白的。B2B 客戶在合作前幾乎一定會先搜尋公司、查看官網——沒有官網，或官網不夠專業，信任感就先打了折扣。</p>
+    <p data-i18n="s1_p2">這個專案的目標是為天耀科技建立一個「拿得出手」的企業門面：把公司是誰、能做什麼、怎麼聯繫，用清楚且專業的方式呈現給每一位查訪的潛在客戶。</p>
+    <div class="cs-highlight"><span data-i18n="s1_note"><strong>專案核心：</strong>企業官網不是形象裝飾品，而是業務流程的一環——客戶查訪時它要能建立信任，客戶有意願時它要能引導洽詢。</span></div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s2_label">02 — 問題與痛點</div>
+    <h2 data-i18n="s2_h">沒有專業門面的企業，在客戶眼中少了一分底氣</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p1_lbl">痛點 1</span><span class="cs-par-text" data-i18n="p1_txt">潛在客戶搜尋公司名稱時找不到官方資訊，難以確認公司的專業度與規模。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p2_lbl">痛點 2</span><span class="cs-par-text" data-i18n="p2_txt">服務項目與公司優勢缺乏系統化呈現，業務開發只能靠口頭與簡報反覆說明。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p3_lbl">痛點 3</span><span class="cs-par-text" data-i18n="p3_txt">沒有明確的洽詢入口，有興趣的客戶不知道下一步該怎麼聯繫。</span></div>
+    </div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s3_label">03 — 解法與設計思路</div>
+    <h2 data-i18n="s3_h">從企業定位出發的資訊架構與視覺識別</h2>
+    <p data-i18n="s3_p1">設計前先理解企業：天耀科技的核心能力是什麼？目標客戶是誰？客戶最在意什麼？以此規劃資訊架構——公司介紹、服務項目、合作洽詢，層次分明地引導訪客理解並行動。</p>
+    <p data-i18n="s3_p2">視覺上建立一致的企業識別，以專業穩重的調性貫穿整站；每個區塊都有明確的下一步引導，讓瀏覽自然走向洽詢。</p>
+    <div class="cs-imgs g3">
+      <img src="images/tianyao1.png" alt="天耀科技官網 1" loading="lazy">
+      <img src="images/tianyao2.png" alt="天耀科技官網 2" loading="lazy">
+      <img src="images/tianyao3.png" alt="天耀科技官網 3" loading="lazy">
+    </div>
+    <div class="cs-chips"><span class="cs-chip">HTML</span><span class="cs-chip c-orange">CSS</span><span class="cs-chip c-indigo">JavaScript</span><span class="cs-chip">RWD</span><span class="cs-chip c-orange">Corporate Identity</span><span class="cs-chip c-indigo">Frontend Design</span></div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s4_label">04 — 我的負責範圍</div>
+    <h2 data-i18n="s4_h">從需求訪談到上線部署，一人全程負責</h2>
+    <ul class="cs-numlist">
+      <li><span class="n">1</span><span data-i18n="r1">與天耀科技訪談，釐清企業定位、目標客群與網站期待</span></li>
+      <li><span class="n">2</span><span data-i18n="r2">規劃網站資訊架構與頁面層次，決定內容呈現的優先順序</span></li>
+      <li><span class="n">3</span><span data-i18n="r3">設計企業視覺識別——色彩、字型、版面，建立專業一致的調性</span></li>
+      <li><span class="n">4</span><span data-i18n="r4">以 HTML / CSS / JavaScript 手工切版開發，輕量快速</span></li>
+      <li><span class="n">5</span><span data-i18n="r5">RWD 響應式設計與測試，桌機、平板、手機全面確認</span></li>
+      <li><span class="n">6</span><span data-i18n="r6">部署上線並交付可維護的網站結構</span></li>
+    </ul>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s5_label">05 — 設計重點</div>
+    <h2 data-i18n="s5_h">讓官網真正服務業務的三個關鍵決策</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c1_lbl">設計重點</span><span class="cs-par-text" data-i18n="c1_txt"><strong style="color:var(--text)">專業感的細節：</strong>B2B 客戶對「專業」的判斷來自細節——排版的秩序感、資訊的層次、視覺的一致性。整站設計都圍繞著建立信任這個目標。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c2_lbl">設計重點</span><span class="cs-par-text" data-i18n="c2_txt"><strong style="color:var(--text)">服務項目的可讀性：</strong>把公司能做的事整理成清楚的服務區塊，客戶不需要聽完整場簡報，瀏覽官網就能理解合作的可能性。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c3_lbl">設計重點</span><span class="cs-par-text" data-i18n="c3_txt"><strong style="color:var(--text)">洽詢動線設計：</strong>每個關鍵區塊都通往明確的聯繫入口，讓「有興趣」能夠立刻變成「來洽詢」，不讓商機停在瀏覽階段。</span></div>
+    </div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s6_label">06 — 專案成果 / 價值</div>
+    <h2 data-i18n="s6_h">官網上線後帶來的實際改變</h2>
+    <div class="cs-result-card">
+      <h3 data-i18n="res_h">品牌成果</h3>
+      <div class="cs-result-stats">
+        <div class="crs-item"><span class="crs-num" data-i18n="stat1_num">從零</span><div class="crs-label" data-i18n="stat1">企業線上<br>門面建立</div></div>
+        <div class="crs-item"><span class="crs-num" data-i18n="stat2_num">RWD</span><div class="crs-label" data-i18n="stat2">全裝置<br>正常顯示</div></div>
+        <div class="crs-item"><span class="crs-num" data-i18n="stat3_num">清晰</span><div class="crs-label" data-i18n="stat3">服務展示與<br>洽詢動線</div></div>
+      </div>
+      <p data-i18n="res_p">官網上線後，天耀科技有了可以主動分享給客戶的官方連結。潛在客戶查訪時能快速理解公司能力與服務項目，並透過明確的洽詢入口直接聯繫——官網從無到有，成為業務開發的實質助力。</p>
+    </div>
+    <div class="cs-highlight" style="margin-top:20px;"><span data-i18n="extend"><strong>後續延伸：</strong>網站架構可直接擴充案例展示、最新消息或多語系版本，隨企業業務發展持續成長。</span></div>
+  </div>
+</div></div>
+<div class="cs-footer-cta"><div class="container">
+  <div class="cs-footer-inner">
+    <div class="cs-footer-text"><h3 data-i18n="cta_h">需要打造企業官網或品牌網站？</h3><p data-i18n="cta_p">從企業定位到上線部署，一條龍設計與開發——把你的需求告訴我。</p></div>
+    <div class="cs-footer-btns">
+      <a href="index.html#projects" class="btn btn-ghost" id="backBtn">← 回作品集</a>
+      <a href="https://lin.ee/Wc5Bozb" target="_blank" class="btn btn-line" data-i18n="line_btn">💬 加 LINE 討論</a>
+    </div>
+  </div>
+</div></div>
+<script>
+const C={zh:{"tag": "Web Design", "title": "天耀科技｜企業形象官網", "subtitle": "為天耀科技打造專業的企業形象官網。以清晰的資訊架構呈現公司實力、服務項目與合作洽詢入口，讓潛在客戶第一眼就建立信任、快速找到下一步。", "badge2": "企業形象官網", "badge3": "RWD 全裝置適配", "s1_label": "01 — 專案背景", "s1_h": "B2B 生意，第一印象常常發生在官網", "s1_p1": "天耀科技在自己的領域有紮實的實力，但在數位門面上是空白的。B2B 客戶在合作前幾乎一定會先搜尋公司、查看官網——沒有官網，或官網不夠專業，信任感就先打了折扣。", "s1_p2": "這個專案的目標是為天耀科技建立一個「拿得出手」的企業門面：把公司是誰、能做什麼、怎麼聯繫，用清楚且專業的方式呈現給每一位查訪的潛在客戶。", "s1_note": "<strong>專案核心：</strong>企業官網不是形象裝飾品，而是業務流程的一環——客戶查訪時它要能建立信任，客戶有意願時它要能引導洽詢。", "s2_label": "02 — 問題與痛點", "s2_h": "沒有專業門面的企業，在客戶眼中少了一分底氣", "p1_lbl": "痛點 1", "p1_txt": "潛在客戶搜尋公司名稱時找不到官方資訊，難以確認公司的專業度與規模。", "p2_lbl": "痛點 2", "p2_txt": "服務項目與公司優勢缺乏系統化呈現，業務開發只能靠口頭與簡報反覆說明。", "p3_lbl": "痛點 3", "p3_txt": "沒有明確的洽詢入口，有興趣的客戶不知道下一步該怎麼聯繫。", "s3_label": "03 — 解法與設計思路", "s3_h": "從企業定位出發的資訊架構與視覺識別", "s3_p1": "設計前先理解企業：天耀科技的核心能力是什麼？目標客戶是誰？客戶最在意什麼？以此規劃資訊架構——公司介紹、服務項目、合作洽詢，層次分明地引導訪客理解並行動。", "s3_p2": "視覺上建立一致的企業識別，以專業穩重的調性貫穿整站；每個區塊都有明確的下一步引導，讓瀏覽自然走向洽詢。", "s4_label": "04 — 我的負責範圍", "s4_h": "從需求訪談到上線部署，一人全程負責", "r1": "與天耀科技訪談，釐清企業定位、目標客群與網站期待", "r2": "規劃網站資訊架構與頁面層次，決定內容呈現的優先順序", "r3": "設計企業視覺識別——色彩、字型、版面，建立專業一致的調性", "r4": "以 HTML / CSS / JavaScript 手工切版開發，輕量快速", "r5": "RWD 響應式設計與測試，桌機、平板、手機全面確認", "r6": "部署上線並交付可維護的網站結構", "s5_label": "05 — 設計重點", "s5_h": "讓官網真正服務業務的三個關鍵決策", "c1_lbl": "設計重點", "c1_txt": "<strong style=\"color:var(--text)\">專業感的細節：</strong>B2B 客戶對「專業」的判斷來自細節——排版的秩序感、資訊的層次、視覺的一致性。整站設計都圍繞著建立信任這個目標。", "c2_lbl": "設計重點", "c2_txt": "<strong style=\"color:var(--text)\">服務項目的可讀性：</strong>把公司能做的事整理成清楚的服務區塊，客戶不需要聽完整場簡報，瀏覽官網就能理解合作的可能性。", "c3_lbl": "設計重點", "c3_txt": "<strong style=\"color:var(--text)\">洽詢動線設計：</strong>每個關鍵區塊都通往明確的聯繫入口，讓「有興趣」能夠立刻變成「來洽詢」，不讓商機停在瀏覽階段。", "s6_label": "06 — 專案成果 / 價值", "s6_h": "官網上線後帶來的實際改變", "res_h": "品牌成果", "stat1_num": "從零", "stat1": "企業線上<br>門面建立", "stat2_num": "RWD", "stat2": "全裝置<br>正常顯示", "stat3_num": "清晰", "stat3": "服務展示與<br>洽詢動線", "res_p": "官網上線後，天耀科技有了可以主動分享給客戶的官方連結。潛在客戶查訪時能快速理解公司能力與服務項目，並透過明確的洽詢入口直接聯繫——官網從無到有，成為業務開發的實質助力。", "extend": "<strong>後續延伸：</strong>網站架構可直接擴充案例展示、最新消息或多語系版本，隨企業業務發展持續成長。", "cta_h": "需要打造企業官網或品牌網站？", "cta_p": "從企業定位到上線部署，一條龍設計與開發——把你的需求告訴我。", "line_btn": "💬 加 LINE 討論", "nav_back": "← 回作品集", "back_btn": "← 回作品集"},
+en:{"tag": "Web Design", "title": "Tianyao Technology | Corporate Website", "subtitle": "A professional corporate website for Tianyao Technology — presenting the company's strengths, services, and inquiry channels through clear information architecture, building trust at first glance and guiding prospects to the next step.", "badge2": "Corporate Website", "badge3": "RWD · All Devices", "s1_label": "01 — Background", "s1_h": "In B2B, first impressions often happen on the website", "s1_p1": "Tianyao Technology has solid capabilities in its field, but its digital presence was blank. B2B clients almost always research a company online before working together — no website, or an unprofessional one, means trust takes a hit before the first meeting.", "s1_p2": "The goal was to build a corporate front door worth showing: who the company is, what it does, and how to get in touch — presented clearly and professionally to every prospect who looks them up.", "s1_note": "<strong>Project goal:</strong> A corporate website isn't decoration — it's part of the sales process. It must build trust when clients research, and guide inquiries when they're interested.", "s2_label": "02 — Problems & Pain Points", "s2_h": "Without a professional front door, a company loses credibility it deserves", "p1_lbl": "Pain 1", "p1_txt": "Prospects searching the company name found no official information, making it hard to gauge professionalism and scale.", "p2_lbl": "Pain 2", "p2_txt": "Services and strengths had no systematic presentation — business development relied on repeated verbal pitches and slide decks.", "p3_lbl": "Pain 3", "p3_txt": "No clear inquiry entry point — interested clients didn't know what the next step was.", "s3_label": "03 — Solution & Design Approach", "s3_h": "Information architecture and visual identity built from the company's positioning", "s3_p1": "Understanding came before design: What are Tianyao's core capabilities? Who are the target clients? What do they care about most? The information architecture — company introduction, services, inquiries — was planned from those answers, guiding visitors from understanding to action.", "s3_p2": "Visually, a consistent corporate identity with a professional, steady tone runs through the site; every section leads to a clear next step, so browsing flows naturally toward inquiry.", "s4_label": "04 — My Responsibilities", "s4_h": "From requirements interview to deployment, single point of responsibility", "r1": "Interviewed Tianyao Technology to clarify positioning, target audience, and expectations.", "r2": "Planned the information architecture and page hierarchy, prioritizing content presentation.", "r3": "Designed the corporate visual identity — color, typography, and layout with a consistent professional tone.", "r4": "Hand-coded in HTML / CSS / JavaScript for a lightweight, fast site.", "r5": "RWD responsive design and testing across desktop, tablet, and mobile.", "r6": "Deployed to production and delivered a maintainable site structure.", "s5_label": "05 — Design Highlights", "s5_h": "Three key decisions that make the website serve the business", "c1_lbl": "Key Decision", "c1_txt": "<strong style=\"color:var(--text)\">Professionalism in the details:</strong> B2B clients judge professionalism through details — orderly layout, information hierarchy, visual consistency. Every design choice serves the goal of building trust.", "c2_lbl": "Key Decision", "c2_txt": "<strong style=\"color:var(--text)\">Readable services:</strong> The company's capabilities are organized into clear service sections — clients can understand the potential for cooperation by browsing, without sitting through a full pitch.", "c3_lbl": "Key Decision", "c3_txt": "<strong style=\"color:var(--text)\">Inquiry flow design:</strong> Every key section leads to a clear contact entry point, turning \"interested\" into \"inquiring\" immediately instead of letting opportunities stall at browsing.", "s6_label": "06 — Results & Value", "s6_h": "Measurable changes after go-live", "res_h": "Brand Outcomes", "stat1_num": "Zero to One", "stat1": "corporate online<br>presence established", "stat2_num": "RWD", "stat2": "all devices<br>display correctly", "stat3_num": "Clear", "stat3": "service showcase &<br>inquiry flow", "res_p": "After launch, Tianyao Technology has an official link to share proactively with clients. Prospects can quickly grasp the company's capabilities and services, and reach out through a clear inquiry entry point — the website became a genuine asset for business development.", "extend": "<strong>Extensibility:</strong> The site structure can directly grow with the business — case showcases, news sections, or multilingual versions can be added on the existing foundation.", "cta_h": "Need a corporate or brand website?", "cta_p": "From positioning to live deployment, full design and development — tell me what you need.", "line_btn": "💬 Chat on LINE", "nav_back": "← Back to Portfolio", "back_btn": "← Back to Portfolio"}};
+let lang='zh';try{const s=localStorage.getItem('nndoit_lang');if(s)lang=s;}catch(e){}
+function applyLang(){const c=C[lang];document.documentElement.lang=lang==='zh'?'zh-Hant':'en';document.getElementById('langBtn').textContent=lang==='zh'?'EN':'中';document.getElementById('navBack').innerHTML=c.nav_back;document.getElementById('backBtn').innerHTML=c.back_btn;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(c[k]!==undefined)el.innerHTML=c[k];});}
+function toggleLang(){lang=lang==='zh'?'en':'zh';try{localStorage.setItem('nndoit_lang',lang);}catch(e){}applyLang();}
+function toggleTheme(){const h=document.documentElement,d=h.dataset.theme==='dark';h.dataset.theme=d?'light':'dark';document.getElementById('themeBtn').textContent=d?'🌙':'☀️';}
+window.addEventListener('scroll',()=>{document.querySelector('.nav').style.boxShadow=scrollY>30?'0 4px 30px rgba(0,0,0,.3)':'';},{passive:true});
+applyLang();
+</script>
+</body>
+</html>

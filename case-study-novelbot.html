@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>自動追更通報系統 | Case Study — 呂承恩 NNDoiT AI Studio</title>
+<style>
+:root{--bg:#0a050f;--bg2:#110a18;--card:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);--border2:rgba(236,72,153,.3);--text:#f0eaf5;--muted:rgba(240,234,245,.5);--primary:#ec4899;--accent:#f97316;--max:860px;--nav-bg:rgba(10,5,15,.88);}
+[data-theme="light"]{--bg:#fff7fb;--bg2:#ffeaf4;--card:rgba(255,255,255,.95);--border:rgba(236,72,153,.18);--border2:rgba(236,72,153,.4);--text:#2d2130;--muted:#6b5c67;--nav-bg:rgba(255,247,251,.9);}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-padding-top:68px;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.8;transition:background .4s,color .4s;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}.container{width:min(var(--max),calc(100% - 40px));margin:0 auto;}
+.nav{position:sticky;top:0;z-index:500;backdrop-filter:blur(18px);background:var(--nav-bg);border-bottom:1px solid var(--border);transition:box-shadow .3s,background .4s;}
+.nav-inner{width:min(1160px,calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;}
+.brand{font-weight:900;font-size:.95rem;color:var(--text);}.brand small{display:block;color:var(--primary);font-size:.72rem;font-weight:800;margin-top:1px;}
+.nav-back{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-size:.88rem;font-weight:700;padding:7px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);transition:.2s;}
+.nav-back:hover{background:rgba(236,72,153,.12);border-color:var(--border2);color:var(--primary);}
+.nav-controls{display:flex;gap:8px;}
+.icon-btn{width:36px;height:36px;border-radius:12px;border:1px solid var(--border);background:var(--card);display:grid;place-items:center;cursor:pointer;transition:.2s;font-size:1rem;color:var(--text);}
+.icon-btn:hover{background:rgba(236,72,153,.15);border-color:var(--border2);}
+.lang-btn{width:auto;padding:0 10px;font-size:.72rem;font-weight:900;letter-spacing:.03em;}
+.cs-hero{padding:72px 0 56px;border-bottom:1px solid var(--border);}
+.cs-tag{display:inline-flex;padding:7px 14px;border-radius:999px;background:rgba(236,72,153,.15);border:1px solid rgba(236,72,153,.25);color:var(--primary);font-size:.8rem;font-weight:900;margin-bottom:18px;}
+.cs-title{font-size:clamp(1.9rem,4vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px;}
+.cs-subtitle{color:var(--muted);font-size:1.05rem;max-width:68ch;margin-bottom:32px;line-height:1.75;}
+.cs-meta-row{display:flex;flex-wrap:wrap;gap:12px;}
+.cs-badge{padding:7px 14px;border-radius:999px;font-size:.82rem;font-weight:900;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.2);color:#f97316;}
+.cs-badge.b-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
+.cs-badge.b-green{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.2);color:#4ade80;}
+.cs-body{padding:60px 0 80px;}.cs-section{margin-bottom:56px;}.cs-section:last-child{margin-bottom:0;}
+.cs-section-label{display:flex;align-items:center;gap:10px;font-size:.75rem;font-weight:900;letter-spacing:.08em;color:var(--primary);text-transform:uppercase;margin-bottom:14px;}
+.cs-section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.cs-section h2{font-size:1.35rem;font-weight:900;letter-spacing:-.02em;margin-bottom:14px;}
+.cs-section p{color:var(--muted);font-size:.97rem;line-height:1.85;margin-bottom:12px;}.cs-section p:last-child{margin-bottom:0;}
+.cs-highlight{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--primary);border-radius:0 14px 14px 0;padding:18px 22px;margin:18px 0;color:var(--muted);font-size:.95rem;line-height:1.8;}
+.cs-highlight strong{color:var(--text);}
+.cs-par-grid{display:grid;gap:12px;margin:18px 0;}
+.cs-par-item{display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;}
+.cs-par-label{flex-shrink:0;font-size:.7rem;font-weight:900;padding:3px 9px;border-radius:6px;letter-spacing:.04em;margin-top:2px;white-space:nowrap;}
+.l-pain{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.22);}
+.l-sol{background:rgba(99,102,241,.14);color:#818cf8;border:1px solid rgba(99,102,241,.22);}
+[data-theme="light"] .l-pain{background:rgba(239,68,68,.1);color:#dc2626;}
+[data-theme="light"] .l-sol{background:rgba(99,102,241,.1);color:#4f46e5;}
+.cs-par-text{color:var(--muted);font-size:.93rem;line-height:1.65;}
+.cs-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px;}
+.cs-chip{padding:8px 14px;border-radius:999px;background:rgba(236,72,153,.1);border:1px solid rgba(236,72,153,.2);color:var(--primary);font-size:.82rem;font-weight:900;}
+.cs-chip.c-orange{background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.2);color:#f97316;}
+.cs-chip.c-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
+.cs-numlist{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:14px;}
+.cs-numlist li{display:flex;gap:14px;align-items:flex-start;color:var(--muted);font-size:.95rem;line-height:1.75;}
+.cs-numlist li .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(236,72,153,.18);border:1px solid rgba(236,72,153,.3);color:var(--primary);font-weight:900;font-size:.8rem;display:grid;place-items:center;margin-top:2px;}
+.cs-result-card{background:linear-gradient(135deg,rgba(236,72,153,.12),rgba(249,115,22,.08));border:1px solid rgba(236,72,153,.25);border-radius:20px;padding:28px 30px;margin-top:18px;}
+.cs-result-card h3{font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--text);}
+.cs-result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
+.crs-item{text-align:center;padding:16px 10px;background:rgba(255,255,255,.04);border-radius:14px;border:1px solid var(--border);}
+.crs-num{font-size:1.7rem;font-weight:900;color:var(--primary);display:block;line-height:1.1;}
+.crs-label{font-size:.76rem;color:var(--muted);margin-top:4px;line-height:1.4;}
+.cs-result-card p{color:var(--muted);font-size:.93rem;line-height:1.8;}
+.cs-imgs{display:grid;gap:12px;border-radius:16px;overflow:hidden;margin:20px 0;border:1px solid var(--border);}
+.cs-imgs.g3{grid-template-columns:1fr 1fr 1fr;}.cs-imgs.g2{grid-template-columns:1fr 1fr;}.cs-imgs img{width:100%;object-fit:cover;display:block;}
+.cs-footer-cta{background:var(--bg2);border-top:1px solid var(--border);padding:52px 0;}
+.cs-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.cs-footer-text h3{font-size:1.25rem;font-weight:900;margin-bottom:6px;}
+.cs-footer-text p{color:var(--muted);font-size:.93rem;}
+.cs-footer-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:900;border:1px solid transparent;transition:all .2s;font-size:.93rem;cursor:pointer;}
+.btn-primary{background:linear-gradient(135deg,#ec4899,#db2777);color:#fff;}.btn-primary:hover{transform:translateY(-2px);}
+.btn-ghost{background:var(--card);border-color:var(--border);color:var(--text);}.btn-ghost:hover{background:rgba(236,72,153,.1);border-color:var(--border2);color:var(--primary);}
+.btn-line{background:linear-gradient(135deg,#06c755,#00a846);color:#fff;}.btn-line:hover{transform:translateY(-2px);}
+@media(max-width:768px){.cs-imgs.g2{grid-template-columns:1fr;}.cs-hero{padding:48px 0 36px;}.cs-result-stats{grid-template-columns:1fr 1fr;}.cs-footer-inner{flex-direction:column;align-items:flex-start;}.cs-footer-btns{width:100%;}.cs-footer-btns .btn{flex:1;justify-content:center;}.cs-imgs.g3{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">呂承恩 Lu Cheng En<small>NNDoiT AI Studio</small></a>
+    <a href="index.html#projects" class="nav-back" id="navBack">← 回作品集</a>
+    <div class="nav-controls">
+      <div class="icon-btn lang-btn" id="langBtn" onclick="toggleLang()">EN</div>
+      <div class="icon-btn" id="themeBtn" onclick="toggleTheme()">☀️</div>
+    </div>
+  </div>
+</nav>
+<div class="cs-hero"><div class="container">
+  <div class="cs-tag" data-i18n="tag">Automation / n8n</div>
+  <h1 class="cs-title" data-i18n="title">自動追更通報系統｜n8n 內容擷取自動化</h1>
+  <p class="cs-subtitle" data-i18n="subtitle">我用 n8n 打造的第二個自動化工具。原本需要員工每天手動巡站確認小說與歌詞更新、複製內容回傳老闆；現在系統自動爬取最新資訊、擷取重點段落並自動寄信——全程零人工。</p>
+  <div class="cs-meta-row">
+    <span class="cs-badge">n8n · Web Scraping</span>
+    <span class="cs-badge b-indigo" data-i18n="badge2">每日排程全自動</span>
+    <span class="cs-badge b-green" data-i18n="badge3">零人工巡站</span>
+  </div>
+</div></div>
+<div class="cs-body"><div class="container">
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s1_label">01 — 專案背景</div>
+    <h2 data-i18n="s1_h">每天重複的「巡站回報」，值得被自動化</h2>
+    <p data-i18n="s1_p1">這是我用 n8n 完成的第二個自動化案子。老闆有固定追蹤的小說與歌詞網站，原本的做法是：員工每天打開網站確認有沒有更新，有更新就把最新一集的內容複製下來，整理後回傳給老闆。</p>
+    <p data-i18n="s1_p2">這件事每天都要做、內容高度重複、又不能漏——正是最適合自動化的工作型態。目標是讓整條「確認更新 → 擷取內容 → 回報老闆」的流程完全交給系統。</p>
+    <div class="cs-highlight"><span data-i18n="s1_note"><strong>專案核心：</strong>不只是「抓到網頁」，而是抓對內容——系統要能判斷是否真的有新章節，並從整頁內容中擷取出老闆真正想看的重點段落。</span></div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s2_label">02 — 問題與痛點</div>
+    <h2 data-i18n="s2_h">簡單的事每天做，累積起來就不簡單</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p1_lbl">痛點 1</span><span class="cs-par-text" data-i18n="p1_txt">員工每天要手動打開多個網站逐一確認更新，重複、瑣碎、佔用工作時間。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p2_lbl">痛點 2</span><span class="cs-par-text" data-i18n="p2_txt">人工複製貼上容易漏抓、抓錯段落，回報品質不穩定。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p3_lbl">痛點 3</span><span class="cs-par-text" data-i18n="p3_txt">更新時間不固定，人工確認有時差——老闆想第一時間看到，人工流程做不到。</span></div>
+    </div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s3_label">03 — 解法與流程設計</div>
+    <h2 data-i18n="s3_h">n8n 排程觸發，從爬取到寄信一條龍</h2>
+    <p data-i18n="s3_p1">整條流程建在 n8n 上：排程節點定時觸發，爬取目標網站的最新章節與歌詞頁面；接著比對紀錄判斷是否為新內容，是新內容才往下走。</p>
+    <p data-i18n="s3_p2">確認有更新後，系統自動擷取重點段落、整理成易讀的信件格式，寄送到老闆信箱。整條流程視覺化呈現在 n8n 畫布上，維護與擴充都一目瞭然。</p>
+    <div class="cs-imgs">
+      <img src="images/自動小說.png" alt="自動追更通報系統 1" loading="lazy">
+    </div>
+    <div class="cs-chips"><span class="cs-chip">n8n</span><span class="cs-chip c-orange">Web Scraping</span><span class="cs-chip c-indigo">內容重點擷取</span><span class="cs-chip">Email 自動寄送</span><span class="cs-chip c-orange">排程觸發</span><span class="cs-chip c-indigo">Workflow Automation</span></div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s4_label">04 — 我的負責範圍</div>
+    <h2 data-i18n="s4_h">從需求釐清到穩定運行，全程一人完成</h2>
+    <ul class="cs-numlist">
+      <li><span class="n">1</span><span data-i18n="r1">與需求方確認追蹤標的、更新頻率與希望收到的內容格式</span></li>
+      <li><span class="n">2</span><span data-i18n="r2">分析目標網站結構，設計穩定的爬取與內容解析方式</span></li>
+      <li><span class="n">3</span><span data-i18n="r3">在 n8n 建立排程觸發 → 爬取 → 更新判斷 → 內容擷取 → 寄信的完整工作流</span></li>
+      <li><span class="n">4</span><span data-i18n="r4">設計重點段落擷取邏輯，把整頁內容濃縮成老闆要看的部分</span></li>
+      <li><span class="n">5</span><span data-i18n="r5">設定異常處理——網站改版或爬取失敗時能被察覺，不會靜默漏報</span></li>
+      <li><span class="n">6</span><span data-i18n="r6">上線後觀察運行狀況並調校，確保長期穩定</span></li>
+    </ul>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s5_label">05 — 實作重點與難點</div>
+    <h2 data-i18n="s5_h">把「自動化」做到可靠的三個關鍵</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c1_lbl">實作重點</span><span class="cs-par-text" data-i18n="c1_txt"><strong style="color:var(--text)">更新判斷：</strong>爬得到網頁不等於抓得到「新內容」。系統會比對歷史紀錄，只有真正的新章節才觸發後續流程，避免重複寄信洗版。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c2_lbl">實作重點</span><span class="cs-par-text" data-i18n="c2_txt"><strong style="color:var(--text)">重點擷取：</strong>整頁內容直接寄出沒人想看。擷取邏輯把導覽、廣告等雜訊排除，只留下核心段落，讓信件打開就是重點。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c3_lbl">實作重點</span><span class="cs-par-text" data-i18n="c3_txt"><strong style="color:var(--text)">可維護性：</strong>流程全部視覺化在 n8n 上，之後要新增追蹤網站或改寄送對象，擴充節點即可，不用重寫程式。</span></div>
+    </div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s6_label">06 — 專案成果 / 價值</div>
+    <h2 data-i18n="s6_h">人工巡站作業，正式歸零</h2>
+    <div class="cs-result-card">
+      <h3 data-i18n="res_h">自動化成果</h3>
+      <div class="cs-result-stats">
+        <div class="crs-item"><span class="crs-num" data-i18n="stat1_num">0</span><div class="crs-label" data-i18n="stat1">人工巡站<br>完全取代</div></div>
+        <div class="crs-item"><span class="crs-num" data-i18n="stat2_num">每日</span><div class="crs-label" data-i18n="stat2">排程自動執行<br>不漏接更新</div></div>
+        <div class="crs-item"><span class="crs-num" data-i18n="stat3_num">第一時間</span><div class="crs-label" data-i18n="stat3">更新自動<br>送達信箱</div></div>
+      </div>
+      <p data-i18n="res_p">系統上線後，員工不再需要每天巡站與複製回報，老闆在內容更新後第一時間就能在信箱看到整理好的重點段落。原本的每日人工作業完全歸零，回報品質也更穩定一致。</p>
+    </div>
+    <div class="cs-highlight" style="margin-top:20px;"><span data-i18n="extend"><strong>後續延伸：</strong>同一套流程架構可以直接複用到其他情境——競品動態追蹤、新聞關鍵字監控、價格變動通知，只要換掉爬取目標與擷取邏輯即可。</span></div>
+  </div>
+</div></div>
+<div class="cs-footer-cta"><div class="container">
+  <div class="cs-footer-inner">
+    <div class="cs-footer-text"><h3 data-i18n="cta_h">你也有每天重複的人工作業？</h3><p data-i18n="cta_p">巡站、整理、回報這類重複工作都能自動化——把你的流程告訴我，我來設計。</p></div>
+    <div class="cs-footer-btns">
+      <a href="index.html#projects" class="btn btn-ghost" id="backBtn">← 回作品集</a>
+      <a href="https://lin.ee/Wc5Bozb" target="_blank" class="btn btn-line" data-i18n="line_btn">💬 加 LINE 討論</a>
+    </div>
+  </div>
+</div></div>
+<script>
+const C={zh:{"tag": "Automation / n8n", "title": "自動追更通報系統｜n8n 內容擷取自動化", "subtitle": "我用 n8n 打造的第二個自動化工具。原本需要員工每天手動巡站確認小說與歌詞更新、複製內容回傳老闆；現在系統自動爬取最新資訊、擷取重點段落並自動寄信——全程零人工。", "badge2": "每日排程全自動", "badge3": "零人工巡站", "s1_label": "01 — 專案背景", "s1_h": "每天重複的「巡站回報」，值得被自動化", "s1_p1": "這是我用 n8n 完成的第二個自動化案子。老闆有固定追蹤的小說與歌詞網站，原本的做法是：員工每天打開網站確認有沒有更新，有更新就把最新一集的內容複製下來，整理後回傳給老闆。", "s1_p2": "這件事每天都要做、內容高度重複、又不能漏——正是最適合自動化的工作型態。目標是讓整條「確認更新 → 擷取內容 → 回報老闆」的流程完全交給系統。", "s1_note": "<strong>專案核心：</strong>不只是「抓到網頁」，而是抓對內容——系統要能判斷是否真的有新章節，並從整頁內容中擷取出老闆真正想看的重點段落。", "s2_label": "02 — 問題與痛點", "s2_h": "簡單的事每天做，累積起來就不簡單", "p1_lbl": "痛點 1", "p1_txt": "員工每天要手動打開多個網站逐一確認更新，重複、瑣碎、佔用工作時間。", "p2_lbl": "痛點 2", "p2_txt": "人工複製貼上容易漏抓、抓錯段落，回報品質不穩定。", "p3_lbl": "痛點 3", "p3_txt": "更新時間不固定，人工確認有時差——老闆想第一時間看到，人工流程做不到。", "s3_label": "03 — 解法與流程設計", "s3_h": "n8n 排程觸發，從爬取到寄信一條龍", "s3_p1": "整條流程建在 n8n 上：排程節點定時觸發，爬取目標網站的最新章節與歌詞頁面；接著比對紀錄判斷是否為新內容，是新內容才往下走。", "s3_p2": "確認有更新後，系統自動擷取重點段落、整理成易讀的信件格式，寄送到老闆信箱。整條流程視覺化呈現在 n8n 畫布上，維護與擴充都一目瞭然。", "s4_label": "04 — 我的負責範圍", "s4_h": "從需求釐清到穩定運行，全程一人完成", "r1": "與需求方確認追蹤標的、更新頻率與希望收到的內容格式", "r2": "分析目標網站結構，設計穩定的爬取與內容解析方式", "r3": "在 n8n 建立排程觸發 → 爬取 → 更新判斷 → 內容擷取 → 寄信的完整工作流", "r4": "設計重點段落擷取邏輯，把整頁內容濃縮成老闆要看的部分", "r5": "設定異常處理——網站改版或爬取失敗時能被察覺，不會靜默漏報", "r6": "上線後觀察運行狀況並調校，確保長期穩定", "s5_label": "05 — 實作重點與難點", "s5_h": "把「自動化」做到可靠的三個關鍵", "c1_lbl": "實作重點", "c1_txt": "<strong style=\"color:var(--text)\">更新判斷：</strong>爬得到網頁不等於抓得到「新內容」。系統會比對歷史紀錄，只有真正的新章節才觸發後續流程，避免重複寄信洗版。", "c2_lbl": "實作重點", "c2_txt": "<strong style=\"color:var(--text)\">重點擷取：</strong>整頁內容直接寄出沒人想看。擷取邏輯把導覽、廣告等雜訊排除，只留下核心段落，讓信件打開就是重點。", "c3_lbl": "實作重點", "c3_txt": "<strong style=\"color:var(--text)\">可維護性：</strong>流程全部視覺化在 n8n 上，之後要新增追蹤網站或改寄送對象，擴充節點即可，不用重寫程式。", "s6_label": "06 — 專案成果 / 價值", "s6_h": "人工巡站作業，正式歸零", "res_h": "自動化成果", "stat1_num": "0", "stat1": "人工巡站<br>完全取代", "stat2_num": "每日", "stat2": "排程自動執行<br>不漏接更新", "stat3_num": "第一時間", "stat3": "更新自動<br>送達信箱", "res_p": "系統上線後，員工不再需要每天巡站與複製回報，老闆在內容更新後第一時間就能在信箱看到整理好的重點段落。原本的每日人工作業完全歸零，回報品質也更穩定一致。", "extend": "<strong>後續延伸：</strong>同一套流程架構可以直接複用到其他情境——競品動態追蹤、新聞關鍵字監控、價格變動通知，只要換掉爬取目標與擷取邏輯即可。", "cta_h": "你也有每天重複的人工作業？", "cta_p": "巡站、整理、回報這類重複工作都能自動化——把你的流程告訴我，我來設計。", "line_btn": "💬 加 LINE 討論", "nav_back": "← 回作品集", "back_btn": "← 回作品集"},
+en:{"tag": "Automation / n8n", "title": "Auto Content Digest | n8n Scraping & Email Automation", "subtitle": "My second automation tool built on n8n. Staff used to check novel and lyrics sites daily, copy the latest content, and forward it to the boss. Now the system scrapes updates, extracts the key passages, and emails them automatically — zero manual work.", "badge2": "Daily Scheduled Automation", "badge3": "Zero Manual Checking", "s1_label": "01 — Background", "s1_h": "A daily \"check and report\" routine worth automating", "s1_p1": "This is my second automation project built with n8n. The boss follows specific novel and lyrics websites. The old process: an employee opened each site daily to check for updates, copied the newest chapter, tidied it up, and sent it to the boss.", "s1_p2": "Done every day, highly repetitive, and it can't be missed — exactly the profile of work that should be automated. The goal: hand the entire \"check → extract → report\" flow over to the system.", "s1_note": "<strong>Project goal:</strong> Not just \"fetch the page,\" but fetch the right content — the system must determine whether a genuinely new chapter exists and extract only the passages the boss actually wants to read.", "s2_label": "02 — Problems & Pain Points", "s2_h": "Simple tasks, done daily, stop being simple", "p1_lbl": "Pain 1", "p1_txt": "Staff manually opened multiple sites every day to check for updates — repetitive, tedious, and time-consuming.", "p2_lbl": "Pain 2", "p2_txt": "Manual copy-paste was error-prone: missed updates, wrong passages, inconsistent report quality.", "p3_lbl": "Pain 3", "p3_txt": "Update times were unpredictable, so manual checks lagged — the boss wanted updates immediately; a manual process couldn't deliver that.", "s3_label": "03 — Solution & Workflow Design", "s3_h": "Scheduled n8n workflow: scrape to inbox, end to end", "s3_p1": "The entire flow runs on n8n: a schedule node triggers periodically, scrapes the latest chapter and lyrics pages, then compares against history to determine whether content is genuinely new before proceeding.", "s3_p2": "When an update is confirmed, the system extracts the key passages, formats them into a readable email, and sends it to the boss. The whole flow is visualized on the n8n canvas, making maintenance and extension straightforward.", "s4_label": "04 — My Responsibilities", "s4_h": "From requirements to stable operation, handled end to end", "r1": "Confirmed the tracking targets, update cadence, and desired content format with the stakeholder.", "r2": "Analyzed target site structures and designed a robust scraping and parsing approach.", "r3": "Built the full n8n workflow: schedule trigger → scrape → update detection → extraction → email.", "r4": "Designed key-passage extraction logic to distill full pages into what the boss wants to read.", "r5": "Set up failure handling — site redesigns or scrape failures are surfaced, never silently missed.", "r6": "Monitored and tuned after launch to ensure long-term stability.", "s5_label": "05 — Implementation Highlights", "s5_h": "Three keys to making automation reliable", "c1_lbl": "Key Point", "c1_txt": "<strong style=\"color:var(--text)\">Update detection:</strong> Fetching a page isn't the same as detecting new content. The system compares against history so only genuinely new chapters trigger the flow — no duplicate email spam.", "c2_lbl": "Key Point", "c2_txt": "<strong style=\"color:var(--text)\">Key-passage extraction:</strong> Nobody wants a raw page dump. Extraction filters out navigation, ads, and noise, leaving only the core passages — the email opens straight to the point.", "c3_lbl": "Key Point", "c3_txt": "<strong style=\"color:var(--text)\">Maintainability:</strong> The flow is fully visual in n8n. Adding new sites to track or changing recipients means extending nodes, not rewriting code.", "s6_label": "06 — Results & Value", "s6_h": "Manual site-checking: officially zero", "res_h": "Automation Outcomes", "stat1_num": "0", "stat1": "manual checks —<br>fully replaced", "stat2_num": "Daily", "stat2": "scheduled runs,<br>no update missed", "stat3_num": "Instant", "stat3": "updates delivered<br>straight to inbox", "res_p": "Since launch, staff no longer check sites or copy-paste reports. The boss sees curated key passages in his inbox the moment content updates. The daily manual routine dropped to zero, and report quality became consistent.", "extend": "<strong>Extensibility:</strong> The same workflow architecture can be reused directly — competitor monitoring, news keyword tracking, price-change alerts — just swap the scraping targets and extraction logic.", "cta_h": "Have your own daily repetitive tasks?", "cta_p": "Checking, compiling, reporting — routines like these can all be automated. Tell me your workflow and I'll design it.", "line_btn": "💬 Chat on LINE", "nav_back": "← Back to Portfolio", "back_btn": "← Back to Portfolio"}};
+let lang='zh';try{const s=localStorage.getItem('nndoit_lang');if(s)lang=s;}catch(e){}
+function applyLang(){const c=C[lang];document.documentElement.lang=lang==='zh'?'zh-Hant':'en';document.getElementById('langBtn').textContent=lang==='zh'?'EN':'中';document.getElementById('navBack').innerHTML=c.nav_back;document.getElementById('backBtn').innerHTML=c.back_btn;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(c[k]!==undefined)el.innerHTML=c[k];});}
+function toggleLang(){lang=lang==='zh'?'en':'zh';try{localStorage.setItem('nndoit_lang',lang);}catch(e){}applyLang();}
+function toggleTheme(){const h=document.documentElement,d=h.dataset.theme==='dark';h.dataset.theme=d?'light':'dark';document.getElementById('themeBtn').textContent=d?'🌙':'☀️';}
+window.addEventListener('scroll',()=>{document.querySelector('.nav').style.boxShadow=scrollY>30?'0 4px 30px rgba(0,0,0,.3)':'';},{passive:true});
+applyLang();
+</script>
+</body>
+</html>

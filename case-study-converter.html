@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>雲端影音轉換器 | Case Study — 呂承恩 NNDoiT AI Studio</title>
+<style>
+:root{--bg:#0a050f;--bg2:#110a18;--card:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);--border2:rgba(236,72,153,.3);--text:#f0eaf5;--muted:rgba(240,234,245,.5);--primary:#ec4899;--accent:#f97316;--max:860px;--nav-bg:rgba(10,5,15,.88);}
+[data-theme="light"]{--bg:#fff7fb;--bg2:#ffeaf4;--card:rgba(255,255,255,.95);--border:rgba(236,72,153,.18);--border2:rgba(236,72,153,.4);--text:#2d2130;--muted:#6b5c67;--nav-bg:rgba(255,247,251,.9);}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-padding-top:68px;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.8;transition:background .4s,color .4s;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}.container{width:min(var(--max),calc(100% - 40px));margin:0 auto;}
+.nav{position:sticky;top:0;z-index:500;backdrop-filter:blur(18px);background:var(--nav-bg);border-bottom:1px solid var(--border);transition:box-shadow .3s,background .4s;}
+.nav-inner{width:min(1160px,calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;}
+.brand{font-weight:900;font-size:.95rem;color:var(--text);}.brand small{display:block;color:var(--primary);font-size:.72rem;font-weight:800;margin-top:1px;}
+.nav-back{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-size:.88rem;font-weight:700;padding:7px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);transition:.2s;}
+.nav-back:hover{background:rgba(236,72,153,.12);border-color:var(--border2);color:var(--primary);}
+.nav-controls{display:flex;gap:8px;}
+.icon-btn{width:36px;height:36px;border-radius:12px;border:1px solid var(--border);background:var(--card);display:grid;place-items:center;cursor:pointer;transition:.2s;font-size:1rem;color:var(--text);}
+.icon-btn:hover{background:rgba(236,72,153,.15);border-color:var(--border2);}
+.lang-btn{width:auto;padding:0 10px;font-size:.72rem;font-weight:900;letter-spacing:.03em;}
+.cs-hero{padding:72px 0 56px;border-bottom:1px solid var(--border);}
+.cs-tag{display:inline-flex;padding:7px 14px;border-radius:999px;background:rgba(236,72,153,.15);border:1px solid rgba(236,72,153,.25);color:var(--primary);font-size:.8rem;font-weight:900;margin-bottom:18px;}
+.cs-title{font-size:clamp(1.9rem,4vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px;}
+.cs-subtitle{color:var(--muted);font-size:1.05rem;max-width:68ch;margin-bottom:32px;line-height:1.75;}
+.cs-meta-row{display:flex;flex-wrap:wrap;gap:12px;}
+.cs-badge{padding:7px 14px;border-radius:999px;font-size:.82rem;font-weight:900;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.2);color:#f97316;}
+.cs-badge.b-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
+.cs-badge.b-green{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.2);color:#4ade80;}
+.cs-body{padding:60px 0 80px;}.cs-section{margin-bottom:56px;}.cs-section:last-child{margin-bottom:0;}
+.cs-section-label{display:flex;align-items:center;gap:10px;font-size:.75rem;font-weight:900;letter-spacing:.08em;color:var(--primary);text-transform:uppercase;margin-bottom:14px;}
+.cs-section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.cs-section h2{font-size:1.35rem;font-weight:900;letter-spacing:-.02em;margin-bottom:14px;}
+.cs-section p{color:var(--muted);font-size:.97rem;line-height:1.85;margin-bottom:12px;}.cs-section p:last-child{margin-bottom:0;}
+.cs-highlight{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--primary);border-radius:0 14px 14px 0;padding:18px 22px;margin:18px 0;color:var(--muted);font-size:.95rem;line-height:1.8;}
+.cs-highlight strong{color:var(--text);}
+.cs-par-grid{display:grid;gap:12px;margin:18px 0;}
+.cs-par-item{display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;}
+.cs-par-label{flex-shrink:0;font-size:.7rem;font-weight:900;padding:3px 9px;border-radius:6px;letter-spacing:.04em;margin-top:2px;white-space:nowrap;}
+.l-pain{background:rgba(239,68,68,.14);color:#f87171;border:1px solid rgba(239,68,68,.22);}
+.l-sol{background:rgba(99,102,241,.14);color:#818cf8;border:1px solid rgba(99,102,241,.22);}
+[data-theme="light"] .l-pain{background:rgba(239,68,68,.1);color:#dc2626;}
+[data-theme="light"] .l-sol{background:rgba(99,102,241,.1);color:#4f46e5;}
+.cs-par-text{color:var(--muted);font-size:.93rem;line-height:1.65;}
+.cs-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px;}
+.cs-chip{padding:8px 14px;border-radius:999px;background:rgba(236,72,153,.1);border:1px solid rgba(236,72,153,.2);color:var(--primary);font-size:.82rem;font-weight:900;}
+.cs-chip.c-orange{background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.2);color:#f97316;}
+.cs-chip.c-indigo{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.22);color:#818cf8;}
+.cs-numlist{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:14px;}
+.cs-numlist li{display:flex;gap:14px;align-items:flex-start;color:var(--muted);font-size:.95rem;line-height:1.75;}
+.cs-numlist li .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(236,72,153,.18);border:1px solid rgba(236,72,153,.3);color:var(--primary);font-weight:900;font-size:.8rem;display:grid;place-items:center;margin-top:2px;}
+.cs-result-card{background:linear-gradient(135deg,rgba(236,72,153,.12),rgba(249,115,22,.08));border:1px solid rgba(236,72,153,.25);border-radius:20px;padding:28px 30px;margin-top:18px;}
+.cs-result-card h3{font-size:1.1rem;font-weight:900;margin-bottom:16px;color:var(--text);}
+.cs-result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
+.crs-item{text-align:center;padding:16px 10px;background:rgba(255,255,255,.04);border-radius:14px;border:1px solid var(--border);}
+.crs-num{font-size:1.7rem;font-weight:900;color:var(--primary);display:block;line-height:1.1;}
+.crs-label{font-size:.76rem;color:var(--muted);margin-top:4px;line-height:1.4;}
+.cs-result-card p{color:var(--muted);font-size:.93rem;line-height:1.8;}
+.cs-imgs{display:grid;gap:12px;border-radius:16px;overflow:hidden;margin:20px 0;border:1px solid var(--border);}
+.cs-imgs.g3{grid-template-columns:1fr 1fr 1fr;}.cs-imgs.g2{grid-template-columns:1fr 1fr;}.cs-imgs img{width:100%;object-fit:cover;display:block;}
+.cs-footer-cta{background:var(--bg2);border-top:1px solid var(--border);padding:52px 0;}
+.cs-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.cs-footer-text h3{font-size:1.25rem;font-weight:900;margin-bottom:6px;}
+.cs-footer-text p{color:var(--muted);font-size:.93rem;}
+.cs-footer-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:900;border:1px solid transparent;transition:all .2s;font-size:.93rem;cursor:pointer;}
+.btn-primary{background:linear-gradient(135deg,#ec4899,#db2777);color:#fff;}.btn-primary:hover{transform:translateY(-2px);}
+.btn-ghost{background:var(--card);border-color:var(--border);color:var(--text);}.btn-ghost:hover{background:rgba(236,72,153,.1);border-color:var(--border2);color:var(--primary);}
+.btn-line{background:linear-gradient(135deg,#06c755,#00a846);color:#fff;}.btn-line:hover{transform:translateY(-2px);}
+@media(max-width:768px){.cs-imgs.g2{grid-template-columns:1fr;}.cs-hero{padding:48px 0 36px;}.cs-result-stats{grid-template-columns:1fr 1fr;}.cs-footer-inner{flex-direction:column;align-items:flex-start;}.cs-footer-btns{width:100%;}.cs-footer-btns .btn{flex:1;justify-content:center;}.cs-imgs.g3{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">呂承恩 Lu Cheng En<small>NNDoiT AI Studio</small></a>
+    <a href="index.html#projects" class="nav-back" id="navBack">← 回作品集</a>
+    <div class="nav-controls">
+      <div class="icon-btn lang-btn" id="langBtn" onclick="toggleLang()">EN</div>
+      <div class="icon-btn" id="themeBtn" onclick="toggleTheme()">☀️</div>
+    </div>
+  </div>
+</nav>
+<div class="cs-hero"><div class="container">
+  <div class="cs-tag" data-i18n="tag">Cloud Web App</div>
+  <h1 class="cs-title" data-i18n="title">雲端影音轉換器｜隨開即用 Web App</h1>
+  <p class="cs-subtitle" data-i18n="subtitle">架設在雲端的 YouTube 轉換器，以網頁 App 形式提供服務——不必安裝任何軟體，隨時隨地打開瀏覽器就能轉檔，並加入客製化的介面風格設計，讓工具用起來也有質感。</p>
+  <div class="cs-meta-row">
+    <span class="cs-badge">Web App · Cloud</span>
+    <span class="cs-badge b-indigo" data-i18n="badge2">免安裝 · 跨裝置</span>
+    <span class="cs-badge b-green" data-i18n="badge3">客製化介面風格</span>
+  </div>
+</div></div>
+<div class="cs-body"><div class="container">
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s1_label">01 — 專案背景</div>
+    <h2 data-i18n="s1_h">轉檔這件事，不該被綁在一台電腦上</h2>
+    <p data-i18n="s1_p1">轉檔是很多人日常會用到的功能，但市面上的工具大多要下載安裝、綁定單一裝置，介面老舊、廣告干擾多，體驗普遍不好。</p>
+    <p data-i18n="s1_p2">這個專案把轉換器搬上雲端，以網頁 App 的形式提供：打開瀏覽器、貼上連結、一鍵轉檔。同時我也把介面當成作品來設計，加入客製化的視覺風格，讓工具型產品也有好的使用體驗。</p>
+    <div class="cs-highlight"><span data-i18n="s1_note"><strong>專案核心：</strong>工具的價值在於「隨手可用」。免安裝、跨裝置、流程極簡，加上有質感的介面——讓使用者每次要轉檔時，第一個想到的就是它。</span></div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s2_label">02 — 問題與痛點</div>
+    <h2 data-i18n="s2_h">傳統轉檔工具的三個老問題</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p1_lbl">痛點 1</span><span class="cs-par-text" data-i18n="p1_txt">需要下載安裝軟體，換一台電腦就要重裝一次，手機、平板更是無法使用。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p2_lbl">痛點 2</span><span class="cs-par-text" data-i18n="p2_txt">市面工具介面老舊、操作步驟繁瑣，還常夾帶廣告與干擾元素。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-pain" data-i18n="p3_lbl">痛點 3</span><span class="cs-par-text" data-i18n="p3_txt">臨時需要轉檔時手邊沒有裝好工具的裝置，需求當下無法被滿足。</span></div>
+    </div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s3_label">03 — 解法與設計思路</div>
+    <h2 data-i18n="s3_h">雲端部署 + 極簡流程 + 客製化風格</h2>
+    <p data-i18n="s3_p1">系統部署在雲端，前端是網頁 App、後端負責轉檔處理。使用者的操作流程被壓縮到最短：貼上連結 → 一鍵轉檔 → 下載完成，不需要註冊、不需要安裝。</p>
+    <p data-i18n="s3_p2">介面採用客製化風格設計，從配色、排版到操作回饋都經過刻意安排——跳脫市面轉檔工具千篇一律的老舊觀感，讓工具本身也是一個有設計感的產品。</p>
+    <div class="cs-imgs g2">
+      <img src="images/converter1.png" alt="雲端影音轉換器 1" loading="lazy">
+      <img src="images/converter2.png" alt="雲端影音轉換器 2" loading="lazy">
+    </div>
+    <div class="cs-chips"><span class="cs-chip">Web App</span><span class="cs-chip c-orange">Cloud Deployment</span><span class="cs-chip c-indigo">影音轉檔</span><span class="cs-chip">Custom UI Design</span><span class="cs-chip c-orange">Frontend + Backend</span></div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s4_label">04 — 我的負責範圍</div>
+    <h2 data-i18n="s4_h">前端到後端到部署，一人完成</h2>
+    <ul class="cs-numlist">
+      <li><span class="n">1</span><span data-i18n="r1">規劃產品定位與核心使用流程，把操作步驟壓到最少</span></li>
+      <li><span class="n">2</span><span data-i18n="r2">設計客製化介面風格——配色、版面與互動回饋</span></li>
+      <li><span class="n">3</span><span data-i18n="r3">開發前端網頁 App，確保桌機與行動裝置都有良好體驗</span></li>
+      <li><span class="n">4</span><span data-i18n="r4">開發後端轉檔處理服務，串接前後端流程</span></li>
+      <li><span class="n">5</span><span data-i18n="r5">部署至雲端環境，讓服務隨時隨地可用</span></li>
+      <li><span class="n">6</span><span data-i18n="r6">實測各種使用情境並調校，確保轉檔流程穩定</span></li>
+    </ul>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s5_label">05 — 實作重點與難點</div>
+    <h2 data-i18n="s5_h">把工具做成產品的三個關鍵</h2>
+    <div class="cs-par-grid">
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c1_lbl">實作重點</span><span class="cs-par-text" data-i18n="c1_txt"><strong style="color:var(--text)">流程極簡化：</strong>每多一個步驟就流失一批使用者。整個轉檔流程被設計成「貼上連結、按一下」——其餘的事都由系統在背後完成。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c2_lbl">實作重點</span><span class="cs-par-text" data-i18n="c2_txt"><strong style="color:var(--text)">雲端架構：</strong>轉檔運算放在雲端後端執行，使用者裝置不需要任何效能負擔，手機也能流暢使用。</span></div>
+      <div class="cs-par-item"><span class="cs-par-label l-sol" data-i18n="c3_lbl">實作重點</span><span class="cs-par-text" data-i18n="c3_txt"><strong style="color:var(--text)">介面即體驗：</strong>工具型產品常忽略設計，這裡反其道而行——客製化的視覺風格讓產品有辨識度，用起來也更舒服。</span></div>
+    </div>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label" data-i18n="s6_label">06 — 專案成果 / 價值</div>
+    <h2 data-i18n="s6_h">從桌面軟體到隨開即用的雲端服務</h2>
+    <div class="cs-result-card">
+      <h3 data-i18n="res_h">產品成果</h3>
+      <div class="cs-result-stats">
+        <div class="crs-item"><span class="crs-num" data-i18n="stat1_num">免安裝</span><div class="crs-label" data-i18n="stat1">打開瀏覽器<br>直接使用</div></div>
+        <div class="crs-item"><span class="crs-num" data-i18n="stat2_num">跨裝置</span><div class="crs-label" data-i18n="stat2">桌機 · 平板 · 手機<br>皆可轉檔</div></div>
+        <div class="crs-item"><span class="crs-num" data-i18n="stat3_num">1 鍵</span><div class="crs-label" data-i18n="stat3">貼上連結<br>一鍵完成</div></div>
+      </div>
+      <p data-i18n="res_p">上線後，轉檔從「要先找對電腦、裝對軟體」變成「打開瀏覽器就能做」。跨裝置隨開隨用，流程簡化為貼上連結一鍵完成，加上客製化的介面風格，整體體驗遠勝傳統轉檔工具。</p>
+    </div>
+    <div class="cs-highlight" style="margin-top:20px;"><span data-i18n="extend"><strong>後續延伸：</strong>這套「雲端後端 + 網頁 App 前端」的架構可以直接延伸到其他工具型產品——批次處理、更多格式支援、會員與配額機制，都能在現有基礎上擴充。</span></div>
+  </div>
+</div></div>
+<div class="cs-footer-cta"><div class="container">
+  <div class="cs-footer-inner">
+    <div class="cs-footer-text"><h3 data-i18n="cta_h">想把你的工具或服務搬上雲端？</h3><p data-i18n="cta_p">從產品流程、介面設計到雲端部署，一條龍完成——告訴我你想做什麼。</p></div>
+    <div class="cs-footer-btns">
+      <a href="index.html#projects" class="btn btn-ghost" id="backBtn">← 回作品集</a>
+      <a href="https://lin.ee/Wc5Bozb" target="_blank" class="btn btn-line" data-i18n="line_btn">💬 加 LINE 討論</a>
+    </div>
+  </div>
+</div></div>
+<script>
+const C={zh:{"tag": "Cloud Web App", "title": "雲端影音轉換器｜隨開即用 Web App", "subtitle": "架設在雲端的 YouTube 轉換器，以網頁 App 形式提供服務——不必安裝任何軟體，隨時隨地打開瀏覽器就能轉檔，並加入客製化的介面風格設計，讓工具用起來也有質感。", "badge2": "免安裝 · 跨裝置", "badge3": "客製化介面風格", "s1_label": "01 — 專案背景", "s1_h": "轉檔這件事，不該被綁在一台電腦上", "s1_p1": "轉檔是很多人日常會用到的功能，但市面上的工具大多要下載安裝、綁定單一裝置，介面老舊、廣告干擾多，體驗普遍不好。", "s1_p2": "這個專案把轉換器搬上雲端，以網頁 App 的形式提供：打開瀏覽器、貼上連結、一鍵轉檔。同時我也把介面當成作品來設計，加入客製化的視覺風格，讓工具型產品也有好的使用體驗。", "s1_note": "<strong>專案核心：</strong>工具的價值在於「隨手可用」。免安裝、跨裝置、流程極簡，加上有質感的介面——讓使用者每次要轉檔時，第一個想到的就是它。", "s2_label": "02 — 問題與痛點", "s2_h": "傳統轉檔工具的三個老問題", "p1_lbl": "痛點 1", "p1_txt": "需要下載安裝軟體，換一台電腦就要重裝一次，手機、平板更是無法使用。", "p2_lbl": "痛點 2", "p2_txt": "市面工具介面老舊、操作步驟繁瑣，還常夾帶廣告與干擾元素。", "p3_lbl": "痛點 3", "p3_txt": "臨時需要轉檔時手邊沒有裝好工具的裝置，需求當下無法被滿足。", "s3_label": "03 — 解法與設計思路", "s3_h": "雲端部署 + 極簡流程 + 客製化風格", "s3_p1": "系統部署在雲端，前端是網頁 App、後端負責轉檔處理。使用者的操作流程被壓縮到最短：貼上連結 → 一鍵轉檔 → 下載完成，不需要註冊、不需要安裝。", "s3_p2": "介面採用客製化風格設計，從配色、排版到操作回饋都經過刻意安排——跳脫市面轉檔工具千篇一律的老舊觀感，讓工具本身也是一個有設計感的產品。", "s4_label": "04 — 我的負責範圍", "s4_h": "前端到後端到部署，一人完成", "r1": "規劃產品定位與核心使用流程，把操作步驟壓到最少", "r2": "設計客製化介面風格——配色、版面與互動回饋", "r3": "開發前端網頁 App，確保桌機與行動裝置都有良好體驗", "r4": "開發後端轉檔處理服務，串接前後端流程", "r5": "部署至雲端環境，讓服務隨時隨地可用", "r6": "實測各種使用情境並調校，確保轉檔流程穩定", "s5_label": "05 — 實作重點與難點", "s5_h": "把工具做成產品的三個關鍵", "c1_lbl": "實作重點", "c1_txt": "<strong style=\"color:var(--text)\">流程極簡化：</strong>每多一個步驟就流失一批使用者。整個轉檔流程被設計成「貼上連結、按一下」——其餘的事都由系統在背後完成。", "c2_lbl": "實作重點", "c2_txt": "<strong style=\"color:var(--text)\">雲端架構：</strong>轉檔運算放在雲端後端執行，使用者裝置不需要任何效能負擔，手機也能流暢使用。", "c3_lbl": "實作重點", "c3_txt": "<strong style=\"color:var(--text)\">介面即體驗：</strong>工具型產品常忽略設計，這裡反其道而行——客製化的視覺風格讓產品有辨識度，用起來也更舒服。", "s6_label": "06 — 專案成果 / 價值", "s6_h": "從桌面軟體到隨開即用的雲端服務", "res_h": "產品成果", "stat1_num": "免安裝", "stat1": "打開瀏覽器<br>直接使用", "stat2_num": "跨裝置", "stat2": "桌機 · 平板 · 手機<br>皆可轉檔", "stat3_num": "1 鍵", "stat3": "貼上連結<br>一鍵完成", "res_p": "上線後，轉檔從「要先找對電腦、裝對軟體」變成「打開瀏覽器就能做」。跨裝置隨開隨用，流程簡化為貼上連結一鍵完成，加上客製化的介面風格，整體體驗遠勝傳統轉檔工具。", "extend": "<strong>後續延伸：</strong>這套「雲端後端 + 網頁 App 前端」的架構可以直接延伸到其他工具型產品——批次處理、更多格式支援、會員與配額機制，都能在現有基礎上擴充。", "cta_h": "想把你的工具或服務搬上雲端？", "cta_p": "從產品流程、介面設計到雲端部署，一條龍完成——告訴我你想做什麼。", "line_btn": "💬 加 LINE 討論", "nav_back": "← 回作品集", "back_btn": "← 回作品集"},
+en:{"tag": "Cloud Web App", "title": "Cloud Media Converter | Instant Web App", "subtitle": "A cloud-hosted YouTube converter delivered as a web app — no installation needed. Open a browser anywhere, anytime, and convert, with a custom-designed interface that makes the tool feel polished.", "badge2": "No Install · Any Device", "badge3": "Custom UI Style", "s1_label": "01 — Background", "s1_h": "Converting files shouldn't be tied to one computer", "s1_p1": "File conversion is an everyday need, yet most tools require downloads and installs, lock you to a single device, look dated, and are riddled with ads — the experience is generally poor.", "s1_p2": "This project moves the converter to the cloud as a web app: open a browser, paste a link, click once. I also treated the interface as a design piece, giving a utility product a genuinely pleasant experience.", "s1_note": "<strong>Project goal:</strong> A tool's value lies in being instantly available. No install, any device, minimal steps, and a polished interface — so it's the first thing users think of whenever they need to convert.", "s2_label": "02 — Problems & Pain Points", "s2_h": "Three old problems with traditional converter tools", "p1_lbl": "Pain 1", "p1_txt": "Software must be downloaded and installed — switch computers and you reinstall; phones and tablets are out entirely.", "p2_lbl": "Pain 2", "p2_txt": "Existing tools have dated interfaces, convoluted steps, and are often bundled with ads and distractions.", "p3_lbl": "Pain 3", "p3_txt": "When you suddenly need to convert something, the device at hand rarely has the right tool installed — the need goes unmet at the moment it arises.", "s3_label": "03 — Solution & Design Approach", "s3_h": "Cloud deployment + minimal flow + custom style", "s3_p1": "The system is deployed in the cloud — a web app front end with a back end that handles conversion. The user flow is compressed to the minimum: paste a link → one click → download. No signup, no install.", "s3_p2": "The interface uses a custom visual style — color, layout, and interaction feedback are all deliberate — breaking away from the uniformly dated look of converter tools and making the product itself feel designed.", "s4_label": "04 — My Responsibilities", "s4_h": "Front end, back end, and deployment — done solo", "r1": "Defined the product positioning and core flow, minimizing user steps.", "r2": "Designed the custom interface style — palette, layout, and interaction feedback.", "r3": "Built the front-end web app with a good experience on desktop and mobile alike.", "r4": "Built the back-end conversion service and wired the full front-to-back flow.", "r5": "Deployed to the cloud so the service is available anywhere, anytime.", "r6": "Tested real-world scenarios and tuned for a stable conversion pipeline.", "s5_label": "05 — Implementation Highlights", "s5_h": "Three keys to turning a tool into a product", "c1_lbl": "Key Point", "c1_txt": "<strong style=\"color:var(--text)\">Radical simplicity:</strong> Every extra step loses users. The whole flow is designed as \"paste a link, click once\" — everything else happens behind the scenes.", "c2_lbl": "Key Point", "c2_txt": "<strong style=\"color:var(--text)\">Cloud architecture:</strong> Conversion runs on the cloud back end, so the user's device carries zero performance load — it works smoothly even on phones.", "c3_lbl": "Key Point", "c3_txt": "<strong style=\"color:var(--text)\">Interface as experience:</strong> Utility products usually neglect design. This one does the opposite — a custom visual style gives the product identity and makes it genuinely pleasant to use.", "s6_label": "06 — Results & Value", "s6_h": "From desktop software to an instant cloud service", "res_h": "Product Outcomes", "stat1_num": "No install", "stat1": "open a browser<br>and use it", "stat2_num": "Any device", "stat2": "desktop · tablet · mobile<br>all supported", "stat3_num": "1 click", "stat3": "paste a link,<br>done in one click", "res_p": "After launch, converting went from \"find the right computer with the right software\" to \"open a browser.\" It works across devices, the flow is one paste and one click, and the custom interface makes the experience far better than traditional tools.", "extend": "<strong>Extensibility:</strong> The \"cloud back end + web app front end\" architecture extends directly to other utility products — batch processing, more formats, membership and quota systems can all build on this foundation.", "cta_h": "Want to move your tool or service to the cloud?", "cta_p": "From product flow and UI design to cloud deployment — tell me what you want to build.", "line_btn": "💬 Chat on LINE", "nav_back": "← Back to Portfolio", "back_btn": "← Back to Portfolio"}};
+let lang='zh';try{const s=localStorage.getItem('nndoit_lang');if(s)lang=s;}catch(e){}
+function applyLang(){const c=C[lang];document.documentElement.lang=lang==='zh'?'zh-Hant':'en';document.getElementById('langBtn').textContent=lang==='zh'?'EN':'中';document.getElementById('navBack').innerHTML=c.nav_back;document.getElementById('backBtn').innerHTML=c.back_btn;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(c[k]!==undefined)el.innerHTML=c[k];});}
+function toggleLang(){lang=lang==='zh'?'en':'zh';try{localStorage.setItem('nndoit_lang',lang);}catch(e){}applyLang();}
+function toggleTheme(){const h=document.documentElement,d=h.dataset.theme==='dark';h.dataset.theme=d?'light':'dark';document.getElementById('themeBtn').textContent=d?'🌙':'☀️';}
+window.addEventListener('scroll',()=>{document.querySelector('.nav').style.boxShadow=scrollY>30?'0 4px 30px rgba(0,0,0,.3)':'';},{passive:true});
+applyLang();
+</script>
+</body>
+</html>
