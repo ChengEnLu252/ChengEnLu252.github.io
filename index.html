@@ -69,7 +69,7 @@
   "email": "aa57855966@gmail.com",
   "telephone": "+886-963-718-302",
   "areaServed": {"@type": "Country", "name": "Taiwan"},
-  "priceRange": "NT$1,000 ~ NT$80,000+",
+  "priceRange": "Free ~ NT$80,000+",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "AI 自動化與系統整合服務",
@@ -108,7 +108,7 @@
     {"@type": "Question","name": "OCR 文件抽取能解決哪些問題？","acceptedAnswer": {"@type": "Answer","text": "OCR 搭配 LLM 可以自動讀取訂單、發票、合約等紙本或 PDF 文件，抽取出結構化欄位（品名、數量、金額等），直接輸出可串接系統的標準格式，取代手動輸入。"}},
     {"@type": "Question","name": "LINE Bot 能做哪些事？","acceptedAnswer": {"@type": "Answer","text": "LINE Bot 可以整合查詢系統（庫存、訂單狀態）、推播通知、客服自動回覆、表單填寫、健康記錄等。只要員工或客戶有在用 LINE，就能在不改變使用習慣的前提下導入自動化。"}},
     {"@type": "Question","name": "n8n 自動化工具適合中小企業嗎？","acceptedAnswer": {"@type": "Answer","text": "n8n 是一個開源的自動化流程工具，可以串接 API、資料庫、試算表、通訊軟體等，非常適合中小企業用較低的成本建立自動化流程，且資料留在自己的伺服器，安全性高。"}},
-    {"@type": "Question","name": "開發費用怎麼計算？","acceptedAnswer": {"@type": "Answer","text": "依功能數量、複雜度與預計時程評估，確認需求後提供明確報價。參考區間：諮詢 NT$1,000~3,000、小型專案 NT$10,000~30,000、中型系統 NT$30,000~80,000、大型企業系統 NT$80,000 以上。"}},
+    {"@type": "Question","name": "開發費用怎麼計算？","acceptedAnswer": {"@type": "Answer","text": "依功能數量、複雜度與預計時程評估，確認需求後提供明確報價。參考區間：諮詢與規劃免費、小型專案 NT$10,000~30,000、中型系統 NT$30,000~80,000、大型企業系統 NT$80,000 以上。"}},
     {"@type": "Question","name": "可以先做 MVP 再擴充嗎？","acceptedAnswer": {"@type": "Answer","text": "非常推薦，尤其是需求還不夠確定的時候。先用較低預算做出核心功能驗證方向，確認可行再追加後續功能，風險小、效率高。"}}
   ]
 }
@@ -257,7 +257,8 @@ strong.kw{color:var(--accent);font-weight:900;}
 .nav{position:sticky;top:0;z-index:500;backdrop-filter:blur(18px);background:var(--nav-bg);border-bottom:1px solid var(--border);transition:box-shadow .3s,background .4s;}
 .nav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.3);}
 .nav-inner{width:min(var(--max),calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;}
-.brand{font-weight:900;font-size:.95rem;}
+.brand{font-weight:900;font-size:.95rem;display:flex;align-items:center;gap:9px;}
+.brand-logo{width:36px;height:36px;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 2px 8px rgba(236,72,153,.35));}
 .brand small{display:block;color:var(--primary);font-size:.72rem;font-weight:800;margin-top:1px;}
 .nav-links{display:flex;gap:4px;}
 .nav-links a{color:var(--muted);font-size:.88rem;padding:7px 12px;border-radius:999px;transition:.2s;font-weight:700;}
@@ -882,7 +883,7 @@ section{padding:90px 0;}
 <!-- ════ NAV ════ -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <div class="brand">NNDoiT AI Studio<small>恩多藝智能工作室 · 呂承恩</small></div>
+    <div class="brand"><img src="images/logo2.png" alt="NNDoiT AI Studio logo" class="brand-logo"><div class="brand-txt">NNDoiT AI Studio<small>恩多藝智能工作室 · 呂承恩</small></div></div>
     <div class="nav-links">
       <a href="#about" data-i18n="nav_about">About</a><a href="#projects" data-i18n="nav_projects">Projects</a>
       <a href="#testimonials" data-i18n="nav_reviews">好評</a>
@@ -1117,13 +1118,13 @@ section{padding:90px 0;}
       <div class="pc rv d1">
         <div class="pc-icon">🔹</div>
         <div class="pc-label" data-i18n="pc1_l">諮詢 / 規劃</div>
-        <div class="pc-range">NT$1,000<br>~ 3,000</div>
-        <div class="pc-desc" data-i18n="pc1_d">還不確定要做什麼？先聊聊需求，我幫你整理出方向與可行方案。</div>
+        <div class="pc-range" style="color:#06c755;">免費<br>Free</div>
+        <div class="pc-desc" data-i18n="pc1_d">還不確定要做什麼？先聊聊需求，我幫你整理出方向與可行方案。完全免費，歡迎諮詢。</div>
         <ul class="pc-includes" data-i18n="pc1_inc">
           <li>✓ 需求訪談（約 60~90 分鐘）</li>
           <li>✓ 初步系統架構建議</li>
           <li>✓ 工具選型與可行性評估</li>
-          <li>✓ 諮詢費可折抵後續開發</li>
+          <li>✓ 完全免費，無任何費用</li>
         </ul>
       </div>
       <div class="pc rv d2">
@@ -1499,7 +1500,7 @@ section{padding:90px 0;}
               <label class="req-label"><span data-i18n="req_l_budget">預算範圍</span><span class="req-req">＊</span></label>
               <select class="req-select" id="rf-budget">
                 <option value="">請選擇...</option>
-                <option value="NT$1,000 ~ 3,000（諮詢 / 規劃）">NT$1,000 ~ 3,000（諮詢 / 規劃）</option>
+                <option value="免費（諮詢 / 規劃）">免費（諮詢 / 規劃）</option>
                 <option value="NT$10,000 ~ 30,000（小型專案）">NT$10,000 ~ 30,000（小型專案）</option>
                 <option value="NT$30,000 ~ 80,000（中型專案）">NT$30,000 ~ 80,000（中型專案）</option>
                 <option value="NT$80,000+（大型 / 企業系統）">NT$80,000+（大型 / 企業系統）</option>
@@ -2168,7 +2169,7 @@ function toggleTheme(){
 /* ══════════════════════════════════════
    HERO PARTICLES (desktop only)
 ══════════════════════════════════════ */
-if(window.matchMedia('(pointer:fine)').matches){
+if(window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion:reduce)').matches){
   const hc=document.getElementById('hero-canvas'),hctx=hc.getContext('2d');
   let hW=hc.width=hc.parentElement.offsetWidth,hH=hc.height=hc.parentElement.offsetHeight;
   let mouseX=hW/2,mouseY=hH/2;
@@ -2179,16 +2180,24 @@ if(window.matchMedia('(pointer:fine)').matches){
     u(){const dx=this.x-mouseX,dy=this.y-mouseY,d=Math.sqrt(dx*dx+dy*dy);if(d<120){this.vx+=dx/d*.04;this.vy+=dy/d*.04;}this.x+=this.vx;this.y+=this.vy;this.vx*=.98;this.vy*=.98;if(this.x<0||this.x>hW||this.y<0||this.y>hH)this.r();}
     d(){hctx.beginPath();hctx.arc(this.x,this.y,this.s,0,Math.PI*2);hctx.fillStyle=`rgba(236,72,153,${this.a})`;hctx.fill();}
   }
-  for(let i=0;i<80;i++)hPts.push(new HP());
+  for(let i=0;i<60;i++)hPts.push(new HP());
   document.querySelector('.hero').addEventListener('mousemove',e=>{mouseX=e.offsetX;mouseY=e.offsetY;});
-  (function drawHero(){hctx.clearRect(0,0,hW,hH);hPts.forEach(p=>{p.u();p.d();});requestAnimationFrame(drawHero);})();
+  window.addEventListener('resize',()=>{hW=hc.width=hc.parentElement.offsetWidth;hH=hc.height=hc.parentElement.offsetHeight;},{passive:true});
+  let hRaf=null;
+  function drawHero(){hctx.clearRect(0,0,hW,hH);hPts.forEach(p=>{p.u();p.d();});hRaf=requestAnimationFrame(drawHero);}
+  function heroStart(){if(!hRaf)drawHero();}
+  function heroStop(){if(hRaf){cancelAnimationFrame(hRaf);hRaf=null;}}
+  new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?heroStart():heroStop()),{threshold:0}).observe(hc.parentElement);
+  document.addEventListener('visibilitychange',()=>document.hidden?heroStop():heroStart());
+  heroStart();
 }
  
 /* ══════════════════════════════════════
    PARALLAX HERO IMAGE
 ══════════════════════════════════════ */
 const heroImg=document.getElementById('heroImg');
-window.addEventListener('scroll',()=>{heroImg.style.transform=`translateY(${window.scrollY*.25}px)`;},{passive:true});
+let heroTick=false;
+window.addEventListener('scroll',()=>{if(heroTick)return;heroTick=true;requestAnimationFrame(()=>{if(window.scrollY<window.innerHeight)heroImg.style.transform=`translateY(${window.scrollY*.25}px)`;heroTick=false;});},{passive:true});
  
 /* ══════════════════════════════════════
    NAV SCROLL
@@ -2458,8 +2467,8 @@ const I18N_EN={
   stat2:'Document Extraction Model<br>Document Accuracy',
   stat3:'Complete System Projects<br>End-to-End Delivery',
   price_title:'Pricing',price_sub:'Reference ranges below. Final quotes are provided after requirements are confirmed. No hidden fees.',
-  pc1_l:'Consulting / Planning',pc1_d:'Not sure what you need yet? Let\'s talk through your situation and I\'ll map out a direction.',
-  pc1_inc:'✓ Requirements interview (60–90 min)|||✓ Initial architecture suggestions|||✓ Feasibility & tool recommendations|||✓ Fee credited toward development',
+  pc1_l:'Consulting / Planning',pc1_d:'Not sure what you need yet? Let\'s talk through your situation and I\'ll map out a direction — completely free.',
+  pc1_inc:'✓ Requirements interview (60–90 min)|||✓ Initial architecture suggestions|||✓ Feasibility & tool recommendations|||✓ Completely free, no charge',
   pc2_l:'Small Project',pc2_d:'Single feature, simple automation, small tool, or MVP validation. ~1–2 weeks.',
   pc2_inc:'✓ Feature development + deployment|||✓ Operation guide & tutorial|||✓ 1-month free bug fixes|||✓ Source code delivery (on confirmation)',
   pc3_l:'Medium Project',pc3_d:'System integration, LINE Bot, multi-flow automation, frontend + backend. ~3–6 weeks.',
@@ -2622,12 +2631,12 @@ document.querySelectorAll('[data-i18n]').forEach(el=>{
 
 const REQ_SELECT_ZH={
   'rf-type':['請選擇最接近的類型...','AI 應用開發（LLM / RAG / 聊天機器人）','流程自動化（n8n / Webhook / API 串接）','系統整合（ERP / 資料庫 / 第三方服務）','LINE Bot 開發','前後端開發 / 網頁設計','文件 / 資料處理（OCR / 抽取 / 轉換）','不確定，需要先諮詢方向'],
-  'rf-budget':['請選擇...','NT$1,000 ~ 3,000（諮詢 / 規劃）','NT$10,000 ~ 30,000（小型專案）','NT$30,000 ~ 80,000（中型專案）','NT$80,000+（大型 / 企業系統）','預算未定，請幫我評估'],
+  'rf-budget':['請選擇...','免費（諮詢 / 規劃）','NT$10,000 ~ 30,000（小型專案）','NT$30,000 ~ 80,000（中型專案）','NT$80,000+（大型 / 企業系統）','預算未定，請幫我評估'],
   'rf-timeline':['請選擇...','越快越好（1 ~ 2 週內）','約 1 個月內','1 ~ 3 個月','3 個月以上','時間彈性，品質優先']
 };
 const REQ_SELECT_EN={
   'rf-type':['Select the closest type...','AI Application (LLM / RAG / Chatbot)','Workflow Automation (n8n / Webhook / API)','System Integration (ERP / Database / 3rd Party)','LINE Bot Development','Web Development / Frontend Design','Document & Data Processing (OCR / Extraction)','Not sure yet — need consultation first'],
-  'rf-budget':['Select...','NT$1,000 ~ 3,000 (Consulting / Planning)','NT$10,000 ~ 30,000 (Small Project)','NT$30,000 ~ 80,000 (Medium Project)','NT$80,000+ (Large / Enterprise System)','Budget undecided — help me estimate'],
+  'rf-budget':['Select...','Free (Consulting / Planning)','NT$10,000 ~ 30,000 (Small Project)','NT$30,000 ~ 80,000 (Medium Project)','NT$80,000+ (Large / Enterprise System)','Budget undecided — help me estimate'],
   'rf-timeline':['Select...','ASAP (within 1–2 weeks)','Within 1 month','1–3 months','3+ months','Flexible — quality first']
 };
 const REQ_PLACEHOLDER_ZH={'rf-contact':'LINE ID / Email / 電話（方便我回覆你）','rf-feature':'例如：希望把每天手動整理的 Excel 訂單，自動匯入資料庫並發 LINE 通知給主管，目前需要兩個人花 2 小時處理...\n\n不用太精確，說清楚「遇到什麼問題」即可。','rf-current':'例如：目前用 Google 試算表手動整理，沒有資料庫，3 個人在做重複的事...\n\n有助於我更快提出適合的方案。'};
